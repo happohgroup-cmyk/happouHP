@@ -73,6 +73,18 @@
   .pageTitle .wrap { max-width: 1280px; margin: 0 auto; }
   .pageTitle .eyebrow { font-size: 12px; letter-spacing: .4em; color: var(--gold-soft); margin: 0 0 18px; }
   .pageTitle h1 { font-family: var(--mincho); font-weight: 500; font-size: clamp(30px, 4.2vw, 52px); line-height: 1.45; letter-spacing: .14em; margin: 0 0 28px; color: var(--ink); }
+  /* Mobile/PC text variant + tighter title on mobile */
+  .sp-only-text { display: none; }
+  .pc-only-text { display: inline; }
+  @media (max-width: 600px) {
+    .pc-only-text { display: none; }
+    .sp-only-text { display: inline; }
+    body .pageTitle h1 {
+      font-size: 28px !important;
+      letter-spacing: 0.08em !important;
+      line-height: 1.55 !important;
+    }
+  }
   .pageTitle .titleLine { width: 64px; height: 2px; background: var(--gold); }
 
   /* ---------- Intro 2-column ---------- */
@@ -435,7 +447,7 @@
     <section class="pageTitle">
       <div class="wrap">
         <p class="eyebrow">COMPANY &amp; CONTACT</p>
-        <h1>会社概要・お問い合わせ</h1>
+        <h1><span class="pc-only-text">会社概要・お問い合わせ</span><span class="sp-only-text">会社概要・<br>お問い合わせ</span></h1>
         <div class="titleLine"></div>
       </div>
     </section>
