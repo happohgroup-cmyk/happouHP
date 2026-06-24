@@ -10,7 +10,7 @@
 <style>
   @font-face {
     font-family: 'GenEi Nu Gothic EB';
-    src: url('/fonts/GenEiNuGothic-EB.ttf') format('truetype');
+    src: url('fonts/GenEiNuGothic-EB.ttf') format('truetype');
     font-weight: 800;
     font-style: normal;
     font-display: swap;
@@ -59,7 +59,7 @@
 
     1) シンプル: 既存 .ph 内に <img> を追加
        <div class="ph">
-         <img src="/photos/hero.webp" alt="奈良の食材を仕込む職人" loading="lazy" decoding="async"
+         <img src="photos/hero.webp" alt="奈良の食材を仕込む職人" loading="lazy" decoding="async"
               width="800" height="600">
        </div>
        → .ph 側で aspect-ratio 確保済みなので CLS 防止 OK
@@ -67,17 +67,17 @@
     2) WebP/AVIF fallback 付き:
        <div class="ph">
          <picture>
-           <source srcset="/photos/hero.avif" type="image/avif">
-           <source srcset="/photos/hero.webp" type="image/webp">
-           <img src="/photos/hero.jpg" alt="..." loading="lazy" decoding="async"
+           <source srcset="photos/hero.avif" type="image/avif">
+           <source srcset="photos/hero.webp" type="image/webp">
+           <img src="photos/hero.jpg" alt="..." loading="lazy" decoding="async"
                 width="800" height="600">
          </picture>
        </div>
 
     3) レスポンシブ srcset:
-       <img srcset="/photos/hero-400.webp 400w, /photos/hero-800.webp 800w, /photos/hero-1600.webp 1600w"
+       <img srcset="photos/hero-400.webp 400w, /photos/hero-800.webp 800w, /photos/hero-1600.webp 1600w"
             sizes="(max-width: 600px) 100vw, 50vw"
-            src="/photos/hero-800.webp" alt="..." loading="lazy" decoding="async"
+            src="photos/hero-800.webp" alt="..." loading="lazy" decoding="async"
             width="800" height="600">
 
     重要:
@@ -421,7 +421,7 @@
   <!-- ============ Header ============ -->
   <header class="siteHeader">
     <div class="row">
-      <a href="/八宝コーポレートサイト.html" class="logo" aria-label="株式会社八宝 HAPPO">
+      <a href="八宝コーポレートサイト.html" class="logo" aria-label="株式会社八宝 HAPPO">
         <span class="mark" aria-hidden="true">
           <svg viewBox="0 0 40 40" fill="#c9a24b" xmlns="http://www.w3.org/2000/svg">
             <circle cx="20" cy="20" r="3.2"/>
@@ -440,10 +440,10 @@
         </span>
       </a>
       <nav class="nav">
-        <a href="/八宝の想い.html" class="current" aria-current="page">八宝の想い</a>
-        <a href="/事業内容.html">事業内容</a>
-        <a href="/採用情報.html">採用情報</a>
-        <a href="/会社概要.html">会社概要・お問い合わせ</a>
+        <a href="八宝の想い.html" class="current" aria-current="page">八宝の想い</a>
+        <a href="事業内容.html">事業内容</a>
+        <a href="採用情報.html">採用情報</a>
+        <a href="会社概要.html">会社概要・お問い合わせ</a>
       </nav>
       <button class="menuBtn" aria-label="メニューを開く">
         <svg viewBox="0 0 22 18" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round">
@@ -480,8 +480,8 @@
       <div class="col-photo">
         <div class="ph">
           <picture>
-            <source srcset="/photos/representative/kimura-small.webp" media="(max-width: 880px)">
-            <img src="/photos/representative/kimura-large.webp"
+            <source srcset="photos/representative/kimura-small.webp" media="(max-width: 880px)">
+            <img src="photos/representative/kimura-large.webp"
                  alt="株式会社八宝 代表取締役 木村 有香"
                  loading="lazy" decoding="async"
                  width="800" height="1198">
@@ -508,8 +508,8 @@
         <div class="col-photo">
           <div class="ph">
             <picture>
-              <source srcset="/photos/chapters/temple-autumn-small.webp" media="(max-width: 880px)">
-              <img src="/photos/chapters/temple-autumn-large.webp"
+              <source srcset="photos/chapters/temple-autumn-small.webp" media="(max-width: 880px)">
+              <img src="photos/chapters/temple-autumn-large.webp"
                    alt="奈良の社殿と紅葉 — 古都の風景"
                    loading="lazy" decoding="async"
                    width="600" height="600">
@@ -536,8 +536,8 @@
         <div class="col-photo">
           <div class="ph">
             <picture>
-              <source srcset="/photos/chapters/tea-field-omoi-small.webp" media="(max-width: 880px)">
-              <img src="/photos/chapters/tea-field-omoi-large.webp"
+              <source srcset="photos/chapters/tea-field-omoi-small.webp" media="(max-width: 880px)">
+              <img src="photos/chapters/tea-field-omoi-large.webp"
                    alt="奈良の茶畑 — 大和茶の畝が連なる風景"
                    loading="lazy" decoding="async"
                    width="1181" height="797">
@@ -565,8 +565,8 @@
         <div class="col-photo">
           <div class="ph">
             <picture>
-              <source srcset="/photos/chapters/fish-prep-small.webp" media="(max-width: 880px)">
-              <img src="/photos/chapters/fish-prep-large.webp"
+              <source srcset="photos/chapters/fish-prep-small.webp" media="(max-width: 880px)">
+              <img src="photos/chapters/fish-prep-large.webp"
                    alt="鰆をさばく — 素材に丁寧に向き合う調理場の手仕事"
                    loading="lazy" decoding="async"
                    width="1600" height="879">
@@ -594,8 +594,8 @@
         <div class="col-photo">
           <div class="ph">
             <picture>
-              <source srcset="/photos/chapters/parent-child-mochi-small.webp" media="(max-width: 880px)">
-              <img src="/photos/chapters/parent-child-mochi-large.webp"
+              <source srcset="photos/chapters/parent-child-mochi-small.webp" media="(max-width: 880px)">
+              <img src="photos/chapters/parent-child-mochi-large.webp"
                    alt="奈良の社殿を背景に、親子で大和茶大福を食べるひととき"
                    loading="lazy" decoding="async"
                    width="1600" height="1067">
@@ -610,25 +610,25 @@
   <section class="strip" aria-hidden="true">
     <div class="marquee-track">
       <!-- ===== Set 1 (9 photos) ===== -->
-      <div class="ph"><picture><source srcset="/photos/strip/matcha-pudding-jars-small.webp" media="(max-width: 880px)"><img src="/photos/strip/matcha-pudding-jars-large.webp" alt="" loading="lazy" decoding="async" width="800" height="532"></picture></div>
-      <div class="ph"><picture><source srcset="/photos/strip/udon-cold-water-small.webp" media="(max-width: 880px)"><img src="/photos/strip/udon-cold-water-large.webp" alt="" loading="lazy" decoding="async" width="800" height="532"></picture></div>
-      <div class="ph"><picture><source srcset="/photos/strip/fresh-sashimi-small.webp" media="(max-width: 880px)"><img src="/photos/strip/fresh-sashimi-large.webp" alt="" loading="lazy" decoding="async" width="800" height="532"></picture></div>
-      <div class="ph"><picture><source srcset="/photos/strip/basque-cheesecake-small.webp" media="(max-width: 880px)"><img src="/photos/strip/basque-cheesecake-large.webp" alt="" loading="lazy" decoding="async" width="800" height="534"></picture></div>
-      <div class="ph"><picture><source srcset="/photos/strip/gift-box-small.webp" media="(max-width: 880px)"><img src="/photos/strip/gift-box-large.webp" alt="" loading="lazy" decoding="async" width="800" height="532"></picture></div>
-      <div class="ph"><picture><source srcset="/photos/strip/sakekasu-cream-cheese-small.webp" media="(max-width: 880px)"><img src="/photos/strip/sakekasu-cream-cheese-large.webp" alt="" loading="lazy" decoding="async" width="800" height="518"></picture></div>
-      <div class="ph"><picture><source srcset="/photos/strip/udon-portions-small.webp" media="(max-width: 880px)"><img src="/photos/strip/udon-portions-large.webp" alt="" loading="lazy" decoding="async" width="800" height="532"></picture></div>
-      <div class="ph"><picture><source srcset="/photos/strip/dashi-strain-small.webp" media="(max-width: 880px)"><img src="/photos/strip/dashi-strain-large.webp" alt="" loading="lazy" decoding="async" width="800" height="534"></picture></div>
-      <div class="ph"><picture><source srcset="/photos/strip/ochazuke-small.webp" media="(max-width: 880px)"><img src="/photos/strip/ochazuke-large.webp" alt="" loading="lazy" decoding="async" width="800" height="580"></picture></div>
+      <div class="ph"><picture><source srcset="photos/strip/matcha-pudding-jars-small.webp" media="(max-width: 880px)"><img src="photos/strip/matcha-pudding-jars-large.webp" alt="" loading="lazy" decoding="async" width="800" height="532"></picture></div>
+      <div class="ph"><picture><source srcset="photos/strip/udon-cold-water-small.webp" media="(max-width: 880px)"><img src="photos/strip/udon-cold-water-large.webp" alt="" loading="lazy" decoding="async" width="800" height="532"></picture></div>
+      <div class="ph"><picture><source srcset="photos/strip/fresh-sashimi-small.webp" media="(max-width: 880px)"><img src="photos/strip/fresh-sashimi-large.webp" alt="" loading="lazy" decoding="async" width="800" height="532"></picture></div>
+      <div class="ph"><picture><source srcset="photos/strip/basque-cheesecake-small.webp" media="(max-width: 880px)"><img src="photos/strip/basque-cheesecake-large.webp" alt="" loading="lazy" decoding="async" width="800" height="534"></picture></div>
+      <div class="ph"><picture><source srcset="photos/strip/gift-box-small.webp" media="(max-width: 880px)"><img src="photos/strip/gift-box-large.webp" alt="" loading="lazy" decoding="async" width="800" height="532"></picture></div>
+      <div class="ph"><picture><source srcset="photos/strip/sakekasu-cream-cheese-small.webp" media="(max-width: 880px)"><img src="photos/strip/sakekasu-cream-cheese-large.webp" alt="" loading="lazy" decoding="async" width="800" height="518"></picture></div>
+      <div class="ph"><picture><source srcset="photos/strip/udon-portions-small.webp" media="(max-width: 880px)"><img src="photos/strip/udon-portions-large.webp" alt="" loading="lazy" decoding="async" width="800" height="532"></picture></div>
+      <div class="ph"><picture><source srcset="photos/strip/dashi-strain-small.webp" media="(max-width: 880px)"><img src="photos/strip/dashi-strain-large.webp" alt="" loading="lazy" decoding="async" width="800" height="534"></picture></div>
+      <div class="ph"><picture><source srcset="photos/strip/ochazuke-small.webp" media="(max-width: 880px)"><img src="photos/strip/ochazuke-large.webp" alt="" loading="lazy" decoding="async" width="800" height="580"></picture></div>
       <!-- ===== Set 2 (duplicate for seamless loop) ===== -->
-      <div class="ph"><picture><source srcset="/photos/strip/matcha-pudding-jars-small.webp" media="(max-width: 880px)"><img src="/photos/strip/matcha-pudding-jars-large.webp" alt="" loading="lazy" decoding="async" width="800" height="532"></picture></div>
-      <div class="ph"><picture><source srcset="/photos/strip/udon-cold-water-small.webp" media="(max-width: 880px)"><img src="/photos/strip/udon-cold-water-large.webp" alt="" loading="lazy" decoding="async" width="800" height="532"></picture></div>
-      <div class="ph"><picture><source srcset="/photos/strip/fresh-sashimi-small.webp" media="(max-width: 880px)"><img src="/photos/strip/fresh-sashimi-large.webp" alt="" loading="lazy" decoding="async" width="800" height="532"></picture></div>
-      <div class="ph"><picture><source srcset="/photos/strip/basque-cheesecake-small.webp" media="(max-width: 880px)"><img src="/photos/strip/basque-cheesecake-large.webp" alt="" loading="lazy" decoding="async" width="800" height="534"></picture></div>
-      <div class="ph"><picture><source srcset="/photos/strip/gift-box-small.webp" media="(max-width: 880px)"><img src="/photos/strip/gift-box-large.webp" alt="" loading="lazy" decoding="async" width="800" height="532"></picture></div>
-      <div class="ph"><picture><source srcset="/photos/strip/sakekasu-cream-cheese-small.webp" media="(max-width: 880px)"><img src="/photos/strip/sakekasu-cream-cheese-large.webp" alt="" loading="lazy" decoding="async" width="800" height="518"></picture></div>
-      <div class="ph"><picture><source srcset="/photos/strip/udon-portions-small.webp" media="(max-width: 880px)"><img src="/photos/strip/udon-portions-large.webp" alt="" loading="lazy" decoding="async" width="800" height="532"></picture></div>
-      <div class="ph"><picture><source srcset="/photos/strip/dashi-strain-small.webp" media="(max-width: 880px)"><img src="/photos/strip/dashi-strain-large.webp" alt="" loading="lazy" decoding="async" width="800" height="534"></picture></div>
-      <div class="ph"><picture><source srcset="/photos/strip/ochazuke-small.webp" media="(max-width: 880px)"><img src="/photos/strip/ochazuke-large.webp" alt="" loading="lazy" decoding="async" width="800" height="580"></picture></div>
+      <div class="ph"><picture><source srcset="photos/strip/matcha-pudding-jars-small.webp" media="(max-width: 880px)"><img src="photos/strip/matcha-pudding-jars-large.webp" alt="" loading="lazy" decoding="async" width="800" height="532"></picture></div>
+      <div class="ph"><picture><source srcset="photos/strip/udon-cold-water-small.webp" media="(max-width: 880px)"><img src="photos/strip/udon-cold-water-large.webp" alt="" loading="lazy" decoding="async" width="800" height="532"></picture></div>
+      <div class="ph"><picture><source srcset="photos/strip/fresh-sashimi-small.webp" media="(max-width: 880px)"><img src="photos/strip/fresh-sashimi-large.webp" alt="" loading="lazy" decoding="async" width="800" height="532"></picture></div>
+      <div class="ph"><picture><source srcset="photos/strip/basque-cheesecake-small.webp" media="(max-width: 880px)"><img src="photos/strip/basque-cheesecake-large.webp" alt="" loading="lazy" decoding="async" width="800" height="534"></picture></div>
+      <div class="ph"><picture><source srcset="photos/strip/gift-box-small.webp" media="(max-width: 880px)"><img src="photos/strip/gift-box-large.webp" alt="" loading="lazy" decoding="async" width="800" height="532"></picture></div>
+      <div class="ph"><picture><source srcset="photos/strip/sakekasu-cream-cheese-small.webp" media="(max-width: 880px)"><img src="photos/strip/sakekasu-cream-cheese-large.webp" alt="" loading="lazy" decoding="async" width="800" height="518"></picture></div>
+      <div class="ph"><picture><source srcset="photos/strip/udon-portions-small.webp" media="(max-width: 880px)"><img src="photos/strip/udon-portions-large.webp" alt="" loading="lazy" decoding="async" width="800" height="532"></picture></div>
+      <div class="ph"><picture><source srcset="photos/strip/dashi-strain-small.webp" media="(max-width: 880px)"><img src="photos/strip/dashi-strain-large.webp" alt="" loading="lazy" decoding="async" width="800" height="534"></picture></div>
+      <div class="ph"><picture><source srcset="photos/strip/ochazuke-small.webp" media="(max-width: 880px)"><img src="photos/strip/ochazuke-large.webp" alt="" loading="lazy" decoding="async" width="800" height="580"></picture></div>
     </div>
   </section>
 
@@ -643,8 +643,8 @@
         <div class="card">
           <div class="ph">
             <picture>
-              <source srcset="/photos/philosophy/tea-3kinds-small.webp" media="(max-width: 880px)">
-              <img src="/photos/philosophy/tea-3kinds-large.webp"
+              <source srcset="photos/philosophy/tea-3kinds-small.webp" media="(max-width: 880px)">
+              <img src="photos/philosophy/tea-3kinds-large.webp"
                    alt="奈良の大和茶 — 煎茶・抹茶・ほうじ茶の 3 種"
                    loading="lazy" decoding="async"
                    width="1600" height="1067">
@@ -659,8 +659,8 @@
         <div class="card">
           <div class="ph">
             <picture>
-              <source srcset="/photos/philosophy/nara-deer-autumn-small.webp" media="(max-width: 880px)">
-              <img src="/photos/philosophy/nara-deer-autumn-large.webp"
+              <source srcset="photos/philosophy/nara-deer-autumn-small.webp" media="(max-width: 880px)">
+              <img src="photos/philosophy/nara-deer-autumn-large.webp"
                    alt="奈良公園の鹿と紅葉 — 奈良の精神文化"
                    loading="lazy" decoding="async"
                    width="600" height="600">
@@ -675,8 +675,8 @@
         <div class="card">
           <div class="ph">
             <picture>
-              <source srcset="/photos/philosophy/team-staff-small.webp" media="(max-width: 880px)">
-              <img src="/photos/philosophy/team-staff-large.webp"
+              <source srcset="photos/philosophy/team-staff-small.webp" media="(max-width: 880px)">
+              <img src="photos/philosophy/team-staff-large.webp"
                    alt="八宝の従業員 — 笑顔で働くチーム"
                    loading="lazy" decoding="async"
                    width="600" height="600">
@@ -708,9 +708,9 @@
         <h2>八宝についてもっと知りたい方はこちら</h2>
       </div>
       <div class="ctaGrid">
-        <a href="/事業内容.html" class="ctaBtn"><span>事業内容</span><span class="arrow">→</span></a>
-        <a href="/採用情報.html" class="ctaBtn"><span>採用情報</span><span class="arrow">→</span></a>
-        <a href="/会社概要.html" class="ctaBtn"><span>会社概要・お問い合わせ</span><span class="arrow">→</span></a>
+        <a href="事業内容.html" class="ctaBtn"><span>事業内容</span><span class="arrow">→</span></a>
+        <a href="採用情報.html" class="ctaBtn"><span>採用情報</span><span class="arrow">→</span></a>
+        <a href="会社概要.html" class="ctaBtn"><span>会社概要・お問い合わせ</span><span class="arrow">→</span></a>
       </div>
     </div>
   </section>
@@ -718,7 +718,7 @@
   <!-- ============ Breadcrumb ============ -->
   <section class="crumb">
     <div class="wrap">
-      <a href="/八宝コーポレートサイト.html">TOP</a>
+      <a href="八宝コーポレートサイト.html">TOP</a>
       <span class="sep"></span>
       <span>八宝の想い</span>
     </div>
@@ -752,16 +752,16 @@
       </div>
       <div class="col">
         <div class="sitemap">
-          <a href="/八宝の想い.html">八宝の想い</a>
-          <a href="/事業内容.html">事業内容</a>
-          <a href="/採用情報.html">採用情報</a>
+          <a href="八宝の想い.html">八宝の想い</a>
+          <a href="事業内容.html">事業内容</a>
+          <a href="採用情報.html">採用情報</a>
         </div>
       </div>
       <div class="col">
         <div class="sitemap">
-          <a href="/会社概要.html">会社概要</a>
-          <a href="/会社概要.html#contact">お問い合わせ</a>
-          <a href="/プライバシーポリシー.html">プライバシーポリシー</a>
+          <a href="会社概要.html">会社概要</a>
+          <a href="会社概要.html#contact">お問い合わせ</a>
+          <a href="プライバシーポリシー.html">プライバシーポリシー</a>
         </div>
       </div>
     </div>
@@ -776,10 +776,10 @@
     <div class="panel">
       <button class="closeBtn" type="button" aria-label="メニューを閉じる">×</button>
       <nav>
-        <a href="/八宝の想い.html">八宝の想い</a>
-        <a href="/事業内容.html">事業内容</a>
-        <a href="/採用情報.html">採用情報</a>
-        <a href="/会社概要.html">会社概要・お問い合わせ</a>
+        <a href="八宝の想い.html">八宝の想い</a>
+        <a href="事業内容.html">事業内容</a>
+        <a href="採用情報.html">採用情報</a>
+        <a href="会社概要.html">会社概要・お問い合わせ</a>
       </nav>
     </div>
   </div>

@@ -70,16 +70,16 @@
         hero.dataset.heroInjected = '1';
 
         var srcs = [
-          '/photos/hero/1-cha-large.webp',
-          '/photos/hero/2-sake-large.webp',
-          '/photos/hero/3-noodle-large.webp',
-          '/photos/hero/4-kama-large.webp'
+          'photos/hero/1-cha-large.webp',
+          'photos/hero/2-sake-large.webp',
+          'photos/hero/3-noodle-large.webp',
+          'photos/hero/4-kama-large.webp'
         ];
         var smallSrcs = [
-          '/photos/hero/1-cha-small.webp',
-          '/photos/hero/2-sake-small.webp',
-          '/photos/hero/3-noodle-small.webp',
-          '/photos/hero/4-kama-small.webp'
+          'photos/hero/1-cha-small.webp',
+          'photos/hero/2-sake-small.webp',
+          'photos/hero/3-noodle-small.webp',
+          'photos/hero/4-kama-small.webp'
         ];
         var useSmall = window.matchMedia('(max-width: 880px)').matches;
         var pool = useSmall ? smallSrcs : srcs;
@@ -300,7 +300,7 @@
           return found;
         }
         // 会社概要 リンクの text 書き換え
-        var infoLinks = document.querySelectorAll('a[href="/会社概要.html"]');
+        var infoLinks = document.querySelectorAll('a[href="会社概要.html"]');
         for (var i = 0; i < infoLinks.length; i++) {
           var a = infoLinks[i];
           if (a.dataset.contactMerged === '1') continue;
@@ -310,7 +310,7 @@
           }
         }
         // お問い合わせ リンク (nav-style のみ) を非表示
-        var contactLinks = document.querySelectorAll('a[href="/会社概要.html#contact"]');
+        var contactLinks = document.querySelectorAll('a[href="会社概要.html#contact"]');
         for (var j = 0; j < contactLinks.length; j++) {
           var cl = contactLinks[j];
           if (cl.dataset.contactHidden === '1') continue;
@@ -479,17 +479,17 @@
         }
         // 赤の雲文 (kasumi) — 右上
         sec.appendChild(makeImg(
-          '/photos/decor/kasumi-red.png',
+          'photos/decor/kasumi-red.png',
           'position:absolute;top:clamp(20px,3vw,48px);right:clamp(20px,3vw,48px);width:clamp(160px,18vw,260px);height:auto;pointer-events:none;z-index:1;'
         ));
         // 赤の雲文 — 左下 (左右反転で対称)
         sec.appendChild(makeImg(
-          '/photos/decor/kasumi-red.png',
+          'photos/decor/kasumi-red.png',
           'position:absolute;bottom:clamp(20px,3vw,48px);left:clamp(20px,3vw,48px);width:clamp(160px,18vw,260px);height:auto;transform:scaleX(-1);pointer-events:none;z-index:1;'
         ));
         // 金の青海波 — 下部中央 (テキストと重なるため opacity を下げる)
         sec.appendChild(makeImg(
-          '/photos/decor/seigaiha-gold.png',
+          'photos/decor/seigaiha-gold.png',
           'position:absolute;bottom:0;left:50%;transform:translateX(-50%);width:clamp(260px,30vw,420px);height:auto;opacity:0.3;pointer-events:none;z-index:1;'
         ));
 
@@ -802,28 +802,28 @@
           '  align-self: stretch !important;',
           '}',
           'a[data-brand="grancha"] > div:first-child {',
-          '  background: url("/photos/grancha/mochi-tea-large.webp") center/cover no-repeat !important;',
+          '  background: url("photos/grancha/mochi-tea-large.webp") center/cover no-repeat !important;',
           '}',
           'a[data-brand="umasshu"] > div:first-child {',
-          '  background: url("/photos/umasshu/atmosphere-large.webp") center/cover no-repeat !important;',
+          '  background: url("photos/umasshu/atmosphere-large.webp") center/cover no-repeat !important;',
           '}',
           'a[data-brand="muginokura"] > div:first-child {',
-          '  background: url("/photos/muginokura/kamaage-large.webp") center/cover no-repeat !important;',
+          '  background: url("photos/muginokura/kamaage-large.webp") center/cover no-repeat !important;',
           '}',
           'a[data-brand="kamameshi"] > div:first-child {',
-          '  background: url("/photos/kamameshi/oyster-large.webp") center/cover no-repeat !important;',
+          '  background: url("photos/kamameshi/oyster-large.webp") center/cover no-repeat !important;',
           '}',
           // ===== omoi セクション (奈良の宝を、未来の喜びへ) =====
           // メイン placeholder (rgb(231, 211, 171) の sand gradient) に子供 + 大福写真を適用
           '#omoi div[style*="rgb(231, 211, 171)"] {',
-          '  background-image: url("/photos/omoi/child-mochi-large.webp") !important;',
+          '  background-image: url("photos/omoi/child-mochi-large.webp") !important;',
           '  background-size: cover !important;',
           '  background-position: center !important;',
           '  background-repeat: no-repeat !important;',
           '}',
           // omoi 小プレースホルダー (「暖簾」緑グラデーション) に茶畑写真
           '#omoi div[style*="rgb(92, 106, 77)"] {',
-          '  background-image: url("/photos/omoi/tea-field-small.webp") !important;',
+          '  background-image: url("photos/omoi/tea-field-small.webp") !important;',
           '  background-size: cover !important;',
           '  background-position: center !important;',
           '  background-repeat: no-repeat !important;',
@@ -835,21 +835,21 @@
           '}',
           '@media (max-width: 880px) {',
           '  #omoi div[style*="rgb(231, 211, 171)"] {',
-          '    background-image: url("/photos/omoi/child-mochi-small.webp") !important;',
+          '    background-image: url("photos/omoi/child-mochi-small.webp") !important;',
           '  }',
           '}',
           '@media (max-width: 880px) {',
           '  a[data-brand="grancha"] > div:first-child {',
-          '    background-image: url("/photos/grancha/mochi-tea-small.webp") !important;',
+          '    background-image: url("photos/grancha/mochi-tea-small.webp") !important;',
           '  }',
           '  a[data-brand="umasshu"] > div:first-child {',
-          '    background-image: url("/photos/umasshu/atmosphere-small.webp") !important;',
+          '    background-image: url("photos/umasshu/atmosphere-small.webp") !important;',
           '  }',
           '  a[data-brand="muginokura"] > div:first-child {',
-          '    background-image: url("/photos/muginokura/kamaage-small.webp") !important;',
+          '    background-image: url("photos/muginokura/kamaage-small.webp") !important;',
           '  }',
           '  a[data-brand="kamameshi"] > div:first-child {',
-          '    background-image: url("/photos/kamameshi/oyster-small.webp") !important;',
+          '    background-image: url("photos/kamameshi/oyster-small.webp") !important;',
           '  }',
           '}',
           // PHILOSOPHY セクション底部の装飾波模様 SVG を非表示
@@ -920,7 +920,7 @@
           '}',
           // RECRUIT セクションの photo placeholder ([data-dc-tpl=218]) に集合写真
           '[data-dc-tpl="218"] {',
-          '  background: url("/photos/philosophy/team-staff-large.webp") center/cover no-repeat !important;',
+          '  background: url("photos/philosophy/team-staff-large.webp") center/cover no-repeat !important;',
           '}',
           // PHOTO / 働くスタッフの自然な笑顔 ラベル非表示
           '[data-dc-tpl="218"] > span[style*="rgba(246, 241, 231, 0.85"],',
@@ -929,7 +929,7 @@
           '}',
           '@media (max-width: 880px) {',
           '  [data-dc-tpl="218"] {',
-          '    background-image: url("/photos/philosophy/team-staff-small.webp") !important;',
+          '    background-image: url("photos/philosophy/team-staff-small.webp") !important;',
           '  }',
           '}',
           // ===== TYPOGRAPHY SCALE-UP (視認性向上 +10〜15%) =====
