@@ -1,0 +1,826 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>採用情報 ─ 株式会社八宝</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=Montserrat:wght@500;600&family=Noto+Sans+JP:wght@300;400;500;700&family=Noto+Serif+JP:wght@300;400;500&display=swap">
+<style>
+  @font-face {
+    font-family: 'GenEi Nu Gothic EB';
+    src: url('/fonts/GenEiNuGothic-EB.ttf') format('truetype');
+    font-weight: 800;
+    font-style: normal;
+    font-display: swap;
+  }
+  :root {
+    --ink: #1a1814;
+    --ink-soft: #3a3631;
+    --muted: #8a857a;
+    --line: #d9d4c8;
+    --paper: #ffffff;
+    --paper-soft: #faf8f3;
+    --paper-warm: #f1ede3;
+    --placeholder: #ebe7dc;
+    --gold: #c9a24b;
+    --gold-soft: #b48d40;
+    --mincho: "YuMincho", "Yu Mincho", "游明朝", "游明朝体", "Hiragino Mincho ProN", "Hiragino Mincho Pro", "Noto Serif JP", serif;
+    --serif-body: "Noto Serif JP", "YuMincho", "Yu Mincho", "游明朝", "游明朝体", "Hiragino Mincho ProN", serif;
+    --cormorant: "Cormorant Garamond", "Times New Roman", Georgia, serif;
+    --montserrat: "Montserrat", "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Yu Gothic", sans-serif;
+    --sans: "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Yu Gothic", "Meiryo", sans-serif;
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body { margin: 0; font-family: var(--serif-body); color: var(--ink); background: var(--paper); -webkit-font-smoothing: antialiased; font-weight: 350; }
+  .skip-link { position: absolute; left: -9999px; top: 0; z-index: 9999; background: var(--ink); color: var(--paper); padding: 12px 20px; font-size: 14px; text-decoration: none; border-radius: 0 0 4px 0; }
+  .skip-link:focus { left: 0; outline: 2px solid var(--gold); outline-offset: 2px; }
+  .nav a[aria-current="page"] { color: var(--gold-soft); }
+  a { color: inherit; text-decoration: none; }
+  /* ===== 画像インフラ ===== */
+  img { display: block; max-width: 100%; height: auto; object-fit: cover; }
+  .ph img, .col-photo img, .stores .item img, .features .card .ph img {
+    width: 100%; height: 100%; object-fit: cover; display: block;
+  }
+  picture { display: block; width: 100%; height: 100%; }
+  picture img { width: 100%; height: 100%; object-fit: cover; }
+  /*
+    推奨追加パターン:
+    <div class="ph">
+      <img src="/photos/staff-kitchen.webp" alt="調理場で仕込みをするスタッフ"
+           loading="lazy" decoding="async" width="800" height="600">
+    </div>
+    - スタッフ・店舗・調理工程は alt 必須 (採用ページでは画像内容が重要)
+    - 全て loading="lazy" (hero 以外)
+  */
+
+  /* ---------- Header ---------- */
+  .siteHeader { position: sticky; top: 0; background: rgba(255,255,255,.92); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); border-bottom: 1px solid rgba(0,0,0,.05); z-index: 50; }
+  .siteHeader .row { max-width: 1440px; margin: 0 auto; padding: 18px 40px; display: flex; justify-content: space-between; align-items: center; gap: 32px; }
+  .logo { display: flex; align-items: center; gap: 12px; color: var(--ink); }
+  .logo .mark { width: 48px; height: 48px; border: 1.4px solid var(--gold); border-radius: 50%; display: flex; align-items: center; justify-content: center; background: #fff; flex-shrink: 0; }
+  .logo .mark svg { width: 26px; height: 26px; display: block; }
+  .logo .name { display: flex; flex-direction: column; line-height: 1; gap: 5px; }
+  .logo .name .ja { display: flex; align-items: baseline; gap: 9px; font-family: var(--mincho); }
+  .logo .name .small { font-size: 11px; letter-spacing: .15em; }
+  .logo .name .big { font-size: 19px; letter-spacing: .18em; font-weight: 500; }
+  .logo .name .en { font-size: 9px; letter-spacing: .42em; color: var(--gold-soft); }
+  .nav { display: flex; align-items: center; gap: 38px; font-size: 14px; letter-spacing: .12em; }
+  .nav a { color: var(--ink-soft); transition: color .2s; }
+  .nav a:hover { color: var(--gold-soft); }
+  .nav a.current { color: var(--gold-soft); }
+  .menuBtn { width: 50px; height: 50px; border-radius: 50%; border: 1.2px solid var(--ink-soft); background: transparent; color: var(--ink); display: flex; align-items: center; justify-content: center; cursor: pointer; padding: 0; }
+  .menuBtn svg { width: 20px; height: 16px; display: block; }
+  @media (max-width: 1080px) { .nav { display: none; } }
+
+  /* ---------- Page title ---------- */
+  .pageTitle { padding: clamp(80px, 9vw, 130px) 40px clamp(60px, 6vw, 80px); }
+  .pageTitle .wrap { max-width: 1280px; margin: 0 auto; }
+  .pageTitle .eyebrow { font-size: 12px; letter-spacing: .4em; color: var(--gold-soft); margin: 0 0 18px; }
+  .pageTitle h1 { font-family: var(--mincho); font-weight: 500; font-size: clamp(34px, 4.6vw, 56px); line-height: 1.4; letter-spacing: .14em; margin: 0 0 28px; color: var(--ink); }
+  .pageTitle .titleLine { width: 64px; height: 2px; background: var(--gold); }
+
+  /* ---------- Intro 2-column ---------- */
+  .intro { padding: clamp(60px, 7vw, 100px) 40px clamp(80px, 10vw, 140px); }
+  /* Single-column intro 背景に親子写真 (透過は 90%) */
+  .intro--single {
+    background:
+      linear-gradient(rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.9)),
+      url("/photos/chapters/parent-child-mochi-large.webp") center/cover no-repeat;
+    background-attachment: scroll;
+    position: relative;
+  }
+  /* 本文の視認性: 濃い ink 色 + weight 500 + 白グロウ (text-shadow) で背景写真から浮かせる */
+  .intro--single .col-text h2 {
+    color: var(--ink) !important;
+    font-weight: 600 !important;
+    text-shadow: 0 0 8px rgba(255, 255, 255, 0.95), 0 0 14px rgba(255, 255, 255, 0.75);
+  }
+  .intro--single .col-text p {
+    color: var(--ink) !important;
+    font-weight: 500 !important;
+    text-shadow: 0 0 6px rgba(255, 255, 255, 0.9), 0 0 12px rgba(255, 255, 255, 0.6);
+  }
+  @media (max-width: 880px) {
+    .intro--single {
+      background:
+        linear-gradient(rgba(255, 255, 255, 0.92), rgba(255, 255, 255, 0.92)),
+        url("/photos/chapters/parent-child-mochi-small.webp") center/cover no-repeat;
+    }
+  }
+  .intro .wrap { max-width: 1280px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: clamp(40px, 6vw, 96px); align-items: start; }
+  /* Single-column variant (写真なし、テキストのみ) — chapter wrap (1280px) と左端を揃える */
+  .intro--single .wrap { display: block; max-width: 1280px; }
+  .intro--single .col-text { max-width: 760px; }
+  .intro h2 { font-family: var(--mincho); font-weight: 500; font-size: clamp(28px, 3.4vw, 42px); line-height: 1.55; letter-spacing: .12em; margin: 0 0 28px; }
+  .intro .line { width: 56px; height: 1.5px; background: var(--gold); margin-bottom: 40px; }
+  .intro p { font-family: var(--mincho); font-size: 15.5px; line-height: 2.3; letter-spacing: .08em; margin: 0 0 1.6em; color: var(--ink-soft); }
+  .intro p:last-child { margin-bottom: 0; }
+  .intro .col-photo .ph { aspect-ratio: 4 / 5; background: var(--placeholder); display: flex; align-items: center; justify-content: center; border: 1px solid var(--line); }
+  .ph-label { font-size: 11px; letter-spacing: .35em; color: var(--muted); }
+  @media (max-width: 880px) {
+    .intro .wrap { grid-template-columns: 1fr; gap: 48px; }
+    .intro .col-photo { order: -1; }
+  }
+
+  /* ---------- Chapter (text-left + photo, with optional alt bg) ---------- */
+  .chapter { padding: clamp(80px, 9vw, 130px) 40px; }
+  .chapter.alt { background: var(--paper-soft); }
+  .chapter .wrap { max-width: 1280px; margin: 0 auto; }
+  .chapter .heading-row { margin-bottom: clamp(48px, 6vw, 80px); }
+  .chapter .eyebrow { font-size: 12px; letter-spacing: .4em; color: var(--gold-soft); margin: 0 0 18px; }
+  .chapter h2 { font-family: var(--mincho); font-weight: 500; font-size: clamp(28px, 3.4vw, 42px); line-height: 1.55; letter-spacing: .12em; margin: 0 0 24px; }
+  .chapter .titleLine { width: 60px; height: 2px; background: var(--gold); }
+  .chapter .twoCol { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(40px, 5vw, 80px); align-items: center; }
+  .chapter .twoCol.text-right .col-text { order: 2; }
+  .chapter .twoCol.text-right .col-photo { order: 1; }
+  .chapter p { font-family: var(--mincho); font-size: 15.5px; line-height: 2.3; letter-spacing: .08em; margin: 0 0 1.6em; color: var(--ink-soft); }
+  .chapter p:last-child { margin-bottom: 0; }
+  .chapter .col-photo .ph { aspect-ratio: 4 / 3; background: var(--placeholder); display: flex; align-items: center; justify-content: center; border: 1px solid var(--line); }
+  @media (max-width: 880px) {
+    .chapter .twoCol, .chapter .twoCol.text-right { grid-template-columns: 1fr; gap: 36px; }
+    .chapter .twoCol.text-right .col-text { order: 2; }
+    .chapter .twoCol.text-right .col-photo { order: 1; }
+  }
+
+  /* ---------- Features (2x2 grid) ---------- */
+  .features { padding: clamp(100px, 11vw, 160px) 40px; background: var(--paper-warm); }
+  .features .wrap { max-width: 1280px; margin: 0 auto; }
+  .features .head { text-align: center; margin-bottom: clamp(56px, 6vw, 80px); }
+  .features .head .eyebrow { font-size: 12px; letter-spacing: .4em; color: var(--gold-soft); margin: 0 0 18px; }
+  .features .head h2 { font-family: var(--mincho); font-weight: 500; font-size: clamp(28px, 3.4vw, 42px); line-height: 1.5; letter-spacing: .14em; margin: 0; }
+  .features .grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 32px; }
+  .features .card { background: #fff; padding: clamp(36px, 4vw, 56px); border: 1px solid var(--line); display: flex; flex-direction: column; gap: 22px; }
+  .features .card .num { font-family: var(--mincho); font-size: 14px; letter-spacing: .35em; color: var(--gold-soft); }
+  .features .card h3 { font-family: var(--mincho); font-weight: 500; font-size: clamp(20px, 1.9vw, 26px); line-height: 1.55; letter-spacing: .1em; margin: 0; }
+  .features .card .line { width: 40px; height: 1.5px; background: var(--gold); }
+  .features .card p { font-family: var(--mincho); font-size: 14.5px; line-height: 2.15; letter-spacing: .07em; margin: 0; color: var(--ink-soft); }
+  @media (max-width: 880px) { .features .grid { grid-template-columns: 1fr; } }
+
+  /* ---------- Persona list ---------- */
+  .persona { padding: clamp(100px, 11vw, 160px) 40px; }
+  .persona .wrap { max-width: 880px; margin: 0 auto; }
+  .persona .heading-row { margin-bottom: clamp(48px, 6vw, 70px); }
+  .persona .eyebrow { font-size: 12px; letter-spacing: .4em; color: var(--gold-soft); margin: 0 0 18px; }
+  .persona h2 { font-family: var(--mincho); font-weight: 500; font-size: clamp(28px, 3.4vw, 40px); line-height: 1.5; letter-spacing: .12em; margin: 0 0 24px; }
+  .persona .titleLine { width: 60px; height: 2px; background: var(--gold); }
+  .persona .intro { padding: 0; }
+  .persona .lead { font-family: var(--mincho); font-size: clamp(15px, 1.3vw, 17px); line-height: 2.3; letter-spacing: .1em; margin: 0 0 48px; color: var(--ink-soft); }
+  .persona ul { list-style: none; margin: 0 0 48px; padding: 0; border-top: 1px solid var(--line); }
+  .persona li { font-family: var(--mincho); font-size: clamp(16px, 1.4vw, 19px); line-height: 1.6; letter-spacing: .1em; padding: 24px 8px 24px 36px; border-bottom: 1px solid var(--line); position: relative; }
+  .persona li::before { content: ''; position: absolute; left: 6px; top: 50%; transform: translateY(-50%); width: 10px; height: 10px; border-radius: 50%; background: var(--gold); }
+  .persona .closer { font-family: var(--mincho); font-size: clamp(14.5px, 1.2vw, 16px); line-height: 2.25; letter-spacing: .08em; color: var(--ink-soft); margin: 0; }
+
+  /* ---------- Stores grid ---------- */
+  .stores { padding: clamp(100px, 11vw, 160px) 40px; background: var(--paper-soft); }
+  .stores .wrap { max-width: 1280px; margin: 0 auto; }
+  .stores .heading-row { margin-bottom: clamp(48px, 6vw, 72px); }
+  .stores .eyebrow { font-size: 12px; letter-spacing: .4em; color: var(--gold-soft); margin: 0 0 18px; }
+  .stores h2 { font-family: var(--mincho); font-weight: 500; font-size: clamp(26px, 3.2vw, 38px); line-height: 1.5; letter-spacing: .12em; margin: 0 0 24px; }
+  .stores .titleLine { width: 60px; height: 2px; background: var(--gold); }
+  .stores .grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 28px; }
+  .stores .item { background: #fff; padding: 36px 36px 40px; border: 1px solid var(--line); display: flex; flex-direction: column; gap: 18px; color: inherit; text-decoration: none; transition: transform .25s ease, box-shadow .25s ease, border-color .25s ease; position: relative; }
+  .stores a.item:hover { transform: translateY(-3px); box-shadow: 0 8px 28px rgba(0,0,0,.08); border-color: var(--gold); }
+  .stores a.item:focus-visible { outline: 2px solid var(--gold); outline-offset: 3px; }
+  .stores a.item h3 { transition: color .2s ease; }
+  .stores a.item:hover h3 { color: var(--gold-soft); }
+  .stores .item .arrow { position: absolute; bottom: 32px; right: 32px; font-size: 13px; letter-spacing: .2em; color: var(--gold-soft); opacity: 0; transition: opacity .25s ease, transform .25s ease; }
+  .stores a.item:hover .arrow { opacity: 1; transform: translateX(4px); }
+  .stores .item .ph { aspect-ratio: 5 / 3; background: var(--placeholder); display: flex; align-items: center; justify-content: center; margin: -36px -36px 8px; border-bottom: 1px solid var(--line); position: relative; overflow: hidden; }
+  .stores .item .ph picture,
+  .stores .item .ph img { position: absolute; inset: 0; width: 100% !important; height: 100% !important; object-fit: cover; }
+  /* 募集ステータスバッジ (写真左上) */
+  .stores .item .status {
+    position: absolute;
+    top: 16px;
+    left: 16px;
+    z-index: 2;
+    padding: 8px 16px;
+    font-family: var(--mincho);
+    font-weight: 500;
+    font-size: 13px;
+    letter-spacing: 0.12em;
+    line-height: 1.4;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.18);
+  }
+  .stores .item .status.active {
+    background: #c62828;
+    color: #fff;
+  }
+  .stores .item .status.inactive {
+    background: rgba(30, 25, 20, 0.78);
+    color: rgba(255, 255, 255, 0.92);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+  }
+  .stores .item h3 { font-family: var(--mincho); font-weight: 500; font-size: 19px; letter-spacing: .1em; margin: 0; line-height: 1.55; }
+  .stores .item p { font-family: var(--mincho); font-size: 14.5px; line-height: 2.1; letter-spacing: .07em; margin: 0; color: var(--ink-soft); }
+  .stores .note { margin-top: 36px; font-size: 12.5px; letter-spacing: .08em; color: var(--muted); line-height: 1.9; }
+  @media (max-width: 880px) { .stores .grid { grid-template-columns: 1fr; } }
+
+  /* ---------- Steps ---------- */
+  .steps { padding: clamp(100px, 11vw, 160px) 40px; }
+  .steps .wrap { max-width: 1280px; margin: 0 auto; }
+  .steps .heading-row { margin-bottom: clamp(48px, 6vw, 72px); text-align: center; }
+  .steps .eyebrow { font-size: 12px; letter-spacing: .4em; color: var(--gold-soft); margin: 0 0 18px; }
+  .steps h2 { font-family: var(--mincho); font-weight: 500; font-size: clamp(28px, 3.4vw, 40px); line-height: 1.5; letter-spacing: .14em; margin: 0; }
+  .steps .grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0; border-top: 1px solid var(--line); border-left: 1px solid var(--line); }
+  .steps .step { padding: 40px 32px; border-right: 1px solid var(--line); border-bottom: 1px solid var(--line); display: flex; flex-direction: column; gap: 18px; position: relative; }
+  .steps .step .num { font-family: var(--mincho); font-size: 26px; letter-spacing: .25em; color: var(--gold); line-height: 1; }
+  .steps .step h3 { font-family: var(--mincho); font-weight: 500; font-size: 18px; letter-spacing: .12em; margin: 0; line-height: 1.55; }
+  .steps .step p { font-family: var(--mincho); font-size: 14px; line-height: 2.0; letter-spacing: .06em; margin: 0; color: var(--ink-soft); }
+  @media (max-width: 880px) { .steps .grid { grid-template-columns: 1fr; } }
+
+  /* ---------- Closing + Apply CTA ---------- */
+  .closing { padding: clamp(100px, 12vw, 170px) 40px clamp(60px, 7vw, 90px); background: var(--paper-warm); text-align: center; }
+  .closing .wrap { max-width: 760px; margin: 0 auto; }
+  body .closing .closingTitle { font-family: var(--mincho) !important; font-weight: 700 !important; font-size: clamp(26px, 3vw, 38px) !important; line-height: 1.7 !important; letter-spacing: .15em !important; margin: 0 0 48px !important; }
+  .closing p { font-family: var(--mincho); font-size: clamp(15px, 1.3vw, 17px); line-height: 2.4; letter-spacing: .12em; margin: 0 0 1.6em; color: var(--ink-soft); }
+  .closing p:last-of-type { margin-bottom: 0; }
+  .applyCta { padding: clamp(40px, 5vw, 64px) 40px clamp(80px, 9vw, 130px); background: var(--paper-warm); }
+  .applyCta .wrap { max-width: 880px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+  .applyCta a { padding: 28px 32px; display: flex; justify-content: space-between; align-items: center; font-size: 16px; letter-spacing: .12em; transition: background .2s, transform .2s, color .2s; }
+  .applyCta .primary { background: var(--ink); color: #fff; }
+  .applyCta .primary:hover { background: #000; transform: translateY(-2px); }
+  .applyCta .secondary { background: #fff; color: var(--ink); border: 1.5px solid var(--ink); }
+  .applyCta .secondary:hover { background: var(--ink); color: #fff; }
+  @media (max-width: 880px) { .applyCta .wrap { grid-template-columns: 1fr; } }
+
+  /* ---------- CTA links ---------- */
+  .ctaLinks { padding: clamp(80px, 9vw, 130px) 40px clamp(40px, 5vw, 70px); }
+  .ctaLinks .wrap { max-width: 1280px; margin: 0 auto; }
+  .ctaLinks .head { display: flex; align-items: center; gap: 18px; margin-bottom: 36px; }
+  .ctaLinks .head::before { content: ''; width: 28px; height: 1.5px; background: var(--ink); }
+  .ctaLinks .head h2 { font-family: var(--mincho); font-weight: 500; font-size: clamp(20px, 2.2vw, 28px); letter-spacing: .12em; margin: 0; }
+  /* ---------- Mobile/PC text variant switcher ---------- */
+  .sp-only-text { display: none; }
+  .pc-only-text { display: inline; }
+  @media (max-width: 600px) {
+    .pc-only-text { display: none; }
+    .sp-only-text { display: inline; }
+    .ctaLinks .head h2 { font-size: 15.5px !important; letter-spacing: .04em !important; white-space: nowrap; }
+    .ctaLinks .head { gap: 10px !important; }
+    .ctaLinks .head::before { width: 14px !important; }
+    .ctaLinks { padding-left: 24px !important; padding-right: 24px !important; }
+  }
+  .ctaGrid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+  .ctaBtn { background: var(--ink); color: #fff; padding: 30px 32px; display: flex; justify-content: space-between; align-items: center; font-size: 16px; letter-spacing: .12em; transition: background .2s, transform .2s; }
+  .ctaBtn:hover { background: #000; transform: translateY(-2px); }
+  @media (max-width: 880px) { .ctaGrid { grid-template-columns: 1fr; } }
+
+  /* ---------- Breadcrumb ---------- */
+  .crumb { padding: 40px; }
+  .crumb .wrap { max-width: 1280px; margin: 0 auto; display: flex; gap: 14px; align-items: center; font-size: 12.5px; letter-spacing: .15em; color: var(--muted); }
+  .crumb a { color: var(--ink-soft); }
+  .crumb .sep { display: inline-block; width: 16px; height: 1px; background: var(--muted); }
+
+  /* ---------- Footer ---------- */
+  footer { background: var(--paper-soft); padding: clamp(64px, 7vw, 100px) 40px 36px; border-top: 1px solid var(--line); }
+  footer .row { max-width: 1280px; margin: 0 auto; display: grid; grid-template-columns: 1.2fr 1fr 1fr; gap: 60px; padding-bottom: 60px; border-bottom: 1px solid var(--line); }
+  footer .fLogo { display: flex; align-items: center; gap: 14px; margin-bottom: 28px; }
+  footer .fLogo .mark { width: 56px; height: 56px; border: 1.4px solid var(--gold); border-radius: 50%; display: flex; align-items: center; justify-content: center; }
+  footer .fLogo .mark svg { width: 30px; height: 30px; }
+  footer .fLogo .name { display: flex; flex-direction: column; gap: 5px; line-height: 1; font-family: var(--mincho); }
+  footer .fLogo .name .ja { display: flex; align-items: baseline; gap: 10px; }
+  footer .fLogo .name .small { font-size: 11px; letter-spacing: .18em; }
+  footer .fLogo .name .big { font-size: 22px; letter-spacing: .2em; font-weight: 500; }
+  footer .fLogo .name .en { font-size: 9px; letter-spacing: .45em; color: var(--gold-soft); }
+  footer .addr { font-size: 13px; line-height: 2; letter-spacing: .05em; color: var(--ink-soft); margin: 0; }
+  footer .sitemap { display: flex; flex-direction: column; gap: 16px; }
+  footer .sitemap a { font-family: var(--mincho); font-size: 14.5px; letter-spacing: .14em; color: var(--ink); }
+  footer .sitemap a:hover { color: var(--gold-soft); }
+  footer .bottom { max-width: 1280px; margin: 0 auto; padding-top: 28px; display: flex; justify-content: space-between; font-size: 11px; letter-spacing: .25em; color: var(--muted); }
+  @media (max-width: 880px) {
+    footer .row { grid-template-columns: 1fr; gap: 40px; }
+    footer .bottom { flex-direction: column; gap: 12px; }
+  }
+
+  /* ===== Typography system override ===== */
+  body, p, li, .features .card p, .stores .item p, .persona li, .persona .lead, .persona .closer, .steps .step p, .closing p, .intro p, .chapter p, dd {
+    font-family: var(--serif-body) !important; font-weight: 350 !important;
+  }
+  h1, h2, h3, .pageTitle h1, .intro h2, .chapter h2, .features .card h3, .persona h2, .stores h2, .stores .item h3, .steps h2, .steps .step h3, .closing .closingTitle {
+    font-family: var(--mincho) !important; font-weight: 500 !important;
+  }
+  .eyebrow, .pageTitle .eyebrow, .chapter .eyebrow, .features .head .eyebrow, .persona .eyebrow, .stores .eyebrow, .steps .eyebrow, .crumb, .crumb span {
+    font-family: var(--cormorant) !important; font-weight: 500 !important;
+  }
+  /* 数字見出し (01, 02 など) — 源暎ぬゴシック EB */
+  .num, .features .card .num, .steps .step .num {
+    font-family: 'GenEi Nu Gothic EB', "Noto Sans JP", sans-serif !important;
+    font-weight: 800 !important;
+  }
+  .nav, .nav a, header.siteHeader nav a {
+    font-family: var(--montserrat) !important; font-weight: 500 !important;
+  }
+  .ctaBtn, .ctaBtn span, .applyCta a, .applyCta a span, .logo .name, .logo .name .small, .logo .name .big, .logo .name .en, .menuBtn, button {
+    font-family: var(--sans) !important; font-weight: 500 !important;
+  }
+  footer .addr, footer .bottom, .crumb a, .stores .note {
+    font-family: var(--sans) !important; font-weight: 400 !important;
+  }
+  /* ===== ボタン「→」非表示 + 強化された hover ===== */
+  .ctaBtn > span:last-child,
+  .applyCta a > span:last-child {
+    display: none !important;
+  }
+  .ctaBtn, .applyCta a {
+    transition: background .25s ease, color .25s ease, transform .25s ease, border-color .25s ease !important;
+  }
+  .ctaBtn:hover, .applyCta .primary:hover {
+    background: var(--gold-soft) !important;
+    color: #fff !important;
+    transform: translateY(-2px) !important;
+  }
+  .applyCta .secondary:hover {
+    background: var(--gold-soft) !important;
+    color: #fff !important;
+    border-color: var(--gold-soft) !important;
+    transform: translateY(-2px) !important;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+      animation-duration: 0.001ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.001ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+  @media (max-width: 600px) {
+    .intro p, .chapter p, .features .card p, .stores .item p, .persona li, .persona .lead, .persona .closer, .steps .step p, .closing p { font-size: 16px !important; line-height: 2.05 !important; }
+  }
+
+  /* ===== TYPOGRAPHY SCALE-UP (視認性向上 +10〜15%) ===== */
+  body { font-size: 16.5px; }
+  p, li, dd { font-size: 17px !important; line-height: 2.2 !important; }
+  h1, .pageTitle h1 { font-size: clamp(36px, 4.8vw, 56px) !important; }
+  h2 { font-size: clamp(30px, 3.8vw, 46px) !important; }
+  h3 { font-size: 21px !important; line-height: 1.7 !important; }
+  .eyebrow { font-size: 13.5px !important; }
+  .ctaBtn, .ctaBtn span { font-size: 16.5px !important; }
+  .num, .steps .step .num, .benefit-card .num { font-size: 30px !important; }
+  footer .addr { font-size: 14.5px !important; line-height: 2.1 !important; }
+  .crumb, .crumb a, .crumb span { font-size: 13.5px !important; }
+  @media (max-width: 600px) {
+    p, li, dd { font-size: 17px !important; line-height: 2.15 !important; }
+    h3 { font-size: 20px !important; }
+  }
+
+  /* text-wrap-balance-injected */
+
+  /* ===== Text-wrap balancing (orphan-1-4-char fix) ===== */
+  h1, h2, h3, .closeTitle, .panelTitle, .hero h1, .hero .sub, .pageTitle h1, .intro h2 {
+    text-wrap: balance;
+  }
+  p, li, dd, .lead, .body p, .closer, .voice-quote, .work .lead, .videoBlock .lead {
+    text-wrap: pretty;
+  }
+
+  /* mobile-tap-target-injected */
+
+  /* ===== Mobile tap target enlargement (mobile-only / PC unchanged) ===== */
+  @media (max-width: 880px) {
+    .menuBtn {
+      position: relative;
+      width: 56px !important;
+      height: 56px !important;
+    }
+    .menuBtn::before {
+      content: "";
+      position: absolute;
+      inset: -14px;
+      z-index: 1;
+    }
+    .menuBtn > * { pointer-events: none; }
+    .ctaBtn, .ctaLinks .ctaBtn, .stores .item .more, .applyCta a, .home, .submitBtn,
+    a.btn, button.btn, .close .btn {
+      min-height: 56px !important;
+      align-items: center;
+    }
+    .nav a, footer .sitemap a, .crumb a, .ctaBtn span {
+      padding: 6px 0;
+      min-height: 44px;
+      display: inline-flex;
+      align-items: center;
+    }
+  }
+
+  /* mobile-drawer-injected */
+
+  /* ===== Mobile drawer ===== */
+  .mobileDrawer {
+    position: fixed; inset: 0; z-index: 200;
+    background: rgba(0, 0, 0, 0.5);
+    opacity: 0; visibility: hidden;
+    transition: opacity .3s ease, visibility .3s;
+  }
+  .mobileDrawer[aria-hidden="false"] { opacity: 1; visibility: visible; }
+  .mobileDrawer .panel {
+    position: absolute; top: 0; right: 0; bottom: 0;
+    width: min(86vw, 360px);
+    background: #fff;
+    transform: translateX(100%);
+    transition: transform .35s cubic-bezier(.2,.7,.2,1);
+    display: flex; flex-direction: column;
+    padding: 28px 28px 32px;
+    box-shadow: -16px 0 48px rgba(0,0,0,.22);
+  }
+  .mobileDrawer[aria-hidden="false"] .panel { transform: translateX(0); }
+  .mobileDrawer .closeBtn {
+    width: 48px; height: 48px; align-self: flex-end;
+    background: transparent; border: 1.2px solid #d9d4c8; border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    cursor: pointer; padding: 0; font-size: 22px; color: #1a1814;
+    position: relative;
+  }
+  .mobileDrawer .closeBtn::before { content: ""; position: absolute; inset: -14px; }
+  .mobileDrawer nav {
+    margin-top: 32px; display: flex; flex-direction: column; gap: 4px;
+  }
+  .mobileDrawer nav a {
+    display: block; padding: 16px 0; font-family: var(--mincho, serif);
+    font-size: 17px; letter-spacing: .14em; color: #1a1814;
+    border-bottom: 1px solid #ece8de; min-height: 56px; align-items: center; display: flex;
+  }
+</style>
+</head>
+<body>
+
+  <a class="skip-link" href="#main-content">メインコンテンツへスキップ</a>
+
+  <!-- ============ Header ============ -->
+  <header class="siteHeader">
+    <div class="row">
+      <a href="/八宝コーポレートサイト.html" class="logo" aria-label="株式会社八宝 HAPPO">
+        <span class="mark" aria-hidden="true">
+          <svg viewBox="0 0 40 40" fill="#c9a24b" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="20" cy="20" r="3.2"/>
+            <g transform="translate(20 20)">
+              <ellipse cx="0" cy="-10.5" rx="4" ry="5.2"/>
+              <ellipse cx="0" cy="-10.5" rx="4" ry="5.2" transform="rotate(72)"/>
+              <ellipse cx="0" cy="-10.5" rx="4" ry="5.2" transform="rotate(144)"/>
+              <ellipse cx="0" cy="-10.5" rx="4" ry="5.2" transform="rotate(216)"/>
+              <ellipse cx="0" cy="-10.5" rx="4" ry="5.2" transform="rotate(288)"/>
+            </g>
+          </svg>
+        </span>
+        <span class="name">
+          <span class="ja"><span class="small">株式会社</span><span class="big">八宝</span></span>
+          <span class="en">— HAPPO —</span>
+        </span>
+      </a>
+      <nav class="nav">
+        <a href="/八宝の想い.html">八宝の想い</a>
+        <a href="/事業内容.html">事業内容</a>
+        <a href="/採用情報.html" class="current" aria-current="page">採用情報</a>
+        <a href="/会社概要.html">会社概要・お問い合わせ</a>
+      </nav>
+      <button class="menuBtn" aria-label="メニューを開く">
+        <svg viewBox="0 0 22 18" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round">
+          <line x1="1" y1="3" x2="21" y2="3"/>
+          <line x1="1" y1="9" x2="21" y2="9"/>
+          <line x1="1" y1="15" x2="21" y2="15"/>
+        </svg>
+      </button>
+    </div>
+  </header>
+
+  <!-- ============ Page title ============ -->
+  <main id="main-content">
+  <section class="pageTitle">
+    <div class="wrap">
+      <p class="eyebrow">RECRUIT</p>
+      <h1>採用情報</h1>
+      <div class="titleLine"></div>
+    </div>
+  </section>
+
+  <!-- ============ Intro (single column, no photo) ============ -->
+  <section class="intro intro--single">
+    <div class="wrap">
+      <div class="col-text">
+        <h2>奈良のおいしさを<br>働く喜びに</h2>
+        <div class="line"></div>
+        <p>調理に、接客に、ものづくりに。チームで支え合いながら、奈良の食の魅力をお客様へ届ける——そんな仲間を探しています。人を大切にする会社で、安心して長く働けます。</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ Chapter 01 — 奈良を好きになる仕事 ============ -->
+  <section class="chapter">
+    <div class="wrap">
+      <div class="heading-row">
+        <p class="eyebrow">CHAPTER 01</p>
+        <h2>奈良を好きになる仕事</h2>
+        <div class="titleLine"></div>
+      </div>
+      <div class="twoCol">
+        <div class="col-text">
+          <p>八宝は、奈良の食材や文化を生かした様々な店舗を運営しています。<br>大和茶スイーツ、奈良の地酒、自家製麺のうどん、炊きたての釜めし。</p>
+          <p>扱う商品や料理は店舗によって異なりますが、目指していることは同じです。お客様においしい時間を過ごしていただき、奈良をもっと好きになっていただくこと。</p>
+          <p>私たちと一緒に、奈良の魅力を届ける仕事を始めませんか。</p>
+        </div>
+        <div class="col-photo">
+          <div class="ph">
+            <picture>
+              <source srcset="/photos/recruit/nara-deer-camera-small.webp" media="(max-width: 880px)">
+              <img src="/photos/recruit/nara-deer-camera-large.webp"
+                   alt="奈良公園で鹿に向かってカメラを構える女性 — 奈良を訪れる人と地域の風景"
+                   loading="lazy" decoding="async"
+                   width="600" height="600">
+            </picture>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ Chapter 02 — 働く人を、大切にする会社でありたい ============ -->
+  <section class="chapter alt">
+    <div class="wrap">
+      <div class="heading-row">
+        <p class="eyebrow">CHAPTER 02</p>
+        <h2><span class="pc-only-text">働く人を、大切にする会社でありたい</span><span class="sp-only-text">働く人を<br>大切にする会社でありたい</span></h2>
+        <div class="titleLine"></div>
+      </div>
+      <div class="twoCol text-right">
+        <div class="col-text">
+          <p>お客様の笑顔を生み出すのは、現場で働くスタッフです。<br>だからこそ八宝は、一人ひとりが安心して働き、仕事に喜びや誇りを持てる環境づくりを大切にしています。</p>
+          <p>困ったときには支え合い、忙しいときには声を掛け合う。それぞれの経験や得意なことを生かしながら、チームでより良い店をつくっていく会社です。</p>
+          <p>長く勤務するスタッフも多く、現場を経験したスタッフが店長として店舗を支えています。</p>
+        </div>
+        <div class="col-photo">
+          <div class="ph">
+            <picture>
+              <source media="(max-width: 880px)" srcset="/photos/recruit/staff-kitchen-small.webp">
+              <img src="/photos/recruit/staff-kitchen-large.webp"
+                   alt="うまっしゅで魚を捌く調理スタッフと同僚"
+                   loading="lazy" decoding="async"
+                   width="1154" height="1196">
+            </picture>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ Features 2x2 ============ -->
+  <section class="features">
+    <div class="wrap">
+      <div class="head">
+        <p class="eyebrow">OUR APPEAL</p>
+        <h2>八宝で働く魅力</h2>
+      </div>
+      <div class="grid">
+        <div class="card">
+          <span class="num">01</span>
+          <h3>奈良の魅力を伝えられる</h3>
+          <div class="line"></div>
+          <p>大和茶、地酒、地域の食材など、奈良ならではの商品や料理に関わる仕事です。お客様の「おいしい」「奈良に来てよかった」という言葉が、仕事の喜びにつながります。</p>
+        </div>
+        <div class="card">
+          <span class="num">02</span>
+          <h3>幅広い仕事に挑戦できる</h3>
+          <div class="line"></div>
+          <p>接客、調理、製麺、菓子製造、商品販売など、さまざまな仕事があります。経験を重ねながら、店長や責任者など、次の役割を目指すこともできます。</p>
+        </div>
+        <div class="card">
+          <span class="num">03</span>
+          <h3>チームで店舗をつくれる</h3>
+          <div class="line"></div>
+          <p>店舗は、一人の力では成り立ちません。スタッフ同士で意見を出し合い、助け合いながら、より良い商品やサービスをつくっていきます。</p>
+        </div>
+        <div class="card">
+          <span class="num">04</span>
+          <h3><span class="pc-only-text">駅から近い店舗で働ける</span><span class="sp-only-text">駅から近い店舗で<br>働ける</span></h3>
+          <div class="line"></div>
+          <p>各店舗は、近鉄奈良駅周辺の東向商店街を中心に展開しています。地域に根ざしながら、多くのお客様との出会いを楽しめる職場です。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ============ Stores ============ -->
+  <section class="stores">
+    <div class="wrap">
+      <div class="heading-row">
+        <p class="eyebrow">RECRUITING STORES</p>
+        <h2>募集店舗</h2>
+        <div class="titleLine"></div>
+      </div>
+      <div class="grid">
+        <a href="/採用-grancha.html" class="item" aria-label="大和茶大福専門店 GRANCHA の採用情報を見る — 現在正社員募集中">
+          <div class="ph">
+            <span class="status active">現在正社員募集中</span>
+            <picture>
+              <source srcset="/photos/grancha/storefront-small.webp" media="(max-width: 880px)">
+              <img src="/photos/grancha/storefront-large.webp"
+                   alt="GRANCHA 大和茶大福専門店 — 東向商店街の店舗外観"
+                   loading="lazy" decoding="async"
+                   width="1600" height="1200">
+            </picture>
+          </div>
+          <h3>大和茶大福専門店 GRANCHA</h3>
+          <p>大和茶スイーツの販売、接客、菓子製造など。</p>
+          <span class="arrow" aria-hidden="true">READ MORE →</span>
+        </a>
+        <a href="/採用-umasshu.html" class="item" aria-label="奈良の酒蔵全部呑み うまっしゅ の採用情報を見る — 現在正社員募集中">
+          <div class="ph">
+            <span class="status active">現在正社員募集中</span>
+            <picture>
+              <source srcset="/photos/umasshu/storefront-small.webp" media="(max-width: 880px)">
+              <img src="/photos/umasshu/storefront-large.webp"
+                   alt="うまっしゅ — 奈良の地酒専門店の店舗外観 (赤提灯と酒樽)"
+                   loading="lazy" decoding="async"
+                   width="1181" height="787">
+            </picture>
+          </div>
+          <h3>奈良の酒蔵全部呑み うまっしゅ</h3>
+          <p>ホール接客、調理、仕込み、店舗運営など。</p>
+          <span class="arrow" aria-hidden="true">READ MORE →</span>
+        </a>
+        <a href="/採用-muginokura.html" class="item" aria-label="うどん・ごはん むぎの蔵 の採用情報を見る — 現在正社員募集中">
+          <div class="ph">
+            <span class="status active">現在正社員募集中</span>
+            <picture>
+              <source srcset="/photos/muginokura/storefront-small.webp" media="(max-width: 880px)">
+              <img src="/photos/muginokura/storefront-large.webp"
+                   alt="うどん・ごはん むぎの蔵 — 東向商店街の店舗外観"
+                   loading="lazy" decoding="async"
+                   width="1600" height="1067">
+            </picture>
+          </div>
+          <h3>うどん・ごはん むぎの蔵</h3>
+          <p>接客、調理、自家製麺の仕込みなど。</p>
+          <span class="arrow" aria-hidden="true">READ MORE →</span>
+        </a>
+        <a href="/採用-kamameshi.html" class="item" aria-label="釜めし茶漬け GRANCHA の採用情報を見る — 現在募集しておりません">
+          <div class="ph">
+            <span class="status inactive">現在募集しておりません</span>
+            <picture>
+              <source srcset="/photos/kamameshi/storefront-small.webp" media="(max-width: 880px)">
+              <img src="/photos/kamameshi/storefront-large.webp"
+                   alt="釜めし茶漬け GRANCHA — 赤の釜めしのれんと店舗入り口"
+                   loading="lazy" decoding="async"
+                   width="945" height="631">
+            </picture>
+          </div>
+          <h3>釜めし茶漬け GRANCHA</h3>
+          <p>接客、調理、仕込み、店舗運営など。</p>
+          <span class="arrow" aria-hidden="true">READ MORE →</span>
+        </a>
+      </div>
+      <p class="note">※各店舗カードをクリックすると、店舗別の募集要項ページへ移動します。</p>
+    </div>
+  </section>
+
+  <!-- ============ Steps ============ -->
+  <section class="steps">
+    <div class="wrap">
+      <div class="heading-row">
+        <p class="eyebrow">FLOW</p>
+        <h2>応募から採用まで</h2>
+      </div>
+      <div class="grid">
+        <div class="step">
+          <span class="num">01</span>
+          <h3>求人情報を確認</h3>
+          <p>募集中の店舗、職種、勤務条件をご確認ください。</p>
+        </div>
+        <div class="step">
+          <span class="num">02</span>
+          <h3>エントリー</h3>
+          <p>応募フォームから、必要事項をご入力のうえご応募ください。</p>
+        </div>
+        <div class="step">
+          <span class="num">03</span>
+          <h3>面接</h3>
+          <p>これまでのご経験や希望する働き方について、お話を伺います。</p>
+        </div>
+        <div class="step">
+          <span class="num">04</span>
+          <h3>採用・勤務開始</h3>
+          <p>勤務開始日や仕事内容を確認し、店舗での勤務をスタートします。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ Closing ============ -->
+  <section class="closing">
+    <div class="wrap">
+      <p class="closingTitle"><span class="pc-only-text">お客様の記憶に残る仕事を<br>奈良で</span><span class="sp-only-text">お客様の記憶に<br>残る仕事を奈良で</span></p>
+      <p>自分がつくった料理を、お客様が笑顔で召し上がっている。<br>自分がおすすめした商品が、大切な人への奈良土産に選ばれる。</p>
+      <p>日々の仕事の中に、人を喜ばせる瞬間があります。<br>八宝で、あなたらしい働き方を見つけてください。</p>
+    </div>
+  </section>
+
+  <!-- ============ Apply CTA ============ -->
+  <section class="applyCta">
+    <div class="wrap">
+      <a href="#" class="primary"><span>募集中の求人を見る</span><span>→</span></a>
+      <a href="/会社概要.html#contact" class="secondary"><span>採用について問い合わせる</span><span>→</span></a>
+    </div>
+  </section>
+
+  <!-- ============ CTA links ============ -->
+  <section class="ctaLinks">
+    <div class="wrap">
+      <div class="head">
+        <h2>八宝についてもっと知りたい方はこちら</h2>
+      </div>
+      <div class="ctaGrid">
+        <a href="/八宝の想い.html" class="ctaBtn"><span>八宝の想い</span><span>→</span></a>
+        <a href="/事業内容.html" class="ctaBtn"><span>事業内容</span><span>→</span></a>
+        <a href="/会社概要.html" class="ctaBtn"><span>会社概要・お問い合わせ</span><span>→</span></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ Breadcrumb ============ -->
+  <section class="crumb">
+    <div class="wrap">
+      <a href="/八宝コーポレートサイト.html">TOP</a>
+      <span class="sep"></span>
+      <span>採用情報</span>
+    </div>
+  </section>
+
+  </main>
+
+  <!-- ============ Footer ============ -->
+  <footer>
+    <div class="row">
+      <div class="col">
+        <div class="fLogo">
+          <span class="mark" aria-hidden="true">
+            <svg viewBox="0 0 40 40" fill="#c9a24b" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="20" cy="20" r="3.2"/>
+              <g transform="translate(20 20)">
+                <ellipse cx="0" cy="-10.5" rx="4" ry="5.2"/>
+                <ellipse cx="0" cy="-10.5" rx="4" ry="5.2" transform="rotate(72)"/>
+                <ellipse cx="0" cy="-10.5" rx="4" ry="5.2" transform="rotate(144)"/>
+                <ellipse cx="0" cy="-10.5" rx="4" ry="5.2" transform="rotate(216)"/>
+                <ellipse cx="0" cy="-10.5" rx="4" ry="5.2" transform="rotate(288)"/>
+              </g>
+            </svg>
+          </span>
+          <span class="name">
+            <span class="ja"><span class="small">株式会社</span><span class="big">八宝</span></span>
+            <span class="en">— HAPPO —</span>
+          </span>
+        </div>
+        <p class="addr">〒630-8215<br>奈良県奈良市東向中町１１ 丸八ビル ２階<br>TEL 0742-24-1755</p>
+      </div>
+      <div class="col">
+        <div class="sitemap">
+          <a href="/八宝の想い.html">八宝の想い</a>
+          <a href="/事業内容.html">事業内容</a>
+          <a href="/採用情報.html">採用情報</a>
+        </div>
+      </div>
+      <div class="col">
+        <div class="sitemap">
+          <a href="/会社概要.html">会社概要</a>
+          <a href="/会社概要.html#contact">お問い合わせ</a>
+          <a href="/プライバシーポリシー.html">プライバシーポリシー</a>
+        </div>
+      </div>
+    </div>
+    <div class="bottom">
+      <span>© HAPPO Co., Ltd.</span>
+      <span>NARA / JAPAN</span>
+    </div>
+  </footer>
+
+  <!-- Mobile drawer -->
+  <div class="mobileDrawer" aria-hidden="true" role="dialog" aria-label="メニュー">
+    <div class="panel">
+      <button class="closeBtn" type="button" aria-label="メニューを閉じる">×</button>
+      <nav>
+        <a href="/八宝の想い.html">八宝の想い</a>
+        <a href="/事業内容.html">事業内容</a>
+        <a href="/採用情報.html">採用情報</a>
+        <a href="/会社概要.html">会社概要・お問い合わせ</a>
+      </nav>
+    </div>
+  </div>
+  <script>
+    (function(){
+      var btn = document.querySelector('.menuBtn');
+      var drawer = document.querySelector('.mobileDrawer');
+      if (!btn || !drawer) return;
+      var closeBtn = drawer.querySelector('.closeBtn');
+      function open(){ drawer.setAttribute('aria-hidden','false'); document.body.style.overflow='hidden'; }
+      function close(){ drawer.setAttribute('aria-hidden','true'); document.body.style.overflow=''; }
+      btn.addEventListener('click', open);
+      closeBtn.addEventListener('click', close);
+      drawer.addEventListener('click', function(e){ if (e.target === drawer) close(); });
+      document.addEventListener('keydown', function(e){ if (e.key === 'Escape') close(); });
+    })();
+  </script>
+</body>
+</html>

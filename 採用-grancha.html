@@ -1,0 +1,1155 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>旅の思い出になる一品と幸せを、あなたの手で。— 大和茶大福専門店 GRANCHA パティシエ求人 ─ 株式会社八宝</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=Montserrat:wght@500;600&family=Noto+Sans+JP:wght@300;400;500;700&family=Noto+Serif+JP:wght@300;400;500&display=swap">
+<style>
+  @font-face {
+    font-family: 'GenEi Nu Gothic EB';
+    src: url('/fonts/GenEiNuGothic-EB.ttf') format('truetype');
+    font-weight: 800;
+    font-style: normal;
+    font-display: swap;
+  }
+  :root {
+    --ink: #1a1814;
+    --ink-soft: #3a3631;
+    --muted: #8a857a;
+    --line: #d9d4c8;
+    --paper: #ffffff;
+    --paper-soft: #faf8f3;
+    --paper-warm: #f1ede3;
+    --placeholder: #ebe7dc;
+    --gold: #c9a24b;
+    --gold-soft: #b48d40;
+    /* ===== Brand: GRANCHA (大和茶緑) ===== */
+    --brand: #5e7a3e;
+    --brand-soft: #4d6432;
+    --brand-tint: #eef2e8;
+    --brand-deep: #3a4d26;
+    --mincho: "YuMincho", "Yu Mincho", "游明朝", "游明朝体", "Hiragino Mincho ProN", "Hiragino Mincho Pro", "Noto Serif JP", serif;
+    --serif-body: "Noto Serif JP", "YuMincho", "Yu Mincho", "游明朝", "游明朝体", "Hiragino Mincho ProN", serif;
+    --cormorant: "Cormorant Garamond", "Times New Roman", Georgia, serif;
+    --montserrat: "Montserrat", "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Yu Gothic", sans-serif;
+    --sans: "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Yu Gothic", "Meiryo", sans-serif;
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body { margin: 0; font-family: var(--serif-body); color: var(--ink); background: var(--paper); -webkit-font-smoothing: antialiased; font-weight: 350; }
+  .skip-link { position: absolute; left: -9999px; top: 0; z-index: 9999; background: var(--ink); color: var(--paper); padding: 12px 20px; font-size: 14px; text-decoration: none; border-radius: 0 0 4px 0; }
+  .skip-link:focus { left: 0; outline: 2px solid var(--brand); outline-offset: 2px; }
+  a { color: inherit; text-decoration: none; }
+  img { display: block; max-width: 100%; height: auto; object-fit: cover; }
+  picture { display: block; width: 100%; height: 100%; }
+  picture img { width: 100%; height: 100%; object-fit: cover; }
+
+  /* ---------- Header ---------- */
+  .siteHeader { position: sticky; top: 0; background: rgba(255,255,255,.92); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); border-bottom: 1px solid rgba(0,0,0,.05); z-index: 50; }
+  .siteHeader .row { max-width: 1440px; margin: 0 auto; padding: 18px 40px; display: flex; justify-content: space-between; align-items: center; gap: 32px; }
+  .logo { display: flex; align-items: center; gap: 12px; color: var(--ink); }
+  .logo .mark { width: 48px; height: 48px; border: 1.4px solid var(--gold); border-radius: 50%; display: flex; align-items: center; justify-content: center; background: #fff; flex-shrink: 0; }
+  .logo .mark svg { width: 26px; height: 26px; display: block; }
+  .logo .name { display: flex; flex-direction: column; line-height: 1; gap: 5px; }
+  .logo .name .ja { display: flex; align-items: baseline; gap: 9px; font-family: var(--mincho); }
+  .logo .name .small { font-size: 11px; letter-spacing: .15em; }
+  .logo .name .big { font-size: 19px; letter-spacing: .18em; font-weight: 500; }
+  .logo .name .en { font-size: 9px; letter-spacing: .42em; color: var(--gold-soft); }
+  .nav { display: flex; align-items: center; gap: 38px; font-size: 14px; letter-spacing: .12em; }
+  .nav a { color: var(--ink-soft); transition: color .2s; }
+  .nav a:hover { color: var(--brand-soft); }
+  .nav a.current, .nav a[aria-current="page"] { color: var(--brand-soft); }
+  .menuBtn { width: 50px; height: 50px; border-radius: 50%; border: 1.2px solid var(--ink-soft); background: transparent; color: var(--ink); display: flex; align-items: center; justify-content: center; cursor: pointer; padding: 0; position: relative; }
+  .menuBtn::before { content:""; position:absolute; inset:-14px; }
+  .menuBtn > * { pointer-events: none; }
+  .menuBtn svg { width: 20px; height: 16px; display: block; }
+  @media (max-width: 1080px) { .nav { display: none; } }
+
+  .brandBar { height: 4px; background: var(--brand); }
+
+  /* ---------- Hero (Catchphrase) ---------- */
+  .hero {
+    position: relative;
+    padding: clamp(110px, 13vw, 180px) 40px clamp(100px, 12vw, 160px);
+    background: #faf6ec url("/photos/chapters/parent-child-mochi-large.webp") center/cover no-repeat;
+    color: var(--ink);
+    overflow: hidden;
+    min-height: 60vh;
+  }
+  .hero::before {
+    content: '';
+    position: absolute; inset: 0;
+    background:
+      linear-gradient(135deg, rgba(255, 250, 240, 0.62) 0%, rgba(250, 244, 230, 0.50) 45%, rgba(240, 232, 215, 0.55) 100%),
+      linear-gradient(180deg, rgba(255, 255, 255, 0.18) 0%, rgba(255, 255, 255, 0) 70%);
+    pointer-events: none;
+  }
+  .hero .wrap { max-width: 1080px; margin: 0 auto; position: relative; z-index: 2; }
+  .hero .label {
+    font-family: var(--mincho); font-weight: 600;
+    font-size: clamp(15px, 1.3vw, 17px); letter-spacing: 0.22em;
+    color: var(--brand-deep);
+    margin: 0 0 36px;
+    text-shadow: 0 0 14px rgba(255, 255, 255, 0.95), 0 0 4px rgba(255, 255, 255, 0.85);
+  }
+  body section.hero h1 {
+    font-family: var(--mincho) !important;
+    font-weight: 700 !important;
+    font-size: clamp(30px, 4.4vw, 56px) !important;
+    line-height: 1.7 !important;
+    letter-spacing: 0.14em !important;
+    margin: 0 0 40px;
+    color: #1a1810 !important;
+    text-shadow:
+      0 0 22px rgba(255, 255, 255, 0.95),
+      0 0 8px rgba(255, 255, 255, 0.92),
+      0 1px 2px rgba(255, 255, 255, 0.8);
+  }
+  .hero h1 span { display: block; }
+  .hero h1 .accent { color: var(--brand-deep) !important; }
+  .hero .titleLine { width: 80px; height: 2px; background: var(--brand-deep); margin-bottom: 36px; opacity: 1; }
+  .hero .sub {
+    font-family: var(--mincho) !important;
+    font-size: clamp(17px, 1.6vw, 22px) !important;
+    font-weight: 600 !important;
+    line-height: 2.0 !important;
+    letter-spacing: 0.12em !important;
+    color: #1a1810 !important;
+    margin: 0;
+    text-shadow:
+      0 0 18px rgba(255, 255, 255, 0.95),
+      0 0 6px rgba(255, 255, 255, 0.95),
+      0 1px 2px rgba(255, 255, 255, 0.85);
+  }
+  @media (max-width: 880px) {
+    .hero { background-image: url("/photos/chapters/parent-child-mochi-small.webp"); }
+  }
+
+  /* ---------- Section base (やりがい / GRANCHAについて) ---------- */
+  .storySection { padding: clamp(110px, 13vw, 180px) 40px; }
+  .storySection .wrap { max-width: 880px; margin: 0 auto; text-align: center; }
+  .storySection .num {
+    font-family: var(--cormorant);
+    font-weight: 500;
+    font-size: 14px;
+    letter-spacing: 0.4em;
+    color: var(--brand-soft);
+    margin: 0 0 24px;
+  }
+  .storySection .head { font-family: var(--mincho); font-weight: 500; font-size: 14px; letter-spacing: 0.3em; color: var(--brand-soft); margin: 0 0 20px; }
+  .storySection h2 { font-family: var(--mincho); font-weight: 500; font-size: clamp(28px, 3.6vw, 44px); line-height: 1.7; letter-spacing: 0.16em; margin: 0 0 28px; color: var(--ink); }
+  .storySection .titleLine { width: 56px; height: 2px; background: var(--brand); margin: 0 auto clamp(40px, 5vw, 64px); }
+  .storySection .body { font-family: var(--mincho); font-size: clamp(16px, 1.4vw, 18px); line-height: 2.4; letter-spacing: 0.12em; color: var(--ink-soft); text-align: center; }
+  .storySection .body p { margin: 0 0 1.6em; }
+  .storySection .body p:last-child { margin: 0; }
+  .storySection.alt { background: var(--paper-soft); }
+
+  /* GRANCHA について — tea field background */
+  .storySection.tea-bg {
+    position: relative;
+    background:
+      linear-gradient(rgba(248, 247, 240, 0.86), rgba(248, 247, 240, 0.86)),
+      url("/photos/grancha/tea-field-large.webp") center/cover no-repeat;
+  }
+  @media (max-width: 880px) {
+    .storySection.tea-bg {
+      background:
+        linear-gradient(rgba(248, 247, 240, 0.90), rgba(248, 247, 240, 0.90)),
+        url("/photos/grancha/tea-field-small.webp") center/cover no-repeat;
+    }
+  }
+  .storySection.tea-bg .head {
+    color: var(--brand-deep);
+    font-weight: 600;
+    text-shadow: 0 0 12px rgba(255, 255, 255, 0.9);
+  }
+  .storySection.tea-bg h2 {
+    font-family: "YuMincho", "Yu Mincho", "游明朝", "游明朝体", "Hiragino Mincho ProN", "Noto Serif JP", serif !important;
+    font-weight: 700 !important;
+    color: #1a2410 !important;
+    text-shadow: 0 0 16px rgba(255, 255, 255, 0.95), 0 0 6px rgba(255, 255, 255, 0.8);
+  }
+  .storySection.tea-bg .body {
+    font-weight: 500 !important;
+    color: #2a2a22 !important;
+  }
+  .storySection.tea-bg .body p {
+    text-shadow: 0 0 14px rgba(255, 255, 255, 0.92), 0 0 4px rgba(255, 255, 255, 0.95);
+  }
+  .storySection.tea-bg .body strong {
+    color: var(--brand-deep);
+    font-weight: 700;
+  }
+
+  /* ---------- Purpose grid (4-image around centered text) ---------- */
+  .purpose { padding: clamp(110px, 13vw, 180px) 40px; }
+  .purpose .purposeGrid {
+    max-width: 1480px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: minmax(180px, 1fr) minmax(420px, 640px) minmax(180px, 1fr);
+    grid-template-rows: auto auto;
+    gap: 80px 56px;
+    align-items: center;
+    justify-items: center;
+  }
+  .purpose .pImg { width: 100%; max-width: 320px; aspect-ratio: 4 / 3; overflow: hidden; background: var(--placeholder); position: relative; box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08); }
+  .purpose .pImg picture, .purpose .pImg img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .purpose .pImg .ph {
+    position: absolute; inset: 0;
+    display: flex; align-items: center; justify-content: center;
+    font-family: var(--mincho); font-size: 13px; letter-spacing: 0.18em; color: var(--muted);
+    background: repeating-linear-gradient(45deg, var(--placeholder) 0 12px, #e0dcd0 12px 13px);
+    text-align: center; padding: 12px;
+  }
+  .purpose .pImg.tall { aspect-ratio: 3 / 4; max-width: 280px; }
+  .purpose .pTL { grid-row: 1; grid-column: 1; justify-self: start; }
+  .purpose .pTR { grid-row: 1; grid-column: 3; justify-self: end; }
+  .purpose .pBL { grid-row: 2; grid-column: 1; justify-self: start; align-self: start; margin-top: -80px; }
+  .purpose .pBR { grid-row: 2; grid-column: 3; justify-self: end; }
+  .purpose .pCenter { grid-row: 1 / span 2; grid-column: 2; text-align: center; }
+  .purpose .pCenter .head { font-family: var(--cormorant); font-weight: 500; font-size: 14px; letter-spacing: 0.4em; color: var(--brand-soft); margin: 0 0 28px; }
+  .purpose .pCenter h2 { font-family: var(--mincho); font-weight: 500; font-size: clamp(26px, 3.2vw, 40px); line-height: 1.7; letter-spacing: 0.12em; margin: 0 0 28px; color: var(--ink); }
+  .purpose .pCenter h2 span { display: block; position: relative; white-space: nowrap; width: fit-content; margin: 0 auto 0.25em; padding: 0 0.3em; }
+  .purpose .pCenter h2 span::before {
+    content: ''; position: absolute; left: 0; right: 0;
+    bottom: 0.18em; height: 0.45em; background: rgba(94, 122, 62, 0.22);
+    z-index: -1; border-radius: 2px;
+  }
+  .purpose .pCenter h2 span:last-child { margin-bottom: 0; }
+  .purpose .pCenter .titleLine { width: 56px; height: 2px; background: var(--brand); margin: 28px auto clamp(36px, 4.5vw, 56px); }
+  .purpose .pCenter .body { font-family: var(--mincho); font-size: clamp(16px, 1.4vw, 18px); line-height: 2.4; letter-spacing: 0.12em; color: var(--ink-soft); text-align: center; }
+  .purpose .pCenter .body p { margin: 0 0 1.6em; }
+  .purpose .pCenter .body p:last-child { margin: 0; }
+  @media (max-width: 1080px) {
+    .purpose .purposeGrid {
+      grid-template-columns: 1fr;
+      grid-template-rows: auto auto auto;
+      gap: 40px;
+    }
+    .purpose .pCenter { grid-row: 1; grid-column: 1; order: 1; }
+    .purpose .pTL { grid-row: auto; grid-column: 1; order: 2; justify-self: center; }
+    .purpose .pTR { grid-row: auto; grid-column: 1; order: 3; justify-self: center; }
+    .purpose .pBL { grid-row: auto; grid-column: 1; order: 4; justify-self: center; margin-top: 0; }
+    .purpose .pBR { grid-row: auto; grid-column: 1; order: 5; justify-self: center; }
+    .purpose .pImg, .purpose .pImg.tall { aspect-ratio: 4 / 3; max-width: 480px; }
+  }
+  /* === Mobile (≤600px): 見出しの白枠オーバーフローを修正 + 画像 4 枚を 1 行に === */
+  @media (max-width: 600px) {
+    .purpose { padding: 72px 20px !important; }
+    .purpose .pCenter h2 {
+      font-size: clamp(22px, 6.4vw, 28px) !important;
+      letter-spacing: 0.04em !important;
+      line-height: 1.6 !important;
+    }
+    .purpose .pCenter h2 span {
+      white-space: normal !important;
+      width: fit-content !important;
+      padding: 0 0.2em !important;
+      display: block !important;
+      margin: 0 auto 0.2em !important;
+    }
+    .purpose .pCenter h2 span::before {
+      left: 0 !important; right: 0 !important;
+      bottom: 0.32em !important;
+      height: 0.32em !important;
+    }
+    .purpose .pCenter .body {
+      font-size: 14.5px !important;
+      letter-spacing: 0.04em !important;
+      line-height: 2.1 !important;
+    }
+    .purpose .purposeGrid {
+      grid-template-columns: repeat(4, 1fr) !important;
+      grid-template-rows: auto auto !important;
+      gap: 24px 6px !important;
+    }
+    .purpose .pCenter {
+      grid-row: 1 !important;
+      grid-column: 1 / -1 !important;
+      order: 1 !important;
+    }
+    .purpose .pTL { grid-row: 2 !important; grid-column: 1 !important; order: 2 !important; justify-self: stretch !important; }
+    .purpose .pTR { grid-row: 2 !important; grid-column: 2 !important; order: 3 !important; justify-self: stretch !important; }
+    .purpose .pBL { grid-row: 2 !important; grid-column: 3 !important; order: 4 !important; justify-self: stretch !important; margin-top: 0 !important; }
+    .purpose .pBR { grid-row: 2 !important; grid-column: 4 !important; order: 5 !important; justify-self: stretch !important; }
+    .purpose .pImg,
+    .purpose .pImg.tall {
+      aspect-ratio: 1 / 1 !important;
+      max-width: 100% !important;
+      width: 100% !important;
+    }
+  }
+  /* === Hero h1: SP/PC text variants === */
+  .pc-only-text { display: block !important; }
+  .sp-only-text { display: none !important; }
+  @media (max-width: 600px) {
+    .pc-only-text { display: none !important; }
+    .sp-only-text { display: block !important; }
+  }
+
+  /* ---------- Skills (3 cards) ---------- */
+  .skills { padding: clamp(100px, 12vw, 160px) 40px; background: var(--paper); }
+  .skills .wrap { max-width: 1280px; margin: 0 auto; }
+  .skills .head { text-align: center; margin-bottom: clamp(56px, 7vw, 88px); }
+  .skills .num { font-family: var(--cormorant); font-weight: 500; font-size: 14px; letter-spacing: 0.4em; color: var(--brand-soft); margin: 0 0 20px; }
+  .skills h2 { font-family: var(--mincho); font-weight: 500; font-size: clamp(26px, 3.4vw, 40px); line-height: 1.6; letter-spacing: 0.14em; margin: 0 0 24px; color: var(--ink); }
+  .skills .titleLine { width: 64px; height: 2px; background: var(--brand); margin: 0 auto; }
+  .skills .grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; }
+  .skill-card {
+    background: var(--paper-soft);
+    padding: clamp(40px, 4.4vw, 56px) clamp(28px, 3vw, 40px);
+    border: 1px solid var(--line);
+    border-top: 3px solid var(--brand);
+    display: flex;
+    flex-direction: column;
+    gap: 22px;
+  }
+  .skill-card .skill-num { font-family: 'GenEi Nu Gothic EB', "Noto Sans JP", sans-serif; font-weight: 800; font-size: 30px; letter-spacing: 0.15em; color: var(--brand); line-height: 1; margin: 0; }
+  .skill-card .skill-tag { font-family: var(--mincho); font-weight: 500; font-size: 14px; letter-spacing: 0.18em; color: var(--brand-soft); margin: 0; }
+  .skill-card h3 { font-family: var(--mincho); font-weight: 500; font-size: clamp(19px, 2vw, 23px); line-height: 1.65; letter-spacing: 0.08em; margin: 0; color: var(--ink); min-height: 2.8em; display: flex; align-items: flex-start; }
+  .skill-card .line { width: 36px; height: 1.5px; background: var(--brand); }
+  .skills .skill-card .quote {
+    font-family: var(--mincho) !important; font-weight: 500 !important;
+    font-size: clamp(12px, 1.15vw, 14.5px) !important;
+    letter-spacing: 0.02em !important;
+    line-height: 1.7 !important;
+    color: var(--brand-soft);
+    margin: 0;
+    white-space: nowrap;
+  }
+  .skill-card p { font-family: var(--mincho); font-size: 14.5px; line-height: 2.1; letter-spacing: 0.06em; margin: 0; color: var(--ink-soft); }
+  @media (max-width: 1100px) { .skills .grid { grid-template-columns: 1fr; } }
+
+  /* ---------- Work content (仕事内容) ---------- */
+  .work { padding: clamp(100px, 12vw, 160px) 40px; background: var(--paper-soft); }
+  .work .wrap { max-width: 980px; margin: 0 auto; }
+  .work .head { text-align: center; margin-bottom: clamp(48px, 6vw, 72px); }
+  .work .num { font-family: var(--cormorant); font-weight: 500; font-size: 14px; letter-spacing: 0.4em; color: var(--brand-soft); margin: 0 0 20px; }
+  .work h2 { font-family: var(--mincho); font-weight: 500; font-size: clamp(24px, 3vw, 36px); line-height: 1.6; letter-spacing: 0.14em; margin: 0 0 24px; color: var(--ink); }
+  .work .titleLine { width: 64px; height: 2px; background: var(--brand); margin: 0 auto clamp(28px, 4vw, 48px); }
+  .work .lead { font-family: var(--mincho); font-size: clamp(16px, 1.4vw, 18px); line-height: 2.2; letter-spacing: 0.12em; color: var(--ink-soft); text-align: center; margin: 0 0 clamp(48px, 6vw, 72px); }
+  .work .list-label {
+    font-family: var(--mincho); font-weight: 500;
+    font-size: 14px; letter-spacing: 0.3em;
+    color: var(--brand-soft);
+    margin: 0 0 28px;
+    text-align: center;
+    display: flex; align-items: center; justify-content: center; gap: 18px;
+  }
+  .work .list-label::before, .work .list-label::after {
+    content: ''; width: 40px; height: 1px; background: var(--brand); opacity: 0.5;
+  }
+  .work-list { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: 1fr 1fr; gap: 18px clamp(20px, 2.4vw, 32px); counter-reset: work-counter; }
+  .work .work-list li {
+    font-family: var(--mincho) !important;
+    font-size: 19px !important;
+    font-weight: 600 !important;
+    line-height: 1.7 !important;
+    letter-spacing: 0.06em !important;
+    padding: 26px 30px 26px 26px;
+    background: #ffffff;
+    border: 1px solid var(--line);
+    border-left: 3px solid var(--brand);
+    border-radius: 4px;
+    position: relative;
+    color: var(--ink) !important;
+    display: flex; align-items: center; gap: 22px;
+    transition: transform .25s ease, box-shadow .25s ease, border-left-color .25s ease;
+    box-shadow: 0 2px 12px rgba(40, 50, 30, 0.04);
+  }
+  .work .work-list li:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 28px rgba(40, 50, 30, 0.10);
+    border-left-color: var(--brand-deep);
+  }
+  .work .work-list li::before {
+    content: counter(work-counter, decimal-leading-zero);
+    counter-increment: work-counter;
+    font-family: "Montserrat", "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Yu Gothic", sans-serif !important;
+    font-weight: 700 !important;
+    font-size: 26px !important;
+    letter-spacing: 0.04em;
+    color: var(--brand);
+    flex-shrink: 0;
+    width: 46px;
+    line-height: 1;
+    border-right: 1px solid rgba(94, 122, 62, 0.25);
+    padding-right: 20px;
+    position: static; transform: none;
+    background: none; border-radius: 0;
+  }
+  @media (max-width: 880px) {
+    .work-list { grid-template-columns: 1fr; gap: 14px; }
+    .work-list li { padding: 22px 22px 22px 22px; gap: 18px; }
+  }
+
+  /* ---------- Steps (入社後ステップ) ---------- */
+  .steps { padding: clamp(100px, 12vw, 160px) 40px; background: var(--paper); }
+  .steps .wrap { max-width: 1080px; margin: 0 auto; }
+  .steps .head { text-align: center; margin-bottom: clamp(56px, 7vw, 88px); }
+  .steps .num { font-family: var(--cormorant); font-weight: 500; font-size: 14px; letter-spacing: 0.4em; color: var(--brand-soft); margin: 0 0 20px; }
+  .steps h2 { font-family: var(--mincho); font-weight: 500; font-size: clamp(24px, 3vw, 36px); line-height: 1.6; letter-spacing: 0.14em; margin: 0 0 24px; color: var(--ink); }
+  .steps .titleLine { width: 64px; height: 2px; background: var(--brand); margin: 0 auto; }
+  .steps-track { display: grid; grid-template-columns: 1fr 1fr 1fr 1fr; gap: 0; border-top: 1px solid var(--line); border-left: 1px solid var(--line); }
+  .steps .step { padding: 40px 32px; border-right: 1px solid var(--line); border-bottom: 1px solid var(--line); display: flex; flex-direction: column; gap: 16px; }
+  .steps .step .step-num { font-family: 'GenEi Nu Gothic EB', "Noto Sans JP", sans-serif; font-weight: 800; font-size: 30px; letter-spacing: 0.15em; color: var(--brand); line-height: 1; }
+  .steps .step .step-when { font-family: var(--mincho); font-weight: 500; font-size: 15px; letter-spacing: 0.18em; color: var(--brand-soft); margin: 0; }
+  .steps .step h3 { font-family: var(--mincho); font-weight: 500; font-size: 18px; line-height: 1.65; letter-spacing: 0.08em; margin: 0; color: var(--ink); }
+  .steps .step p { font-family: var(--mincho); font-size: 14.5px; line-height: 2.1; letter-spacing: 0.06em; margin: 0; color: var(--ink-soft); }
+  .steps .note { margin-top: 28px; font-family: var(--mincho); font-size: 12.5px; letter-spacing: 0.08em; color: var(--muted); line-height: 1.9; text-align: center; }
+  @media (max-width: 880px) { .steps-track { grid-template-columns: 1fr; } }
+
+  /* ---------- Video sections (パティシエの一日 / スタッフインタビュー) ---------- */
+  .videoBlock { padding: clamp(100px, 12vw, 160px) 40px; background: var(--paper-soft); }
+  .videoBlock.alt { background: var(--paper); }
+  .videoBlock .wrap { max-width: 1100px; margin: 0 auto; }
+  .videoBlock .head { text-align: center; margin-bottom: clamp(40px, 5vw, 64px); }
+  .videoBlock .num { font-family: var(--cormorant); font-weight: 500; font-size: 14px; letter-spacing: 0.4em; color: var(--brand-soft); margin: 0 0 20px; }
+  .videoBlock h2 { font-family: var(--mincho); font-weight: 500; font-size: clamp(24px, 3vw, 36px); line-height: 1.7; letter-spacing: 0.14em; margin: 0 0 24px; color: var(--ink); }
+  .videoBlock .titleLine { width: 64px; height: 2px; background: var(--brand); margin: 0 auto 28px; }
+  .videoBlock .lead { font-family: var(--mincho); font-size: clamp(15px, 1.3vw, 17px); line-height: 2.1; letter-spacing: 0.1em; color: var(--ink-soft); margin: 0 auto; max-width: 720px; }
+  .videoFrame { position: relative; width: 100%; background: #0a0e06; border: 1px solid var(--line); box-shadow: 0 12px 40px rgba(15, 25, 8, 0.18); overflow: hidden; }
+  .videoFrame video { display: block; width: 100%; height: auto; max-height: 75vh; background: #0a0e06; }
+  .videoPlaceholder {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    background:
+      linear-gradient(135deg, rgba(94, 122, 62, 0.15) 0%, rgba(77, 100, 50, 0.25) 100%),
+      var(--paper-warm);
+    border: 1px solid var(--line);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--mincho);
+    color: var(--brand-soft);
+    font-size: 16px;
+    letter-spacing: 0.2em;
+  }
+  .videoBlock .caption { margin: 18px 0 0; font-family: var(--mincho); font-size: 13px; letter-spacing: 0.1em; color: var(--muted); text-align: center; }
+
+  /* ---------- Persona (求める人物像) ---------- */
+  .persona { padding: clamp(100px, 12vw, 160px) 40px; background: var(--brand-tint); }
+  .persona .wrap { max-width: 880px; margin: 0 auto; }
+  .persona .head { text-align: center; margin-bottom: clamp(48px, 6vw, 72px); }
+  .persona .num { font-family: var(--cormorant); font-weight: 500; font-size: 14px; letter-spacing: 0.4em; color: var(--brand-soft); margin: 0 0 20px; }
+  .persona h2 { font-family: var(--mincho); font-weight: 500; font-size: clamp(24px, 3vw, 36px); line-height: 1.7; letter-spacing: 0.14em; margin: 0 0 24px; color: var(--ink); }
+  .persona .titleLine { width: 64px; height: 2px; background: var(--brand); margin: 0 auto 28px; }
+  .persona .lead { font-family: var(--mincho); font-size: clamp(15px, 1.3vw, 17px); line-height: 2.2; letter-spacing: 0.1em; color: var(--ink-soft); margin: 0 0 48px; text-align: center; }
+  .persona-list { list-style: none; margin: 0 0 48px; padding: 0; border-top: 1px solid rgba(94, 122, 62, 0.25); background: rgba(255, 255, 255, 0.5); }
+  .persona-list li { font-family: var(--mincho); font-size: clamp(15px, 1.4vw, 17px); line-height: 1.8; letter-spacing: 0.08em; padding: 22px 24px 22px 56px; border-bottom: 1px solid rgba(94, 122, 62, 0.25); position: relative; color: var(--ink); }
+  .persona-list li::before { content: ''; position: absolute; left: 22px; top: 50%; transform: translateY(-50%); width: 14px; height: 14px; border-radius: 50%; background: var(--brand); }
+  .persona .closer { font-family: var(--mincho); font-size: clamp(14.5px, 1.2vw, 16px); line-height: 2.2; letter-spacing: 0.08em; color: var(--ink-soft); margin: 0; text-align: center; }
+
+  /* ---------- Requirements ---------- */
+  .requirements { padding: clamp(100px, 11vw, 160px) 40px; background: var(--paper-warm); }
+  .requirements .wrap { max-width: 1080px; margin: 0 auto; }
+  .requirements .head { text-align: center; margin-bottom: clamp(48px, 6vw, 72px); }
+  .requirements .num { font-family: var(--cormorant); font-weight: 500; font-size: 14px; letter-spacing: 0.4em; color: var(--brand-soft); margin: 0 0 20px; }
+  .requirements h2 { font-family: var(--mincho); font-weight: 500; font-size: clamp(26px, 3.2vw, 38px); line-height: 1.5; letter-spacing: 0.12em; margin: 0 0 24px; color: var(--ink); }
+  .requirements .titleLine { width: 60px; height: 2px; background: var(--brand); margin: 0 auto; }
+  .reqList { margin: 0; padding: 0; border-top: 1px solid rgba(0,0,0,.1); background: #fff; }
+  .reqRow { display: grid; grid-template-columns: 220px 1fr; gap: 28px; padding: 26px 28px; border-bottom: 1px solid rgba(0,0,0,.08); align-items: start; }
+  .reqRow dt { font-family: var(--mincho); font-size: 15px; letter-spacing: 0.14em; color: var(--ink); margin: 0; padding-top: 2px; position: relative; padding-left: 18px; font-weight: 500; }
+  .reqRow dt::before { content: ''; position: absolute; left: 0; top: 14px; width: 8px; height: 1.5px; background: var(--brand); }
+  .reqRow dd { font-family: var(--mincho); font-size: 15px; line-height: 2.05; letter-spacing: 0.08em; color: var(--ink-soft); margin: 0; }
+  .reqRow dd .placeholder-val { color: var(--muted); }
+  .requirements .note { margin-top: 28px; font-family: var(--mincho); font-size: 12.5px; letter-spacing: 0.08em; color: var(--muted); line-height: 1.9; text-align: center; }
+  @media (max-width: 880px) {
+    .reqRow { grid-template-columns: 1fr; gap: 8px; padding: 22px 20px; }
+    .reqRow dt { padding-top: 0; }
+  }
+
+  /* ---------- Final CTA (close) ---------- */
+  .close {
+    padding: clamp(120px, 14vw, 200px) 40px clamp(80px, 10vw, 140px);
+    background:
+      linear-gradient(rgba(245, 247, 240, 0.96), rgba(245, 247, 240, 0.96)),
+      url("/photos/grancha/gift-box-large.webp") center/cover no-repeat;
+    background-attachment: scroll;
+  }
+  @media (max-width: 880px) {
+    .close {
+      background:
+        linear-gradient(rgba(245, 247, 240, 0.97), rgba(245, 247, 240, 0.97)),
+        url("/photos/grancha/gift-box-small.webp") center/cover no-repeat;
+    }
+  }
+  /* close text — readability boost (heavier weight + dark color + white halo) */
+  body .close .closeTitle {
+    color: #1a1810 !important;
+    font-weight: 700 !important;
+    text-shadow: 0 0 14px rgba(255, 255, 255, 0.95), 0 0 5px rgba(255, 255, 255, 0.9);
+  }
+  body .close p {
+    color: #1a1810 !important;
+    font-weight: 500 !important;
+    text-shadow: 0 0 12px rgba(255, 255, 255, 0.92), 0 0 4px rgba(255, 255, 255, 0.88);
+  }
+  body .close .summary {
+    color: #1a1810 !important;
+    font-weight: 600 !important;
+    text-shadow: 0 0 14px rgba(255, 255, 255, 0.94), 0 0 5px rgba(255, 255, 255, 0.9);
+  }
+  body .close .question {
+    color: #1a1810 !important;
+    font-weight: 700 !important;
+    text-shadow: 0 0 14px rgba(255, 255, 255, 0.95), 0 0 5px rgba(255, 255, 255, 0.9);
+  }
+  .close .wrap { max-width: 880px; margin: 0 auto; text-align: center; }
+  .close .num { font-family: var(--cormorant); font-weight: 500; font-size: 14px; letter-spacing: 0.4em; color: var(--brand-soft); margin: 0 0 24px; }
+  .close .closeTitle { font-family: var(--mincho); font-weight: 500; font-size: clamp(26px, 3.6vw, 42px); line-height: 1.75; letter-spacing: 0.18em; margin: 0 0 56px; color: var(--ink); }
+  .close .closeTitle span { display: block; }
+  .close p { font-family: var(--mincho); font-size: clamp(15px, 1.4vw, 17.5px); line-height: 2.4; letter-spacing: 0.1em; margin: 0 0 1.6em; color: var(--ink-soft); }
+  .close .summary { padding: 40px 0; margin: 32px 0; border-top: 1px solid rgba(0,0,0,0.1); border-bottom: 1px solid rgba(0,0,0,0.1); font-family: var(--mincho); font-size: clamp(16px, 1.5vw, 19px); line-height: 2.3; letter-spacing: 0.1em; color: var(--ink); }
+  .close .question { font-family: var(--mincho); font-weight: 500; font-size: clamp(17px, 1.7vw, 21px); line-height: 2.0; letter-spacing: 0.12em; margin: 40px 0 48px; color: var(--ink); }
+  .close .actions { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; margin-bottom: 40px; }
+  .close .btn { padding: 22px 44px; display: inline-flex; align-items: center; justify-content: center; font-family: var(--sans); font-weight: 500; font-size: 16px; letter-spacing: 0.14em; min-width: 280px; min-height: 56px; transition: background .25s ease, color .25s ease, transform .25s ease, border-color .25s ease; }
+  .close .btn.primary { background: var(--brand); color: #fff; border: 1.5px solid var(--brand); }
+  .close .btn.primary:hover { background: var(--brand-soft); border-color: var(--brand-soft); transform: translateY(-2px); }
+  .close .btn.secondary { background: #fff; color: var(--ink); border: 1.5px solid var(--ink); }
+  .close .btn.secondary:hover { background: var(--ink); color: #fff; transform: translateY(-2px); }
+  .close .indeedHint { font-family: var(--sans); font-size: 12px; letter-spacing: 0.2em; color: var(--brand-soft); margin: 0 0 32px; }
+
+  /* ---------- Sub CTA links ---------- */
+  .ctaLinks { padding: clamp(80px, 9vw, 130px) 40px clamp(40px, 5vw, 70px); }
+  .ctaLinks .wrap { max-width: 1280px; margin: 0 auto; }
+  .ctaLinks .head { display: flex; align-items: center; gap: 18px; margin-bottom: 36px; }
+  .ctaLinks .head::before { content: ''; width: 28px; height: 1.5px; background: var(--ink); }
+  .ctaLinks .head h2 { font-family: var(--mincho); font-weight: 500; font-size: clamp(20px, 2.2vw, 26px); letter-spacing: 0.12em; margin: 0; }
+  .ctaGrid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+  .ctaBtn { background: var(--ink); color: #fff; padding: 30px 32px; display: flex; justify-content: space-between; align-items: center; font-size: 15.5px; letter-spacing: 0.12em; transition: background .25s ease, transform .25s ease; }
+  .ctaBtn:hover { background: var(--brand-soft); transform: translateY(-2px); }
+  @media (max-width: 880px) { .ctaGrid { grid-template-columns: 1fr; } }
+
+  /* ---------- Breadcrumb ---------- */
+  .crumb { padding: 40px; }
+  .crumb .wrap { max-width: 1280px; margin: 0 auto; display: flex; gap: 14px; align-items: center; font-size: 12.5px; letter-spacing: 0.15em; color: var(--muted); flex-wrap: wrap; }
+  .crumb a { color: var(--ink-soft); }
+  .crumb .sep { display: inline-block; width: 16px; height: 1px; background: var(--muted); }
+
+  /* ---------- Footer ---------- */
+  footer { background: var(--paper-soft); padding: clamp(64px, 7vw, 100px) 40px 36px; border-top: 1px solid var(--line); }
+  footer .row { max-width: 1280px; margin: 0 auto; display: grid; grid-template-columns: 1.2fr 1fr 1fr; gap: 60px; padding-bottom: 60px; border-bottom: 1px solid var(--line); }
+  footer .fLogo { display: flex; align-items: center; gap: 14px; margin-bottom: 28px; }
+  footer .fLogo .mark { width: 56px; height: 56px; border: 1.4px solid var(--gold); border-radius: 50%; display: flex; align-items: center; justify-content: center; }
+  footer .fLogo .mark svg { width: 30px; height: 30px; }
+  footer .fLogo .name { display: flex; flex-direction: column; gap: 5px; line-height: 1; font-family: var(--mincho); }
+  footer .fLogo .name .ja { display: flex; align-items: baseline; gap: 10px; }
+  footer .fLogo .name .small { font-size: 11px; letter-spacing: 0.18em; }
+  footer .fLogo .name .big { font-size: 22px; letter-spacing: 0.2em; font-weight: 500; }
+  footer .fLogo .name .en { font-size: 9px; letter-spacing: 0.45em; color: var(--gold-soft); }
+  footer .addr { font-size: 13px; line-height: 2; letter-spacing: 0.05em; color: var(--ink-soft); margin: 0; }
+  footer .sitemap { display: flex; flex-direction: column; gap: 16px; }
+  footer .sitemap a { font-family: var(--mincho); font-size: 14.5px; letter-spacing: 0.14em; color: var(--ink); }
+  footer .sitemap a:hover { color: var(--brand-soft); }
+  footer .bottom { max-width: 1280px; margin: 0 auto; padding-top: 28px; display: flex; justify-content: space-between; font-size: 11px; letter-spacing: 0.25em; color: var(--muted); }
+  @media (max-width: 880px) {
+    footer .row { grid-template-columns: 1fr; gap: 40px; }
+    footer .bottom { flex-direction: column; gap: 12px; }
+  }
+
+  /* ===== Typography overrides ===== */
+  body, p, li, .work-list li, .persona-list li, .close p, .reqRow dt, .reqRow dd, .steps .step p {
+    font-family: var(--serif-body) !important; font-weight: 350 !important;
+  }
+  h1, h2, h3, .hero h1, .storySection h2, .skills h2, .skill-card h3, .work h2, .steps h2, .steps .step h3, .videoBlock h2, .persona h2, .requirements h2, .close .closeTitle {
+    font-family: var(--mincho) !important; font-weight: 500 !important;
+  }
+  .nav, .nav a, header.siteHeader nav a {
+    font-family: var(--montserrat) !important; font-weight: 500 !important;
+  }
+  .ctaBtn, .ctaBtn span, .close .btn, .logo .name, .menuBtn, button {
+    font-family: var(--sans) !important; font-weight: 500 !important;
+  }
+  footer .addr, footer .bottom, .crumb a {
+    font-family: var(--sans) !important; font-weight: 400 !important;
+  }
+  .ctaBtn > span:last-child { display: none !important; }
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+      animation-duration: 0.001ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.001ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+  @media (max-width: 600px) {
+    .storySection .body p, .skill-card p, .work-list li, .work .lead, .steps .step p, .videoBlock .lead, .persona-list li, .persona .lead, .persona .closer, .close p, .reqRow dt, .reqRow dd { font-size: 16.5px !important; line-height: 2.1 !important; }
+    .close .btn {
+      width: 100% !important;
+      min-width: 0 !important;
+      padding: 18px 16px !important;
+      font-size: 14.5px !important;
+      letter-spacing: 0.04em !important;
+      white-space: nowrap !important;
+    }
+  }
+
+  /* ===== TYPOGRAPHY SCALE-UP (視認性向上 +10〜15%) ===== */
+  body { font-size: 16.5px; }
+  p, li, dd { font-size: 17px !important; line-height: 2.2 !important; }
+  h2 { font-size: clamp(28px, 3.5vw, 44px) !important; }
+  h3 { font-size: 21px !important; line-height: 1.7 !important; }
+  .ctaBtn, .ctaBtn span { font-size: 16.5px !important; }
+  footer .addr { font-size: 14.5px !important; line-height: 2.1 !important; }
+  .crumb, .crumb a, .crumb span { font-size: 13.5px !important; }
+  @media (max-width: 600px) {
+    p, li, dd { font-size: 17px !important; line-height: 2.15 !important; }
+    h3 { font-size: 20px !important; }
+  }
+
+  /* text-wrap-balance-injected */
+
+  /* ===== Text-wrap balancing (orphan-1-4-char fix) ===== */
+  h1, h2, h3, .closeTitle, .panelTitle, .hero h1, .hero .sub, .pageTitle h1, .intro h2 {
+    text-wrap: balance;
+  }
+  p, li, dd, .lead, .body p, .closer, .voice-quote, .work .lead, .videoBlock .lead {
+    text-wrap: pretty;
+  }
+
+  /* mobile-tap-target-injected */
+
+  /* ===== Mobile tap target enlargement (mobile-only / PC unchanged) ===== */
+  @media (max-width: 880px) {
+    .menuBtn {
+      position: relative;
+      width: 56px !important;
+      height: 56px !important;
+    }
+    .menuBtn::before {
+      content: "";
+      position: absolute;
+      inset: -14px;
+      z-index: 1;
+    }
+    .menuBtn > * { pointer-events: none; }
+    .ctaBtn, .ctaLinks .ctaBtn, .stores .item .more, .applyCta a, .home, .submitBtn,
+    a.btn, button.btn, .close .btn {
+      min-height: 56px !important;
+      align-items: center;
+    }
+    .nav a, footer .sitemap a, .crumb a, .ctaBtn span {
+      padding: 6px 0;
+      min-height: 44px;
+      display: inline-flex;
+      align-items: center;
+    }
+  }
+
+  /* mobile-drawer-injected */
+
+  /* ===== Mobile drawer ===== */
+  .mobileDrawer {
+    position: fixed; inset: 0; z-index: 200;
+    background: rgba(0, 0, 0, 0.5);
+    opacity: 0; visibility: hidden;
+    transition: opacity .3s ease, visibility .3s;
+  }
+  .mobileDrawer[aria-hidden="false"] { opacity: 1; visibility: visible; }
+  .mobileDrawer .panel {
+    position: absolute; top: 0; right: 0; bottom: 0;
+    width: min(86vw, 360px);
+    background: #fff;
+    transform: translateX(100%);
+    transition: transform .35s cubic-bezier(.2,.7,.2,1);
+    display: flex; flex-direction: column;
+    padding: 28px 28px 32px;
+    box-shadow: -16px 0 48px rgba(0,0,0,.22);
+  }
+  .mobileDrawer[aria-hidden="false"] .panel { transform: translateX(0); }
+  .mobileDrawer .closeBtn {
+    width: 48px; height: 48px; align-self: flex-end;
+    background: transparent; border: 1.2px solid #d9d4c8; border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    cursor: pointer; padding: 0; font-size: 22px; color: #1a1814;
+    position: relative;
+  }
+  .mobileDrawer .closeBtn::before { content: ""; position: absolute; inset: -14px; }
+  .mobileDrawer nav {
+    margin-top: 32px; display: flex; flex-direction: column; gap: 4px;
+  }
+  .mobileDrawer nav a {
+    display: block; padding: 16px 0; font-family: var(--mincho, serif);
+    font-size: 17px; letter-spacing: .14em; color: #1a1814;
+    border-bottom: 1px solid #ece8de; min-height: 56px; align-items: center; display: flex;
+  }
+</style>
+</head>
+<body>
+
+  <a class="skip-link" href="#main-content">メインコンテンツへスキップ</a>
+
+  <header class="siteHeader">
+    <div class="row">
+      <a href="/八宝コーポレートサイト.html" class="logo" aria-label="株式会社八宝 HAPPO">
+        <span class="mark" aria-hidden="true">
+          <svg viewBox="0 0 40 40" fill="#c9a24b" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="20" cy="20" r="3.2"/>
+            <g transform="translate(20 20)">
+              <ellipse cx="0" cy="-10.5" rx="4" ry="5.2"/>
+              <ellipse cx="0" cy="-10.5" rx="4" ry="5.2" transform="rotate(72)"/>
+              <ellipse cx="0" cy="-10.5" rx="4" ry="5.2" transform="rotate(144)"/>
+              <ellipse cx="0" cy="-10.5" rx="4" ry="5.2" transform="rotate(216)"/>
+              <ellipse cx="0" cy="-10.5" rx="4" ry="5.2" transform="rotate(288)"/>
+            </g>
+          </svg>
+        </span>
+        <span class="name">
+          <span class="ja"><span class="small">株式会社</span><span class="big">八宝</span></span>
+          <span class="en">— HAPPO —</span>
+        </span>
+      </a>
+      <nav class="nav">
+        <a href="/八宝の想い.html">八宝の想い</a>
+        <a href="/事業内容.html">事業内容</a>
+        <a href="/採用情報.html" class="current" aria-current="page">採用情報</a>
+        <a href="/会社概要.html">会社概要・お問い合わせ</a>
+      </nav>
+      <button class="menuBtn" aria-label="メニューを開く">
+        <svg viewBox="0 0 22 18" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round">
+          <line x1="1" y1="3" x2="21" y2="3"/>
+          <line x1="1" y1="9" x2="21" y2="9"/>
+          <line x1="1" y1="15" x2="21" y2="15"/>
+        </svg>
+      </button>
+    </div>
+  </header>
+
+  <div class="brandBar" aria-hidden="true"></div>
+
+  <main id="main-content">
+
+  <!-- ============ 01 Hero (キャッチコピー) ============ -->
+  <section class="hero">
+    <div class="wrap">
+      <p class="label">大和茶大福専門店 GRANCHA / パティシエ求人</p>
+      <h1>
+        <span class="pc-only-text">旅の思い出になる一品と幸せを</span>
+        <span class="sp-only-text">旅の思い出になる</span>
+        <span class="sp-only-text">一品と幸せを</span>
+        <span class="accent">あなたの手で</span>
+      </h1>
+      <div class="titleLine" aria-hidden="true"></div>
+      <p class="sub">奈良の大和茶と季節の素材で、<br>お客様の特別な一日を彩るスイーツを、一緒につくりませんか。</p>
+    </div>
+  </section>
+
+  <!-- ============ 02 やりがい ============ -->
+  <section class="purpose">
+    <div class="purposeGrid">
+
+      <div class="pImg pTL">
+        <picture>
+          <source media="(max-width: 880px)" srcset="/photos/grancha/purpose-giftbox-small.webp">
+          <img src="/photos/grancha/purpose-giftbox-large.webp" alt="口福餅と極プリンの化粧箱" loading="lazy" width="1600" height="1065">
+        </picture>
+      </div>
+
+      <div class="pImg pTR tall">
+        <picture>
+          <source media="(max-width: 880px)" srcset="/photos/grancha/purpose-montblanc-small.webp">
+          <img src="/photos/grancha/purpose-montblanc-large.webp" alt="抹茶モンブラン" loading="lazy" width="1323" height="1091">
+        </picture>
+      </div>
+
+      <div class="pCenter">
+        <p class="head">私たちのやりがい</p>
+        <h2><span>私たちが作るのは</span><span>お菓子だけではありません。</span></h2>
+        <div class="titleLine" aria-hidden="true"></div>
+        <div class="body">
+          <p>旅先で偶然見つけたかわいらしい大福。<br>家族へのお土産に選んだ奈良らしいスイーツ。<br>大切な人と一緒に味わった、大和茶の香りが広がる一品。</p>
+          <p><span class="pc-only-text">お菓子を口にした瞬間の笑顔や<br>誰かを思いながら商品を選ぶ時間までを考えて製造しています。<br>私たちがつくっているのは、<strong>奈良を訪れた人の思い出の一部</strong>です。</span><span class="sp-only-text">お菓子を口にした瞬間の笑顔や<br>誰かを思いながら商品を選ぶ時間までを考えて製造しています。<br>私たちがつくっているのは<br><strong>奈良を訪れた人の思い出の一部</strong>です。</span></p>
+        </div>
+      </div>
+
+      <div class="pImg pBL">
+        <picture>
+          <source media="(max-width: 880px)" srcset="/photos/grancha/purpose-pudding-small.webp">
+          <img src="/photos/grancha/purpose-pudding-large.webp" alt="抹茶プリンの製造風景" loading="lazy" width="1600" height="1065">
+        </picture>
+      </div>
+
+      <div class="pImg pBR">
+        <picture>
+          <source media="(max-width: 880px)" srcset="/photos/grancha/purpose-matcha-small.webp">
+          <img src="/photos/grancha/purpose-matcha-large.webp" alt="抹茶パウダーの仕込み" loading="lazy" width="1600" height="1065">
+        </picture>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ============ 03 GRANCHAについて ============ -->
+  <section class="storySection alt tea-bg">
+    <div class="wrap">
+      <p class="head">GRANCHAについて</p>
+      <h2>大和茶の魅力を<br>スイーツで届ける</h2>
+      <div class="titleLine" aria-hidden="true"></div>
+      <div class="body">
+        <p><span class="pc-only-text">大和茶は、大和高原を中心とした<br>冷涼で昼夜の寒暖差が大きい環境で育てられています。<br>ゆっくりと育った茶葉から生まれる、深い香りと濃厚な味わい。<br>その個性を、餡、生クリーム、バターなどと掛け合わせて<br>一つのスイーツへ仕上げていきます。</span><span class="sp-only-text">大和茶は、大和高原を中心とした<br>冷涼で昼夜の寒暖差が大きい環境で育てられています。<br>ゆっくりと育った茶葉から生まれる、深い香りと濃厚な味わい。<br>その個性を、餡、生クリーム、<br>バターなどと掛け合わせて<br>一つのスイーツへ<br>仕上げていきます。</span></p>
+        <p><span class="pc-only-text">実は、大和茶は日本茶のルーツともいわれています。<br><strong>1200年以上の伝統で受け継がれてきた素材の美味</strong>を<br>もっと多くの方に知っていただきたいというのが<br>私たちが大和茶にこだわる理由です。</span><span class="sp-only-text">実は、大和茶は<br>日本茶のルーツともいわれています。<br><br><strong>1200年以上の伝統で<br>受け継がれてきた素材の美味</strong>を<br>もっと多くの方に届けたい。<br><br>それが、私たちが大和茶に<br>こだわる理由です。</span></p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 04 GRANCHAで得られる3つのスキル ============ -->
+  <section class="skills">
+    <div class="wrap">
+      <div class="head">
+        <h2>GRANCHAで得られる<br>3つのスキル。</h2>
+        <div class="titleLine" aria-hidden="true"></div>
+      </div>
+      <div class="grid">
+
+        <article class="skill-card">
+          <p class="skill-num">01</p>
+          <h3>和と洋を掛け合わせる技術</h3>
+          <div class="line"></div>
+          <p>大和茶の香りや苦みは、クリーム、餡、乳製品など、組み合わせる素材によって印象が変わります。味の濃さや甘さだけでなく、香りの残り方や色合いまで考えながら、素材の魅力を引き出す技術を磨けます。洋菓子の経験を生かしながら、和素材への理解も深められる環境です。</p>
+        </article>
+
+        <article class="skill-card">
+          <p class="skill-num">02</p>
+          <h3>さまざまな商品に携わる経験</h3>
+          <div class="line"></div>
+          <p>GRANCHAでは、大和茶大福だけでなく、プリン、ケーキ、モンブランなど、さまざまなスイーツを扱っています。商品の仕込みから成形、仕上げまで、経験や習熟度に応じて担当する仕事を広げていきます。商品ごとに異なる素材や製法に触れることで、パティシエとしての引き出しを増やせます。</p>
+        </article>
+
+        <article class="skill-card">
+          <p class="skill-num">03</p>
+          <h3>商品とブランドを育てる経験</h3>
+          <div class="line"></div>
+          <p>季節や奈良の観光シーズンに合わせた商品の試作など、新しいスイーツづくりに関われる機会もあります。「この素材と大和茶を組み合わせたらどうだろう」「奈良を訪れた方に、もっと喜んでもらうには」一人ひとりの気づきやアイデアを大切にしながら、お客様に選ばれる商品を考えていきます。自分の考えた一品が店頭に並び、お客様が手に取る姿を見られることは、この仕事ならではの喜びです。</p>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 05 仕事内容 ============ -->
+  <section class="work">
+    <div class="wrap">
+      <div class="head">
+        <h2>素材に触れ、考え<br>形にする仕事</h2>
+        <div class="titleLine" aria-hidden="true"></div>
+      </div>
+      <p class="lead">経験や技術に合わせて、できる仕事から少しずつ担当していただきます。</p>
+      <p class="list-label">主な業務</p>
+      <ul class="work-list">
+        <li>材料の計量、下準備</li>
+        <li>生地、餡、クリームなどの仕込み</li>
+        <li>大福、生菓子、洋菓子の製造</li>
+        <li>ケーキやモンブランなどの仕上げ</li>
+        <li>商品の包装、出荷準備</li>
+        <li>品質管理、衛生管理</li>
+        <li>材料や商品の在庫管理</li>
+        <li>季節商品や新商品の試作</li>
+        <li>製造工程の改善</li>
+        <li>後輩スタッフへの技術共有</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ============ 06 入社後のステップ ============ -->
+  <section class="steps">
+    <div class="wrap">
+      <div class="head">
+        <h2>焦らず、一つずつ。<br>できる仕事を増やしていく。</h2>
+        <div class="titleLine" aria-hidden="true"></div>
+      </div>
+      <div class="steps-track">
+        <div class="step">
+          <span class="step-num">01</span>
+          <p class="step-when">入社直後</p>
+          <h3>基本を覚える</h3>
+          <p>商品の特徴や製造工程、厨房内のルール、衛生管理について学びます。材料の計量や下準備など、基本的な業務から担当していただきます。</p>
+        </div>
+        <div class="step">
+          <span class="step-num">02</span>
+          <p class="step-when">入社3か月頃</p>
+          <h3>担当の幅を広げる</h3>
+          <p>経験や習熟度を確認しながら、仕込み、成形、仕上げなど、担当できる工程を増やしていきます。</p>
+        </div>
+        <div class="step">
+          <span class="step-num">03</span>
+          <p class="step-when">入社1年頃</p>
+          <h3>全体を見る役割へ</h3>
+          <p>複数商品の製造や品質管理、後輩への技術共有など、製造全体を見ながら働く役割を目指します。</p>
+        </div>
+        <div class="step">
+          <span class="step-num">04</span>
+          <p class="step-when">将来</p>
+          <h3>キャリアを描く</h3>
+          <p>商品開発や製造リーダーなど、経験や希望に応じたキャリアを描けます。</p>
+        </div>
+      </div>
+      <p class="note">※期間は目安です。実際の教育体制に合わせて変更可能です。</p>
+    </div>
+  </section>
+
+  <!-- ============ 08 パティシエの一日 (動画) ============ -->
+  <!-- TODO: 動画ができたら /videos/grancha-a-day.mp4 を配置 -->
+  <section class="videoBlock alt">
+    <div class="wrap">
+      <div class="head">
+        <h2><span class="pc-only-text">一つひとつの商品に、<br>丁寧に向き合う一日。</span><span class="sp-only-text">一つひとつの商品に<br>丁寧に向き合う一日</span></h2>
+        <div class="titleLine" aria-hidden="true"></div>
+        <p class="lead">早朝の仕込みから、お客様への手渡しまで。GRANCHA のパティシエの一日を密着で。</p>
+      </div>
+      <div class="videoFrame">
+        <video
+          src="/videos/grancha-a-day.mp4"
+          poster="/photos/grancha/mochi-large.webp"
+          controls
+          preload="metadata"
+          playsinline
+          width="1920"
+          height="1080"
+          aria-label="GRANCHA パティシエの一日">
+          動画を再生するには、ブラウザの動画再生機能が必要です。
+        </video>
+      </div>
+      <p class="caption">※ 動画は準備中です。完成版が公開され次第差し替えます。</p>
+    </div>
+  </section>
+
+  <!-- ============ 09 スタッフインタビュー (動画) ============ -->
+  <!-- TODO: 動画ができたら /videos/grancha-interview.mp4 を配置 -->
+  <section class="videoBlock">
+    <div class="wrap">
+      <div class="head">
+        <h2><span class="pc-only-text">GRANCHAで働く人に、<br>本音を聞きました。</span><span class="sp-only-text">GRANCHAで働く人に<br>本音を聞きました</span></h2>
+        <div class="titleLine" aria-hidden="true"></div>
+        <p class="lead">入社した理由、仕事のやりがい、難しさ、職場の雰囲気、今後の目標。求人情報だけでは伝えきれない実際の働き方を、スタッフの言葉でご紹介します。</p>
+      </div>
+      <div class="videoFrame">
+        <video
+          src="/videos/grancha-interview.mp4"
+          poster="/photos/grancha/mochi-tea-large.webp"
+          controls
+          preload="metadata"
+          playsinline
+          width="1920"
+          height="1080"
+          aria-label="GRANCHA スタッフインタビュー">
+          動画を再生するには、ブラウザの動画再生機能が必要です。
+        </video>
+      </div>
+      <p class="caption">※ 動画は準備中です。完成版が公開され次第差し替えます。</p>
+    </div>
+  </section>
+
+  <!-- ============ 09 求める人物像 ============ -->
+  <section class="persona">
+    <div class="wrap">
+      <div class="head">
+        <h2>技術だけでなく、<br>お菓子に向き合う姿勢を大切にします。</h2>
+        <div class="titleLine" aria-hidden="true"></div>
+        <p class="lead">GRANCHAでは、次のような方と一緒に働きたいと考えています。</p>
+      </div>
+      <ul class="persona-list">
+        <li>お菓子づくりが好きな方</li>
+        <li>大和茶や和素材に興味がある方</li>
+        <li>一つひとつの作業を丁寧に行える方</li>
+        <li>周囲と声を掛け合いながら働ける方</li>
+        <li>新しい技術や知識を学びたい方</li>
+        <li>自分のアイデアを商品に生かしたい方</li>
+        <li>奈良の魅力を多くの人に届けたい方</li>
+        <li>お客様の喜ぶ姿を想像して仕事ができる方</li>
+      </ul>
+      <p class="closer">経験年数だけで、パティシエとしての価値が決まるわけではありません。<br>今まで身につけてきた技術を生かしたい方も、これからさらに技術を磨きたい方も、まずは一度お話ししましょう。</p>
+    </div>
+  </section>
+
+  <!-- ============ 10 募集要項 ============ -->
+  <!-- TODO: 各値 (○○) は後で差し替え -->
+  <section class="requirements" id="requirements">
+    <div class="wrap">
+      <div class="head">
+        <h2>募集要項</h2>
+        <div class="titleLine" aria-hidden="true"></div>
+      </div>
+      <dl class="reqList">
+        <div class="reqRow">
+          <dt>職種</dt>
+          <dd>パティシエ・製菓スタッフ</dd>
+        </div>
+        <div class="reqRow">
+          <dt>雇用形態</dt>
+          <dd>正社員／契約社員／アルバイト・パート</dd>
+        </div>
+        <div class="reqRow">
+          <dt>仕事内容</dt>
+          <dd>大和茶を使った大福、洋菓子、焼き菓子などの製造、仕込み、仕上げ、品質管理、新商品の試作など</dd>
+        </div>
+        <div class="reqRow">
+          <dt>応募条件</dt>
+          <dd>製菓経験者歓迎／製菓専門学校卒業者歓迎／新卒・第二新卒歓迎</dd>
+        </div>
+        <div class="reqRow">
+          <dt>給与</dt>
+          <dd>
+            <span class="placeholder-val">月給 ○○○,○○○円 〜 ○○○,○○○円</span><br>
+            ※経験・能力を考慮して決定します。
+          </dd>
+        </div>
+        <div class="reqRow">
+          <dt>勤務時間</dt>
+          <dd>
+            <span class="placeholder-val">○○:○○ 〜 ○○:○○</span><br>
+            ※シフト制
+          </dd>
+        </div>
+        <div class="reqRow">
+          <dt>休日</dt>
+          <dd>
+            <span class="placeholder-val">月 ○ 日休み／年間休日 ○ 日</span><br>
+            有給休暇、慶弔休暇など
+          </dd>
+        </div>
+        <div class="reqRow">
+          <dt>待遇・福利厚生</dt>
+          <dd>社会保険完備／交通費支給／昇給制度／賞与／制服貸与／社員割引／研修制度／試用期間あり</dd>
+        </div>
+        <div class="reqRow">
+          <dt>勤務地</dt>
+          <dd>
+            <span class="placeholder-val">奈良県奈良市 ○○</span><br>
+            近鉄奈良駅から徒歩 ○ 分
+          </dd>
+        </div>
+      </dl>
+      <p class="note">※ 給与、勤務時間、休日、待遇は正式な採用条件に差し替えてご記載ください。</p>
+    </div>
+  </section>
+
+  <!-- ============ 11 最終 CTA ============ -->
+  <section class="close">
+    <div class="wrap">
+      <p class="closeTitle">
+        <span>旅の思い出になる一品と幸せを</span>
+        <span>あなたの手で</span>
+      </p>
+
+      <p>奈良を訪れた人が、帰ってからも思い出したくなる味。<br>大切な人へ、奈良で見つけた幸せを届けられる一品。</p>
+
+      <div class="summary">
+        そんなスイーツを、<br>私たちと一緒につくりませんか。
+      </div>
+
+      <p>応募するかどうかは、実際の厨房や働く人を見てから決めていただいても構いません。<br>まずは仕事内容や職場について、気軽にお話ししましょう。</p>
+
+      <p class="question">あなたのお菓子づくりを、<br>奈良の名物をつくる一歩に。</p>
+
+      <div class="actions">
+        <!-- TODO: Indeed の正式 URL に差し替え -->
+        <a href="#" target="_blank" rel="noopener" class="btn primary">パティシエ求人に応募する</a>
+        <a href="/会社概要.html#contact" class="btn secondary">採用について問い合わせる</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ Sub CTA links ============ -->
+  <section class="ctaLinks">
+    <div class="wrap">
+      <div class="head">
+        <h2>他の店舗・関連ページ</h2>
+      </div>
+      <div class="ctaGrid">
+        <a href="/採用情報.html" class="ctaBtn"><span>採用情報トップへ戻る</span><span>→</span></a>
+        <a href="/事業内容.html" class="ctaBtn"><span>事業内容を見る</span><span>→</span></a>
+        <a href="https://grancha.base.shop/" target="_blank" rel="noopener" class="ctaBtn"><span>GRANCHA 公式オンラインショップ</span><span>→</span></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ Breadcrumb ============ -->
+  <section class="crumb">
+    <div class="wrap">
+      <a href="/八宝コーポレートサイト.html">TOP</a>
+      <span class="sep"></span>
+      <a href="/採用情報.html">採用情報</a>
+      <span class="sep"></span>
+      <span>大和茶大福専門店 GRANCHA</span>
+    </div>
+  </section>
+
+  </main>
+
+  <footer>
+    <div class="row">
+      <div class="col">
+        <div class="fLogo">
+          <span class="mark" aria-hidden="true">
+            <svg viewBox="0 0 40 40" fill="#c9a24b" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="20" cy="20" r="3.2"/>
+              <g transform="translate(20 20)">
+                <ellipse cx="0" cy="-10.5" rx="4" ry="5.2"/>
+                <ellipse cx="0" cy="-10.5" rx="4" ry="5.2" transform="rotate(72)"/>
+                <ellipse cx="0" cy="-10.5" rx="4" ry="5.2" transform="rotate(144)"/>
+                <ellipse cx="0" cy="-10.5" rx="4" ry="5.2" transform="rotate(216)"/>
+                <ellipse cx="0" cy="-10.5" rx="4" ry="5.2" transform="rotate(288)"/>
+              </g>
+            </svg>
+          </span>
+          <span class="name">
+            <span class="ja"><span class="small">株式会社</span><span class="big">八宝</span></span>
+            <span class="en">— HAPPO —</span>
+          </span>
+        </div>
+        <p class="addr">〒630-8215<br>奈良県奈良市東向中町１１ 丸八ビル ２階<br>TEL 0742-24-1755</p>
+      </div>
+      <div class="col">
+        <div class="sitemap">
+          <a href="/八宝の想い.html">八宝の想い</a>
+          <a href="/事業内容.html">事業内容</a>
+          <a href="/採用情報.html">採用情報</a>
+        </div>
+      </div>
+      <div class="col">
+        <div class="sitemap">
+          <a href="/会社概要.html">会社概要</a>
+          <a href="/会社概要.html#contact">お問い合わせ</a>
+          <a href="/プライバシーポリシー.html">プライバシーポリシー</a>
+        </div>
+      </div>
+    </div>
+    <div class="bottom">
+      <span>© HAPPO Co., Ltd.</span>
+      <span>NARA / JAPAN</span>
+    </div>
+  </footer>
+
+  <!-- Mobile drawer -->
+  <div class="mobileDrawer" aria-hidden="true" role="dialog" aria-label="メニュー">
+    <div class="panel">
+      <button class="closeBtn" type="button" aria-label="メニューを閉じる">×</button>
+      <nav>
+        <a href="/八宝の想い.html">八宝の想い</a>
+        <a href="/事業内容.html">事業内容</a>
+        <a href="/採用情報.html">採用情報</a>
+        <a href="/会社概要.html">会社概要・お問い合わせ</a>
+      </nav>
+    </div>
+  </div>
+  <script>
+    (function(){
+      var btn = document.querySelector('.menuBtn');
+      var drawer = document.querySelector('.mobileDrawer');
+      if (!btn || !drawer) return;
+      var closeBtn = drawer.querySelector('.closeBtn');
+      function open(){ drawer.setAttribute('aria-hidden','false'); document.body.style.overflow='hidden'; }
+      function close(){ drawer.setAttribute('aria-hidden','true'); document.body.style.overflow=''; }
+      btn.addEventListener('click', open);
+      closeBtn.addEventListener('click', close);
+      drawer.addEventListener('click', function(e){ if (e.target === drawer) close(); });
+      document.addEventListener('keydown', function(e){ if (e.key === 'Escape') close(); });
+    })();
+  </script>
+</body>
+</html>

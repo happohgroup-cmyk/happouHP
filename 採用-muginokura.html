@@ -1,0 +1,942 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>小麦を知る。出汁を知る。— むぎの蔵 うどん・出汁の料理人求人 ─ 株式会社八宝</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=Montserrat:wght@500;600;700&family=Noto+Sans+JP:wght@300;400;500;700;900&family=Noto+Serif+JP:wght@300;400;500;700;900&family=Shippori+Mincho+B1:wght@500;700;800&family=Yuji+Boku&family=Klee+One:wght@600&display=swap">
+<style>
+  @font-face {
+    font-family: 'Tamanegi Kaisho Geki';
+    src: url('/fonts/tamanegi-kaisho-geki.ttf') format('truetype');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+  }
+  :root {
+    --ink: #1a1410;
+    --ink-soft: #3a3028;
+    --muted: #8a8278;
+    --line: #d9d2c4;
+    --paper: #ffffff;
+    --paper-soft: #faf6ec;
+    --paper-warm: #f1ebd9;
+    --placeholder: #ebe5d4;
+    --gold: #c9a24b;
+    --gold-soft: #b48d40;
+    /* ===== Brand: むぎの蔵 (焦茶 + 朱) ===== */
+    --brand: #6b4423;
+    --brand-soft: #533318;
+    --brand-tint: #f3ece0;
+    --brand-deep: #2d1810;
+    --accent-red: #b03a2e;
+    --accent-red-deep: #8b2c20;
+    --mincho: "Shippori Mincho B1", "YuMincho", "Yu Mincho", "游明朝", "Hiragino Mincho ProN", "Noto Serif JP", serif;
+    --brush: "Tamanegi Kaisho Geki", "Yuji Boku", "Klee One", "Shippori Mincho B1", "YuMincho", serif;
+    --serif-body: "Noto Serif JP", "YuMincho", "Yu Mincho", "游明朝", "Hiragino Mincho ProN", serif;
+    --cormorant: "Cormorant Garamond", "Times New Roman", Georgia, serif;
+    --montserrat: "Montserrat", "Noto Sans JP", "Hiragino Kaku Gothic ProN", sans-serif;
+    --sans: "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Yu Gothic", "Meiryo", sans-serif;
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body { margin: 0; font-family: var(--serif-body); color: var(--ink); background: var(--paper); -webkit-font-smoothing: antialiased; font-weight: 350; }
+  .skip-link { position: absolute; left: -9999px; top: 0; z-index: 9999; background: var(--ink); color: var(--paper); padding: 12px 20px; font-size: 14px; text-decoration: none; }
+  .skip-link:focus { left: 0; outline: 2px solid var(--brand); }
+  a { color: inherit; text-decoration: none; }
+  img { display: block; max-width: 100%; height: auto; object-fit: cover; }
+  picture { display: block; width: 100%; height: 100%; }
+  picture img { width: 100%; height: 100%; object-fit: cover; }
+
+  /* ---------- Header ---------- */
+  .siteHeader { position: sticky; top: 0; background: rgba(255,255,255,.94); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); border-bottom: 1px solid rgba(0,0,0,.06); z-index: 50; }
+  .siteHeader .row { max-width: 1440px; margin: 0 auto; padding: 18px 40px; display: flex; justify-content: space-between; align-items: center; gap: 32px; }
+  .logo { display: flex; align-items: center; gap: 12px; color: var(--ink); }
+  .logo .mark { width: 48px; height: 48px; border: 1.4px solid var(--gold); border-radius: 50%; display: flex; align-items: center; justify-content: center; background: #fff; flex-shrink: 0; }
+  .logo .mark svg { width: 26px; height: 26px; display: block; }
+  .logo .name { display: flex; flex-direction: column; line-height: 1; gap: 5px; }
+  .logo .name .ja { display: flex; align-items: baseline; gap: 9px; font-family: var(--mincho); }
+  .logo .name .small { font-size: 11px; letter-spacing: .15em; }
+  .logo .name .big { font-size: 19px; letter-spacing: .18em; font-weight: 700; }
+  .logo .name .en { font-size: 9px; letter-spacing: .42em; color: var(--gold-soft); }
+  .nav { display: flex; align-items: center; gap: 38px; font-size: 14px; letter-spacing: .12em; }
+  .nav a { color: var(--ink-soft); transition: color .2s; }
+  .nav a:hover { color: var(--brand); }
+  .nav a.current, .nav a[aria-current="page"] { color: var(--brand); }
+  .menuBtn { width: 50px; height: 50px; border-radius: 50%; border: 1.2px solid var(--ink-soft); background: transparent; color: var(--ink); display: flex; align-items: center; justify-content: center; cursor: pointer; padding: 0; position: relative; }
+  .menuBtn::before { content:""; position:absolute; inset:-14px; }
+  .menuBtn > * { pointer-events: none; }
+  .menuBtn svg { width: 20px; height: 16px; display: block; }
+  @media (max-width: 1080px) { .nav { display: none; } }
+
+  .brandBar { height: 4px; background: var(--brand); }
+
+  /* ---------- Hero (brush + impact) ---------- */
+  .hero {
+    position: relative;
+    padding: clamp(120px, 14vw, 200px) 40px clamp(110px, 13vw, 180px);
+    background: #1a0e07 url("/photos/muginokura/noodle-process-large.webp") center/cover no-repeat;
+    color: #fff;
+    overflow: hidden;
+    min-height: 72vh;
+  }
+  .hero::before {
+    content: '';
+    position: absolute; inset: 0;
+    background:
+      linear-gradient(125deg, rgba(15, 8, 4, 0.78) 0%, rgba(30, 15, 8, 0.62) 40%, rgba(60, 30, 15, 0.50) 100%),
+      linear-gradient(180deg, rgba(0,0,0,0.45) 0%, rgba(0,0,0,0) 60%);
+    pointer-events: none;
+  }
+  .hero::after {
+    content: '';
+    position: absolute;
+    left: 50%; bottom: 0;
+    width: 140px; height: 3px;
+    background: var(--accent-red);
+    transform: translateX(-50%);
+    z-index: 3;
+  }
+  .hero .wrap { max-width: 1180px; margin: 0 auto; position: relative; z-index: 2; }
+  .hero .label {
+    font-family: var(--mincho); font-weight: 700;
+    font-size: clamp(15px, 1.3vw, 18px); letter-spacing: 0.3em;
+    color: #f0d6a4;
+    margin: 0 0 44px;
+    display: inline-flex; align-items: center; gap: 18px;
+    text-shadow: 0 2px 16px rgba(0, 0, 0, 0.85);
+  }
+  .hero .label::before, .hero .label::after {
+    content: ''; width: 36px; height: 1.5px; background: #d4af6f;
+  }
+  body section.hero h1 {
+    font-family: var(--mincho) !important;
+    font-weight: 800 !important;
+    font-size: clamp(34px, 5vw, 70px) !important;
+    line-height: 1.55 !important;
+    letter-spacing: 0.12em !important;
+    margin: 0 0 50px;
+    color: #ffffff !important;
+    text-shadow:
+      0 4px 32px rgba(0, 0, 0, 0.95),
+      0 2px 8px rgba(0, 0, 0, 0.85),
+      0 0 60px rgba(0, 0, 0, 0.4);
+  }
+  .hero h1 span { display: block; position: relative; white-space: nowrap; }
+  .hero h1 .accent {
+    color: #ffffff;
+    font-size: 0.82em;
+    text-shadow:
+      0 4px 32px rgba(0, 0, 0, 0.95),
+      0 2px 8px rgba(0, 0, 0, 0.9),
+      0 0 24px rgba(0, 0, 0, 0.5);
+  }
+  @media (max-width: 720px) {
+    .hero h1 span { white-space: normal; }
+  }
+  .hero .titleLine { width: 90px; height: 2px; background: #d4af6f; margin: 0 0 42px; opacity: 0.9; }
+  .hero .sub {
+    font-family: var(--mincho) !important;
+    font-size: clamp(17px, 1.7vw, 23px) !important;
+    font-weight: 700 !important;
+    line-height: 2.0 !important;
+    letter-spacing: 0.14em !important;
+    color: #ffffff !important;
+    margin: 0;
+    text-shadow:
+      0 2px 16px rgba(0, 0, 0, 0.95),
+      0 0 28px rgba(0, 0, 0, 0.7),
+      0 0 4px rgba(0, 0, 0, 0.75);
+  }
+  @media (max-width: 880px) {
+    .hero { background-image: url("/photos/muginokura/noodle-process-small.webp"); }
+  }
+
+  /* ---------- Section base ---------- */
+  .storySection { padding: clamp(110px, 13vw, 180px) 40px; }
+  .storySection .wrap { max-width: 920px; margin: 0 auto; text-align: center; }
+  .storySection .head { font-family: var(--mincho); font-weight: 700; font-size: 14px; letter-spacing: 0.3em; color: var(--brand); margin: 0 0 22px; display: inline-flex; align-items: center; gap: 16px; }
+  .storySection .head::before, .storySection .head::after {
+    content: ''; width: 30px; height: 1px; background: var(--brand); opacity: 0.5;
+  }
+  .storySection h2 {
+    font-family: var(--mincho); font-weight: 700;
+    font-size: clamp(28px, 3.8vw, 46px); line-height: 1.6;
+    letter-spacing: 0.14em; margin: 0 0 28px; color: var(--ink);
+  }
+  .storySection .titleLine { width: 64px; height: 2.5px; background: var(--accent-red); margin: 0 auto clamp(40px, 5vw, 64px); }
+  .storySection .body {
+    font-family: var(--mincho);
+    font-size: clamp(16px, 1.4vw, 18px);
+    line-height: 2.4; letter-spacing: 0.1em;
+    color: var(--ink-soft);
+    text-align: center;
+    font-weight: 500;
+  }
+  .storySection .body p { margin: 0 0 1.6em; }
+  .storySection .body p:last-child { margin: 0; }
+  .storySection .body strong { color: var(--brand-soft); font-weight: 800; }
+  .storySection.alt { background: var(--paper-soft); }
+  .storySection.washi {
+    background:
+      radial-gradient(circle at 20% 10%, rgba(176, 58, 46, 0.03) 0%, transparent 50%),
+      radial-gradient(circle at 80% 90%, rgba(107, 68, 35, 0.04) 0%, transparent 50%),
+      var(--paper-soft);
+  }
+
+  /* ---------- About pillars ---------- */
+  .aboutPillars { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(40px, 5vw, 80px); margin-top: clamp(48px, 6vw, 80px); text-align: left; }
+  .aboutPillars .pillar { position: relative; padding: clamp(32px, 4vw, 48px) clamp(28px, 3.5vw, 44px); background: #ffffff; border: 1px solid var(--line); border-top: 4px solid var(--brand); border-radius: 4px; box-shadow: 0 6px 24px rgba(45, 24, 16, 0.06); }
+  .aboutPillars .pillar h3 {
+    font-family: var(--mincho); font-weight: 800;
+    font-size: clamp(20px, 2.2vw, 26px); line-height: 1.6;
+    letter-spacing: 0.08em; margin: 0 0 24px; color: var(--ink);
+  }
+  .aboutPillars .pillar h3 .em { color: var(--accent-red); }
+  .aboutPillars .pillar .ko-num {
+    font-family: var(--montserrat); font-weight: 700;
+    font-size: 14px; letter-spacing: 0.2em; color: var(--brand);
+    margin: 0 0 14px;
+  }
+  .aboutPillars .pillar p {
+    font-family: var(--mincho); font-size: 15.5px;
+    line-height: 2.15; letter-spacing: 0.08em;
+    margin: 0; color: var(--ink-soft); font-weight: 500;
+  }
+  @media (max-width: 880px) { .aboutPillars { grid-template-columns: 1fr; gap: 32px; } }
+
+  /* ---------- Skills (3 cards) ---------- */
+  .skills { padding: clamp(100px, 12vw, 160px) 40px; background: var(--paper); }
+  .skills .wrap { max-width: 1280px; margin: 0 auto; }
+  .skills .head { text-align: center; margin-bottom: clamp(56px, 7vw, 88px); }
+  .skills .head .label { font-family: var(--mincho); font-weight: 700; font-size: 14px; letter-spacing: 0.3em; color: var(--brand); margin: 0 0 20px; display: inline-flex; align-items: center; gap: 16px; }
+  .skills .head .label::before, .skills .head .label::after { content: ''; width: 30px; height: 1px; background: var(--brand); opacity: 0.5; }
+  .skills h2 {
+    font-family: var(--mincho); font-weight: 800;
+    font-size: clamp(26px, 3.4vw, 42px); line-height: 1.5;
+    letter-spacing: 0.12em; margin: 0 0 24px; color: var(--ink);
+  }
+  .skills .titleLine { width: 70px; height: 2.5px; background: var(--accent-red); margin: 0 auto; }
+  .skills .grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; }
+  .skill-card {
+    background: var(--paper-soft);
+    padding: clamp(40px, 4.4vw, 56px) clamp(28px, 3vw, 40px);
+    border: 1px solid var(--line);
+    border-top: 4px solid var(--brand);
+    border-radius: 4px;
+    display: flex; flex-direction: column; gap: 22px;
+    transition: transform .3s ease, box-shadow .3s ease, border-color .3s ease;
+  }
+  .skill-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 18px 40px rgba(45, 24, 16, 0.12);
+    border-top-color: var(--accent-red);
+  }
+  .skill-card .skill-num {
+    font-family: var(--montserrat); font-weight: 700;
+    font-size: 32px; letter-spacing: 0.1em;
+    color: var(--brand); line-height: 1; margin: 0;
+  }
+  .skill-card h3 {
+    font-family: var(--mincho); font-weight: 800;
+    font-size: clamp(19px, 2vw, 23px); line-height: 1.65;
+    letter-spacing: 0.08em; margin: 0; color: var(--ink);
+    min-height: 2.8em;
+    display: flex; align-items: flex-start;
+  }
+  .skill-card .line { width: 40px; height: 1.5px; background: var(--brand); }
+  .skill-card p {
+    font-family: var(--mincho); font-size: 14.5px;
+    line-height: 2.1; letter-spacing: 0.06em;
+    margin: 0; color: var(--ink-soft); font-weight: 500;
+  }
+  @media (max-width: 1100px) { .skills .grid { grid-template-columns: 1fr; } }
+
+  /* ---------- Value (仕事の価値) ---------- */
+  .value {
+    padding: clamp(110px, 13vw, 180px) 40px;
+    background:
+      linear-gradient(rgba(248, 244, 234, 0.93), rgba(248, 244, 234, 0.93)),
+      url("/photos/muginokura/interior-large.webp") center/cover no-repeat;
+    position: relative;
+  }
+  @media (max-width: 880px) {
+    .value {
+      background:
+        linear-gradient(rgba(248, 244, 234, 0.94), rgba(248, 244, 234, 0.94)),
+        url("/photos/muginokura/interior-small.webp") center/cover no-repeat;
+    }
+  }
+  .value .wrap { max-width: 880px; margin: 0 auto; text-align: center; position: relative; z-index: 2; }
+  .value .head { font-family: var(--mincho); font-weight: 700; font-size: 14px; letter-spacing: 0.3em; color: var(--brand); margin: 0 0 22px; display: inline-flex; align-items: center; gap: 16px; text-shadow: 0 0 10px rgba(255,255,255,0.95); }
+  .value .head::before, .value .head::after { content: ''; width: 30px; height: 1px; background: var(--brand); opacity: 0.6; }
+  .value h2 {
+    font-family: var(--mincho); font-weight: 800;
+    font-size: clamp(26px, 3.4vw, 40px); line-height: 1.65;
+    letter-spacing: 0.14em; margin: 0 0 28px; color: var(--ink);
+    text-shadow: 0 0 14px rgba(255, 255, 255, 0.92);
+  }
+  .value .titleLine { width: 64px; height: 2.5px; background: var(--accent-red); margin: 0 auto clamp(40px, 5vw, 56px); }
+  .value .body {
+    font-family: var(--mincho); font-size: clamp(16px, 1.4vw, 18px);
+    line-height: 2.4; letter-spacing: 0.1em;
+    color: var(--ink); font-weight: 600;
+    text-shadow: 0 0 12px rgba(255, 255, 255, 0.92);
+  }
+  .value .body p { margin: 0 0 1.6em; }
+  .value .body p:last-child { margin: 0; }
+  .value .body strong { color: var(--accent-red-deep); font-weight: 800; }
+
+  /* ---------- Video ---------- */
+  .videoBlock { padding: clamp(100px, 12vw, 160px) 40px; background: var(--paper); }
+  .videoBlock.alt { background: var(--paper-soft); }
+  .videoBlock .wrap { max-width: 1100px; margin: 0 auto; }
+  .videoBlock .head { text-align: center; margin-bottom: clamp(40px, 5vw, 64px); }
+  .videoBlock .label { font-family: var(--mincho); font-weight: 700; font-size: 14px; letter-spacing: 0.3em; color: var(--brand); margin: 0 0 22px; display: inline-flex; align-items: center; gap: 16px; }
+  .videoBlock .label::before, .videoBlock .label::after { content: ''; width: 30px; height: 1px; background: var(--brand); opacity: 0.5; }
+  .videoBlock h2 {
+    font-family: var(--mincho); font-weight: 800;
+    font-size: clamp(24px, 3vw, 38px); line-height: 1.6;
+    letter-spacing: 0.14em; margin: 0 0 24px; color: var(--ink);
+  }
+  .videoBlock .titleLine { width: 64px; height: 2.5px; background: var(--accent-red); margin: 0 auto 28px; }
+  .videoBlock .lead {
+    font-family: var(--mincho); font-size: clamp(15px, 1.3vw, 17px);
+    line-height: 2.1; letter-spacing: 0.1em;
+    color: var(--ink-soft); font-weight: 500;
+    margin: 0 auto; max-width: 720px;
+  }
+  .videoFrame { position: relative; width: 100%; background: #110805; border: 1px solid var(--line); box-shadow: 0 14px 44px rgba(45, 24, 16, 0.2); overflow: hidden; }
+  .videoFrame video { display: block; width: 100%; height: auto; max-height: 75vh; background: #110805; }
+  .videoBlock .caption { margin: 18px 0 0; font-family: var(--mincho); font-size: 13px; letter-spacing: 0.1em; color: var(--muted); text-align: center; }
+
+  /* ---------- Persona ---------- */
+  .persona { padding: clamp(100px, 12vw, 160px) 40px; background: var(--brand-tint); position: relative; overflow: hidden; }
+  .persona::before {
+    content: '';
+    position: absolute; inset: 0;
+    background:
+      radial-gradient(circle at 12% 18%, rgba(176, 58, 46, 0.06) 0%, transparent 35%),
+      radial-gradient(circle at 88% 82%, rgba(107, 68, 35, 0.08) 0%, transparent 40%);
+    pointer-events: none;
+  }
+  .persona .wrap { max-width: 920px; margin: 0 auto; position: relative; z-index: 2; }
+  .persona .head { text-align: center; margin-bottom: clamp(48px, 6vw, 72px); }
+  .persona .label { font-family: var(--mincho); font-weight: 700; font-size: 14px; letter-spacing: 0.3em; color: var(--brand); margin: 0 0 22px; display: inline-flex; align-items: center; gap: 16px; }
+  .persona .label::before, .persona .label::after { content: ''; width: 30px; height: 1px; background: var(--brand); opacity: 0.6; }
+  .persona h2 {
+    font-family: var(--mincho); font-weight: 800;
+    font-size: clamp(24px, 3vw, 38px); line-height: 1.6;
+    letter-spacing: 0.14em; margin: 0 0 24px; color: var(--ink);
+  }
+  .persona .titleLine { width: 64px; height: 2.5px; background: var(--accent-red); margin: 0 auto 32px; }
+  .persona .lead {
+    font-family: var(--mincho); font-size: clamp(15px, 1.3vw, 17px);
+    line-height: 2.2; letter-spacing: 0.1em;
+    color: var(--ink-soft); font-weight: 500;
+    margin: 0 0 48px; text-align: center;
+  }
+  .persona-list { list-style: none; margin: 0 0 48px; padding: 0; display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  .persona-list li {
+    font-family: var(--mincho); font-size: 16px;
+    font-weight: 600;
+    line-height: 1.8; letter-spacing: 0.08em;
+    padding: 22px 24px 22px 58px;
+    background: #fff; border-radius: 4px;
+    position: relative; color: var(--ink);
+    border-left: 3px solid var(--brand);
+    box-shadow: 0 3px 12px rgba(45, 24, 16, 0.05);
+    transition: transform .25s ease, box-shadow .25s ease;
+  }
+  .persona-list li:hover { transform: translateY(-2px); box-shadow: 0 8px 22px rgba(45, 24, 16, 0.10); }
+  .persona-list li::before {
+    content: '✓';
+    position: absolute; left: 22px; top: 50%; transform: translateY(-50%);
+    width: 22px; height: 22px; border-radius: 50%;
+    background: var(--brand); color: #fff;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 13px; font-weight: 700;
+  }
+  .persona .closer {
+    font-family: var(--mincho); font-size: clamp(15px, 1.3vw, 17px);
+    line-height: 2.2; letter-spacing: 0.08em;
+    color: var(--ink); font-weight: 600;
+    margin: 0; text-align: center;
+  }
+  .persona .closer strong { color: var(--accent-red-deep); font-weight: 800; }
+  @media (max-width: 880px) { .persona-list { grid-template-columns: 1fr; } }
+
+  /* ---------- Close ---------- */
+  .close {
+    padding: clamp(120px, 14vw, 200px) 40px clamp(90px, 11vw, 150px);
+    background:
+      linear-gradient(rgba(15, 8, 4, 0.85), rgba(20, 11, 5, 0.78)),
+      url("/photos/muginokura/noodle-process-large.webp") center/cover no-repeat;
+    color: #fff;
+    position: relative;
+  }
+  @media (max-width: 880px) {
+    .close {
+      background:
+        linear-gradient(rgba(15, 8, 4, 0.86), rgba(20, 11, 5, 0.80)),
+        url("/photos/muginokura/noodle-process-small.webp") center/cover no-repeat;
+    }
+  }
+  .close .wrap { max-width: 920px; margin: 0 auto; text-align: center; position: relative; z-index: 2; }
+  .close .label {
+    font-family: var(--mincho); font-weight: 700;
+    font-size: 14px; letter-spacing: 0.3em; color: #f0d6a4;
+    margin: 0 0 32px;
+    display: inline-flex; align-items: center; gap: 16px;
+    text-shadow: 0 2px 14px rgba(0, 0, 0, 0.85);
+  }
+  .close .label::before, .close .label::after { content: ''; width: 30px; height: 1px; background: #d4af6f; }
+  .close .closeTitle {
+    font-family: var(--brush);
+    font-weight: 400;
+    font-size: clamp(32px, 5vw, 64px);
+    line-height: 1.55; letter-spacing: 0.08em;
+    margin: 0 0 50px; color: #fff;
+    text-shadow: 0 4px 28px rgba(0, 0, 0, 0.92), 0 2px 6px rgba(0, 0, 0, 0.7);
+  }
+  .close .closeTitle span { display: block; }
+  .close .closeTitle .accent { color: var(--accent-red); }
+  .close p {
+    font-family: var(--mincho); font-size: clamp(15px, 1.4vw, 17.5px);
+    line-height: 2.3; letter-spacing: 0.1em;
+    color: rgba(255, 255, 255, 0.95); font-weight: 500;
+    margin: 0 0 1.6em;
+    text-shadow: 0 2px 14px rgba(0, 0, 0, 0.85);
+  }
+  .close .summary {
+    padding: 40px 0; margin: 32px 0;
+    border-top: 1px solid rgba(212, 175, 111, 0.4);
+    border-bottom: 1px solid rgba(212, 175, 111, 0.4);
+    font-family: var(--mincho); font-size: clamp(16px, 1.5vw, 19px);
+    line-height: 2.3; letter-spacing: 0.1em;
+    color: #fff; font-weight: 600;
+    text-shadow: 0 2px 14px rgba(0, 0, 0, 0.85);
+  }
+  .close .question {
+    font-family: var(--mincho); font-weight: 700;
+    font-size: clamp(18px, 1.9vw, 23px); line-height: 1.85;
+    letter-spacing: 0.12em; margin: 40px 0 50px;
+    color: #fff;
+    text-shadow: 0 3px 18px rgba(0, 0, 0, 0.9);
+  }
+  .close .actions { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
+  .close .btn {
+    padding: 22px 44px;
+    display: inline-flex; align-items: center; justify-content: center;
+    font-family: var(--sans); font-weight: 600;
+    font-size: 16px; letter-spacing: 0.14em;
+    min-width: 280px; min-height: 56px;
+    border-radius: 2px;
+    transition: background .25s ease, color .25s ease, transform .25s ease, border-color .25s ease;
+  }
+  .close .btn.primary {
+    background: var(--accent-red); color: #fff;
+    border: 1.5px solid var(--accent-red);
+  }
+  .close .btn.primary:hover {
+    background: var(--accent-red-deep); border-color: var(--accent-red-deep);
+    transform: translateY(-2px);
+  }
+  .close .btn.secondary {
+    background: transparent; color: #fff;
+    border: 1.5px solid #fff;
+  }
+  .close .btn.secondary:hover {
+    background: #fff; color: var(--ink);
+    transform: translateY(-2px);
+  }
+
+  /* ---------- Sub CTA ---------- */
+  .ctaLinks { padding: clamp(80px, 9vw, 130px) 40px clamp(40px, 5vw, 70px); }
+  .ctaLinks .wrap { max-width: 1280px; margin: 0 auto; }
+  .ctaLinks .head { display: flex; align-items: center; gap: 18px; margin-bottom: 36px; }
+  .ctaLinks .head::before { content: ''; width: 28px; height: 1.5px; background: var(--ink); }
+  .ctaLinks .head h2 { font-family: var(--mincho); font-weight: 700; font-size: clamp(20px, 2.2vw, 26px); letter-spacing: 0.12em; margin: 0; }
+  .ctaGrid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+  .ctaBtn { background: var(--ink); color: #fff; padding: 30px 32px; display: flex; justify-content: space-between; align-items: center; font-size: 15.5px; letter-spacing: 0.12em; transition: background .25s ease, transform .25s ease; border-radius: 2px; }
+  .ctaBtn:hover { background: var(--brand); transform: translateY(-2px); }
+  @media (max-width: 880px) { .ctaGrid { grid-template-columns: 1fr; } }
+
+  /* ---------- Breadcrumb ---------- */
+  .crumb { padding: 40px; }
+  .crumb .wrap { max-width: 1280px; margin: 0 auto; display: flex; gap: 14px; align-items: center; font-size: 12.5px; letter-spacing: 0.15em; color: var(--muted); flex-wrap: wrap; }
+  .crumb a { color: var(--ink-soft); }
+  .crumb .sep { display: inline-block; width: 16px; height: 1px; background: var(--muted); }
+
+  /* ---------- Footer ---------- */
+  footer { background: var(--paper-soft); padding: clamp(64px, 7vw, 100px) 40px 36px; border-top: 1px solid var(--line); }
+  footer .row { max-width: 1280px; margin: 0 auto; display: grid; grid-template-columns: 1.2fr 1fr 1fr; gap: 60px; padding-bottom: 60px; border-bottom: 1px solid var(--line); }
+  footer .fLogo { display: flex; align-items: center; gap: 14px; margin-bottom: 28px; }
+  footer .fLogo .mark { width: 56px; height: 56px; border: 1.4px solid var(--gold); border-radius: 50%; display: flex; align-items: center; justify-content: center; }
+  footer .fLogo .mark svg { width: 30px; height: 30px; }
+  footer .fLogo .name { display: flex; flex-direction: column; gap: 5px; line-height: 1; font-family: var(--mincho); }
+  footer .fLogo .name .ja { display: flex; align-items: baseline; gap: 10px; }
+  footer .fLogo .name .small { font-size: 11px; letter-spacing: 0.18em; }
+  footer .fLogo .name .big { font-size: 22px; letter-spacing: 0.2em; font-weight: 700; }
+  footer .fLogo .name .en { font-size: 9px; letter-spacing: 0.45em; color: var(--gold-soft); }
+  footer .addr { font-size: 13px; line-height: 2; letter-spacing: 0.05em; color: var(--ink-soft); margin: 0; }
+  footer .sitemap { display: flex; flex-direction: column; gap: 16px; }
+  footer .sitemap a { font-family: var(--mincho); font-size: 14.5px; letter-spacing: 0.14em; color: var(--ink); }
+  footer .sitemap a:hover { color: var(--brand); }
+  footer .bottom { max-width: 1280px; margin: 0 auto; padding-top: 28px; display: flex; justify-content: space-between; font-size: 11px; letter-spacing: 0.25em; color: var(--muted); }
+  @media (max-width: 880px) {
+    footer .row { grid-template-columns: 1fr; gap: 40px; }
+    footer .bottom { flex-direction: column; gap: 12px; }
+  }
+
+  /* ===== Typography overrides ===== */
+  body, p, li, .close p, .videoBlock .lead, .persona .closer {
+    font-family: var(--serif-body) !important;
+  }
+  h1, h2, h3, .storySection h2, .skills h2, .skill-card h3, .videoBlock h2, .persona h2, .value h2 {
+    font-family: var(--mincho) !important;
+  }
+  .ctaBtn, .ctaBtn span, .close .btn, .menuBtn, button {
+    font-family: var(--sans) !important; font-weight: 600 !important;
+  }
+  .ctaBtn > span:last-child { display: none !important; }
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+      animation-duration: 0.001ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.001ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+
+  /* ===== TYPOGRAPHY SCALE-UP ===== */
+  body { font-size: 16.5px; }
+  p, li, dd { font-size: 17px !important; line-height: 2.2 !important; }
+  h2 { font-size: clamp(28px, 3.5vw, 44px) !important; }
+  h3 { font-size: 21px !important; line-height: 1.7 !important; }
+  .ctaBtn, .ctaBtn span { font-size: 16.5px !important; }
+  footer .addr { font-size: 14.5px !important; line-height: 2.1 !important; }
+  .crumb, .crumb a, .crumb span { font-size: 13.5px !important; }
+  @media (max-width: 600px) {
+    p, li, dd { font-size: 17px !important; line-height: 2.15 !important; }
+    h3 { font-size: 20px !important; }
+    .close .btn { width: 100%; min-width: 0; }
+    .hero { min-height: 84vh; }
+  }
+
+  /* text-wrap-balance-injected */
+
+  /* ===== Text-wrap balancing (orphan-1-4-char fix) ===== */
+  h1, h2, h3, .closeTitle, .panelTitle, .hero h1, .hero .sub, .pageTitle h1, .intro h2 {
+    text-wrap: balance;
+  }
+  p, li, dd, .lead, .body p, .closer, .voice-quote, .work .lead, .videoBlock .lead {
+    text-wrap: pretty;
+  }
+
+  /* mobile-tap-target-injected */
+
+  /* ===== Mobile tap target enlargement (mobile-only / PC unchanged) ===== */
+  @media (max-width: 880px) {
+    .menuBtn {
+      position: relative;
+      width: 56px !important;
+      height: 56px !important;
+    }
+    .menuBtn::before {
+      content: "";
+      position: absolute;
+      inset: -14px;
+      z-index: 1;
+    }
+    .menuBtn > * { pointer-events: none; }
+    .ctaBtn, .ctaLinks .ctaBtn, .stores .item .more, .applyCta a, .home, .submitBtn,
+    a.btn, button.btn, .close .btn {
+      min-height: 56px !important;
+      align-items: center;
+    }
+    .nav a, footer .sitemap a, .crumb a, .ctaBtn span {
+      padding: 6px 0;
+      min-height: 44px;
+      display: inline-flex;
+      align-items: center;
+    }
+  }
+
+  /* mobile-drawer-injected */
+
+  /* ===== Mobile drawer ===== */
+  .mobileDrawer {
+    position: fixed; inset: 0; z-index: 200;
+    background: rgba(0, 0, 0, 0.5);
+    opacity: 0; visibility: hidden;
+    transition: opacity .3s ease, visibility .3s;
+  }
+  .mobileDrawer[aria-hidden="false"] { opacity: 1; visibility: visible; }
+  .mobileDrawer .panel {
+    position: absolute; top: 0; right: 0; bottom: 0;
+    width: min(86vw, 360px);
+    background: #fff;
+    transform: translateX(100%);
+    transition: transform .35s cubic-bezier(.2,.7,.2,1);
+    display: flex; flex-direction: column;
+    padding: 28px 28px 32px;
+    box-shadow: -16px 0 48px rgba(0,0,0,.22);
+  }
+  .mobileDrawer[aria-hidden="false"] .panel { transform: translateX(0); }
+  .mobileDrawer .closeBtn {
+    width: 48px; height: 48px; align-self: flex-end;
+    background: transparent; border: 1.2px solid #d9d4c8; border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    cursor: pointer; padding: 0; font-size: 22px; color: #1a1814;
+    position: relative;
+  }
+  .mobileDrawer .closeBtn::before { content: ""; position: absolute; inset: -14px; }
+  .mobileDrawer nav {
+    margin-top: 32px; display: flex; flex-direction: column; gap: 4px;
+  }
+  .mobileDrawer nav a {
+    display: block; padding: 16px 0; font-family: var(--mincho, serif);
+    font-size: 17px; letter-spacing: .14em; color: #1a1814;
+    border-bottom: 1px solid #ece8de; min-height: 56px; align-items: center; display: flex;
+  }
+</style>
+</head>
+<body>
+
+  <a class="skip-link" href="#main-content">メインコンテンツへスキップ</a>
+
+  <header class="siteHeader">
+    <div class="row">
+      <a href="/八宝コーポレートサイト.html" class="logo" aria-label="株式会社八宝 HAPPO">
+        <span class="mark" aria-hidden="true">
+          <svg viewBox="0 0 40 40" fill="#c9a24b" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="20" cy="20" r="3.2"/>
+            <g transform="translate(20 20)">
+              <ellipse cx="0" cy="-10.5" rx="4" ry="5.2"/>
+              <ellipse cx="0" cy="-10.5" rx="4" ry="5.2" transform="rotate(72)"/>
+              <ellipse cx="0" cy="-10.5" rx="4" ry="5.2" transform="rotate(144)"/>
+              <ellipse cx="0" cy="-10.5" rx="4" ry="5.2" transform="rotate(216)"/>
+              <ellipse cx="0" cy="-10.5" rx="4" ry="5.2" transform="rotate(288)"/>
+            </g>
+          </svg>
+        </span>
+        <span class="name">
+          <span class="ja"><span class="small">株式会社</span><span class="big">八宝</span></span>
+          <span class="en">— HAPPO —</span>
+        </span>
+      </a>
+      <nav class="nav">
+        <a href="/八宝の想い.html">八宝の想い</a>
+        <a href="/事業内容.html">事業内容</a>
+        <a href="/採用情報.html" class="current" aria-current="page">採用情報</a>
+        <a href="/会社概要.html">会社概要・お問い合わせ</a>
+      </nav>
+      <button class="menuBtn" aria-label="メニューを開く">
+        <svg viewBox="0 0 22 18" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round">
+          <line x1="1" y1="3" x2="21" y2="3"/>
+          <line x1="1" y1="9" x2="21" y2="9"/>
+          <line x1="1" y1="15" x2="21" y2="15"/>
+        </svg>
+      </button>
+    </div>
+  </header>
+
+  <div class="brandBar" aria-hidden="true"></div>
+
+  <main id="main-content">
+
+  <!-- ============ Hero ============ -->
+  <section class="hero">
+    <div class="wrap">
+      <p class="label">むぎの蔵 / うどん・出汁の料理人求人</p>
+      <h1>
+        <span>小麦を知る。</span>
+        <span>出汁を知る。</span>
+        <span class="accent">職人としての料理人へ</span>
+      </h1>
+      <div class="titleLine" aria-hidden="true"></div>
+      <p class="sub">麺・出汁を一から作る職人技術</p>
+    </div>
+  </section>
+
+  <!-- ============ 01 むぎの蔵について ============ -->
+  <section class="storySection washi">
+    <div class="wrap">
+      <p class="head">むぎの蔵について</p>
+      <h2>一杯を、<br>一からつくる。</h2>
+      <div class="titleLine" aria-hidden="true"></div>
+      <div class="body">
+        <p>むぎの蔵は、近鉄奈良駅の近くにある、<br>うどんとごはんの専門店です。</p>
+        <p>私たちが大切にしているのは、<br>決められた料理を、ただ早く提供することではありません。<br>小麦の状態を見ながら麺を仕込み、<br>素材の旨みを引き出す出汁をつくり、<br>ご注文をいただいてから、一杯ずつ丁寧に仕上げる。</p>
+        <p>シンプルに見えるうどんだからこそ、<br>小さな違いが、味や食感にはっきりと表れます。<br><strong>料理人の経験や判断が、一杯のおいしさを左右する仕事</strong>です。</p>
+      </div>
+
+      <div class="aboutPillars">
+        <div class="pillar">
+          <p class="ko-num">— 01 —</p>
+          <h3>国産だから選ぶのではない。<br><span class="em">おいしい一杯に必要だから、</span>この素材を選ぶ。</h3>
+          <p>私たちは、むぎの蔵が求める小麦の香り、食感、出汁との相性。その基準を一つずつ確かめた結果、国産素材を選んでいます。</p>
+        </div>
+        <div class="pillar">
+          <p class="ko-num">— 02 —</p>
+          <h3>産地やつくり手が見える食材だからこそ、<br><span class="em">責任を持って</span>扱える。</h3>
+          <p>料理人も素材の特徴を理解し、責任を持って扱うことができます。素材を知ることから、料理は始まる。国産へのこだわりは、一杯のおいしさに妥協しないという私たちの姿勢です。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 02 深められる技術 ============ -->
+  <section class="skills">
+    <div class="wrap">
+      <div class="head">
+        <p class="label">むぎの蔵で深められる技術</p>
+        <h2>料理の引き出しを、<br>3つの軸で深めていく。</h2>
+        <div class="titleLine" aria-hidden="true"></div>
+      </div>
+      <div class="grid">
+
+        <article class="skill-card">
+          <p class="skill-num">01</p>
+          <h3>小麦と向き合う、<br>自家製麺の技術</h3>
+          <div class="line" aria-hidden="true"></div>
+          <p>麺のおいしさは、小麦粉を混ぜれば完成するものではありません。気温や湿度、小麦の状態を見ながら、水分量や仕込み方を調整する。麺を茹でる時間や、釜から上げるタイミングを見極める。営業中のわずかな変化にも気づき、安定した食感をつくり続ける。むぎの蔵では、仕込みから茹で上げまで、うどんづくりの工程を実践の中で学べます。</p>
+        </article>
+
+        <article class="skill-card">
+          <p class="skill-num">02</p>
+          <h3>素材の旨みを引き出す、<br>出汁の技術</h3>
+          <div class="line" aria-hidden="true"></div>
+          <p>うどんの印象を決めるのは、麺だけではありません。素材の組み合わせや火加減、煮出す時間によって、出汁の香りや味わいは変わります。濃くすればおいしいわけでも、手間をかければよいわけでもありません。素材の特徴を理解し、料理全体のバランスを考えながら仕上げる。和食の基本となる出汁の考え方は、うどん以外の料理にも活かせる技術です。</p>
+        </article>
+
+        <article class="skill-card">
+          <p class="skill-num">03</p>
+          <h3>料理を組み立てる、<br>揚げ物と段取りの技術</h3>
+          <div class="line" aria-hidden="true"></div>
+          <p>天ぷらや揚げ物は、油の温度、衣の状態、食材を入れるタイミングによって仕上がりが変わります。さらに営業中は、複数の注文を同時に進めなければなりません。麺の茹で上がりと揚げ物の完成を合わせ、最もおいしい状態で料理を提供する。一つの作業だけではなく、厨房全体を見ながら料理を組み立てる力が身につきます。</p>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 03 仕事の価値 ============ -->
+  <section class="value">
+    <div class="wrap">
+      <p class="head">仕事の価値</p>
+      <h2>作るのは、<br>うどんだけではありません</h2>
+      <div class="titleLine" aria-hidden="true"></div>
+      <div class="body">
+        <p>むぎの蔵には、奈良を訪れた観光客や、地域のお客様が来店されます。<br>初めて奈良を訪れた方にとっては、ここで食べた一杯が、<strong>奈良の思い出の一つになる</strong>かもしれません。<br>いつも来てくださる方にとっては、変わらない味が、<strong>日常の楽しみになっている</strong>かもしれません。</p>
+        <p>厨房の中では、一杯一杯の積み重ねに見える仕事です。<br>しかし、その先には、料理を楽しみにしているお客様がいます。</p>
+        <p><strong>自分の技術で、目の前の人に喜んでもらえる。</strong><br>それが、料理人として働く魅力だと考えています。</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 04 むぎの蔵の一日 ============ -->
+  <!-- TODO: 動画ができたら /videos/muginokura-a-day.mp4 を配置 -->
+  <section class="videoBlock">
+    <div class="wrap">
+      <div class="head">
+        <p class="label">むぎの蔵の一日</p>
+        <h2>声を掛け合いながら、<br>厨房は動く。</h2>
+        <div class="titleLine" aria-hidden="true"></div>
+        <p class="lead">仕込みから営業、片付けまで、スタッフ同士で声を掛け合いながら仕事を進めます。</p>
+      </div>
+      <div class="videoFrame">
+        <video
+          src="/videos/muginokura-a-day.mp4"
+          poster="/photos/muginokura/noodle-process-large.webp"
+          controls
+          preload="metadata"
+          playsinline
+          width="1920"
+          height="1080"
+          aria-label="むぎの蔵 一日の流れ">
+          動画を再生するには、ブラウザの動画再生機能が必要です。
+        </video>
+      </div>
+      <p class="caption">※ 動画は準備中です。完成版が公開され次第差し替えます。</p>
+    </div>
+  </section>
+
+  <!-- ============ 05 スタッフの本音 ============ -->
+  <!-- TODO: 動画ができたら /videos/muginokura-interview.mp4 を配置 -->
+  <section class="videoBlock alt">
+    <div class="wrap">
+      <div class="head">
+        <p class="label">スタッフの本音</p>
+        <h2>働く人に、<br>聞きました。</h2>
+        <div class="titleLine" aria-hidden="true"></div>
+        <p class="lead">むぎの蔵で日々お客様と向き合うスタッフが、仕事のやりがいや学びを本音で語ります。求人情報からは伝わらない、リアルな声をどうぞ。</p>
+      </div>
+      <div class="videoFrame">
+        <video
+          src="/videos/muginokura-interview.mp4"
+          poster="/photos/muginokura/counter-large.webp"
+          controls
+          preload="metadata"
+          playsinline
+          width="1920"
+          height="1080"
+          aria-label="むぎの蔵 スタッフインタビュー">
+          動画を再生するには、ブラウザの動画再生機能が必要です。
+        </video>
+      </div>
+      <p class="caption">※ 動画は準備中です。完成版が公開され次第差し替えます。</p>
+    </div>
+  </section>
+
+  <!-- ============ 06 こんな方と働きたい ============ -->
+  <section class="persona">
+    <div class="wrap">
+      <div class="head">
+        <p class="label">こんな方と働きたい</p>
+        <h2>経験年数より、<br>これから学びたい姿勢を大切に。</h2>
+        <div class="titleLine" aria-hidden="true"></div>
+        <p class="lead">私たちが、むぎの蔵で一緒に働きたいと考えているのは次のような方です。</p>
+      </div>
+      <ul class="persona-list">
+        <li>飲食店での調理経験を活かしたい方</li>
+        <li>麺や出汁など、和食の技術を深めたい方</li>
+        <li>料理に対して真面目に向き合いたい方</li>
+        <li>周囲と協力しながら仕事を進められる方</li>
+        <li>お客様に喜んでもらうことが好きな方</li>
+        <li>奈良で腰を据えて働きたい方</li>
+        <li>仕事と私生活の両方を大切にしたい方</li>
+        <li>明るく前向きな方</li>
+      </ul>
+      <p class="closer"><strong>経験年数よりも、これから学びたいという姿勢を大切にします。</strong><br>これまでの調理経験は、むぎの蔵で必ず活きます。</p>
+    </div>
+  </section>
+
+  <!-- ============ 07 最終クロージング ============ -->
+  <section class="close">
+    <div class="wrap">
+      <p class="label">むぎの蔵で、もう一段深くなる</p>
+      <p class="closeTitle">
+        <span>小麦を知る。</span>
+        <span>出汁を知る。</span>
+        <span class="accent">そして、自分の可能性を知る。</span>
+      </p>
+
+      <p>これまで料理の仕事を続けてきた経験は、決して無駄にはなりません。<br>包丁の扱い方。営業中の段取り。食材への気配り。お客様に料理を届ける責任。</p>
+
+      <div class="summary">
+        あなたが積み重ねてきた経験を土台に、<br>むぎの蔵で、麺や出汁の専門技術を身につけてください。
+      </div>
+
+      <p class="question">料理人として、もう一段深くなる。<br>そのための次の一歩を、<br>私たちと一緒に踏み出しませんか。</p>
+
+      <div class="actions">
+        <!-- TODO: 応募 URL / Indeed に差し替え -->
+        <a href="#" target="_blank" rel="noopener" class="btn primary">募集要項を確認して応募する</a>
+        <a href="/会社概要.html#contact" class="btn secondary">職場見学について相談する</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ Sub CTA ============ -->
+  <section class="ctaLinks">
+    <div class="wrap">
+      <div class="head">
+        <h2>他の店舗・関連ページ</h2>
+      </div>
+      <div class="ctaGrid">
+        <a href="/採用情報.html" class="ctaBtn"><span>採用情報トップへ戻る</span><span>→</span></a>
+        <a href="/事業内容.html" class="ctaBtn"><span>事業内容を見る</span><span>→</span></a>
+        <a href="https://muginokura.com/" target="_blank" rel="noopener" class="ctaBtn"><span>むぎの蔵 公式サイト</span><span>→</span></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ Breadcrumb ============ -->
+  <section class="crumb">
+    <div class="wrap">
+      <a href="/八宝コーポレートサイト.html">TOP</a>
+      <span class="sep"></span>
+      <a href="/採用情報.html">採用情報</a>
+      <span class="sep"></span>
+      <span>うどん・ごはん専門店 むぎの蔵</span>
+    </div>
+  </section>
+
+  </main>
+
+  <footer>
+    <div class="row">
+      <div class="col">
+        <div class="fLogo">
+          <span class="mark" aria-hidden="true">
+            <svg viewBox="0 0 40 40" fill="#c9a24b" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="20" cy="20" r="3.2"/>
+              <g transform="translate(20 20)">
+                <ellipse cx="0" cy="-10.5" rx="4" ry="5.2"/>
+                <ellipse cx="0" cy="-10.5" rx="4" ry="5.2" transform="rotate(72)"/>
+                <ellipse cx="0" cy="-10.5" rx="4" ry="5.2" transform="rotate(144)"/>
+                <ellipse cx="0" cy="-10.5" rx="4" ry="5.2" transform="rotate(216)"/>
+                <ellipse cx="0" cy="-10.5" rx="4" ry="5.2" transform="rotate(288)"/>
+              </g>
+            </svg>
+          </span>
+          <span class="name">
+            <span class="ja"><span class="small">株式会社</span><span class="big">八宝</span></span>
+            <span class="en">— HAPPO —</span>
+          </span>
+        </div>
+        <p class="addr">〒630-8215<br>奈良県奈良市東向中町１１ 丸八ビル ２階<br>TEL 0742-24-1755</p>
+      </div>
+      <div class="col">
+        <div class="sitemap">
+          <a href="/八宝の想い.html">八宝の想い</a>
+          <a href="/事業内容.html">事業内容</a>
+          <a href="/採用情報.html">採用情報</a>
+        </div>
+      </div>
+      <div class="col">
+        <div class="sitemap">
+          <a href="/会社概要.html">会社概要</a>
+          <a href="/会社概要.html#contact">お問い合わせ</a>
+          <a href="/プライバシーポリシー.html">プライバシーポリシー</a>
+        </div>
+      </div>
+    </div>
+    <div class="bottom">
+      <span>© HAPPO Co., Ltd.</span>
+      <span>NARA / JAPAN</span>
+    </div>
+  </footer>
+
+  <!-- Mobile drawer -->
+  <div class="mobileDrawer" aria-hidden="true" role="dialog" aria-label="メニュー">
+    <div class="panel">
+      <button class="closeBtn" type="button" aria-label="メニューを閉じる">×</button>
+      <nav>
+        <a href="/八宝の想い.html">八宝の想い</a>
+        <a href="/事業内容.html">事業内容</a>
+        <a href="/採用情報.html">採用情報</a>
+        <a href="/会社概要.html">会社概要・お問い合わせ</a>
+      </nav>
+    </div>
+  </div>
+  <script>
+    (function(){
+      var btn = document.querySelector('.menuBtn');
+      var drawer = document.querySelector('.mobileDrawer');
+      if (!btn || !drawer) return;
+      var closeBtn = drawer.querySelector('.closeBtn');
+      function open(){ drawer.setAttribute('aria-hidden','false'); document.body.style.overflow='hidden'; }
+      function close(){ drawer.setAttribute('aria-hidden','true'); document.body.style.overflow=''; }
+      btn.addEventListener('click', open);
+      closeBtn.addEventListener('click', close);
+      drawer.addEventListener('click', function(e){ if (e.target === drawer) close(); });
+      document.addEventListener('keydown', function(e){ if (e.key === 'Escape') close(); });
+    })();
+  </script>
+</body>
+</html>

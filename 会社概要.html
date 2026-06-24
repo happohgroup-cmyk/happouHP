@@ -1,0 +1,796 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>会社概要・お問い合わせ ─ 株式会社八宝</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=Montserrat:wght@500;600&family=Noto+Sans+JP:wght@300;400;500;700&family=Noto+Serif+JP:wght@300;400;500&display=swap">
+<style>
+  :root {
+    --ink: #1a1814;
+    --ink-soft: #3a3631;
+    --muted: #8a857a;
+    --line: #d9d4c8;
+    --line-soft: #ece8de;
+    --paper: #ffffff;
+    --paper-soft: #faf8f3;
+    --paper-warm: #f1ede3;
+    --placeholder: #ebe7dc;
+    --gold: #c9a24b;
+    --gold-soft: #b48d40;
+    --mincho: "YuMincho", "Yu Mincho", "游明朝", "游明朝体", "Hiragino Mincho ProN", "Hiragino Mincho Pro", "Noto Serif JP", serif;
+    --serif-body: "Noto Serif JP", "YuMincho", "Yu Mincho", "游明朝", "游明朝体", "Hiragino Mincho ProN", serif;
+    --cormorant: "Cormorant Garamond", "Times New Roman", Georgia, serif;
+    --montserrat: "Montserrat", "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Yu Gothic", sans-serif;
+    --sans: "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Yu Gothic", "Meiryo", sans-serif;
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body { margin: 0; font-family: var(--serif-body); color: var(--ink); background: var(--paper); -webkit-font-smoothing: antialiased; font-weight: 350; }
+  .skip-link { position: absolute; left: -9999px; top: 0; z-index: 9999; background: var(--ink); color: var(--paper); padding: 12px 20px; font-size: 14px; text-decoration: none; border-radius: 0 0 4px 0; }
+  .skip-link:focus { left: 0; outline: 2px solid var(--gold); outline-offset: 2px; }
+  .nav a[aria-current="page"] { color: var(--gold-soft); }
+  a { color: inherit; text-decoration: none; }
+  /* ===== 画像インフラ ===== */
+  img { display: block; max-width: 100%; height: auto; object-fit: cover; }
+  .ph img, .col-photo img {
+    width: 100%; height: 100%; object-fit: cover; display: block;
+  }
+  picture { display: block; width: 100%; height: 100%; }
+  picture img { width: 100%; height: 100%; object-fit: cover; }
+  /*
+    推奨追加パターン (代表者写真・店舗外観など):
+    <div class="ph">
+      <img src="/photos/representative/kimura-large.webp" alt="株式会社八宝 代表取締役 木村 有香"
+           loading="lazy" decoding="async" width="800" height="1198">
+    </div>
+  */
+  button { font-family: inherit; }
+
+  /* ---------- Header ---------- */
+  .siteHeader { position: sticky; top: 0; background: rgba(255,255,255,.92); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); border-bottom: 1px solid rgba(0,0,0,.05); z-index: 50; }
+  .siteHeader .row { max-width: 1440px; margin: 0 auto; padding: 18px 40px; display: flex; justify-content: space-between; align-items: center; gap: 32px; }
+  .logo { display: flex; align-items: center; gap: 12px; color: var(--ink); }
+  .logo .mark { width: 48px; height: 48px; border: 1.4px solid var(--gold); border-radius: 50%; display: flex; align-items: center; justify-content: center; background: #fff; flex-shrink: 0; }
+  .logo .mark svg { width: 26px; height: 26px; display: block; }
+  .logo .name { display: flex; flex-direction: column; line-height: 1; gap: 5px; }
+  .logo .name .ja { display: flex; align-items: baseline; gap: 9px; font-family: var(--mincho); }
+  .logo .name .small { font-size: 11px; letter-spacing: .15em; }
+  .logo .name .big { font-size: 19px; letter-spacing: .18em; font-weight: 500; }
+  .logo .name .en { font-size: 9px; letter-spacing: .42em; color: var(--gold-soft); }
+  .nav { display: flex; align-items: center; gap: 38px; font-size: 14px; letter-spacing: .12em; }
+  .nav a { color: var(--ink-soft); transition: color .2s; }
+  .nav a:hover { color: var(--gold-soft); }
+  .nav a.current { color: var(--gold-soft); }
+  .menuBtn { width: 50px; height: 50px; border-radius: 50%; border: 1.2px solid var(--ink-soft); background: transparent; color: var(--ink); display: flex; align-items: center; justify-content: center; cursor: pointer; padding: 0; }
+  .menuBtn svg { width: 20px; height: 16px; display: block; }
+  @media (max-width: 1080px) { .nav { display: none; } }
+
+  /* ---------- Page title ---------- */
+  .pageTitle { padding: clamp(80px, 9vw, 130px) 40px clamp(60px, 6vw, 80px); }
+  .pageTitle .wrap { max-width: 1280px; margin: 0 auto; }
+  .pageTitle .eyebrow { font-size: 12px; letter-spacing: .4em; color: var(--gold-soft); margin: 0 0 18px; }
+  .pageTitle h1 { font-family: var(--mincho); font-weight: 500; font-size: clamp(30px, 4.2vw, 52px); line-height: 1.45; letter-spacing: .14em; margin: 0 0 28px; color: var(--ink); }
+  .pageTitle .titleLine { width: 64px; height: 2px; background: var(--gold); }
+
+  /* ---------- Intro 2-column ---------- */
+  .intro { padding: clamp(60px, 7vw, 100px) 40px clamp(80px, 10vw, 140px); }
+  .intro .wrap { max-width: 1280px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: clamp(40px, 6vw, 96px); align-items: start; }
+  /* Single-column variant (写真なし、テキストのみ) — 下の ごあいさつ (max-width: 1100px) と左端を揃える */
+  .intro--single .wrap { display: block; max-width: 1100px; }
+  .intro h2 { font-family: var(--mincho); font-weight: 500; font-size: clamp(28px, 3.4vw, 42px); line-height: 1.55; letter-spacing: .12em; margin: 0 0 28px; }
+  .intro .line { width: 56px; height: 1.5px; background: var(--gold); margin-bottom: 40px; }
+  .intro p { font-family: var(--mincho); font-size: 15.5px; line-height: 2.3; letter-spacing: .08em; margin: 0 0 1.6em; color: var(--ink-soft); }
+  .intro p:last-child { margin-bottom: 0; }
+  .intro .col-photo .ph { aspect-ratio: 4 / 5; background: var(--placeholder); display: flex; align-items: center; justify-content: center; border: 1px solid var(--line); }
+  .ph-label { font-size: 11px; letter-spacing: .35em; color: var(--muted); }
+  @media (max-width: 880px) {
+    .intro .wrap { grid-template-columns: 1fr; gap: 48px; }
+    .intro .col-photo { order: -1; }
+  }
+
+  /* ---------- Greeting section ---------- */
+  .greeting { padding: clamp(80px, 9vw, 130px) 40px; background: var(--paper-soft); }
+  .greeting .wrap { max-width: 1100px; margin: 0 auto; }
+  .greeting .heading-row { margin-bottom: clamp(40px, 5vw, 60px); }
+  .greeting .eyebrow { font-size: 12px; letter-spacing: .4em; color: var(--gold-soft); margin: 0 0 18px; }
+  .greeting h2 { font-family: var(--mincho); font-weight: 500; font-size: clamp(26px, 3vw, 36px); line-height: 1.55; letter-spacing: .12em; margin: 0 0 24px; }
+  .greeting .titleLine { width: 60px; height: 2px; background: var(--gold); }
+  .greeting .grid { display: grid; grid-template-columns: 1.6fr 1fr; gap: clamp(40px, 5vw, 72px); align-items: start; }
+  .greeting .message p { font-family: var(--mincho); font-size: 15.5px; line-height: 2.3; letter-spacing: .08em; margin: 0 0 1.6em; color: var(--ink-soft); }
+  .greeting .message p:last-child { margin-bottom: 0; }
+  .greeting .profile { display: flex; flex-direction: column; gap: 24px; }
+  .greeting .profile .ph { aspect-ratio: 2 / 3; background: var(--placeholder); border: 1px solid var(--line); position: relative; overflow: hidden; }
+  .greeting .profile .ph picture,
+  .greeting .profile .ph img { position: absolute; inset: 0; width: 100% !important; height: 100% !important; object-fit: cover; }
+  .greeting .sign { font-family: var(--mincho); }
+  .greeting .sign-label { font-size: 12px; letter-spacing: .25em; color: var(--muted); margin: 0 0 10px; }
+  .greeting .sign-name { font-size: 22px; letter-spacing: .18em; font-weight: 500; margin: 0; color: var(--ink); }
+  @media (max-width: 880px) {
+    .greeting .grid { grid-template-columns: 1fr; gap: 40px; }
+    .greeting .profile { max-width: 320px; margin: 0 auto; }
+  }
+
+  /* ---------- Company table ---------- */
+  .companyInfo { padding: clamp(100px, 11vw, 160px) 40px; }
+  .companyInfo .wrap { max-width: 1100px; margin: 0 auto; }
+  .companyInfo .heading-row { margin-bottom: clamp(48px, 6vw, 72px); }
+  .companyInfo .eyebrow { font-size: 12px; letter-spacing: .4em; color: var(--gold-soft); margin: 0 0 18px; }
+  .companyInfo h2 { font-family: var(--mincho); font-weight: 500; font-size: clamp(28px, 3.4vw, 40px); line-height: 1.5; letter-spacing: .12em; margin: 0 0 24px; }
+  .companyInfo .titleLine { width: 60px; height: 2px; background: var(--gold); }
+  .companyInfo dl { margin: 0; border-top: 1px solid var(--line); }
+  .companyInfo .row { display: grid; grid-template-columns: 220px 1fr; gap: 36px; padding: 28px 12px; border-bottom: 1px solid var(--line); align-items: start; }
+  .companyInfo dt { font-family: var(--mincho); font-size: 15px; letter-spacing: .15em; color: var(--ink); margin: 0; font-weight: 500; padding-top: 2px; }
+  .companyInfo dd { font-family: var(--mincho); font-size: 15px; line-height: 1.9; letter-spacing: .08em; color: var(--ink-soft); margin: 0; }
+  @media (max-width: 880px) {
+    .companyInfo .row { grid-template-columns: 1fr; gap: 10px; padding: 24px 8px; }
+    .companyInfo dt { font-size: 13.5px; color: var(--gold-soft); letter-spacing: .2em; }
+  }
+
+  /* ---------- Contact intro ---------- */
+  .contactIntro { padding: clamp(100px, 11vw, 160px) 40px clamp(40px, 5vw, 70px); background: var(--paper-warm); text-align: center; }
+  .contactIntro .wrap { max-width: 760px; margin: 0 auto; }
+  .contactIntro .eyebrow { font-size: 12px; letter-spacing: .4em; color: var(--gold-soft); margin: 0 0 18px; }
+  .contactIntro h2 { font-family: var(--mincho); font-weight: 500; font-size: clamp(28px, 3.4vw, 42px); line-height: 1.5; letter-spacing: .14em; margin: 0 0 32px; }
+  .contactIntro .titleLine { width: 64px; height: 2px; background: var(--gold); margin: 0 auto 36px; }
+  .contactIntro p { font-family: var(--mincho); font-size: clamp(14.5px, 1.2vw, 16.5px); line-height: 2.3; letter-spacing: .1em; margin: 0 0 1.4em; color: var(--ink-soft); }
+  .contactIntro p:last-child { margin-bottom: 0; }
+
+  /* ---------- Inquiry categories ---------- */
+  .categories { padding: clamp(40px, 5vw, 70px) 40px clamp(80px, 9vw, 130px); background: var(--paper-warm); }
+  .categories .wrap { max-width: 1100px; margin: 0 auto; }
+  .categories h3 { font-family: var(--mincho); font-weight: 500; font-size: clamp(20px, 2vw, 26px); letter-spacing: .12em; margin: 0 0 28px; text-align: center; }
+  .categories .grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+  .categories .item { background: #fff; padding: 22px 24px; border: 1px solid var(--line); display: flex; align-items: center; gap: 14px; font-family: var(--mincho); font-size: 14.5px; letter-spacing: .08em; line-height: 1.5; color: var(--ink); }
+  .categories .item::before { content: ''; width: 8px; height: 8px; border-radius: 50%; background: var(--gold); flex-shrink: 0; }
+  @media (max-width: 880px) { .categories .grid { grid-template-columns: 1fr; } }
+
+  /* ---------- Notice ---------- */
+  .noticeBlock { padding: clamp(60px, 7vw, 100px) 40px clamp(20px, 3vw, 40px); }
+  .noticeBlock .wrap { max-width: 880px; margin: 0 auto; }
+  .notice { background: var(--paper-soft); border-left: 3px solid var(--gold); padding: 28px 32px; font-family: var(--mincho); font-size: 14.5px; line-height: 2.2; letter-spacing: .06em; color: var(--ink-soft); }
+  .notice p { margin: 0 0 1em; }
+  .notice p:last-child { margin: 0; }
+
+  /* ---------- Form ---------- */
+  .formBlock { padding: clamp(40px, 5vw, 70px) 40px clamp(100px, 11vw, 160px); }
+  .formBlock .wrap { max-width: 880px; margin: 0 auto; }
+  .formBlock form { display: flex; flex-direction: column; gap: 32px; }
+  .field { display: flex; flex-direction: column; gap: 12px; }
+  .field label.lbl { display: flex; align-items: center; gap: 12px; font-family: var(--mincho); font-size: 15px; letter-spacing: .1em; color: var(--ink); }
+  .field label.lbl .req { font-size: 10px; letter-spacing: .15em; padding: 3px 8px; background: var(--gold); color: #fff; border-radius: 2px; }
+  .field label.lbl .opt { font-size: 10px; letter-spacing: .15em; padding: 3px 8px; background: var(--line); color: var(--ink-soft); border-radius: 2px; }
+  .field input[type="text"], .field input[type="email"], .field input[type="tel"], .field select, .field textarea {
+    width: 100%; border: 1px solid var(--line); background: #fff; padding: 16px 18px; font-family: var(--sans); font-size: 15px; letter-spacing: .04em; color: var(--ink); transition: border-color .2s;
+  }
+  .field input:focus, .field select:focus, .field textarea:focus { outline: none; border-color: var(--gold); }
+  .field textarea { min-height: 180px; resize: vertical; line-height: 1.85; font-family: var(--mincho); }
+  .field select { appearance: none; -webkit-appearance: none; background-image: linear-gradient(45deg, transparent 50%, var(--muted) 50%), linear-gradient(135deg, var(--muted) 50%, transparent 50%); background-position: calc(100% - 22px) center, calc(100% - 16px) center; background-size: 6px 6px; background-repeat: no-repeat; padding-right: 44px; }
+  .checkboxRow { display: flex; align-items: center; gap: 12px; padding: 16px 0; }
+  .checkboxRow input[type="checkbox"] { width: 18px; height: 18px; accent-color: var(--gold); cursor: pointer; }
+  .checkboxRow label { font-family: var(--mincho); font-size: 14px; letter-spacing: .08em; color: var(--ink); cursor: pointer; }
+  .checkboxRow a { color: var(--gold-soft); text-decoration: underline; text-underline-offset: 4px; }
+  .submitRow { display: flex; justify-content: center; margin-top: 16px; }
+  .submitBtn { background: var(--ink); color: #fff; border: 0; padding: 22px 64px; font-size: 16px; letter-spacing: .15em; cursor: pointer; display: inline-flex; align-items: center; gap: 24px; transition: background .2s, transform .2s; }
+  .submitBtn:hover { background: #000; transform: translateY(-2px); }
+  .submitBtn:disabled { background: var(--muted); cursor: not-allowed; transform: none; }
+
+  /* ---------- Thank-you ---------- */
+  .thanks { display: none; padding: clamp(120px, 14vw, 200px) 40px clamp(120px, 14vw, 200px); background: var(--paper-warm); text-align: center; }
+  .thanks.is-active { display: block; }
+  .thanks .wrap { max-width: 700px; margin: 0 auto; }
+  .thanks .checkmark { width: 76px; height: 76px; margin: 0 auto 40px; border: 1.5px solid var(--gold); border-radius: 50%; display: flex; align-items: center; justify-content: center; }
+  .thanks .checkmark svg { width: 32px; height: 32px; }
+  .thanks h2 { font-family: var(--mincho); font-weight: 500; font-size: clamp(26px, 3.2vw, 36px); line-height: 1.55; letter-spacing: .15em; margin: 0 0 40px; }
+  .thanks p { font-family: var(--mincho); font-size: clamp(14.5px, 1.2vw, 16.5px); line-height: 2.4; letter-spacing: .1em; margin: 0 0 1.4em; color: var(--ink-soft); }
+  .thanks p:last-of-type { margin-bottom: 56px; }
+  .thanks .home { display: inline-flex; justify-content: center; align-items: center; gap: 24px; background: var(--ink); color: #fff; padding: 22px 48px; font-size: 15px; letter-spacing: .12em; transition: background .2s, transform .2s; }
+  .thanks .home:hover { background: #000; transform: translateY(-2px); }
+
+  /* ---------- CTA links ---------- */
+  .ctaLinks { padding: clamp(80px, 9vw, 130px) 40px clamp(40px, 5vw, 70px); }
+  .ctaLinks .wrap { max-width: 1280px; margin: 0 auto; }
+  .ctaLinks .head { display: flex; align-items: center; gap: 18px; margin-bottom: 36px; }
+  .ctaLinks .head::before { content: ''; width: 28px; height: 1.5px; background: var(--ink); }
+  .ctaLinks .head h2 { font-family: var(--mincho); font-weight: 500; font-size: clamp(20px, 2.2vw, 28px); letter-spacing: .12em; margin: 0; }
+  .ctaGrid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+  .ctaBtn { background: var(--ink); color: #fff; padding: 30px 32px; display: flex; justify-content: space-between; align-items: center; font-size: 16px; letter-spacing: .12em; transition: background .2s, transform .2s; }
+  .ctaBtn:hover { background: #000; transform: translateY(-2px); }
+  @media (max-width: 880px) { .ctaGrid { grid-template-columns: 1fr; } }
+
+  /* ---------- Breadcrumb ---------- */
+  .crumb { padding: 40px; }
+  .crumb .wrap { max-width: 1280px; margin: 0 auto; display: flex; gap: 14px; align-items: center; font-size: 12.5px; letter-spacing: .15em; color: var(--muted); }
+  .crumb a { color: var(--ink-soft); }
+  .crumb .sep { display: inline-block; width: 16px; height: 1px; background: var(--muted); }
+
+  /* ---------- Footer ---------- */
+  footer { background: var(--paper-soft); padding: clamp(64px, 7vw, 100px) 40px 36px; border-top: 1px solid var(--line); }
+  footer .row { max-width: 1280px; margin: 0 auto; display: grid; grid-template-columns: 1.2fr 1fr 1fr; gap: 60px; padding-bottom: 60px; border-bottom: 1px solid var(--line); }
+  footer .fLogo { display: flex; align-items: center; gap: 14px; margin-bottom: 28px; }
+  footer .fLogo .mark { width: 56px; height: 56px; border: 1.4px solid var(--gold); border-radius: 50%; display: flex; align-items: center; justify-content: center; }
+  footer .fLogo .mark svg { width: 30px; height: 30px; }
+  footer .fLogo .name { display: flex; flex-direction: column; gap: 5px; line-height: 1; font-family: var(--mincho); }
+  footer .fLogo .name .ja { display: flex; align-items: baseline; gap: 10px; }
+  footer .fLogo .name .small { font-size: 11px; letter-spacing: .18em; }
+  footer .fLogo .name .big { font-size: 22px; letter-spacing: .2em; font-weight: 500; }
+  footer .fLogo .name .en { font-size: 9px; letter-spacing: .45em; color: var(--gold-soft); }
+  footer .addr { font-size: 13px; line-height: 2; letter-spacing: .05em; color: var(--ink-soft); margin: 0; }
+  footer .sitemap { display: flex; flex-direction: column; gap: 16px; }
+  footer .sitemap a { font-family: var(--mincho); font-size: 14.5px; letter-spacing: .14em; color: var(--ink); }
+  footer .sitemap a:hover { color: var(--gold-soft); }
+  footer .bottom { max-width: 1280px; margin: 0 auto; padding-top: 28px; display: flex; justify-content: space-between; font-size: 11px; letter-spacing: .25em; color: var(--muted); }
+  @media (max-width: 880px) {
+    footer .row { grid-template-columns: 1fr; gap: 40px; }
+    footer .bottom { flex-direction: column; gap: 12px; }
+  }
+
+  /* ---------- Form validation ---------- */
+  .field-err { font-size: 13px; color: #b03030; margin: 4px 0 0; line-height: 1.6; letter-spacing: 0.04em; }
+  .field input[aria-invalid="true"], .field select[aria-invalid="true"], .field textarea[aria-invalid="true"] { border-color: #b03030 !important; }
+  #error-summary { background: #fdecec; border: 1px solid #b03030; padding: 24px 28px; margin: 0 0 32px; border-radius: 4px; }
+  #error-summary .summary-title { font-family: var(--mincho); font-size: 16px; font-weight: 500; color: #8a0e0e; margin: 0 0 14px; letter-spacing: 0.04em; }
+  #error-summary ul { margin: 0; padding-left: 20px; }
+  #error-summary li { font-size: 14px; line-height: 1.9; }
+  #error-summary a { color: #8a0e0e; text-decoration: underline; }
+  #error-summary a:hover { color: #b03030; }
+
+  /* ---------- States ---------- */
+  .pre-submit.is-hidden { display: none; }
+
+  /* ===== Typography system override ===== */
+  body, p, dd, .notice, .notice p, .contactIntro p, .greeting p, .closing p, .thanks p, .intro p, .companyInfo dd {
+    font-family: var(--serif-body) !important; font-weight: 350 !important;
+  }
+  h1, h2, h3, .pageTitle h1, .intro h2, .greeting h2, .companyInfo h2, .contactIntro h2, .categories h3, .thanks h2, .greeting .sign-name, .closing .closingTitle {
+    font-family: var(--mincho) !important; font-weight: 500 !important;
+  }
+  .companyInfo dt {
+    font-family: var(--mincho) !important; font-weight: 500 !important;
+  }
+  .eyebrow, .pageTitle .eyebrow, .greeting .eyebrow, .companyInfo .eyebrow, .contactIntro .eyebrow, .crumb, .crumb span {
+    font-family: var(--cormorant) !important; font-weight: 500 !important;
+  }
+  .nav, .nav a, header.siteHeader nav a {
+    font-family: var(--montserrat) !important; font-weight: 500 !important;
+  }
+  .categories .item, .ctaBtn, .ctaBtn span, .home, .home span, .submitBtn, .submitBtn span, .applyCta a, .applyCta a span, .logo .name, .logo .name .small, .logo .name .big, .logo .name .en, .menuBtn, button, .field label.lbl {
+    font-family: var(--sans) !important; font-weight: 500 !important;
+  }
+  input, select, textarea {
+    font-family: var(--sans) !important; font-weight: 400 !important;
+  }
+  footer .addr, footer .bottom, footer .copy, .crumb a, .greeting .sign-label {
+    font-family: var(--sans) !important; font-weight: 400 !important;
+  }
+  /* ===== ボタン「→」非表示 + 強化された hover ===== */
+  .ctaBtn > span:last-child,
+  .home > span:last-child,
+  .submitBtn > span:last-child {
+    display: none !important;
+  }
+  .ctaBtn, .home, .submitBtn {
+    transition: background .25s ease, color .25s ease, transform .25s ease !important;
+  }
+  .ctaBtn:hover, .home:hover, .submitBtn:hover {
+    background: var(--gold-soft) !important;
+    color: #fff !important;
+    transform: translateY(-2px) !important;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+      animation-duration: 0.001ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.001ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+  @media (max-width: 600px) {
+    .intro p, .greeting p, .companyInfo dd, .contactIntro p, .closing p, .thanks p, .notice p { font-size: 16px !important; line-height: 2.05 !important; }
+    input, select, textarea { font-size: 16px !important; }
+  }
+
+  /* ===== TYPOGRAPHY SCALE-UP (視認性向上 +10〜15%) ===== */
+  body { font-size: 16.5px; }
+  p, li, dd { font-size: 17px !important; line-height: 2.2 !important; }
+  h1, .pageTitle h1 { font-size: clamp(36px, 4.8vw, 56px) !important; }
+  h2 { font-size: clamp(30px, 3.8vw, 46px) !important; }
+  h3 { font-size: 21px !important; line-height: 1.7 !important; }
+  .eyebrow { font-size: 13.5px !important; }
+  .ctaBtn, .ctaBtn span { font-size: 16.5px !important; }
+  .num, .steps .step .num, .benefit-card .num { font-size: 30px !important; }
+  footer .addr { font-size: 14.5px !important; line-height: 2.1 !important; }
+  .crumb, .crumb a, .crumb span { font-size: 13.5px !important; }
+  @media (max-width: 600px) {
+    p, li, dd { font-size: 17px !important; line-height: 2.15 !important; }
+    h3 { font-size: 20px !important; }
+  }
+
+  /* text-wrap-balance-injected */
+
+  /* ===== Text-wrap balancing (orphan-1-4-char fix) ===== */
+  h1, h2, h3, .closeTitle, .panelTitle, .hero h1, .hero .sub, .pageTitle h1, .intro h2 {
+    text-wrap: balance;
+  }
+  p, li, dd, .lead, .body p, .closer, .voice-quote, .work .lead, .videoBlock .lead {
+    text-wrap: pretty;
+  }
+
+  /* mobile-tap-target-injected */
+
+  /* ===== Mobile tap target enlargement (mobile-only / PC unchanged) ===== */
+  @media (max-width: 880px) {
+    .menuBtn {
+      position: relative;
+      width: 56px !important;
+      height: 56px !important;
+    }
+    .menuBtn::before {
+      content: "";
+      position: absolute;
+      inset: -14px;
+      z-index: 1;
+    }
+    .menuBtn > * { pointer-events: none; }
+    .ctaBtn, .ctaLinks .ctaBtn, .stores .item .more, .applyCta a, .home, .submitBtn,
+    a.btn, button.btn, .close .btn {
+      min-height: 56px !important;
+      align-items: center;
+    }
+    .nav a, footer .sitemap a, .crumb a, .ctaBtn span {
+      padding: 6px 0;
+      min-height: 44px;
+      display: inline-flex;
+      align-items: center;
+    }
+  }
+
+  /* mobile-drawer-injected */
+
+  /* ===== Mobile drawer ===== */
+  .mobileDrawer {
+    position: fixed; inset: 0; z-index: 200;
+    background: rgba(0, 0, 0, 0.5);
+    opacity: 0; visibility: hidden;
+    transition: opacity .3s ease, visibility .3s;
+  }
+  .mobileDrawer[aria-hidden="false"] { opacity: 1; visibility: visible; }
+  .mobileDrawer .panel {
+    position: absolute; top: 0; right: 0; bottom: 0;
+    width: min(86vw, 360px);
+    background: #fff;
+    transform: translateX(100%);
+    transition: transform .35s cubic-bezier(.2,.7,.2,1);
+    display: flex; flex-direction: column;
+    padding: 28px 28px 32px;
+    box-shadow: -16px 0 48px rgba(0,0,0,.22);
+  }
+  .mobileDrawer[aria-hidden="false"] .panel { transform: translateX(0); }
+  .mobileDrawer .closeBtn {
+    width: 48px; height: 48px; align-self: flex-end;
+    background: transparent; border: 1.2px solid #d9d4c8; border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    cursor: pointer; padding: 0; font-size: 22px; color: #1a1814;
+    position: relative;
+  }
+  .mobileDrawer .closeBtn::before { content: ""; position: absolute; inset: -14px; }
+  .mobileDrawer nav {
+    margin-top: 32px; display: flex; flex-direction: column; gap: 4px;
+  }
+  .mobileDrawer nav a {
+    display: block; padding: 16px 0; font-family: var(--mincho, serif);
+    font-size: 17px; letter-spacing: .14em; color: #1a1814;
+    border-bottom: 1px solid #ece8de; min-height: 56px; align-items: center; display: flex;
+  }
+</style>
+</head>
+<body>
+
+  <a class="skip-link" href="#main-content">メインコンテンツへスキップ</a>
+
+  <!-- ============ Header ============ -->
+  <header class="siteHeader">
+    <div class="row">
+      <a href="/八宝コーポレートサイト.html" class="logo" aria-label="株式会社八宝 HAPPO">
+        <span class="mark" aria-hidden="true">
+          <svg viewBox="0 0 40 40" fill="#c9a24b" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="20" cy="20" r="3.2"/>
+            <g transform="translate(20 20)">
+              <ellipse cx="0" cy="-10.5" rx="4" ry="5.2"/>
+              <ellipse cx="0" cy="-10.5" rx="4" ry="5.2" transform="rotate(72)"/>
+              <ellipse cx="0" cy="-10.5" rx="4" ry="5.2" transform="rotate(144)"/>
+              <ellipse cx="0" cy="-10.5" rx="4" ry="5.2" transform="rotate(216)"/>
+              <ellipse cx="0" cy="-10.5" rx="4" ry="5.2" transform="rotate(288)"/>
+            </g>
+          </svg>
+        </span>
+        <span class="name">
+          <span class="ja"><span class="small">株式会社</span><span class="big">八宝</span></span>
+          <span class="en">— HAPPO —</span>
+        </span>
+      </a>
+      <nav class="nav">
+        <a href="/八宝の想い.html">八宝の想い</a>
+        <a href="/事業内容.html">事業内容</a>
+        <a href="/採用情報.html">採用情報</a>
+        <a href="/会社概要.html" class="current" aria-current="page">会社概要・お問い合わせ</a>
+      </nav>
+      <button class="menuBtn" aria-label="メニューを開く">
+        <svg viewBox="0 0 22 18" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round">
+          <line x1="1" y1="3" x2="21" y2="3"/>
+          <line x1="1" y1="9" x2="21" y2="9"/>
+          <line x1="1" y1="15" x2="21" y2="15"/>
+        </svg>
+      </button>
+    </div>
+  </header>
+
+  <!-- pre-submit content (form + everything above) -->
+  <main id="main-content">
+  <div class="pre-submit">
+
+    <!-- ============ Page title ============ -->
+    <section class="pageTitle">
+      <div class="wrap">
+        <p class="eyebrow">COMPANY &amp; CONTACT</p>
+        <h1>会社概要・お問い合わせ</h1>
+        <div class="titleLine"></div>
+      </div>
+    </section>
+
+    <!-- ============ Intro (single column, no photo) ============ -->
+    <section class="intro intro--single">
+      <div class="wrap">
+        <div class="col-text">
+          <h2>奈良の食文化を<br>未来へつなぐ会社</h2>
+          <div class="line"></div>
+          <p>株式会社八宝は、奈良の食材や文化を生かした店舗・商品づくりを通じて、地域の魅力を発信しています。古都・奈良に息づく食の歴史と日々の暮らしを、料理と菓子という形でお客様の手元へお届けすることが、私たちの仕事です。</p>
+          <p>大和茶を主役にした和菓子、奈良の酒蔵を集めた地酒の居酒屋、自家製麺のうどん、そして炊きたての釜めし。扱う商品や料理は店舗ごとに異なりますが、根底にあるのは「奈良の素材と職人の手仕事を、お客様に正直にお届けする」という一つの想いです。</p>
+          <p>観光で訪れる方にも、地元で長く親しんでいただく方にも、心に残る食の体験を。八宝はこれからも、奈良の食文化を次の世代へ受け継いでいく会社でありたいと考えています。</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ Company table ============ -->
+    <section class="companyInfo" id="company">
+      <div class="wrap">
+        <div class="heading-row">
+          <p class="eyebrow">COMPANY PROFILE</p>
+          <h2>会社概要</h2>
+          <div class="titleLine"></div>
+        </div>
+        <dl>
+          <div class="row"><dt>会社名</dt><dd>株式会社八宝</dd></div>
+          <div class="row"><dt>所在地</dt><dd>〒630-8215<br>奈良県奈良市東向中町１１ 丸八ビル ２階</dd></div>
+          <div class="row"><dt>代表者</dt><dd>代表取締役 木村 有香</dd></div>
+          <div class="row"><dt>資本金</dt><dd>1,000万円</dd></div>
+          <div class="row"><dt>事業内容</dt><dd>飲食店の運営、菓子の製造・販売、EC事業、WEB関連事業、不動産賃貸・管理</dd></div>
+          <div class="row"><dt>運営店舗</dt><dd>大和茶大福専門店 GRANCHA<br>奈良の酒蔵全部呑み うまっしゅ<br>うどん・ごはん むぎの蔵<br>釜めし茶漬け GRANCHA</dd></div>
+        </dl>
+      </div>
+    </section>
+
+    <!-- ============ Contact intro ============ -->
+    <section class="contactIntro" id="contact">
+      <div class="wrap">
+        <p class="eyebrow">CONTACT</p>
+        <h2>お問い合わせ</h2>
+        <div class="titleLine"></div>
+        <p>店舗や商品、採用、取材などに関するお問い合わせは、<br>下記フォームよりお送りください。</p>
+        <p>内容を確認のうえ、担当者からご連絡いたします。</p>
+      </div>
+    </section>
+
+    <!-- ============ Categories ============ -->
+    <section class="categories">
+      <div class="wrap">
+        <h3>お問い合わせ項目</h3>
+        <div class="grid">
+          <div class="item">店舗・サービスについて</div>
+          <div class="item">商品について</div>
+          <div class="item">取材・メディア掲載について</div>
+          <div class="item">法人取引・業務提携について</div>
+          <div class="item">採用について</div>
+          <div class="item">その他のお問い合わせ</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ Notice ============ -->
+    <section class="noticeBlock">
+      <div class="wrap">
+        <div class="notice">
+          <p>お問い合わせ内容によっては、回答までにお時間をいただく場合がございます。</p>
+          <p>また、営業・休業日やご予約など、お急ぎの店舗へのお問い合わせにつきましては、各店舗へ直接お電話ください。</p>
+          <p>営業を目的としたお問い合わせには、返信できない場合がございます。あらかじめご了承ください。</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ Form ============ -->
+    <section class="formBlock">
+      <div class="wrap">
+        <form id="contactForm" novalidate>
+          <div class="field">
+            <label class="lbl" for="kind">お問い合わせ種別 <span class="req">必須</span></label>
+            <select id="kind" name="kind" required>
+              <option value="">選択してください</option>
+              <option>店舗・サービスについて</option>
+              <option>商品について</option>
+              <option>取材・メディア掲載について</option>
+              <option>法人取引・業務提携について</option>
+              <option>採用について</option>
+              <option>その他のお問い合わせ</option>
+            </select>
+          </div>
+          <div class="field">
+            <label class="lbl" for="name">お名前 <span class="req">必須</span></label>
+            <input type="text" id="name" name="name" autocomplete="name" required>
+          </div>
+          <div class="field">
+            <label class="lbl" for="company">会社名・団体名 <span class="opt">任意</span></label>
+            <input type="text" id="company" name="company" autocomplete="organization">
+          </div>
+          <div class="field">
+            <label class="lbl" for="email">メールアドレス <span class="req">必須</span></label>
+            <input type="email" id="email" name="email" autocomplete="email" required>
+          </div>
+          <div class="field">
+            <label class="lbl" for="tel">電話番号 <span class="opt">任意</span></label>
+            <input type="tel" id="tel" name="tel" autocomplete="tel">
+          </div>
+          <div class="field">
+            <label class="lbl" for="store">お問い合わせ対象店舗 <span class="opt">任意</span></label>
+            <select id="store" name="store">
+              <option value="">該当する店舗を選択してください</option>
+              <option>大和茶大福専門店 GRANCHA</option>
+              <option>奈良の酒蔵全部呑み うまっしゅ</option>
+              <option>うどん・ごはん むぎの蔵</option>
+              <option>釜めし茶漬け GRANCHA</option>
+              <option>該当なし／全社宛</option>
+            </select>
+          </div>
+          <div class="field">
+            <label class="lbl" for="message">お問い合わせ内容 <span class="req">必須</span></label>
+            <textarea id="message" name="message" required></textarea>
+          </div>
+          <div class="checkboxRow">
+            <input type="checkbox" id="agree" name="agree" required>
+            <label for="agree"><a href="/プライバシーポリシー.html" target="_blank" rel="noopener">個人情報保護方針</a>に同意します</label>
+          </div>
+          <div class="submitRow">
+            <button type="submit" class="submitBtn"><span>入力内容を確認する</span><span>→</span></button>
+          </div>
+        </form>
+      </div>
+    </section>
+
+  </div>
+  <!-- /pre-submit -->
+
+  <!-- ============ Thank you (post-submit) ============ -->
+  <section class="thanks" id="thanks" aria-live="polite">
+    <div class="wrap">
+      <div class="checkmark" aria-hidden="true">
+        <svg viewBox="0 0 32 32" fill="none" stroke="#c9a24b" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 17 13 24 26 9"/></svg>
+      </div>
+      <h2>お問い合わせ<br>ありがとうございます</h2>
+      <p>お問い合わせを受け付けました。<br>ご入力いただいたメールアドレスへ、受付確認メールをお送りしています。<br>内容を確認のうえ、担当者からご連絡いたします。</p>
+      <p>数日経過しても返信がない場合は、メールアドレスの<br>入力間違いや、迷惑メールフォルダをご確認ください。</p>
+      <a href="/八宝コーポレートサイト.html" class="home"><span>トップページへ戻る</span><span>→</span></a>
+    </div>
+  </section>
+
+  </main>
+
+  <!-- ============ CTA links ============ -->
+  <section class="ctaLinks">
+    <div class="wrap">
+      <div class="head">
+        <h2>八宝についてもっと知りたい方はこちら</h2>
+      </div>
+      <div class="ctaGrid">
+        <a href="/八宝の想い.html" class="ctaBtn"><span>八宝の想い</span><span>→</span></a>
+        <a href="/事業内容.html" class="ctaBtn"><span>事業内容</span><span>→</span></a>
+        <a href="/採用情報.html" class="ctaBtn"><span>採用情報</span><span>→</span></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ Breadcrumb ============ -->
+  <section class="crumb">
+    <div class="wrap">
+      <a href="/八宝コーポレートサイト.html">TOP</a>
+      <span class="sep"></span>
+      <span>会社概要・お問い合わせ</span>
+    </div>
+  </section>
+
+  <!-- ============ Footer ============ -->
+  <footer>
+    <div class="row">
+      <div class="col">
+        <div class="fLogo">
+          <span class="mark" aria-hidden="true">
+            <svg viewBox="0 0 40 40" fill="#c9a24b" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="20" cy="20" r="3.2"/>
+              <g transform="translate(20 20)">
+                <ellipse cx="0" cy="-10.5" rx="4" ry="5.2"/>
+                <ellipse cx="0" cy="-10.5" rx="4" ry="5.2" transform="rotate(72)"/>
+                <ellipse cx="0" cy="-10.5" rx="4" ry="5.2" transform="rotate(144)"/>
+                <ellipse cx="0" cy="-10.5" rx="4" ry="5.2" transform="rotate(216)"/>
+                <ellipse cx="0" cy="-10.5" rx="4" ry="5.2" transform="rotate(288)"/>
+              </g>
+            </svg>
+          </span>
+          <span class="name">
+            <span class="ja"><span class="small">株式会社</span><span class="big">八宝</span></span>
+            <span class="en">— HAPPO —</span>
+          </span>
+        </div>
+        <p class="addr">〒630-8215<br>奈良県奈良市東向中町１１ 丸八ビル ２階<br>TEL 0742-24-1755</p>
+      </div>
+      <div class="col">
+        <div class="sitemap">
+          <a href="/八宝の想い.html">八宝の想い</a>
+          <a href="/事業内容.html">事業内容</a>
+          <a href="/採用情報.html">採用情報</a>
+        </div>
+      </div>
+      <div class="col">
+        <div class="sitemap">
+          <a href="/会社概要.html">会社概要</a>
+          <a href="/会社概要.html#contact">お問い合わせ</a>
+          <a href="/プライバシーポリシー.html">プライバシーポリシー</a>
+        </div>
+      </div>
+    </div>
+    <div class="bottom">
+      <span>© HAPPO Co., Ltd.</span>
+      <span>NARA / JAPAN</span>
+    </div>
+  </footer>
+
+  <script>
+    (function () {
+      function scrollToHash() {
+        if (!location.hash) return;
+        var el = document.querySelector(location.hash);
+        if (!el) return;
+        var headerH = document.querySelector('.siteHeader')?.offsetHeight || 0;
+        var y = el.getBoundingClientRect().top + window.scrollY - headerH - 16;
+        window.scrollTo({ top: y, behavior: 'auto' });
+      }
+      if (location.hash) {
+        window.addEventListener('load', () => requestAnimationFrame(scrollToHash));
+        document.fonts && document.fonts.ready.then(scrollToHash);
+      }
+
+      var form = document.getElementById('contactForm');
+      var pre = document.querySelector('.pre-submit');
+      var thanks = document.getElementById('thanks');
+      if (!form) return;
+
+      // === F1: inline validation on blur ===
+      var fields = form.querySelectorAll('input, select, textarea');
+      fields.forEach(function (field) {
+        field.addEventListener('blur', function () {
+          updateFieldError(field);
+        });
+        field.addEventListener('input', function () {
+          // Clear error once user starts typing again
+          if (field.getAttribute('aria-invalid') === 'true' && field.checkValidity()) {
+            updateFieldError(field);
+          }
+        });
+      });
+
+      function updateFieldError(field) {
+        var wrap = field.closest('.field') || field.parentElement;
+        var existing = wrap.querySelector('.field-err');
+        var valid = field.checkValidity();
+        if (valid) {
+          field.removeAttribute('aria-invalid');
+          if (existing) existing.remove();
+        } else {
+          field.setAttribute('aria-invalid', 'true');
+          var msg = getErrorMessage(field);
+          if (existing) {
+            existing.textContent = msg;
+          } else {
+            var err = document.createElement('p');
+            err.className = 'field-err';
+            err.setAttribute('role', 'alert');
+            err.textContent = msg;
+            wrap.appendChild(err);
+          }
+        }
+      }
+
+      function getErrorMessage(field) {
+        if (field.validity.valueMissing) {
+          if (field.type === 'checkbox') return '同意が必要です。';
+          return 'この項目は必須です。';
+        }
+        if (field.validity.typeMismatch && field.type === 'email') {
+          return 'メールアドレスの形式が正しくありません。';
+        }
+        if (field.validity.typeMismatch && field.type === 'tel') {
+          return '電話番号の形式が正しくありません。';
+        }
+        return '入力内容を確認してください。';
+      }
+
+      // === F2: Error summary + F3: focus first invalid ===
+      form.addEventListener('submit', function (e) {
+        e.preventDefault();
+        // Run blur validation on all fields
+        fields.forEach(updateFieldError);
+        // Remove any previous summary
+        var oldSummary = document.getElementById('error-summary');
+        if (oldSummary) oldSummary.remove();
+        if (!form.checkValidity()) {
+          var invalid = form.querySelectorAll('[aria-invalid="true"]');
+          // Build summary
+          var summary = document.createElement('div');
+          summary.id = 'error-summary';
+          summary.setAttribute('role', 'alert');
+          summary.setAttribute('aria-live', 'assertive');
+          summary.innerHTML = '<p class="summary-title">入力内容に ' + invalid.length + ' 件のエラーがあります</p>';
+          var list = document.createElement('ul');
+          invalid.forEach(function (field) {
+            var label = form.querySelector('label[for="' + field.id + '"]');
+            var li = document.createElement('li');
+            var a = document.createElement('a');
+            a.href = '#' + field.id;
+            a.textContent = (label ? label.textContent.replace(/必須|任意/g, '').trim() : field.name) + ' — ' + getErrorMessage(field);
+            a.addEventListener('click', function (e) {
+              e.preventDefault();
+              field.focus();
+            });
+            li.appendChild(a);
+            list.appendChild(li);
+          });
+          summary.appendChild(list);
+          form.insertBefore(summary, form.firstChild);
+          // Auto-focus first invalid
+          if (invalid[0]) invalid[0].focus();
+          return;
+        }
+        pre.classList.add('is-hidden');
+        thanks.classList.add('is-active');
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      });
+    })();
+  </script>
+
+  <!-- Mobile drawer -->
+  <div class="mobileDrawer" aria-hidden="true" role="dialog" aria-label="メニュー">
+    <div class="panel">
+      <button class="closeBtn" type="button" aria-label="メニューを閉じる">×</button>
+      <nav>
+        <a href="/八宝の想い.html">八宝の想い</a>
+        <a href="/事業内容.html">事業内容</a>
+        <a href="/採用情報.html">採用情報</a>
+        <a href="/会社概要.html">会社概要・お問い合わせ</a>
+      </nav>
+    </div>
+  </div>
+  <script>
+    (function(){
+      var btn = document.querySelector('.menuBtn');
+      var drawer = document.querySelector('.mobileDrawer');
+      if (!btn || !drawer) return;
+      var closeBtn = drawer.querySelector('.closeBtn');
+      function open(){ drawer.setAttribute('aria-hidden','false'); document.body.style.overflow='hidden'; }
+      function close(){ drawer.setAttribute('aria-hidden','true'); document.body.style.overflow=''; }
+      btn.addEventListener('click', open);
+      closeBtn.addEventListener('click', close);
+      drawer.addEventListener('click', function(e){ if (e.target === drawer) close(); });
+      document.addEventListener('keydown', function(e){ if (e.key === 'Escape') close(); });
+    })();
+  </script>
+</body>
+</html>

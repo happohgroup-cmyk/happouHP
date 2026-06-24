@@ -1,0 +1,34 @@
+# ==== macOS ====
+.DS_Store
+**/.DS_Store
+._*
+
+# ==== Claude / editor state ====
+.claude/
+.claude-handoff.md
+
+# ==== Raw shoot data (too large for git) ====
+# 元データ・編集前ファイル — 45 GB なので GitHub に上げない
+_素材/
+
+# ==== Backups & references (not part of published site) ====
+_バックアップ/
+_参考資料/
+動画編集/
+
+# ==== Large videos (use Git LFS or external CDN) ====
+# 動画は 100MB 超のため通常 git では扱わない
+# GitHub にアップロードしたい場合は Git LFS をセットアップ
+videos/*.mp4
+videos/*.mov
+videos/*.MOV
+videos/*.MP4
+
+# ==== Local backups ====
+*.bak
+*.step1
+*.tmp
+
+# ==== System ====
+Thumbs.db
+desktop.ini

@@ -1,0 +1,1209 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>料理人として、たった一度きりの人生。— 奈良の酒蔵全部呑み うまっしゅ 採用情報 ─ 株式会社八宝</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=Montserrat:wght@500;600&family=Noto+Sans+JP:wght@300;400;500;700&family=Noto+Serif+JP:wght@300;400;500&display=swap">
+<style>
+  @font-face {
+    font-family: 'GenEi Nu Gothic EB';
+    src: url('/fonts/GenEiNuGothic-EB.ttf') format('truetype');
+    font-weight: 800;
+    font-style: normal;
+    font-display: swap;
+  }
+  :root {
+    --ink: #1a1814;
+    --ink-soft: #3a3631;
+    --muted: #8a857a;
+    --line: #d9d4c8;
+    --paper: #ffffff;
+    --paper-soft: #faf8f3;
+    --paper-warm: #f1ede3;
+    --placeholder: #ebe7dc;
+    --gold: #c9a24b;
+    --gold-soft: #b48d40;
+    /* ===== Brand: うまっしゅ (朱赤 / 提灯) ===== */
+    --brand: #c62828;
+    --brand-soft: #a31f1f;
+    --brand-tint: #faecec;
+    --brand-deep: #7a1717;
+    --mincho: "YuMincho", "Yu Mincho", "游明朝", "游明朝体", "Hiragino Mincho ProN", "Hiragino Mincho Pro", "Noto Serif JP", serif;
+    --serif-body: "Noto Serif JP", "YuMincho", "Yu Mincho", "游明朝", "游明朝体", "Hiragino Mincho ProN", serif;
+    --cormorant: "Cormorant Garamond", "Times New Roman", Georgia, serif;
+    --montserrat: "Montserrat", "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Yu Gothic", sans-serif;
+    --sans: "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Yu Gothic", "Meiryo", sans-serif;
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body { margin: 0; font-family: var(--serif-body); color: var(--ink); background: var(--paper); -webkit-font-smoothing: antialiased; font-weight: 350; }
+  .skip-link { position: absolute; left: -9999px; top: 0; z-index: 9999; background: var(--ink); color: var(--paper); padding: 12px 20px; font-size: 14px; text-decoration: none; border-radius: 0 0 4px 0; }
+  .skip-link:focus { left: 0; outline: 2px solid var(--brand); outline-offset: 2px; }
+  a { color: inherit; text-decoration: none; }
+  img { display: block; max-width: 100%; height: auto; object-fit: cover; }
+  picture { display: block; width: 100%; height: 100%; }
+  picture img { width: 100%; height: 100%; object-fit: cover; }
+
+  /* ---------- Header ---------- */
+  .siteHeader { position: sticky; top: 0; background: rgba(255,255,255,.92); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); border-bottom: 1px solid rgba(0,0,0,.05); z-index: 50; }
+  .siteHeader .row { max-width: 1440px; margin: 0 auto; padding: 18px 40px; display: flex; justify-content: space-between; align-items: center; gap: 32px; }
+  .logo { display: flex; align-items: center; gap: 12px; color: var(--ink); }
+  .logo .mark { width: 48px; height: 48px; border: 1.4px solid var(--gold); border-radius: 50%; display: flex; align-items: center; justify-content: center; background: #fff; flex-shrink: 0; }
+  .logo .mark svg { width: 26px; height: 26px; display: block; }
+  .logo .name { display: flex; flex-direction: column; line-height: 1; gap: 5px; }
+  .logo .name .ja { display: flex; align-items: baseline; gap: 9px; font-family: var(--mincho); }
+  .logo .name .small { font-size: 11px; letter-spacing: .15em; }
+  .logo .name .big { font-size: 19px; letter-spacing: .18em; font-weight: 500; }
+  .logo .name .en { font-size: 9px; letter-spacing: .42em; color: var(--gold-soft); }
+  .nav { display: flex; align-items: center; gap: 38px; font-size: 14px; letter-spacing: .12em; }
+  .nav a { color: var(--ink-soft); transition: color .2s; }
+  .nav a:hover { color: var(--brand-soft); }
+  .nav a.current { color: var(--brand-soft); }
+  .nav a[aria-current="page"] { color: var(--brand-soft); }
+  .menuBtn { width: 50px; height: 50px; border-radius: 50%; border: 1.2px solid var(--ink-soft); background: transparent; color: var(--ink); display: flex; align-items: center; justify-content: center; cursor: pointer; padding: 0; }
+  .menuBtn svg { width: 20px; height: 16px; display: block; }
+  @media (max-width: 1080px) { .nav { display: none; } }
+
+  .brandBar { height: 4px; background: var(--brand); }
+
+  /* ---------- Hero (Page title with background photo) ---------- */
+  .hero {
+    position: relative;
+    padding: clamp(90px, 11vw, 150px) 40px clamp(70px, 9vw, 110px);
+    background: #1a0e0a url("/photos/umasshu/maguro-cut-large.webp") center/cover no-repeat;
+    color: #fff;
+    overflow: hidden;
+  }
+  /* 暗いオーバーレイ + 左下から濃く + ブランド赤の微妙な縁取り */
+  .hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+      linear-gradient(125deg, rgba(15, 5, 5, 0.78) 0%, rgba(20, 10, 10, 0.55) 45%, rgba(35, 15, 15, 0.3) 100%),
+      radial-gradient(ellipse at 20% 80%, rgba(122, 23, 23, 0.4) 0%, transparent 65%);
+    pointer-events: none;
+  }
+  .hero .wrap { max-width: 1080px; margin: 0 auto; position: relative; z-index: 2; }
+  .hero .eyebrow { font-size: 12px; letter-spacing: 0.4em; color: #e8a8a8; margin: 0 0 24px; }
+  .hero .store-name { font-family: var(--mincho); font-weight: 500; font-size: clamp(15px, 1.3vw, 17px); letter-spacing: 0.18em; color: rgba(255, 255, 255, 0.85); margin: 0 0 32px; }
+  .hero h1 {
+    font-family: var(--mincho) !important;
+    font-weight: 500 !important;
+    font-size: clamp(26px, 3.6vw, 48px) !important;
+    line-height: 1.55 !important;
+    letter-spacing: 0.08em !important;
+    margin: 0 0 36px;
+    color: #fff;
+    text-shadow: 0 2px 24px rgba(0, 0, 0, 0.5);
+  }
+  .hero h1 .accent { color: #ff4d4d; }
+  .hero .titleLine { width: 64px; height: 2px; background: var(--brand); margin-bottom: 40px; }
+  .hero .sub { font-family: var(--mincho); font-size: clamp(16px, 1.5vw, 19px); line-height: 2.1; letter-spacing: 0.1em; color: rgba(255, 255, 255, 0.92); margin: 0; max-width: 780px; text-shadow: 0 1px 16px rgba(0, 0, 0, 0.6); }
+  .hero .sub strong { color: #ff9a9a; font-weight: 500; }
+  @media (max-width: 880px) {
+    .hero { background-image: url("/photos/umasshu/maguro-cut-small.webp"); }
+  }
+
+  /* ---------- Intro (店舗 + photo) ---------- */
+  .intro { padding: clamp(60px, 7vw, 100px) 40px clamp(80px, 10vw, 130px); background: var(--paper); }
+  .intro .wrap { max-width: 1280px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: clamp(40px, 6vw, 96px); align-items: center; }
+  .intro h2 { font-family: var(--mincho); font-weight: 500; font-size: clamp(24px, 3vw, 34px); line-height: 1.6; letter-spacing: 0.12em; margin: 0 0 28px; }
+  .intro .line { width: 56px; height: 1.5px; background: var(--brand); margin-bottom: 36px; }
+  .intro p { font-family: var(--mincho); font-size: 15.5px; line-height: 2.3; letter-spacing: 0.08em; margin: 0 0 1.6em; color: var(--ink-soft); }
+  .intro p:last-child { margin-bottom: 0; }
+  .intro .col-photo .ph { aspect-ratio: 4 / 5; background: var(--placeholder); border: 1px solid var(--line); position: relative; overflow: hidden; }
+  .intro .col-photo .ph picture, .intro .col-photo .ph img { position: absolute; inset: 0; }
+  @media (max-width: 880px) {
+    .intro .wrap { grid-template-columns: 1fr; gap: 40px; }
+    .intro .col-photo { order: -1; }
+  }
+
+  /* ---------- Benefits (3 numbered cards) ---------- */
+  .benefits { padding: clamp(100px, 12vw, 160px) 40px; background: var(--paper-soft); }
+  .benefits .wrap { max-width: 1280px; margin: 0 auto; }
+  .benefits .head { text-align: center; margin-bottom: clamp(56px, 7vw, 88px); }
+  .benefits .eyebrow { font-size: 12px; letter-spacing: 0.4em; color: var(--brand-soft); margin: 0 0 18px; }
+  .benefits h2 { font-family: var(--mincho); font-weight: 500; font-size: clamp(26px, 3.4vw, 40px); line-height: 1.55; letter-spacing: 0.12em; margin: 0 0 24px; }
+  .benefits .titleLine { width: 64px; height: 2px; background: var(--brand); margin: 0 auto; }
+  .benefits .grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; }
+  .benefit-card {
+    background: #fff;
+    padding: clamp(40px, 4.4vw, 56px) clamp(28px, 3vw, 40px);
+    border: 1px solid var(--line);
+    border-top: 3px solid var(--brand);
+    display: flex;
+    flex-direction: column;
+    gap: 22px;
+  }
+  .benefit-card .num { font-family: 'GenEi Nu Gothic EB', "Noto Sans JP", sans-serif; font-weight: 800; font-size: 28px; letter-spacing: 0.15em; color: var(--brand); line-height: 1; margin: 0; }
+  .benefit-card h3 { font-family: var(--mincho); font-weight: 500; font-size: clamp(19px, 2vw, 24px); line-height: 1.6; letter-spacing: 0.08em; margin: 0; color: var(--ink); min-height: 3.2em; display: flex; align-items: flex-start; }
+  .benefit-card .line { width: 36px; height: 1.5px; background: var(--brand); }
+  .benefit-card p { font-family: var(--mincho); font-size: 14.5px; line-height: 2.1; letter-spacing: 0.06em; margin: 0; color: var(--ink-soft); }
+  @media (max-width: 880px) { .benefits .grid { grid-template-columns: 1fr; } }
+
+  /* ---------- Inline CTA box ---------- */
+  .inlineCta { padding: clamp(80px, 9vw, 120px) 40px; background: var(--paper); }
+  .inlineCta .wrap { max-width: 920px; margin: 0 auto; padding: clamp(56px, 7vw, 88px) clamp(40px, 5vw, 64px); background: var(--brand-tint); border: 1px solid rgba(198, 40, 40, 0.15); text-align: center; }
+  .inlineCta h2 { font-family: var(--mincho); font-weight: 500; font-size: clamp(22px, 2.8vw, 32px); line-height: 1.75; letter-spacing: 0.12em; margin: 0 0 24px; color: var(--ink); }
+  .inlineCta p { font-family: var(--mincho); font-size: clamp(15px, 1.3vw, 17px); line-height: 2.25; letter-spacing: 0.08em; margin: 0 0 40px; color: var(--ink-soft); }
+  .inlineCta .actions { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
+  .inlineCta .btn { padding: 18px 36px; display: inline-flex; align-items: center; justify-content: center; font-family: var(--sans); font-weight: 500; font-size: 15px; letter-spacing: 0.12em; min-width: 240px; min-height: 48px; transition: background .25s ease, color .25s ease, transform .25s ease, border-color .25s ease; }
+  .inlineCta .btn.primary { background: var(--brand); color: #fff; border: 1.5px solid var(--brand); }
+  .inlineCta .btn.primary:hover { background: var(--brand-soft); border-color: var(--brand-soft); transform: translateY(-2px); }
+  .inlineCta .btn.secondary { background: transparent; color: var(--ink); border: 1.5px solid var(--ink); }
+  .inlineCta .btn.secondary:hover { background: var(--ink); color: #fff; transform: translateY(-2px); }
+
+  /* ---------- Social proof (4 points) — 暗い背景 + 白テキスト ---------- */
+  .proof {
+    padding: clamp(100px, 12vw, 160px) 40px clamp(80px, 9vw, 120px);
+    background:
+      linear-gradient(rgba(15, 10, 8, 0.78), rgba(15, 10, 8, 0.78)),
+      url("/photos/umasshu/interior-counter-large.webp") center/cover no-repeat;
+    background-attachment: scroll;
+    position: relative;
+    color: #fff;
+  }
+  .proof .wrap { max-width: 1100px; margin: 0 auto; position: relative; }
+  @media (max-width: 880px) {
+    .proof {
+      background:
+        linear-gradient(rgba(15, 10, 8, 0.82), rgba(15, 10, 8, 0.82)),
+        url("/photos/umasshu/interior-counter-small.webp") center/cover no-repeat;
+    }
+  }
+  .proof .head { margin-bottom: clamp(48px, 6vw, 72px); }
+  .proof .eyebrow { font-size: 12px; letter-spacing: 0.4em; color: #e8a8a8; margin: 0 0 18px; }
+  .proof h2 {
+    font-family: var(--mincho);
+    font-weight: 600;
+    font-size: clamp(24px, 3vw, 36px);
+    line-height: 1.55;
+    letter-spacing: 0.12em;
+    margin: 0 0 24px;
+    color: #fff;
+    text-shadow: 0 2px 18px rgba(0, 0, 0, 0.5);
+  }
+  .proof .titleLine { width: 60px; height: 2px; background: var(--brand); }
+  .proof-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: clamp(28px, 3vw, 44px) clamp(40px, 4vw, 56px); }
+  .proof-item {
+    display: flex;
+    gap: 24px;
+    align-items: flex-start;
+    padding: 28px 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.18);
+  }
+  .proof-item .pmark {
+    flex: 0 0 28px;
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    background: var(--brand);
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'GenEi Nu Gothic EB', "Noto Sans JP", sans-serif;
+    font-weight: 800;
+    font-size: 13px;
+    margin-top: 4px;
+    box-shadow: 0 0 0 3px rgba(198, 40, 40, 0.15);
+  }
+  .proof-item .pbody { flex: 1; }
+  .proof-item h3 {
+    font-family: var(--mincho);
+    font-weight: 600;
+    font-size: clamp(16px, 1.55vw, 19.5px);
+    line-height: 1.7;
+    letter-spacing: 0.07em;
+    margin: 0 0 14px;
+    color: #fff;
+    text-shadow: 0 1px 12px rgba(0, 0, 0, 0.4);
+  }
+  .proof-item p {
+    font-family: var(--mincho);
+    font-weight: 400;
+    font-size: 14.5px;
+    line-height: 2.1;
+    letter-spacing: 0.06em;
+    margin: 0;
+    color: rgba(255, 255, 255, 0.88);
+    text-shadow: 0 1px 8px rgba(0, 0, 0, 0.35);
+  }
+  @media (max-width: 880px) { .proof-grid { grid-template-columns: 1fr; gap: 0; } }
+
+  /* ---------- A day in the life (video section) ---------- */
+  .dayflow { padding: clamp(100px, 12vw, 160px) 40px clamp(80px, 9vw, 120px); background: var(--paper); }
+  .dayflow .wrap { max-width: 1100px; margin: 0 auto; }
+  .dayflow .head { text-align: center; margin-bottom: clamp(40px, 5vw, 64px); }
+  .dayflow h2 {
+    font-family: var(--mincho);
+    font-weight: 500;
+    font-size: clamp(26px, 3.4vw, 40px);
+    line-height: 1.5;
+    letter-spacing: 0.14em;
+    margin: 0 0 22px;
+    color: var(--ink);
+  }
+  .dayflow .titleLine { width: 64px; height: 2px; background: var(--brand); margin: 0 auto 28px; }
+  .dayflow .lead {
+    font-family: var(--mincho);
+    font-size: clamp(15px, 1.3vw, 17px);
+    line-height: 2.1;
+    letter-spacing: 0.1em;
+    color: var(--ink-soft);
+    margin: 0 auto;
+    max-width: 720px;
+  }
+  .dayflow .videoFrame {
+    position: relative;
+    width: 100%;
+    background: #0a0606;
+    border: 1px solid var(--line);
+    box-shadow: 0 12px 40px rgba(15, 10, 8, 0.18);
+    overflow: hidden;
+  }
+  .dayflow .videoFrame video {
+    display: block;
+    width: 100%;
+    height: auto;
+    max-height: 75vh;
+    background: #0a0606;
+  }
+  .dayflow .caption {
+    margin: 18px 0 0;
+    font-family: var(--mincho);
+    font-size: 13px;
+    letter-spacing: 0.1em;
+    color: var(--muted);
+    text-align: center;
+  }
+
+  /* ---------- Staff voices (1 video + 2 icon cards) ---------- */
+  .voices { padding: clamp(80px, 9vw, 120px) 40px clamp(100px, 12vw, 160px); background: var(--paper-soft); }
+  .voices .wrap { max-width: 1280px; margin: 0 auto; }
+  .voices .head { text-align: center; margin-bottom: clamp(48px, 6vw, 72px); }
+  .voices h2 {
+    font-family: var(--mincho);
+    font-weight: 500;
+    font-size: clamp(26px, 3.4vw, 40px);
+    line-height: 1.5;
+    letter-spacing: 0.14em;
+    margin: 0 0 22px;
+    color: var(--ink);
+  }
+  .voices .titleLine { width: 64px; height: 2px; background: var(--brand); margin: 0 auto 28px; }
+  .voices .lead {
+    font-family: var(--mincho);
+    font-size: clamp(15px, 1.3vw, 16.5px);
+    line-height: 2.1;
+    letter-spacing: 0.1em;
+    color: var(--ink-soft);
+    margin: 0 auto;
+    max-width: 680px;
+  }
+  .voices-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: clamp(24px, 3vw, 36px);
+    align-items: stretch;
+  }
+  .voice {
+    background: #fff;
+    border: 1px solid var(--line);
+    display: flex;
+    flex-direction: column;
+    padding: 0;
+    overflow: hidden;
+  }
+  /* Voice 01 (video, 横長) は上段フル幅: 動画左 + 本文右 */
+  .voice.featured {
+    grid-column: 1 / -1;
+    flex-direction: row;
+    align-items: stretch;
+  }
+  .voice.featured .voice-media.video {
+    flex: 0 0 60%;
+    aspect-ratio: 16 / 9;
+  }
+  .voice.featured .voice-body {
+    flex: 1;
+    justify-content: center;
+    padding: clamp(28px, 3.5vw, 48px) clamp(28px, 3.2vw, 44px);
+  }
+  .voice-media {
+    background: var(--placeholder);
+    position: relative;
+    overflow: hidden;
+  }
+  .voice-media.video { aspect-ratio: 16 / 9; }
+  .voice-media.video video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; background: #0a0606; display: block; }
+  .voice-media.icon {
+    aspect-ratio: 4 / 5;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(160deg, #f6ebe6 0%, #f1ddd6 100%);
+  }
+  .voice-avatar {
+    width: clamp(110px, 13vw, 160px);
+    height: clamp(110px, 13vw, 160px);
+    border-radius: 50%;
+    background: #fff;
+    border: 2px solid var(--brand);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--brand);
+  }
+  .voice-avatar svg { width: 56%; height: 56%; }
+  .voice-body {
+    padding: clamp(24px, 2.8vw, 36px) clamp(22px, 2.6vw, 32px) clamp(28px, 3vw, 40px);
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+  .voice-role {
+    font-family: var(--cormorant);
+    font-weight: 500;
+    font-size: 12px;
+    letter-spacing: 0.25em;
+    color: var(--brand-soft);
+    margin: 0;
+    text-transform: uppercase;
+  }
+  .voice-name {
+    font-family: var(--mincho);
+    font-weight: 500;
+    font-size: clamp(17px, 1.7vw, 21px);
+    letter-spacing: 0.1em;
+    color: var(--ink);
+    margin: 0;
+    line-height: 1.5;
+  }
+  .voice-line { width: 32px; height: 1.5px; background: var(--brand); margin: 4px 0 12px; }
+  .voice-quote {
+    font-family: var(--mincho);
+    font-size: 14.5px;
+    line-height: 2.1;
+    letter-spacing: 0.06em;
+    color: var(--ink-soft);
+    margin: 0;
+  }
+  @media (max-width: 880px) {
+    .voices-grid { grid-template-columns: 1fr; }
+    .voice.featured { flex-direction: column; }
+    .voice.featured .voice-media.video { flex: none; }
+    .voice.featured .voice-body { padding: clamp(24px, 4vw, 32px); }
+  }
+
+  /* ---------- Warning block (和風 / 優しいイメージ) ---------- */
+  .warning { padding: clamp(60px, 7vw, 100px) 40px clamp(90px, 11vw, 140px); background: var(--paper); }
+  .warning .wrap { max-width: 880px; margin: 0 auto; }
+  .warning .panel {
+    background: #fbf5ea;
+    border: 1px solid #e6d9be;
+    padding: clamp(56px, 7vw, 96px) clamp(36px, 5vw, 72px);
+    position: relative;
+    text-align: center;
+  }
+  /* 朱印モチーフ (red square stamp) */
+  .warning .seal {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 60px;
+    height: 60px;
+    border: 1.4px solid var(--brand);
+    color: var(--brand);
+    font-family: var(--mincho);
+    font-weight: 500;
+    font-size: 26px;
+    line-height: 1;
+    letter-spacing: 0;
+    margin: 0 auto 28px;
+    background: rgba(255, 255, 255, 0.6);
+  }
+  .warning .label {
+    font-family: var(--cormorant);
+    font-weight: 500;
+    font-size: 12px;
+    letter-spacing: 0.4em;
+    color: var(--brand-soft);
+    margin: 0 0 18px;
+  }
+  .warning .panelTitle {
+    font-family: var(--mincho);
+    font-weight: 500;
+    font-size: clamp(20px, 2.4vw, 26px);
+    line-height: 1.8;
+    letter-spacing: 0.18em;
+    color: var(--ink);
+    margin: 0 0 24px;
+    text-align: center;
+  }
+  .warning .panelLine {
+    width: 36px;
+    height: 1px;
+    background: var(--brand);
+    margin: 0 auto clamp(40px, 5vw, 56px);
+    opacity: 0.5;
+  }
+  .warning p {
+    font-family: var(--mincho);
+    font-size: clamp(15px, 1.35vw, 17px);
+    line-height: 2.4;
+    letter-spacing: 0.1em;
+    margin: 0 0 1.8em;
+    color: var(--ink-soft);
+    text-align: left;
+  }
+  .warning p:last-child { margin-bottom: 0; }
+  .warning p .em {
+    color: var(--ink);
+    font-weight: 500;
+    background: linear-gradient(transparent 65%, rgba(198, 40, 40, 0.18) 65%);
+    padding: 0 2px;
+  }
+  .warning .promise {
+    margin-top: clamp(36px, 4vw, 52px);
+    padding-top: clamp(32px, 4vw, 44px);
+    border-top: 1px dotted rgba(198, 40, 40, 0.3);
+    font-family: var(--mincho);
+    font-size: clamp(16px, 1.5vw, 18.5px);
+    line-height: 2.4;
+    letter-spacing: 0.12em;
+    color: var(--ink);
+    text-align: left;
+  }
+  .warning .promise .brand {
+    color: var(--brand-soft);
+    font-weight: 500;
+  }
+
+  /* ---------- Requirements (募集要項 table) ---------- */
+  .requirements { padding: clamp(100px, 11vw, 160px) 40px; background: var(--paper-warm); }
+  .requirements .wrap { max-width: 1080px; margin: 0 auto; }
+  .requirements .heading-row { margin-bottom: clamp(48px, 6vw, 72px); }
+  .requirements .eyebrow { font-size: 12px; letter-spacing: 0.4em; color: var(--brand-soft); margin: 0 0 18px; }
+  .requirements h2 { font-family: var(--mincho); font-weight: 500; font-size: clamp(26px, 3.2vw, 38px); line-height: 1.5; letter-spacing: 0.12em; margin: 0 0 24px; }
+  .requirements .titleLine { width: 60px; height: 2px; background: var(--brand); }
+  .reqList { margin: 0; padding: 0; border-top: 1px solid rgba(0,0,0,.1); background: #fff; }
+  .reqRow { display: grid; grid-template-columns: 220px 1fr; gap: 28px; padding: 26px 28px; border-bottom: 1px solid rgba(0,0,0,.08); align-items: start; }
+  .reqRow dt { font-family: var(--mincho); font-size: 14.5px; letter-spacing: 0.14em; color: var(--ink); margin: 0; padding-top: 2px; position: relative; padding-left: 18px; }
+  .reqRow dt::before { content: ''; position: absolute; left: 0; top: 12px; width: 8px; height: 1.5px; background: var(--brand); }
+  .reqRow dd { font-family: var(--mincho); font-size: 14.5px; line-height: 2.05; letter-spacing: 0.08em; color: var(--ink-soft); margin: 0; }
+  .reqRow dd .placeholder-val { color: var(--muted); }
+  @media (max-width: 880px) {
+    .reqRow { grid-template-columns: 1fr; gap: 8px; padding: 22px 20px; }
+    .reqRow dt { padding-top: 0; }
+  }
+
+  /* ---------- Steps ---------- */
+  .steps { padding: clamp(100px, 11vw, 160px) 40px; }
+  .steps .wrap { max-width: 1280px; margin: 0 auto; }
+  .steps .heading-row { margin-bottom: clamp(48px, 6vw, 72px); text-align: center; }
+  .steps .eyebrow { font-size: 12px; letter-spacing: 0.4em; color: var(--brand-soft); margin: 0 0 18px; }
+  .steps h2 { font-family: var(--mincho); font-weight: 500; font-size: clamp(26px, 3.2vw, 38px); line-height: 1.5; letter-spacing: 0.14em; margin: 0; }
+  .steps .grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0; border-top: 1px solid var(--line); border-left: 1px solid var(--line); }
+  .steps .step { padding: 40px 32px; border-right: 1px solid var(--line); border-bottom: 1px solid var(--line); display: flex; flex-direction: column; gap: 18px; position: relative; }
+  .steps .step .num { font-family: var(--mincho); font-size: 26px; letter-spacing: 0.25em; color: var(--brand); line-height: 1; }
+  .steps .step h3 { font-family: var(--mincho); font-weight: 500; font-size: 18px; letter-spacing: 0.12em; margin: 0; line-height: 1.55; }
+  .steps .step p { font-family: var(--mincho); font-size: 14px; line-height: 2.0; letter-spacing: 0.06em; margin: 0; color: var(--ink-soft); }
+  @media (max-width: 880px) { .steps .grid { grid-template-columns: 1fr; } }
+
+  /* ---------- Close (final closing offer) ---------- */
+  .close {
+    padding: clamp(110px, 13vw, 180px) 40px clamp(60px, 7vw, 90px);
+    background:
+      linear-gradient(rgba(250, 236, 236, 0.92), rgba(250, 236, 236, 0.92)),
+      url("/photos/umasshu/maekake-large.webp") center/cover no-repeat;
+    background-attachment: scroll;
+  }
+  @media (max-width: 880px) {
+    .close {
+      background:
+        linear-gradient(rgba(250, 236, 236, 0.94), rgba(250, 236, 236, 0.94)),
+        url("/photos/umasshu/maekake-small.webp") center/cover no-repeat;
+    }
+  }
+  .close .wrap { max-width: 880px; margin: 0 auto; text-align: center; }
+  .close .eyebrow { font-family: var(--cormorant); font-weight: 500; font-size: 12px; letter-spacing: 0.45em; color: var(--brand-soft); margin: 0 0 18px; }
+  .close .closeTitle { font-family: var(--mincho); font-weight: 500; font-size: clamp(26px, 3.4vw, 38px); line-height: 1.7; letter-spacing: 0.14em; margin: 0 0 40px; color: var(--ink); }
+  .close p { font-family: var(--mincho); font-size: clamp(15px, 1.4vw, 17.5px); line-height: 2.4; letter-spacing: 0.1em; margin: 0 0 1.6em; color: var(--ink-soft); }
+  .close p .em { color: var(--brand); font-weight: 500; }
+  .close .summary { padding: 40px 0; margin: 32px 0; border-top: 1px solid rgba(0,0,0,0.1); border-bottom: 1px solid rgba(0,0,0,0.1); font-family: var(--mincho); font-size: clamp(16px, 1.5vw, 19px); line-height: 2.3; letter-spacing: 0.1em; color: var(--ink); }
+  .close .summary span { display: block; }
+  .close .question { font-family: var(--mincho); font-weight: 500; font-size: clamp(18px, 2vw, 22px); line-height: 2.0; letter-spacing: 0.12em; margin: 40px 0 48px; color: var(--ink); }
+  .close .actions { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; margin-bottom: 56px; }
+  .close .btn { padding: 20px 36px; display: inline-flex; align-items: center; justify-content: center; font-family: var(--sans); font-weight: 500; font-size: 15px; letter-spacing: 0.12em; min-width: 260px; min-height: 52px; transition: background .25s ease, color .25s ease, transform .25s ease, border-color .25s ease; }
+  .close .btn.primary { background: var(--brand); color: #fff; border: 1.5px solid var(--brand); }
+  .close .btn.primary:hover { background: var(--brand-soft); border-color: var(--brand-soft); transform: translateY(-2px); }
+  .close .btn.secondary { background: #fff; color: var(--ink); border: 1.5px solid var(--ink); }
+  .close .btn.secondary:hover { background: var(--ink); color: #fff; transform: translateY(-2px); }
+  .close .reassure { font-family: var(--mincho); font-size: clamp(14px, 1.2vw, 15px); line-height: 2.2; letter-spacing: 0.06em; color: var(--ink-soft); max-width: 680px; margin: 0 auto; padding: 28px 0 0; border-top: 1px dashed rgba(0,0,0,0.12); }
+
+  /* ---------- Sub CTA ---------- */
+  .ctaLinks { padding: clamp(80px, 9vw, 130px) 40px clamp(40px, 5vw, 70px); }
+  .ctaLinks .wrap { max-width: 1280px; margin: 0 auto; }
+  .ctaLinks .head { display: flex; align-items: center; gap: 18px; margin-bottom: 36px; }
+  .ctaLinks .head::before { content: ''; width: 28px; height: 1.5px; background: var(--ink); }
+  .ctaLinks .head h2 { font-family: var(--mincho); font-weight: 500; font-size: clamp(20px, 2.2vw, 26px); letter-spacing: 0.12em; margin: 0; }
+  .ctaGrid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+  .ctaBtn { background: var(--ink); color: #fff; padding: 30px 32px; display: flex; justify-content: space-between; align-items: center; font-size: 15.5px; letter-spacing: 0.12em; transition: background .25s ease, transform .25s ease; }
+  .ctaBtn:hover { background: var(--brand-soft); transform: translateY(-2px); }
+  @media (max-width: 880px) { .ctaGrid { grid-template-columns: 1fr; } }
+
+  /* ---------- Breadcrumb ---------- */
+  .crumb { padding: 40px; }
+  .crumb .wrap { max-width: 1280px; margin: 0 auto; display: flex; gap: 14px; align-items: center; font-size: 12.5px; letter-spacing: 0.15em; color: var(--muted); flex-wrap: wrap; }
+  .crumb a { color: var(--ink-soft); }
+  .crumb .sep { display: inline-block; width: 16px; height: 1px; background: var(--muted); }
+
+  /* ---------- Footer ---------- */
+  footer { background: var(--paper-soft); padding: clamp(64px, 7vw, 100px) 40px 36px; border-top: 1px solid var(--line); }
+  footer .row { max-width: 1280px; margin: 0 auto; display: grid; grid-template-columns: 1.2fr 1fr 1fr; gap: 60px; padding-bottom: 60px; border-bottom: 1px solid var(--line); }
+  footer .fLogo { display: flex; align-items: center; gap: 14px; margin-bottom: 28px; }
+  footer .fLogo .mark { width: 56px; height: 56px; border: 1.4px solid var(--gold); border-radius: 50%; display: flex; align-items: center; justify-content: center; }
+  footer .fLogo .mark svg { width: 30px; height: 30px; }
+  footer .fLogo .name { display: flex; flex-direction: column; gap: 5px; line-height: 1; font-family: var(--mincho); }
+  footer .fLogo .name .ja { display: flex; align-items: baseline; gap: 10px; }
+  footer .fLogo .name .small { font-size: 11px; letter-spacing: 0.18em; }
+  footer .fLogo .name .big { font-size: 22px; letter-spacing: 0.2em; font-weight: 500; }
+  footer .fLogo .name .en { font-size: 9px; letter-spacing: 0.45em; color: var(--gold-soft); }
+  footer .addr { font-size: 13px; line-height: 2; letter-spacing: 0.05em; color: var(--ink-soft); margin: 0; }
+  footer .sitemap { display: flex; flex-direction: column; gap: 16px; }
+  footer .sitemap a { font-family: var(--mincho); font-size: 14.5px; letter-spacing: 0.14em; color: var(--ink); }
+  footer .sitemap a:hover { color: var(--brand-soft); }
+  footer .bottom { max-width: 1280px; margin: 0 auto; padding-top: 28px; display: flex; justify-content: space-between; font-size: 11px; letter-spacing: 0.25em; color: var(--muted); }
+  @media (max-width: 880px) {
+    footer .row { grid-template-columns: 1fr; gap: 40px; }
+    footer .bottom { flex-direction: column; gap: 12px; }
+  }
+
+  /* ===== Typography overrides ===== */
+  body, p, li, .benefit-card p, .close p, .intro p, .reqRow dt, .reqRow dd, .steps .step p, .warning p, dd {
+    font-family: var(--serif-body) !important; font-weight: 350 !important;
+  }
+  h1, h2, h3, .hero h1, .intro h2, .benefits h2, .benefit-card h3, .requirements h2, .steps h2, .steps .step h3, .close .closeTitle, .inlineCta h2 {
+    font-family: var(--mincho) !important; font-weight: 500 !important;
+  }
+  /* proof セクションは暗背景上の可読性のため太字 */
+  .proof h2 { font-family: var(--mincho) !important; font-weight: 600 !important; }
+  .proof-item h3 { font-family: var(--mincho) !important; font-weight: 600 !important; }
+  .proof-item p { font-family: var(--serif-body) !important; font-weight: 400 !important; }
+  .eyebrow, .hero .eyebrow, .benefits .eyebrow, .proof .eyebrow, .requirements .eyebrow, .steps .eyebrow, .close .eyebrow, .warning .label, .crumb, .crumb span {
+    font-family: var(--cormorant) !important; font-weight: 500 !important;
+  }
+  .num, .benefit-card .num, .steps .step .num, .proof-item .pmark {
+    font-family: 'GenEi Nu Gothic EB', "Noto Sans JP", sans-serif !important;
+    font-weight: 800 !important;
+  }
+  .nav, .nav a, header.siteHeader nav a {
+    font-family: var(--montserrat) !important; font-weight: 500 !important;
+  }
+  .ctaBtn, .ctaBtn span, .inlineCta .btn, .close .btn, .logo .name, .menuBtn, button {
+    font-family: var(--sans) !important; font-weight: 500 !important;
+  }
+  footer .addr, footer .bottom, .crumb a {
+    font-family: var(--sans) !important; font-weight: 400 !important;
+  }
+  .ctaBtn > span:last-child { display: none !important; }
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+      animation-duration: 0.001ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.001ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+  @media (max-width: 600px) {
+    .intro p, .benefit-card p, .proof-item p, .close p, .warning p, .hero .sub, .inlineCta p, .reqRow dt, .reqRow dd, .steps .step p { font-size: 16px !important; line-height: 2.1 !important; }
+    .inlineCta .btn, .close .btn { width: 100%; min-width: 0; }
+  }
+
+  /* ===== TYPOGRAPHY SCALE-UP (視認性向上 +10〜15%) ===== */
+  body { font-size: 16.5px; }
+  p, li, dd { font-size: 17px !important; line-height: 2.2 !important; }
+  h1, .pageTitle h1 { font-size: clamp(36px, 4.8vw, 56px) !important; }
+  h2 { font-size: clamp(30px, 3.8vw, 46px) !important; }
+  h3 { font-size: 21px !important; line-height: 1.7 !important; }
+  .eyebrow { font-size: 13.5px !important; }
+  .ctaBtn, .ctaBtn span { font-size: 16.5px !important; }
+  .num, .steps .step .num, .benefit-card .num { font-size: 30px !important; }
+  footer .addr { font-size: 14.5px !important; line-height: 2.1 !important; }
+  .crumb, .crumb a, .crumb span { font-size: 13.5px !important; }
+  @media (max-width: 600px) {
+    p, li, dd { font-size: 17px !important; line-height: 2.15 !important; }
+    h3 { font-size: 20px !important; }
+  }
+
+  /* text-wrap-balance-injected */
+
+  /* ===== Text-wrap balancing (orphan-1-4-char fix) ===== */
+  h1, h2, h3, .closeTitle, .panelTitle, .hero h1, .hero .sub, .pageTitle h1, .intro h2 {
+    text-wrap: balance;
+  }
+  p, li, dd, .lead, .body p, .closer, .voice-quote, .work .lead, .videoBlock .lead {
+    text-wrap: pretty;
+  }
+
+  /* mobile-tap-target-injected */
+
+  /* ===== Mobile tap target enlargement (mobile-only / PC unchanged) ===== */
+  @media (max-width: 880px) {
+    .menuBtn {
+      position: relative;
+      width: 56px !important;
+      height: 56px !important;
+    }
+    .menuBtn::before {
+      content: "";
+      position: absolute;
+      inset: -14px;
+      z-index: 1;
+    }
+    .menuBtn > * { pointer-events: none; }
+    .ctaBtn, .ctaLinks .ctaBtn, .stores .item .more, .applyCta a, .home, .submitBtn,
+    a.btn, button.btn, .close .btn {
+      min-height: 56px !important;
+      align-items: center;
+    }
+    .nav a, footer .sitemap a, .crumb a, .ctaBtn span {
+      padding: 6px 0;
+      min-height: 44px;
+      display: inline-flex;
+      align-items: center;
+    }
+  }
+
+  /* mobile-drawer-injected */
+
+  /* ===== Mobile drawer ===== */
+  .mobileDrawer {
+    position: fixed; inset: 0; z-index: 200;
+    background: rgba(0, 0, 0, 0.5);
+    opacity: 0; visibility: hidden;
+    transition: opacity .3s ease, visibility .3s;
+  }
+  .mobileDrawer[aria-hidden="false"] { opacity: 1; visibility: visible; }
+  .mobileDrawer .panel {
+    position: absolute; top: 0; right: 0; bottom: 0;
+    width: min(86vw, 360px);
+    background: #fff;
+    transform: translateX(100%);
+    transition: transform .35s cubic-bezier(.2,.7,.2,1);
+    display: flex; flex-direction: column;
+    padding: 28px 28px 32px;
+    box-shadow: -16px 0 48px rgba(0,0,0,.22);
+  }
+  .mobileDrawer[aria-hidden="false"] .panel { transform: translateX(0); }
+  .mobileDrawer .closeBtn {
+    width: 48px; height: 48px; align-self: flex-end;
+    background: transparent; border: 1.2px solid #d9d4c8; border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    cursor: pointer; padding: 0; font-size: 22px; color: #1a1814;
+    position: relative;
+  }
+  .mobileDrawer .closeBtn::before { content: ""; position: absolute; inset: -14px; }
+  .mobileDrawer nav {
+    margin-top: 32px; display: flex; flex-direction: column; gap: 4px;
+  }
+  .mobileDrawer nav a {
+    display: block; padding: 16px 0; font-family: var(--mincho, serif);
+    font-size: 17px; letter-spacing: .14em; color: #1a1814;
+    border-bottom: 1px solid #ece8de; min-height: 56px; align-items: center; display: flex;
+  }
+</style>
+</head>
+<body>
+
+  <a class="skip-link" href="#main-content">メインコンテンツへスキップ</a>
+
+  <header class="siteHeader">
+    <div class="row">
+      <a href="/八宝コーポレートサイト.html" class="logo" aria-label="株式会社八宝 HAPPO">
+        <span class="mark" aria-hidden="true">
+          <svg viewBox="0 0 40 40" fill="#c9a24b" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="20" cy="20" r="3.2"/>
+            <g transform="translate(20 20)">
+              <ellipse cx="0" cy="-10.5" rx="4" ry="5.2"/>
+              <ellipse cx="0" cy="-10.5" rx="4" ry="5.2" transform="rotate(72)"/>
+              <ellipse cx="0" cy="-10.5" rx="4" ry="5.2" transform="rotate(144)"/>
+              <ellipse cx="0" cy="-10.5" rx="4" ry="5.2" transform="rotate(216)"/>
+              <ellipse cx="0" cy="-10.5" rx="4" ry="5.2" transform="rotate(288)"/>
+            </g>
+          </svg>
+        </span>
+        <span class="name">
+          <span class="ja"><span class="small">株式会社</span><span class="big">八宝</span></span>
+          <span class="en">— HAPPO —</span>
+        </span>
+      </a>
+      <nav class="nav">
+        <a href="/八宝の想い.html">八宝の想い</a>
+        <a href="/事業内容.html">事業内容</a>
+        <a href="/採用情報.html" class="current" aria-current="page">採用情報</a>
+        <a href="/会社概要.html">会社概要・お問い合わせ</a>
+      </nav>
+      <button class="menuBtn" aria-label="メニューを開く">
+        <svg viewBox="0 0 22 18" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round">
+          <line x1="1" y1="3" x2="21" y2="3"/>
+          <line x1="1" y1="9" x2="21" y2="9"/>
+          <line x1="1" y1="15" x2="21" y2="15"/>
+        </svg>
+      </button>
+    </div>
+  </header>
+
+  <div class="brandBar" aria-hidden="true"></div>
+
+  <main id="main-content">
+
+  <!-- ============ Hero (Headline) ============ -->
+  <section class="hero">
+    <div class="wrap">
+      <p class="store-name">奈良の酒蔵全部呑み うまっしゅ</p>
+      <h1>
+        <span style="display:block">料理人として、たった一度きりの人生。</span>
+        <span class="accent" style="display:block">奈良の地酒と食材から学び、</span>
+        <span style="display:block">技として身につけませんか？</span>
+      </h1>
+      <div class="titleLine"></div>
+      <p class="sub">日本酒発祥の奈良県にある<strong>29 の酒蔵</strong>。<br>料理を作って終わりではなく、お客さんの喜ぶ声や笑顔まで見れる場所です。</p>
+    </div>
+  </section>
+
+  <!-- ============ Intro ============ -->
+  <section class="intro">
+    <div class="wrap">
+      <div class="col-text">
+        <h2>奈良の酒と食を、<br>一杯と一皿に込めて。</h2>
+        <div class="line"></div>
+        <p>うまっしゅは、奈良県内のすべての酒蔵の地酒を呑み比べできる居酒屋です。日本酒発祥の地と言われる奈良の歴史と、今を生きる蔵元の挑戦を、季節の料理と一緒にお客様にお届けしています。</p>
+        <p>赤提灯と木のカウンターが迎える店内では、観光のお客様から地元の常連様まで、毎晩さまざまな方が集います。スタッフとお客様の会話のなかで、その日の一杯が選ばれていきます。</p>
+      </div>
+      <div class="col-photo">
+        <div class="ph">
+          <picture>
+            <source srcset="/photos/umasshu/storefront-small.webp" media="(max-width: 880px)">
+            <img src="/photos/umasshu/storefront-large.webp"
+                 alt="うまっしゅ — 奈良の地酒専門店の店舗外観（赤提灯と酒樽）"
+                 loading="lazy" decoding="async"
+                 width="1181" height="787">
+          </picture>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ Benefits (3 cards) ============ -->
+  <section class="benefits">
+    <div class="wrap">
+      <div class="head">
+        <h2>うまっしゅで身につく、三つの力。</h2>
+        <div class="titleLine"></div>
+      </div>
+      <div class="grid">
+
+        <article class="benefit-card">
+          <p class="num">01</p>
+          <h3>食材の旨みを引き出す技術</h3>
+          <div class="line"></div>
+          <p>うまっしゅで扱うのは、旬の魚介類や地場野菜、国産黒毛和牛など、季節や仕入れによって変わる食材です。素材の状態を見極め、切り方、火入れ、味付けを調整しながら、その食材が持つ本来の旨みを引き出します。決められた調理を繰り返すだけではなく、料理人としての判断力と技術を磨ける環境です。</p>
+        </article>
+
+        <article class="benefit-card">
+          <p class="num">02</p>
+          <h3>お客様に合った日本酒を提案する知識</h3>
+          <div class="line"></div>
+          <p>うまっしゅでは、奈良県内 29 の酒蔵から仕入れた地酒を取り扱っています。すっきりとした酒、旨みの強い酒、香りを楽しむ酒など、それぞれの特徴を知り、お客様の好みや注文された料理に合わせて一杯を提案します。50ml・100ml・130ml と量を選べるため、飲み比べを希望されるお客様も多く、日々の接客を通して実践的な日本酒の知識を身につけられます。</p>
+        </article>
+
+        <article class="benefit-card">
+          <p class="num">03</p>
+          <h3>旬と仕入れに合わせて、一皿を組み立てる応用力</h3>
+          <div class="line"></div>
+          <p>うまっしゅの料理は、特定のジャンルだけに限定されていません。お造りや焼き物といった和食を中心に、手作り焼きギョーザや黒毛和牛の塩焼きなど、その時期においしい食材を活かした料理を提供しています。「この食材を、どうすればもっとおいしくできるか」「どの日本酒と組み合わせれば、さらに魅力が伝わるか」旬や仕入れに応じて料理を考える経験を重ねることで、メニューの枠にとらわれない料理人としての引き出しを増やせます。</p>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ Inline CTA (first) ============ -->
+  <section class="inlineCta">
+    <div class="wrap">
+      <h2>これまでの経験を活かしながら、<br>料理と日本酒を<br>もっと深く学びませんか？</h2>
+      <p>和食や日本酒が好きな方、<br>料理人として、さらに技術を高めたい方をお待ちしています。</p>
+      <div class="actions">
+        <a href="#requirements" class="btn primary">募集要項を見る</a>
+        <a href="/会社概要.html#contact" class="btn secondary">応募・お問い合わせ</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ Social proof (4 points + warning) ============ -->
+  <section class="proof">
+    <div class="wrap">
+      <div class="head">
+        <h2>奈良の地酒と、<br>旬の料理に向き合える場所。</h2>
+        <div class="titleLine"></div>
+      </div>
+      <div class="proof-grid">
+        <div class="proof-item">
+          <span class="pmark" aria-hidden="true">1</span>
+          <div class="pbody">
+            <h3>奈良県内 29 の酒蔵から地酒を仕入れ</h3>
+            <p>奈良のさまざまな酒蔵の銘柄を取り扱うため、一つの店舗で幅広い地酒の特徴に触れられます。</p>
+          </div>
+        </div>
+        <div class="proof-item">
+          <span class="pmark" aria-hidden="true">2</span>
+          <div class="pbody">
+            <h3>旬の魚介・地場野菜・国産黒毛和牛を使用</h3>
+            <p>季節や仕入れに応じた食材を使い、素材を活かした手作り料理を提供しています。</p>
+          </div>
+        </div>
+        <div class="proof-item">
+          <span class="pmark" aria-hidden="true">3</span>
+          <div class="pbody">
+            <h3>長年腕を磨いた料理人の技を間近で学べる</h3>
+            <p>一品一品を丁寧に仕立てる、経験豊富な職人の技術と仕事への向き合い方を、日々の現場で学べます。</p>
+          </div>
+        </div>
+        <div class="proof-item">
+          <span class="pmark" aria-hidden="true">4</span>
+          <div class="pbody">
+            <h3>料理と日本酒を一緒に提案できる</h3>
+            <p>料理単体ではなく、日本酒との相性まで考えた提案が求められるため、調理と接客の両方から食の知識を深められます。</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ A day in the life (動画) ============ -->
+  <section class="dayflow">
+    <div class="wrap">
+      <div class="head">
+        <h2>1日の流れ</h2>
+        <div class="titleLine"></div>
+        <p class="lead">仕込みからお客様のお見送りまで。<br>うまっしゅで働く一日を、密着で覗いてみてください。</p>
+      </div>
+      <div class="videoFrame">
+        <video
+          src="/videos/umasshu-a-day.mp4"
+          controls
+          preload="metadata"
+          playsinline
+          width="1920"
+          height="1080"
+          aria-label="奈良の酒蔵全部呑み うまっしゅ — 密着動画">
+          動画を再生するには、ブラウザの動画再生機能が必要です。
+        </video>
+      </div>
+      <p class="caption">※ 動画は仮版です。完成版が公開され次第差し替えます。</p>
+    </div>
+  </section>
+
+  <!-- ============ Staff voices (1 video + 2 icon cards) ============ -->
+  <!-- TODO: 動画 / 名前 / コメント は後で差し替え -->
+  <section class="voices">
+    <div class="wrap">
+      <div class="head">
+        <h2>スタッフの声</h2>
+        <div class="titleLine"></div>
+        <p class="lead">うまっしゅで実際に働く仲間のリアルな声を、お届けします。</p>
+      </div>
+      <div class="voices-grid">
+
+        <!-- Voice 01: 動画 (横長フル幅) -->
+        <article class="voice featured">
+          <div class="voice-media video">
+            <video
+              src="/videos/umasshu-interview-sasaki.mp4"
+              controls
+              preload="metadata"
+              playsinline
+              aria-label="うまっしゅ 佐々木さん インタビュー">
+              動画を再生するには、ブラウザの動画再生機能が必要です。
+            </video>
+          </div>
+          <div class="voice-body">
+            <p class="voice-role">VOICE 01 ・ 調理スタッフ</p>
+            <p class="voice-name">佐々木 さん</p>
+            <div class="voice-line" aria-hidden="true"></div>
+            <p class="voice-quote">「経験も技術もゼロの状態でしたが、一から教えてもらえて、すごく楽しく仕事させてもらってます。お客さんの喜ぶ声がやりがいです。」</p>
+          </div>
+        </article>
+
+        <!-- Voice 02: アイコン + 本文 -->
+        <article class="voice">
+          <div class="voice-media icon">
+            <div class="voice-avatar" aria-hidden="true">
+              <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="32" cy="24" r="11" stroke="currentColor" stroke-width="2"/>
+                <path d="M 10 58 Q 10 40 32 40 Q 54 40 54 58" stroke="currentColor" stroke-width="2" stroke-linecap="round" fill="none"/>
+              </svg>
+            </div>
+          </div>
+          <div class="voice-body">
+            <p class="voice-role">VOICE 02 ・ ホールスタッフ</p>
+            <p class="voice-name">○○ ○○ さん</p>
+            <div class="voice-line" aria-hidden="true"></div>
+            <p class="voice-quote">「最初は日本酒のことが全くわからなかったけれど、毎日少しずつ覚えていくうちに、お客様におすすめを伝えられるようになりました。」<br><br>※ コメント・お名前は仮の内容です。</p>
+          </div>
+        </article>
+
+        <!-- Voice 03: アイコン + 本文 -->
+        <article class="voice">
+          <div class="voice-media icon">
+            <div class="voice-avatar" aria-hidden="true">
+              <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="32" cy="24" r="11" stroke="currentColor" stroke-width="2"/>
+                <path d="M 10 58 Q 10 40 32 40 Q 54 40 54 58" stroke="currentColor" stroke-width="2" stroke-linecap="round" fill="none"/>
+              </svg>
+            </div>
+          </div>
+          <div class="voice-body">
+            <p class="voice-role">VOICE 03 ・ キッチンスタッフ</p>
+            <p class="voice-name">○○ ○○ さん</p>
+            <div class="voice-line" aria-hidden="true"></div>
+            <p class="voice-quote">「旬の食材を扱える楽しさは、ここでしか味わえません。仕入れによってメニューを考える毎日が、自分の引き出しを増やしてくれます。」<br><br>※ コメント・お名前は仮の内容です。</p>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ Warning block (正直なお話 / 和風) ============ -->
+  <section class="warning">
+    <div class="wrap">
+      <div class="panel">
+        <span class="seal" aria-hidden="true">志</span>
+        <p class="panelTitle">選ぶ前に、<br>ひとつだけお伝えしたいこと。</p>
+        <div class="panelLine" aria-hidden="true"></div>
+
+        <p>当店は、料理に手間をかけています。仕事としては、<span class="em">しんどいと感じる場面もあるかもしれません</span>。しかし、食材の味を最大限に引き出そうと思うと必要不可欠です。</p>
+        <p>正直「楽な仕事をしたい」「黙々と一人で作業し続けたい」と考えている人には、合わない職場かもしれません。</p>
+        <p class="promise">もし、<span class="brand">「真剣に和食と向き合いたい」「料理人として成長し続けたい」「お客さんの喜ぶ声や顔を見たい」</span>と考えているなら、あなたが心から楽しく働ける職場だと約束できます。</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ Requirements (募集要項) ============ -->
+  <!-- TODO: 各値 (○○) は後で差し替え -->
+  <section class="requirements" id="requirements">
+    <div class="wrap">
+      <div class="heading-row">
+        <h2>募集要項</h2>
+        <div class="titleLine"></div>
+      </div>
+      <dl class="reqList">
+        <div class="reqRow">
+          <dt>職種</dt>
+          <dd>調理スタッフ（料理長候補・キッチンスタッフ）／ホールスタッフ</dd>
+        </div>
+        <div class="reqRow">
+          <dt>雇用形態</dt>
+          <dd>正社員／アルバイト・パート</dd>
+        </div>
+        <div class="reqRow">
+          <dt>勤務地</dt>
+          <dd>奈良の酒蔵全部呑み うまっしゅ<br>奈良県奈良市東向中町 ○○-○○（近鉄奈良駅 徒歩○分）</dd>
+        </div>
+        <div class="reqRow">
+          <dt>給与</dt>
+          <dd>
+            <span class="placeholder-val">正社員：月給 ○○○,○○○円 〜<br>アルバイト・パート：時給 ○,○○○円 〜（深夜時給 ○,○○○円）</span><br>
+            ※経験・能力を考慮のうえ決定
+          </dd>
+        </div>
+        <div class="reqRow">
+          <dt>勤務時間</dt>
+          <dd>
+            <span class="placeholder-val">○○:○○ 〜 翌 ○○:○○（実働 ○ 時間／休憩 ○○分）</span><br>
+            シフト制／週○日以上から相談可
+          </dd>
+        </div>
+        <div class="reqRow">
+          <dt>休日・休暇</dt>
+          <dd>シフトによる／有給休暇／慶弔休暇</dd>
+        </div>
+        <div class="reqRow">
+          <dt>待遇・福利厚生</dt>
+          <dd>各種社会保険完備／交通費支給（規定あり）／まかない制度／昇給・賞与（正社員）／日本酒研修あり</dd>
+        </div>
+        <div class="reqRow">
+          <dt>求める人物像</dt>
+          <dd>和食や日本酒に興味のある方／料理人として成長したい方／お客様の喜ぶ顔が好きな方</dd>
+        </div>
+        <div class="reqRow">
+          <dt>応募資格</dt>
+          <dd>料理経験者歓迎（未経験の方もご相談ください）／20 歳以上</dd>
+        </div>
+      </dl>
+    </div>
+  </section>
+
+  <!-- ============ Steps ============ -->
+  <section class="steps">
+    <div class="wrap">
+      <div class="heading-row">
+        <h2>応募から採用まで</h2>
+      </div>
+      <div class="grid">
+        <div class="step">
+          <span class="num">01</span>
+          <h3>応募フォームから連絡</h3>
+          <p>応募フォームに必要事項をご入力ください。お電話でも受け付けています。</p>
+        </div>
+        <div class="step">
+          <span class="num">02</span>
+          <h3>面接日程の調整</h3>
+          <p>担当者よりご連絡し、面接日時を調整いたします。</p>
+        </div>
+        <div class="step">
+          <span class="num">03</span>
+          <h3>面接・店舗見学</h3>
+          <p>店舗で面接を行います。実際の職場の雰囲気もご覧いただけます。</p>
+        </div>
+        <div class="step">
+          <span class="num">04</span>
+          <h3>採用・勤務開始</h3>
+          <p>勤務開始日や条件を確認し、研修を経て勤務をスタートします。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ Close (Closing Offer) ============ -->
+  <section class="close">
+    <div class="wrap">
+      <p class="closeTitle">料理経験を、次のステージへ。</p>
+
+      <p>これまで身につけてきた技術を活かすだけではなく、<span class="em">旬の食材の扱い方、和食の仕立て、日本酒との組み合わせ</span>まで学べるのが、うまっしゅで働く面白さです。</p>
+      <p>毎日同じ食材を、同じ手順で調理する仕事ではありません。</p>
+
+      <div class="summary">
+        <span>食材の状態を見て、調理法を考え、</span>
+        <span>料理に合う地酒をお客様へ届ける。</span>
+      </div>
+
+      <p>料理が好きで、和食や日本酒をもっと深く知りたい。<br>そんな方にとって、料理人としての幅を広げられる職場です。</p>
+
+      <p class="question">あなたの料理経験を、<br>奈良の食と酒を伝える力に変えてみませんか？</p>
+
+      <div class="actions">
+        <a href="#requirements" class="btn primary">うまっしゅの募集要項を見る</a>
+        <a href="/会社概要.html#contact" class="btn secondary">応募・お問い合わせ</a>
+      </div>
+
+      <p class="reassure">経験やスキルに自信がなくてハードルが高く感じてしまっている方もいるかもしれません。でも、大丈夫です。安心して応募してください。なぜなら、スタッフ一同あなたの頑張りをサポートしていく体制を整えているからです。</p>
+    </div>
+  </section>
+
+  <!-- ============ Sub CTA links ============ -->
+  <section class="ctaLinks">
+    <div class="wrap">
+      <div class="head">
+        <h2>他の店舗・関連ページ</h2>
+      </div>
+      <div class="ctaGrid">
+        <a href="/採用情報.html" class="ctaBtn"><span>採用情報トップへ戻る</span><span>→</span></a>
+        <a href="/事業内容.html" class="ctaBtn"><span>事業内容を見る</span><span>→</span></a>
+        <a href="https://umasshu-izakaya.com/policy.html" target="_blank" rel="noopener" class="ctaBtn"><span>うまっしゅ 公式サイト</span><span>→</span></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ Breadcrumb ============ -->
+  <section class="crumb">
+    <div class="wrap">
+      <a href="/八宝コーポレートサイト.html">TOP</a>
+      <span class="sep"></span>
+      <a href="/採用情報.html">採用情報</a>
+      <span class="sep"></span>
+      <span>奈良の酒蔵全部呑み うまっしゅ</span>
+    </div>
+  </section>
+
+  </main>
+
+  <footer>
+    <div class="row">
+      <div class="col">
+        <div class="fLogo">
+          <span class="mark" aria-hidden="true">
+            <svg viewBox="0 0 40 40" fill="#c9a24b" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="20" cy="20" r="3.2"/>
+              <g transform="translate(20 20)">
+                <ellipse cx="0" cy="-10.5" rx="4" ry="5.2"/>
+                <ellipse cx="0" cy="-10.5" rx="4" ry="5.2" transform="rotate(72)"/>
+                <ellipse cx="0" cy="-10.5" rx="4" ry="5.2" transform="rotate(144)"/>
+                <ellipse cx="0" cy="-10.5" rx="4" ry="5.2" transform="rotate(216)"/>
+                <ellipse cx="0" cy="-10.5" rx="4" ry="5.2" transform="rotate(288)"/>
+              </g>
+            </svg>
+          </span>
+          <span class="name">
+            <span class="ja"><span class="small">株式会社</span><span class="big">八宝</span></span>
+            <span class="en">— HAPPO —</span>
+          </span>
+        </div>
+        <p class="addr">〒630-8215<br>奈良県奈良市東向中町１１ 丸八ビル ２階<br>TEL 0742-24-1755</p>
+      </div>
+      <div class="col">
+        <div class="sitemap">
+          <a href="/八宝の想い.html">八宝の想い</a>
+          <a href="/事業内容.html">事業内容</a>
+          <a href="/採用情報.html">採用情報</a>
+        </div>
+      </div>
+      <div class="col">
+        <div class="sitemap">
+          <a href="/会社概要.html">会社概要</a>
+          <a href="/会社概要.html#contact">お問い合わせ</a>
+          <a href="/プライバシーポリシー.html">プライバシーポリシー</a>
+        </div>
+      </div>
+    </div>
+    <div class="bottom">
+      <span>© HAPPO Co., Ltd.</span>
+      <span>NARA / JAPAN</span>
+    </div>
+  </footer>
+
+  <!-- Mobile drawer -->
+  <div class="mobileDrawer" aria-hidden="true" role="dialog" aria-label="メニュー">
+    <div class="panel">
+      <button class="closeBtn" type="button" aria-label="メニューを閉じる">×</button>
+      <nav>
+        <a href="/八宝の想い.html">八宝の想い</a>
+        <a href="/事業内容.html">事業内容</a>
+        <a href="/採用情報.html">採用情報</a>
+        <a href="/会社概要.html">会社概要・お問い合わせ</a>
+      </nav>
+    </div>
+  </div>
+  <script>
+    (function(){
+      var btn = document.querySelector('.menuBtn');
+      var drawer = document.querySelector('.mobileDrawer');
+      if (!btn || !drawer) return;
+      var closeBtn = drawer.querySelector('.closeBtn');
+      function open(){ drawer.setAttribute('aria-hidden','false'); document.body.style.overflow='hidden'; }
+      function close(){ drawer.setAttribute('aria-hidden','true'); document.body.style.overflow=''; }
+      btn.addEventListener('click', open);
+      closeBtn.addEventListener('click', close);
+      drawer.addEventListener('click', function(e){ if (e.target === drawer) close(); });
+      document.addEventListener('keydown', function(e){ if (e.key === 'Escape') close(); });
+    })();
+  </script>
+</body>
+</html>
