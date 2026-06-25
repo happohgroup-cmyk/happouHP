@@ -89,9 +89,9 @@
           d.dataset.slideIdx = i;
           // 初期 opacity 0 (delay 中も非表示) — animation-fill-mode: both で対応
           d.style.cssText = 'position:absolute;inset:0;background-image:url("' + src + '");background-position:center;background-size:cover;background-repeat:no-repeat;opacity:0;will-change:opacity,transform;transform-origin:center center;';
-          // CSS アニメーション: 32 秒で 4 スライド循環、各 8 秒表示
-          d.style.animation = '__heroFade 32s linear infinite both';
-          d.style.animationDelay = (i * 8) + 's';
+          // CSS アニメーション: 24 秒で 4 スライド循環、各 6 秒表示
+          d.style.animation = '__heroFade 24s linear infinite both';
+          d.style.animationDelay = (i * 6) + 's';
           container.appendChild(d);
         });
 
@@ -100,12 +100,13 @@
           var kf = document.createElement('style');
           kf.id = '__hero_anim_kf';
           kf.textContent = [
-            // 各スライド: 0-2%でフェードイン → 25%まで表示 → 27.5%でフェードアウト → 残りは非表示
+            // 24 秒サイクル、各スライド 6 秒 (25%) 表示
+            // 0-3%でフェードイン → 22%まで visible → 25%でフェードアウト → 残り非表示
             '@keyframes __heroFade {',
             '  0%   { opacity: 0; }',
             '  3%   { opacity: 1; }',
-            '  25%  { opacity: 1; }',
-            '  28%  { opacity: 0; }',
+            '  22%  { opacity: 1; }',
+            '  25%  { opacity: 0; }',
             '  100% { opacity: 0; }',
             '}',
             '@keyframes __heroSlowZoom {',
@@ -613,6 +614,29 @@
         s.textContent = [
           // Load Google Fonts for the new typography system
           '@import url("https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=Montserrat:wght@500;600&family=Noto+Sans+JP:wght@400;500;700&family=Noto+Serif+JP:wght@300;400;500&display=swap");',
+          // === Hero スライド自動切替 (純 CSS, JS 不要) ===
+          '@keyframes __heroFadeKf {',
+          '  0%   { opacity: 0; }',
+          '  3%   { opacity: 1; }',
+          '  22%  { opacity: 1; }',
+          '  25%  { opacity: 0; }',
+          '  100% { opacity: 0; }',
+          '}',
+          '#__hero_slides > div {',
+          '  animation: __heroFadeKf 24s linear infinite both !important;',
+          '}',
+          '#__hero_slides > div:nth-child(1) { animation-delay: 0s !important; }',
+          '#__hero_slides > div:nth-child(2) { animation-delay: 6s !important; }',
+          '#__hero_slides > div:nth-child(3) { animation-delay: 12s !important; }',
+          '#__hero_slides > div:nth-child(4) { animation-delay: 18s !important; }',
+          // 静的フォールバック: JS 失敗時でも最初のスライド画像が hero 背景に出る
+          '#hero {',
+          '  background-image: url("photos/hero/1-cha-large.webp"),',
+          '                    linear-gradient(rgba(28,22,15,1), rgba(28,22,15,1));',
+          '  background-size: cover, cover;',
+          '  background-position: center, center;',
+          '  background-repeat: no-repeat, no-repeat;',
+          '}',
           '#news, #brands { background: #ffffff !important; }',
           // 日本語大見出し — 游明朝 500-600
           'html, body, [style*="Shippori"], h1, h2, h3, h4, h5, h6 {',
