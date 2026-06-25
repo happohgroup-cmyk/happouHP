@@ -272,30 +272,54 @@
       .story .visual { order: -1; }
     }
 
-    /* ---------- Photo strip (JS-driven marquee) ---------- */
-    .strip { overflow: hidden; width: 100%; padding: 0; background: var(--paper-soft); }
+    /* ---------- Photo strip (CSS marquee, explicit pixel widths) ---------- */
+    .strip {
+      overflow: hidden;
+      width: 100%;
+      padding: 0;
+      background: var(--paper-soft);
+      min-height: 380px;
+    }
     .strip .marquee-track {
       display: flex;
+      flex-wrap: nowrap;
       gap: 0;
-      width: max-content;
-      will-change: transform;
-      transform: translate3d(0, 0, 0);
+      width: 5760px; /* 18 photos × 320px */
+      animation: stripScroll 50s linear infinite;
     }
     .strip .ph {
-      flex: 0 0 clamp(240px, 22vw, 360px);
-      aspect-ratio: 4 / 5;
+      flex: 0 0 320px;
+      width: 320px;
+      height: 400px;
       background: var(--placeholder);
       border-right: 1px solid var(--paper);
       position: relative;
       overflow: hidden;
     }
-    .strip .ph picture, .strip .ph img {
-      position: absolute; inset: 0;
-      width: 100% !important; height: 100% !important;
+    .strip .ph picture,
+    .strip .ph img {
+      position: absolute;
+      inset: 0;
+      width: 100% !important;
+      height: 100% !important;
       object-fit: cover;
+      display: block;
+    }
+    @keyframes stripScroll {
+      0%   { transform: translate3d(0, 0, 0); }
+      100% { transform: translate3d(-2880px, 0, 0); } /* 9 photos × 320px */
     }
     @media (max-width: 880px) {
-      .strip .ph { flex-basis: clamp(180px, 48vw, 280px); }
+      .strip { min-height: 280px; }
+      .strip .marquee-track {
+        width: 4320px; /* 18 × 240px */
+        animation-duration: 36s;
+      }
+      .strip .ph { flex-basis: 240px; width: 240px; height: 280px; }
+      @keyframes stripScroll {
+        0%   { transform: translate3d(0, 0, 0); }
+        100% { transform: translate3d(-2160px, 0, 0); } /* 9 × 240px */
+      }
     }
 
     /* ---------- Brands ---------- */
@@ -766,51 +790,6 @@
       if (closeBtn) closeBtn.addEventListener('click', close);
       drawer.addEventListener('click', function (e) { if (e.target === drawer) close(); });
       document.addEventListener('keydown', function (e) { if (e.key === 'Escape') close(); });
-    })();
-
-    // === Photo strip marquee (rAF-driven, runs unconditionally) ===
-    (function () {
-      function start() {
-        var track = document.querySelector('.strip .marquee-track');
-        if (!track) { console.warn('[strip] no marquee track found'); return; }
-        var x = 0;
-        var last = null;
-        var paused = false;
-        var halfWidth = track.scrollWidth / 2;
-
-        // Force initial transform so we know JS path is alive
-        track.style.transform = 'translate3d(0px, 0, 0)';
-
-        function tick(t) {
-          if (last === null) { last = t; requestAnimationFrame(tick); return; }
-          var dt = (t - last) / 1000;
-          last = t;
-          if (!paused && halfWidth > 0) {
-            x -= 70 * dt; // 70 px/sec
-            if (x <= -halfWidth) x += halfWidth;
-            track.style.transform = 'translate3d(' + x.toFixed(2) + 'px, 0, 0)';
-          }
-          requestAnimationFrame(tick);
-        }
-
-        track.addEventListener('mouseenter', function () { paused = true; });
-        track.addEventListener('mouseleave', function () { paused = false; });
-
-        // Recompute halfWidth whenever images finish loading or viewport changes
-        function remeasure() { halfWidth = track.scrollWidth / 2; }
-        window.addEventListener('resize', remeasure);
-        track.querySelectorAll('img').forEach(function (img) {
-          if (!img.complete) img.addEventListener('load', remeasure, { once: true });
-        });
-        requestAnimationFrame(tick);
-        console.log('[strip] marquee started, halfWidth=' + halfWidth);
-      }
-
-      if (document.readyState === 'loading') {
-        document.addEventListener('DOMContentLoaded', start);
-      } else {
-        start();
-      }
     })();
 
     // === Hero progress indicator click ===
