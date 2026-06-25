@@ -79,6 +79,9 @@
         var container = document.createElement('div');
         container.id = '__hero_slides';
         container.setAttribute('aria-hidden', 'true');
+        // z-index:-1 にして親 (hero) より下のスタッキングに置くため、
+        // hero 自身が stacking context を作る (position:relative + z-index 設定)。
+        // ヒーロー内のテキスト要素は z-index 既存値で前面に。
         container.style.cssText = 'position:absolute;inset:0;z-index:0;pointer-events:none;';
 
         pool.forEach(function (src, i) {
@@ -108,30 +111,30 @@
         // 初回 (1 枚目) は即ズーム開始
         startZoom(container.children[0]);
 
-        // まず最初は最後尾に追加 (バンドルがまだ children を追加し続ける可能性があるため)
+        // スライドはあとから挿入 (背景色 div の上, テキストより下)
         hero.appendChild(container);
-        // バンドル描画が落ち着いた後に、vignette の手前に再配置する関数
-        function repositionSlides() {
-          var insertBefore = null;
+        // 直下の他要素(背景画像 div 含む)を全て slide の前後に配置:
+        //   - 背景色のみの div (テキスト無し, position:absolute inset:0 系) → そのまま
+        //   - テキスト要素 → z-index 上げて slide の前面に
+        function bumpHeroTextZIndex() {
           for (var n = 0; n < hero.children.length; n++) {
             var child = hero.children[n];
             if (child === container) continue;
-            var st = child.getAttribute('style') || '';
-            if (st.indexOf('linear-gradient(rgba(20, 15') !== -1 ||
-                st.indexOf('linear-gradient(90deg, rgba(20, 15') !== -1) {
-              insertBefore = child;
-              break;
+            if (child.dataset && child.dataset.zBumped === '1') continue;
+            var hasText = (child.innerText || '').trim().length > 0;
+            // テキスト/コンテンツを持つ要素のみ z-index 引き上げ
+            if (hasText) {
+              var cs = window.getComputedStyle(child);
+              if (cs.position === 'static') child.style.position = 'relative';
+              child.style.zIndex = '3';
+              if (child.dataset) child.dataset.zBumped = '1';
             }
           }
-          if (insertBefore && container.nextSibling !== insertBefore) {
-            hero.insertBefore(container, insertBefore);
-          }
         }
-        // 数回試行 (バンドル後追加に対応)
-        repositionSlides();
-        setTimeout(repositionSlides, 200);
-        setTimeout(repositionSlides, 600);
-        setTimeout(repositionSlides, 1500);
+        bumpHeroTextZIndex();
+        setTimeout(bumpHeroTextZIndex, 200);
+        setTimeout(bumpHeroTextZIndex, 600);
+        setTimeout(bumpHeroTextZIndex, 1500);
 
         // ===== Progress bar (4 segments, クリック可能) =====
         var progress = document.createElement('div');
