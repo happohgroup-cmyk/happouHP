@@ -272,6 +272,41 @@
       .story .visual { order: -1; }
     }
 
+    /* ---------- Photo strip (auto-scrolling marquee) ---------- */
+    .strip { overflow: hidden; width: 100%; padding: 0; background: var(--paper-soft); }
+    .strip .marquee-track {
+      display: flex;
+      gap: 0;
+      width: max-content;
+      animation: stripMarquee 35s linear infinite;
+      will-change: transform;
+    }
+    .strip .marquee-track:hover { animation-play-state: paused; }
+    .strip .ph {
+      flex: 0 0 clamp(240px, 22vw, 360px);
+      aspect-ratio: 4 / 5;
+      background: var(--placeholder);
+      border-right: 1px solid var(--paper);
+      position: relative;
+      overflow: hidden;
+    }
+    .strip .ph picture, .strip .ph img {
+      position: absolute; inset: 0;
+      width: 100% !important; height: 100% !important;
+      object-fit: cover;
+    }
+    @keyframes stripMarquee {
+      from { transform: translate3d(0, 0, 0); }
+      to   { transform: translate3d(-50%, 0, 0); }
+    }
+    @media (max-width: 880px) {
+      .strip .ph { flex-basis: clamp(180px, 48vw, 280px); }
+      .strip .marquee-track { animation-duration: 28s; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .strip .marquee-track { animation: none; }
+    }
+
     /* ---------- Brands ---------- */
     .brands .head { text-align: center; margin-bottom: 64px; }
     .brands .head h2 { font-size: clamp(28px, 3.5vw, 42px); margin: 0 0 14px; }
@@ -506,6 +541,32 @@
             <img src="photos/chapters/parent-child-mochi-large.webp" alt="親子で大福を味わう様子" loading="lazy" decoding="async" width="800" height="1000">
           </picture>
         </div>
+      </div>
+    </section>
+
+    <!-- ============ Photo strip (auto-scrolling marquee) ============ -->
+    <section class="strip" aria-hidden="true">
+      <div class="marquee-track">
+        <!-- Set 1 -->
+        <div class="ph"><picture><source srcset="photos/strip/matcha-pudding-jars-small.webp" media="(max-width: 880px)"><img src="photos/strip/matcha-pudding-jars-large.webp" alt="" loading="lazy" decoding="async" width="800" height="532"></picture></div>
+        <div class="ph"><picture><source srcset="photos/strip/udon-cold-water-small.webp" media="(max-width: 880px)"><img src="photos/strip/udon-cold-water-large.webp" alt="" loading="lazy" decoding="async" width="800" height="532"></picture></div>
+        <div class="ph"><picture><source srcset="photos/strip/fresh-sashimi-small.webp" media="(max-width: 880px)"><img src="photos/strip/fresh-sashimi-large.webp" alt="" loading="lazy" decoding="async" width="800" height="532"></picture></div>
+        <div class="ph"><picture><source srcset="photos/strip/basque-cheesecake-small.webp" media="(max-width: 880px)"><img src="photos/strip/basque-cheesecake-large.webp" alt="" loading="lazy" decoding="async" width="800" height="534"></picture></div>
+        <div class="ph"><picture><source srcset="photos/strip/gift-box-small.webp" media="(max-width: 880px)"><img src="photos/strip/gift-box-large.webp" alt="" loading="lazy" decoding="async" width="800" height="532"></picture></div>
+        <div class="ph"><picture><source srcset="photos/strip/sakekasu-cream-cheese-small.webp" media="(max-width: 880px)"><img src="photos/strip/sakekasu-cream-cheese-large.webp" alt="" loading="lazy" decoding="async" width="800" height="518"></picture></div>
+        <div class="ph"><picture><source srcset="photos/strip/udon-portions-small.webp" media="(max-width: 880px)"><img src="photos/strip/udon-portions-large.webp" alt="" loading="lazy" decoding="async" width="800" height="532"></picture></div>
+        <div class="ph"><picture><source srcset="photos/strip/dashi-strain-small.webp" media="(max-width: 880px)"><img src="photos/strip/dashi-strain-large.webp" alt="" loading="lazy" decoding="async" width="800" height="534"></picture></div>
+        <div class="ph"><picture><source srcset="photos/strip/ochazuke-small.webp" media="(max-width: 880px)"><img src="photos/strip/ochazuke-large.webp" alt="" loading="lazy" decoding="async" width="800" height="580"></picture></div>
+        <!-- Set 2 (duplicate for seamless loop) -->
+        <div class="ph"><picture><source srcset="photos/strip/matcha-pudding-jars-small.webp" media="(max-width: 880px)"><img src="photos/strip/matcha-pudding-jars-large.webp" alt="" loading="lazy" decoding="async" width="800" height="532"></picture></div>
+        <div class="ph"><picture><source srcset="photos/strip/udon-cold-water-small.webp" media="(max-width: 880px)"><img src="photos/strip/udon-cold-water-large.webp" alt="" loading="lazy" decoding="async" width="800" height="532"></picture></div>
+        <div class="ph"><picture><source srcset="photos/strip/fresh-sashimi-small.webp" media="(max-width: 880px)"><img src="photos/strip/fresh-sashimi-large.webp" alt="" loading="lazy" decoding="async" width="800" height="532"></picture></div>
+        <div class="ph"><picture><source srcset="photos/strip/basque-cheesecake-small.webp" media="(max-width: 880px)"><img src="photos/strip/basque-cheesecake-large.webp" alt="" loading="lazy" decoding="async" width="800" height="534"></picture></div>
+        <div class="ph"><picture><source srcset="photos/strip/gift-box-small.webp" media="(max-width: 880px)"><img src="photos/strip/gift-box-large.webp" alt="" loading="lazy" decoding="async" width="800" height="532"></picture></div>
+        <div class="ph"><picture><source srcset="photos/strip/sakekasu-cream-cheese-small.webp" media="(max-width: 880px)"><img src="photos/strip/sakekasu-cream-cheese-large.webp" alt="" loading="lazy" decoding="async" width="800" height="518"></picture></div>
+        <div class="ph"><picture><source srcset="photos/strip/udon-portions-small.webp" media="(max-width: 880px)"><img src="photos/strip/udon-portions-large.webp" alt="" loading="lazy" decoding="async" width="800" height="532"></picture></div>
+        <div class="ph"><picture><source srcset="photos/strip/dashi-strain-small.webp" media="(max-width: 880px)"><img src="photos/strip/dashi-strain-large.webp" alt="" loading="lazy" decoding="async" width="800" height="534"></picture></div>
+        <div class="ph"><picture><source srcset="photos/strip/ochazuke-small.webp" media="(max-width: 880px)"><img src="photos/strip/ochazuke-large.webp" alt="" loading="lazy" decoding="async" width="800" height="580"></picture></div>
       </div>
     </section>
 
