@@ -215,16 +215,30 @@
         hero.dataset.heroCycling = '1';
         var slideEls = container.children;
         function goToSlide(idx) {
-          // 全スライドの animation-delay を再計算 (idx を 0 番目相当に)
-          for (var k = 0; k < slideEls.length; k++) {
-            var offset = ((k - idx) + slideEls.length) % slideEls.length;
-            slideEls[k].style.animation = 'none';
+          var n = slideEls.length;
+          // 全スライドの animation-delay を再計算 — idx をいま 0% (始まる) 位置に置く
+          for (var k = 0; k < n; k++) {
+            var offset = ((k - idx) + n) % n; // クリックされたスライドが offset 0
+            var delay = '-' + (n - offset) * 6 + 's';
+            // offset 0 = clicked → delay 0s (just started fade-in)
+            // offset 1 = next → delay -6s? No, we want offset 1 to start in 6s.
+            // Simpler: positive delay so slide N starts at offset*6 seconds from now
+            slideEls[k].style.setProperty('animation', 'none', 'important');
             slideEls[k].offsetHeight; // reflow
-            slideEls[k].style.animation = '__heroFade 32s linear infinite, __heroSlowZoom 8s ease-out infinite';
-            slideEls[k].style.animationDelay = (offset * 8) + 's, ' + (offset * 8) + 's';
+            slideEls[k].style.setProperty('animation', '__heroFadeKf 24s linear infinite both', 'important');
+            slideEls[k].style.setProperty('animation-delay', (offset * 6) + 's', 'important');
+          }
+          // インジケータも同期
+          var fills = document.querySelectorAll('#__hero_progress .__hero-progress-fill');
+          for (var f = 0; f < fills.length; f++) {
+            var foff = ((f - idx) + fills.length) % fills.length;
+            fills[f].style.setProperty('animation', 'none', 'important');
+            fills[f].offsetHeight;
+            fills[f].style.setProperty('animation', '__heroProgFillKf 24s linear infinite both', 'important');
+            fills[f].style.setProperty('animation-delay', (foff * 6) + 's', 'important');
           }
         }
-        function startCycle() {} // no-op (CSS で動作)
+        function startCycle() {} // no-op (CSS 自動循環中)
 
         // Click delegation on document — バンドルが progress を re-render しても確実に動く
         if (!document.documentElement.dataset.heroDelegated) {
@@ -615,12 +629,13 @@
           // Load Google Fonts for the new typography system
           '@import url("https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=Montserrat:wght@500;600&family=Noto+Sans+JP:wght@400;500;700&family=Noto+Serif+JP:wght@300;400;500&display=swap");',
           // === Hero スライド自動切替 (純 CSS) — クロスフェード + Ken Burns zoom ===
-          // 24 秒サイクル、各スライド表示開始から終了まで滑らかに scale(1.0 → 1.15)
+          // 24 秒サイクル、各スライド表示開始から終了まで滑らかに scale(1.0 → 1.08)
+          // (ゆっくりとしたズーム — 6s で 8% のみ拡大)
           '@keyframes __heroFadeKf {',
           '  0%   { opacity: 0; transform: scale(1); }',
-          '  6%   { opacity: 1; transform: scale(1.02); }',
-          '  25%  { opacity: 1; transform: scale(1.15); }',
-          '  31%  { opacity: 0; transform: scale(1.17); }',
+          '  6%   { opacity: 1; transform: scale(1.012); }',
+          '  25%  { opacity: 1; transform: scale(1.08); }',
+          '  31%  { opacity: 0; transform: scale(1.09); }',
           '  100% { opacity: 0; transform: scale(1); }',
           '}',
           '#__hero_slides > div {',
