@@ -272,16 +272,15 @@
       .story .visual { order: -1; }
     }
 
-    /* ---------- Photo strip (auto-scrolling marquee) ---------- */
+    /* ---------- Photo strip (JS-driven marquee) ---------- */
     .strip { overflow: hidden; width: 100%; padding: 0; background: var(--paper-soft); }
     .strip .marquee-track {
       display: flex;
       gap: 0;
       width: max-content;
-      animation: stripMarquee 35s linear infinite;
       will-change: transform;
+      transform: translate3d(0, 0, 0);
     }
-    .strip .marquee-track:hover { animation-play-state: paused; }
     .strip .ph {
       flex: 0 0 clamp(240px, 22vw, 360px);
       aspect-ratio: 4 / 5;
@@ -295,16 +294,8 @@
       width: 100% !important; height: 100% !important;
       object-fit: cover;
     }
-    @keyframes stripMarquee {
-      from { transform: translate3d(0, 0, 0); }
-      to   { transform: translate3d(-50%, 0, 0); }
-    }
     @media (max-width: 880px) {
       .strip .ph { flex-basis: clamp(180px, 48vw, 280px); }
-      .strip .marquee-track { animation-duration: 28s; }
-    }
-    @media (prefers-reduced-motion: reduce) {
-      .strip .marquee-track { animation: none; }
     }
 
     /* ---------- Brands ---------- */
@@ -775,6 +766,52 @@
       if (closeBtn) closeBtn.addEventListener('click', close);
       drawer.addEventListener('click', function (e) { if (e.target === drawer) close(); });
       document.addEventListener('keydown', function (e) { if (e.key === 'Escape') close(); });
+    })();
+
+    // === Photo strip marquee (rAF-driven, bulletproof) ===
+    (function () {
+      var track = document.querySelector('.strip .marquee-track');
+      if (!track) return;
+      var speed = 70; // px per second (PC); mobile auto-scales by content width
+      var x = 0;
+      var last = null;
+      var paused = false;
+      var halfWidth = 0;
+
+      function measure() {
+        // Total content width / 2 = one full set (we duplicated 9 → 18 items)
+        halfWidth = track.scrollWidth / 2;
+      }
+
+      function tick(t) {
+        if (last !== null && !paused && halfWidth > 0) {
+          var dt = (t - last) / 1000;
+          x -= speed * dt;
+          if (x <= -halfWidth) x += halfWidth;
+          track.style.transform = 'translate3d(' + x + 'px, 0, 0)';
+        }
+        last = t;
+        requestAnimationFrame(tick);
+      }
+
+      // Pause on hover (PC) / touch-hold (mobile)
+      track.addEventListener('mouseenter', function () { paused = true; });
+      track.addEventListener('mouseleave', function () { paused = false; });
+      track.addEventListener('touchstart', function () { paused = true; }, { passive: true });
+      track.addEventListener('touchend',   function () { paused = false; }, { passive: true });
+
+      // Respect prefers-reduced-motion
+      var reduceMQ = window.matchMedia('(prefers-reduced-motion: reduce)');
+      if (reduceMQ.matches) return;
+
+      // Re-measure after each image load and on resize (handles lazy-load growth)
+      window.addEventListener('resize', measure);
+      track.querySelectorAll('img').forEach(function (img) {
+        if (img.complete) return;
+        img.addEventListener('load', measure, { once: true });
+      });
+      measure();
+      requestAnimationFrame(tick);
     })();
 
     // === Hero progress indicator click ===
