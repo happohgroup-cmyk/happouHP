@@ -86,30 +86,38 @@
         pool.forEach(function (src, i) {
           var d = document.createElement('div');
           d.className = '__hero-slide';
-          // クロスフェード: 2 秒 + cubic-bezier で滑らかな blending。
-          // 新スライドは fade-in が ease-out (早く出てくる)、古スライドは fade-out が ease-in (後半でゆっくり消える) — これで両者が中央付近で重なる
-          d.style.cssText = 'position:absolute;inset:0;background-image:url("' + src + '");background-position:center;background-size:cover;background-repeat:no-repeat;transition:opacity 2s cubic-bezier(0.4, 0, 0.2, 1);will-change:opacity,transform;transform:scale(1);transform-origin:center center;';
-          d.style.setProperty('opacity', i === 0 ? '1' : '0', 'important');
+          d.dataset.slideIdx = i;
+          // 初期 opacity 0 (delay 中も非表示) — animation-fill-mode: both で対応
+          d.style.cssText = 'position:absolute;inset:0;background-image:url("' + src + '");background-position:center;background-size:cover;background-repeat:no-repeat;opacity:0;will-change:opacity,transform;transform-origin:center center;';
+          // CSS アニメーション: 32 秒で 4 スライド循環、各 8 秒表示
+          d.style.animation = '__heroFade 32s linear infinite both';
+          d.style.animationDelay = (i * 8) + 's';
           container.appendChild(d);
         });
 
-        // Ken Burns 効果のためのキーフレーム (まだなければ注入)
-        if (!document.getElementById('__hero_zoom_kf')) {
+        // CSS アニメーション (キーフレーム)
+        if (!document.getElementById('__hero_anim_kf')) {
           var kf = document.createElement('style');
-          kf.id = '__hero_zoom_kf';
-          kf.textContent = '@keyframes __heroSlowZoom { from { transform: scale(1); } to { transform: scale(1.12); } }';
+          kf.id = '__hero_anim_kf';
+          kf.textContent = [
+            // 各スライド: 0-2%でフェードイン → 25%まで表示 → 27.5%でフェードアウト → 残りは非表示
+            '@keyframes __heroFade {',
+            '  0%   { opacity: 0; }',
+            '  3%   { opacity: 1; }',
+            '  25%  { opacity: 1; }',
+            '  28%  { opacity: 0; }',
+            '  100% { opacity: 0; }',
+            '}',
+            '@keyframes __heroSlowZoom {',
+            '  from { transform: scale(1); }',
+            '  to   { transform: scale(1.08); }',
+            '}'
+          ].join('\n');
           document.head.appendChild(kf);
         }
 
-        function startZoom(el) {
-          // 既存アニメーションをリセットしてから付け直すと、毎回 scale(1) から再開
-          el.style.animation = 'none';
-          // force reflow
-          el.offsetHeight;
-          el.style.animation = '__heroSlowZoom 10s ease-out forwards';
-        }
-        // 初回 (1 枚目) は即ズーム開始
-        startZoom(container.children[0]);
+        // CSS animation で fade + zoom 両方を制御するため、JS の startZoom は不使用
+        function startZoom(el) { /* no-op */ }
 
         // 最初のテキストを持つ child を見つけて、その直前に挿入する
         // (テキスト child は後で paint されるため slide の上に表示される)
@@ -200,32 +208,22 @@
           }
         }, 100);
 
+        // CSS アニメーションで完全自動循環中。JS タイマーは不要。
+        // クリック操作は CSS animation-delay を書き換えて該当スライドへジャンプ。
         if (hero.dataset.heroCycling === '1') return;
         hero.dataset.heroCycling = '1';
-
-        var current = 0;
         var slideEls = container.children;
-        var cycleTimer = null;
-        var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-
         function goToSlide(idx) {
-          if (idx === current) return;
-          // !important で setProperty しないと、バンドル CSS が上書きする
-          slideEls[current].style.setProperty('opacity', '0', 'important');
-          current = ((idx % slideEls.length) + slideEls.length) % slideEls.length;
-          slideEls[current].style.setProperty('opacity', '1', 'important');
-          startZoom(slideEls[current]);
-          if (container.__updateProgress) container.__updateProgress(current);
+          // 全スライドの animation-delay を再計算 (idx を 0 番目相当に)
+          for (var k = 0; k < slideEls.length; k++) {
+            var offset = ((k - idx) + slideEls.length) % slideEls.length;
+            slideEls[k].style.animation = 'none';
+            slideEls[k].offsetHeight; // reflow
+            slideEls[k].style.animation = '__heroFade 32s linear infinite, __heroSlowZoom 8s ease-out infinite';
+            slideEls[k].style.animationDelay = (offset * 8) + 's, ' + (offset * 8) + 's';
+          }
         }
-        function startCycle() {
-          if (cycleTimer) clearInterval(cycleTimer);
-          if (reduceMotion) return; // 自動回転だけスキップ、手動操作は有効
-          cycleTimer = setInterval(function () {
-            if (document.hidden) return;
-            goToSlide((current + 1) % slideEls.length);
-          }, 8000);
-        }
-        startCycle();
+        function startCycle() {} // no-op (CSS で動作)
 
         // Click delegation on document — バンドルが progress を re-render しても確実に動く
         if (!document.documentElement.dataset.heroDelegated) {
