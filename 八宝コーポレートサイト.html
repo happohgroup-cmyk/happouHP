@@ -243,22 +243,38 @@
         }
         function startCycle() {} // no-op (CSS 自動循環中)
 
-        // Click delegation on document — バンドルが progress を re-render しても確実に動く
-        if (!document.documentElement.dataset.heroDelegated) {
-          document.documentElement.dataset.heroDelegated = '1';
+        // Click delegation on document — 現在 DOM に存在する要素を毎回クエリ
+        // (closure 内の古い slideEls を使わない)
+        if (!window.__heroClickDelegated) {
+          window.__heroClickDelegated = true;
           document.addEventListener('click', function (e) {
             var btn = e.target.closest('.__hero-progress-seg, [data-slide-idx]');
-            if (!btn || !btn.matches('.__hero-progress-seg, [data-slide-idx]')) return;
-            // 進行バー専用 — hero 内部の他要素は無視
+            if (!btn) return;
             var insideProgress = btn.closest('#__hero_progress');
             if (!insideProgress) return;
             e.preventDefault();
             e.stopPropagation();
             var idx = parseInt(btn.dataset.slideIdx, 10);
             if (isNaN(idx)) return;
-            goToSlide(idx);
-            startCycle();
-          }, true); // capture phase で他のリスナーより先に
+            // 現在 DOM 内のスライドとインジケータを直接操作 (closure 不使用)
+            var currentSlides = document.querySelectorAll('#__hero_slides > div');
+            var n = currentSlides.length;
+            for (var k = 0; k < n; k++) {
+              var offset = ((k - idx) + n) % n;
+              currentSlides[k].style.setProperty('animation', 'none', 'important');
+              currentSlides[k].offsetHeight;
+              currentSlides[k].style.setProperty('animation', '__heroFadeKf 24s linear infinite both', 'important');
+              currentSlides[k].style.setProperty('animation-delay', (offset * 6) + 's', 'important');
+            }
+            var currentFills = document.querySelectorAll('#__hero_progress .__hero-progress-fill');
+            for (var f = 0; f < currentFills.length; f++) {
+              var foff = ((f - idx) + currentFills.length) % currentFills.length;
+              currentFills[f].style.setProperty('animation', 'none', 'important');
+              currentFills[f].offsetHeight;
+              currentFills[f].style.setProperty('animation', '__heroProgFillKf 24s linear infinite both', 'important');
+              currentFills[f].style.setProperty('animation-delay', (foff * 6) + 's', 'important');
+            }
+          }, true);
         }
       }
       function tagBrandCards() {
