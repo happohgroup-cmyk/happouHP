@@ -1,25 +1,749 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-  <meta charset="utf-8">
+  <meta charset="UTF-8">
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+  <meta http-equiv="Pragma" content="no-cache">
+  <meta http-equiv="Expires" content="0">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>株式会社八宝 — 奈良の食文化を、未来へつなぐ</title>
-  <meta name="description" content="株式会社八宝は、奈良市東向商店街を拠点に、大和茶大福専門店 GRANCHA、奈良の地酒 うまっしゅ、うどん むぎの蔵、釜めし GRANCHA を運営しています。">
-  <link rel="canonical" href="八宝コーポレートサイト.html">
-  <meta http-equiv="refresh" content="0; url=八宝コーポレートサイト.html">
-  <script>location.replace('八宝コーポレートサイト.html');</script>
+  <title>株式会社八宝｜奈良の食文化を、未来へつなぐ</title>
+  <meta name="description" content="株式会社八宝は奈良市東向商店街を拠点に、GRANCHA、奈良の酒蔵全部呑み うまっしゅ、うどんごはん むぎの蔵、釜めしGRANCHAを運営しています。奈良の美味しい、楽しい、なるほどを食を通じて届けます。">
+  <link rel="canonical" href="https://example.com/">
+
+  <!-- OGP -->
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="ja_JP">
+  <meta property="og:site_name" content="株式会社八宝">
+  <meta property="og:title" content="株式会社八宝｜奈良の食文化を、未来へつなぐ">
+  <meta property="og:description" content="奈良市東向商店街を拠点に、大和茶大福のGRANCHA、奈良の地酒うまっしゅ、うどんむぎの蔵、釜めしGRANCHAを運営する株式会社八宝のコーポレートサイト。">
+  <meta property="og:url" content="https://example.com/">
+  <meta property="og:image" content="https://example.com/photos/hero/1-cha-large.webp">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="株式会社八宝｜奈良の食文化を、未来へつなぐ">
+  <meta name="twitter:description" content="奈良市東向商店街を拠点に、GRANCHA、うまっしゅ、むぎの蔵、釜めしGRANCHAを運営。">
+  <meta name="twitter:image" content="https://example.com/photos/hero/1-cha-large.webp">
+
+  <link rel="icon" href="photos/grancha/logo-small.png" type="image/png">
+
+  <!-- JSON-LD: Organization -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "株式会社八宝",
+    "alternateName": "HAPPO Co., Ltd.",
+    "url": "https://example.com/",
+    "logo": "https://example.com/photos/grancha/logo.png",
+    "description": "株式会社八宝は奈良市東向商店街を拠点に、GRANCHA、奈良の酒蔵全部呑み うまっしゅ、うどんごはん むぎの蔵、釜めしGRANCHAを運営しています。",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "東向中町11 丸八ビル 2階",
+      "addressLocality": "奈良市",
+      "addressRegion": "奈良県",
+      "postalCode": "630-8215",
+      "addressCountry": "JP"
+    },
+    "telephone": "+81-742-24-1755",
+    "sameAs": []
+  }
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=Montserrat:wght@500;600&family=Noto+Sans+JP:wght@400;500;700&family=Noto+Serif+JP:wght@300;400;500;700&family=Shippori+Mincho:wght@500;600&display=swap">
+
   <style>
-    body { font-family: "YuMincho", "Yu Mincho", "Hiragino Mincho ProN", "Noto Serif JP", serif; background: #faf8f3; color: #1a1814; margin: 0; min-height: 100vh; display: flex; align-items: center; justify-content: center; text-align: center; padding: 24px; }
-    .wrap { max-width: 480px; }
-    h1 { font-size: 22px; letter-spacing: 0.18em; font-weight: 500; margin: 0 0 12px; }
-    p { font-size: 14px; letter-spacing: 0.1em; color: #5a544a; line-height: 1.8; }
-    a { color: #b48d40; text-decoration: underline; }
+    :root {
+      --ink: #1a1814;
+      --ink-soft: #3a3631;
+      --muted: #8a857a;
+      --line: #d9d4c8;
+      --paper: #ffffff;
+      --paper-soft: #faf8f3;
+      --paper-warm: #f1ede3;
+      --placeholder: #ebe7dc;
+      --gold: #c9a24b;
+      --gold-soft: #b48d40;
+      --hero-dark: #1c160f;
+      --mincho: "Shippori Mincho", "YuMincho", "Yu Mincho", "游明朝", "Hiragino Mincho ProN", "Noto Serif JP", serif;
+      --serif-body: "Noto Serif JP", "YuMincho", "Yu Mincho", "游明朝", "Hiragino Mincho ProN", serif;
+      --cormorant: "Cormorant Garamond", "Times New Roman", Georgia, serif;
+      --sans: "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Yu Gothic", "Meiryo", sans-serif;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body { margin: 0; font-family: var(--serif-body); color: var(--ink); background: var(--paper); -webkit-font-smoothing: antialiased; font-weight: 400; line-height: 1.7; }
+    a { color: inherit; text-decoration: none; }
+    img { display: block; max-width: 100%; height: auto; }
+    button { font-family: inherit; cursor: pointer; }
+    .skip-link { position: absolute; left: -9999px; top: 0; z-index: 9999; background: var(--ink); color: var(--paper); padding: 12px 20px; font-size: 14px; text-decoration: none; }
+    .skip-link:focus { left: 0; outline: 2px solid var(--gold); }
+
+    /* ---------- Header ---------- */
+    .siteHeader { position: sticky; top: 0; background: rgba(255,255,255,.94); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); border-bottom: 1px solid rgba(0,0,0,.06); z-index: 50; }
+    .siteHeader .row { max-width: 1440px; margin: 0 auto; padding: 18px 40px; display: flex; justify-content: space-between; align-items: center; gap: 32px; }
+    .logo { display: flex; align-items: center; gap: 12px; color: var(--ink); }
+    .logo .mark { width: 48px; height: 48px; border: 1.4px solid var(--gold); border-radius: 50%; display: flex; align-items: center; justify-content: center; background: #fff; flex-shrink: 0; }
+    .logo .mark svg { width: 26px; height: 26px; }
+    .logo .name { display: flex; flex-direction: column; line-height: 1; gap: 5px; }
+    .logo .name .ja { display: flex; align-items: baseline; gap: 9px; font-family: var(--mincho); }
+    .logo .name .small { font-size: 11px; letter-spacing: .15em; }
+    .logo .name .big { font-size: 19px; letter-spacing: .18em; font-weight: 500; }
+    .logo .name .en { font-size: 9px; letter-spacing: .42em; color: var(--gold-soft); }
+    .nav { display: flex; align-items: center; gap: 38px; font-size: 14px; letter-spacing: .12em; }
+    .nav a { color: var(--ink-soft); transition: color .2s; }
+    .nav a:hover { color: var(--gold-soft); }
+    .menuBtn { width: 56px; height: 56px; border-radius: 50%; border: 1.2px solid var(--ink-soft); background: transparent; color: var(--ink); display: flex; align-items: center; justify-content: center; padding: 0; position: relative; }
+    .menuBtn::before { content: ""; position: absolute; inset: -14px; }
+    .menuBtn svg { width: 20px; height: 16px; pointer-events: none; }
+    @media (max-width: 1080px) { .nav { display: none; } .siteHeader .row { padding: 14px 20px; } }
+
+    /* ---------- Hero ---------- */
+    .hero {
+      position: relative;
+      height: 100vh;
+      min-height: 560px;
+      max-height: 920px;
+      overflow: hidden;
+      background: var(--hero-dark);
+      color: #fff;
+    }
+    .hero .slides { position: absolute; inset: 0; z-index: 0; }
+    .hero .slide {
+      position: absolute; inset: 0;
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      opacity: 0;
+      transform-origin: center center;
+      will-change: opacity, transform;
+      animation: heroFade 24s linear infinite both;
+    }
+    .hero .slide:nth-child(1) { background-image: url("photos/hero/1-cha-large.webp"); animation-delay: 0s; }
+    .hero .slide:nth-child(2) { background-image: url("photos/hero/2-sake-large.webp"); animation-delay: 6s; }
+    .hero .slide:nth-child(3) { background-image: url("photos/hero/3-noodle-large.webp"); animation-delay: 12s; }
+    .hero .slide:nth-child(4) { background-image: url("photos/hero/4-kama-large.webp"); animation-delay: 18s; }
+    @keyframes heroFade {
+      0%   { opacity: 0; transform: scale(1); }
+      6%   { opacity: 1; transform: scale(1.012); }
+      25%  { opacity: 1; transform: scale(1.08); }
+      31%  { opacity: 0; transform: scale(1.09); }
+      100% { opacity: 0; transform: scale(1); }
+    }
+    .hero .vignette {
+      position: absolute; inset: 0; z-index: 1;
+      background:
+        linear-gradient(180deg, rgba(20,15,10,0.45) 0%, rgba(20,15,10,0) 30%, rgba(20,15,10,0) 70%, rgba(20,15,10,0.55) 100%),
+        linear-gradient(90deg, rgba(20,15,10,0.35) 0%, rgba(20,15,10,0) 50%);
+      pointer-events: none;
+    }
+    .hero .heroText {
+      position: absolute;
+      right: clamp(28px, 5.5vw, 96px);
+      top: 50%;
+      transform: translateY(-50%);
+      z-index: 3;
+      display: flex;
+      align-items: flex-start;
+      gap: clamp(22px, 3vw, 48px);
+    }
+    .hero .heroText .sub {
+      writing-mode: vertical-rl;
+      margin: 0;
+      font-family: var(--mincho);
+      font-weight: 500;
+      font-size: clamp(13px, 1.55vw, 17px);
+      line-height: 2.3;
+      letter-spacing: 0.16em;
+      color: rgba(255,255,255,0.94);
+      text-shadow: 0 2px 12px rgba(0,0,0,0.5);
+    }
+    .hero .heroText h1 {
+      writing-mode: vertical-rl;
+      margin: 0;
+      font-family: var(--mincho);
+      font-weight: 600;
+      font-size: clamp(40px, 6vw, 92px);
+      letter-spacing: 0.22em;
+      line-height: 1.4;
+      color: #fff;
+      text-shadow: 0 4px 28px rgba(0,0,0,0.5);
+    }
+    .hero .scrollHint {
+      position: absolute;
+      left: 50%;
+      bottom: 30px;
+      transform: translateX(-50%);
+      z-index: 4;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 14px;
+      font-family: var(--cormorant);
+      font-size: 12px;
+      letter-spacing: 0.4em;
+      color: rgba(255,255,255,0.85);
+    }
+    .hero .scrollHint::before {
+      content: '';
+      width: 1px; height: 56px;
+      background: rgba(255,255,255,0.6);
+    }
+    .hero .progress {
+      position: absolute;
+      left: 24px; bottom: 24px;
+      z-index: 5;
+      display: flex; gap: 10px;
+    }
+    .hero .progress button {
+      width: 60px; height: 26px; padding: 12px 0;
+      background: transparent; border: 0;
+      display: flex; align-items: center;
+      cursor: pointer;
+    }
+    .hero .progress .track {
+      display: block; width: 100%; height: 2px;
+      background: rgba(246,241,231,0.3); position: relative; overflow: hidden;
+    }
+    .hero .progress .fill {
+      display: block; width: 100%; height: 100%;
+      background: rgba(246,241,231,0.95);
+      transform-origin: left center;
+      transform: scaleX(0);
+      animation: heroProgFill 24s linear infinite both;
+    }
+    .hero .progress button:nth-child(1) .fill { animation-delay: 0s; }
+    .hero .progress button:nth-child(2) .fill { animation-delay: 6s; }
+    .hero .progress button:nth-child(3) .fill { animation-delay: 12s; }
+    .hero .progress button:nth-child(4) .fill { animation-delay: 18s; }
+    @keyframes heroProgFill {
+      0%   { transform: scaleX(0); }
+      25%  { transform: scaleX(1); }
+      100% { transform: scaleX(1); }
+    }
+    @media (max-width: 880px) {
+      .hero .slide:nth-child(1) { background-image: url("photos/hero/1-cha-small.webp"); }
+      .hero .slide:nth-child(2) { background-image: url("photos/hero/2-sake-small.webp"); }
+      .hero .slide:nth-child(3) { background-image: url("photos/hero/3-noodle-small.webp"); }
+      .hero .slide:nth-child(4) { background-image: url("photos/hero/4-kama-small.webp"); }
+      .hero .scrollHint { bottom: 96px; }
+    }
+
+    /* ---------- Section base ---------- */
+    section.section { padding: clamp(80px, 9vw, 130px) 40px; }
+    section.section.alt { background: var(--paper-soft); }
+    .section .wrap { max-width: 1280px; margin: 0 auto; }
+    .section .eyebrow { font-family: var(--cormorant); font-size: 12px; letter-spacing: .4em; color: var(--gold-soft); margin: 0 0 18px; }
+    .section h2 { font-family: var(--mincho); font-weight: 500; font-size: clamp(28px, 3.5vw, 46px); line-height: 1.5; letter-spacing: .14em; margin: 0 0 30px; color: var(--ink); }
+    .section .lead { font-family: var(--mincho); font-size: clamp(15px, 1.35vw, 17px); line-height: 2.2; letter-spacing: .08em; margin: 0; color: var(--ink-soft); }
+    .section .lead p { margin: 0 0 1.4em; }
+    .section .lead p:last-child { margin-bottom: 0; }
+    .titleLine { width: 60px; height: 2px; background: var(--gold); margin: 32px 0; }
+
+    /* ---------- News ---------- */
+    .news .wrap { display: grid; grid-template-columns: 280px 1fr; gap: clamp(40px, 6vw, 96px); align-items: start; }
+    .news .head { display: flex; flex-direction: column; gap: 18px; }
+    .news .head h2 { font-size: clamp(24px, 2.6vw, 32px); margin: 0; }
+    .news .list { display: flex; flex-direction: column; }
+    .news .item { display: grid; grid-template-columns: 130px 100px 1fr; gap: 24px; align-items: center; padding: 22px 0; border-bottom: 1px solid var(--line); }
+    .news .item:first-child { border-top: 1px solid var(--line); }
+    .news .date { font-family: var(--cormorant); font-size: 14px; letter-spacing: 0.1em; color: var(--ink-soft); }
+    .news .tag { font-family: var(--sans); font-size: 11px; letter-spacing: 0.18em; padding: 4px 10px; background: var(--paper-warm); color: var(--ink-soft); width: fit-content; border-radius: 2px; }
+    .news .title { font-family: var(--mincho); font-size: 15.5px; line-height: 1.7; letter-spacing: 0.08em; color: var(--ink); }
+    .news .moreLink { margin-top: 36px; display: inline-flex; align-items: center; gap: 14px; font-family: var(--cormorant); font-size: 13px; letter-spacing: 0.3em; color: var(--ink); border-bottom: 1px solid var(--ink); padding-bottom: 6px; }
+    @media (max-width: 880px) {
+      .news .wrap { grid-template-columns: 1fr; gap: 40px; }
+      .news .item { grid-template-columns: 100px 80px 1fr; gap: 16px; padding: 18px 0; }
+      .news .date { font-size: 13px; }
+      .news .title { font-size: 14.5px; }
+    }
+
+    /* ---------- Our Story ---------- */
+    .story .wrap { display: grid; grid-template-columns: 1.05fr 1fr; gap: clamp(48px, 6vw, 100px); align-items: center; }
+    .story .text h2 { font-size: clamp(32px, 4vw, 52px); line-height: 1.5; }
+    .story .text h2 span { display: block; }
+    .story .visual { aspect-ratio: 4 / 5; overflow: hidden; }
+    .story .visual img { width: 100%; height: 100%; object-fit: cover; }
+    .story .ctaLink { display: inline-flex; align-items: center; gap: 14px; margin-top: 36px; font-family: var(--mincho); font-size: 14px; letter-spacing: 0.2em; color: var(--ink); border-bottom: 1px solid var(--ink); padding-bottom: 6px; }
+    @media (max-width: 880px) {
+      .story .wrap { grid-template-columns: 1fr; gap: 40px; }
+      .story .visual { order: -1; }
+    }
+
+    /* ---------- Brands ---------- */
+    .brands .head { text-align: center; margin-bottom: 64px; }
+    .brands .head h2 { font-size: clamp(28px, 3.5vw, 42px); margin: 0 0 14px; }
+    .brands .head .lead { max-width: 720px; margin: 0 auto; }
+    .brandGrid { display: grid; grid-template-columns: repeat(2, 1fr); gap: clamp(24px, 3vw, 40px); }
+    .brandCard { background: #fff; border: 1px solid var(--line); display: flex; flex-direction: column; overflow: hidden; transition: transform .35s ease, box-shadow .35s ease; }
+    .brandCard:hover { transform: translateY(-4px); box-shadow: 0 18px 40px rgba(28,22,15,0.10); }
+    .brandCard .ph { aspect-ratio: 4 / 3; overflow: hidden; background: var(--placeholder); }
+    .brandCard .ph img { width: 100%; height: 100%; object-fit: cover; transition: transform .8s ease; }
+    .brandCard:hover .ph img { transform: scale(1.05); }
+    .brandCard .body { padding: 28px 32px 32px; display: flex; flex-direction: column; gap: 14px; }
+    .brandCard .brandLabel { font-family: var(--cormorant); font-size: 13px; letter-spacing: 0.35em; color: var(--gold-soft); }
+    .brandCard h3 { font-family: var(--mincho); font-weight: 500; font-size: 22px; letter-spacing: 0.12em; margin: 0; color: var(--ink); }
+    .brandCard p { font-family: var(--mincho); font-size: 14.5px; line-height: 1.95; letter-spacing: 0.06em; color: var(--ink-soft); margin: 0; }
+    .brandCard .more { margin-top: auto; padding-top: 6px; font-family: var(--cormorant); font-size: 12px; letter-spacing: 0.3em; color: var(--ink); }
+    @media (max-width: 720px) {
+      .brandGrid { grid-template-columns: 1fr; gap: 18px; }
+      .brandCard .body { padding: 22px 24px 26px; }
+    }
+
+    /* ---------- Philosophy ---------- */
+    .philosophy { background: var(--hero-dark); color: #fff; position: relative; overflow: hidden; }
+    .philosophy .wrap { max-width: 880px; margin: 0 auto; text-align: center; position: relative; z-index: 2; }
+    .philosophy .eyebrow { color: var(--gold); margin: 0 0 24px; }
+    .philosophy h2 { color: #fff; font-size: clamp(26px, 3.4vw, 40px); margin: 0 0 36px; line-height: 1.7; }
+    .philosophy h2 span { display: block; }
+    .philosophy .lead { color: rgba(255,255,255,0.86); max-width: 720px; margin: 0 auto; font-size: 15.5px; }
+    .philosophy .ctaLink { display: inline-flex; align-items: center; gap: 14px; margin-top: 40px; font-family: var(--mincho); font-size: 14px; letter-spacing: 0.2em; color: #fff; border-bottom: 1px solid rgba(255,255,255,0.6); padding-bottom: 6px; }
+    .philosophy::before, .philosophy::after {
+      content: '';
+      position: absolute;
+      width: 220px; height: 220px;
+      background-image: url("photos/decor/kasumi-red.png");
+      background-size: contain; background-repeat: no-repeat;
+      opacity: 0.42; pointer-events: none; z-index: 1;
+    }
+    .philosophy::before { top: 30px; right: 30px; }
+    .philosophy::after { bottom: 30px; left: 30px; transform: scaleX(-1); }
+    @media (max-width: 600px) {
+      .philosophy::before, .philosophy::after { width: 130px; height: 130px; }
+      .philosophy::before { top: 14px; right: 14px; }
+      .philosophy::after { bottom: 14px; left: 14px; }
+    }
+
+    /* ---------- Recruit ---------- */
+    .recruit .wrap { display: grid; grid-template-columns: 1fr 1.1fr; gap: clamp(40px, 5vw, 80px); align-items: center; }
+    .recruit .text h2 { font-size: clamp(30px, 3.8vw, 48px); line-height: 1.55; }
+    .recruit .text h2 span { display: block; }
+    .recruit .ctaBtn { display: inline-flex; align-items: center; gap: 16px; margin-top: 36px; padding: 22px 36px; background: var(--ink); color: #fff; font-family: var(--mincho); font-size: 15px; letter-spacing: 0.2em; transition: background .25s ease, transform .25s ease; min-height: 56px; }
+    .recruit .ctaBtn:hover { background: var(--gold-soft); transform: translateY(-2px); }
+    .recruit .visual { aspect-ratio: 4 / 3; overflow: hidden; }
+    .recruit .visual img { width: 100%; height: 100%; object-fit: cover; }
+    @media (max-width: 880px) {
+      .recruit .wrap { grid-template-columns: 1fr; gap: 32px; }
+      .recruit .visual { order: -1; }
+    }
+
+    /* ---------- Company ---------- */
+    .company .wrap { display: grid; grid-template-columns: 1fr 1.4fr; gap: clamp(40px, 5vw, 80px); align-items: start; }
+    .company .text h2 { font-size: clamp(28px, 3.4vw, 42px); }
+    .company dl { margin: 0; font-family: var(--mincho); font-size: 14.5px; line-height: 2.1; letter-spacing: 0.06em; }
+    .company dl > div { display: grid; grid-template-columns: 110px 1fr; gap: 18px; padding: 16px 0; border-bottom: 1px dashed var(--line); }
+    .company dl > div:first-child { border-top: 1px solid var(--line); }
+    .company dt { font-weight: 500; color: var(--ink); margin: 0; }
+    .company dd { color: var(--ink-soft); margin: 0; }
+    .company .map { aspect-ratio: 4 / 3; border: 1px solid var(--line); overflow: hidden; }
+    .company .map iframe { width: 100%; height: 100%; border: 0; display: block; filter: grayscale(0.15) contrast(1.05); }
+    .company .ctaRow { margin-top: 28px; display: flex; gap: 16px; flex-wrap: wrap; }
+    .company .ctaRow a { padding: 16px 26px; font-family: var(--mincho); font-size: 14.5px; letter-spacing: 0.18em; border: 1px solid var(--ink); color: var(--ink); transition: background .25s ease, color .25s ease; min-height: 52px; display: inline-flex; align-items: center; }
+    .company .ctaRow a:hover { background: var(--ink); color: #fff; }
+    @media (max-width: 880px) {
+      .company .wrap { grid-template-columns: 1fr; gap: 40px; }
+    }
+
+    /* ---------- Footer ---------- */
+    .brandBar { height: 4px; background: var(--ink); }
+    footer { background: #2d2620; color: rgba(255,255,255,0.85); padding: 60px 40px 32px; }
+    footer .row { max-width: 1280px; margin: 0 auto; display: grid; grid-template-columns: 1.4fr 1fr 1fr 2fr; gap: 48px; padding-bottom: 48px; border-bottom: 1px solid rgba(255,255,255,0.1); align-items: start; }
+    footer .col h4, footer .col p { margin: 0; }
+    footer .fLogo { display: flex; align-items: center; gap: 14px; margin-bottom: 24px; }
+    footer .fLogo .mark { width: 52px; height: 52px; border: 1.4px solid var(--gold); border-radius: 50%; display: flex; align-items: center; justify-content: center; }
+    footer .fLogo .mark svg { width: 28px; height: 28px; }
+    footer .fLogo .name { display: flex; flex-direction: column; gap: 5px; line-height: 1; font-family: var(--mincho); }
+    footer .fLogo .name .ja { display: flex; align-items: baseline; gap: 10px; }
+    footer .fLogo .name .small { font-size: 11px; letter-spacing: 0.18em; }
+    footer .fLogo .name .big { font-size: 22px; letter-spacing: 0.2em; font-weight: 500; }
+    footer .fLogo .name .en { font-size: 9px; letter-spacing: 0.45em; color: var(--gold); }
+    footer .addr { font-family: var(--mincho); font-size: 13.5px; line-height: 2; letter-spacing: 0.05em; color: rgba(255,255,255,0.75); margin: 0; }
+    footer .col h4 { font-family: var(--cormorant); font-weight: 500; font-size: 12px; letter-spacing: 0.4em; color: var(--gold); margin: 0 0 22px; }
+    footer .sitemap { display: flex; flex-direction: column; gap: 14px; font-family: var(--mincho); font-size: 14px; letter-spacing: 0.12em; }
+    footer .sitemap a { color: rgba(255,255,255,0.85); }
+    footer .sitemap a:hover { color: var(--gold); }
+    footer .accessMap { aspect-ratio: 1 / 1; overflow: hidden; max-width: 360px; }
+    footer .accessMap iframe { width: 100%; height: 100%; border: 0; display: block; filter: grayscale(0.15) contrast(1.05); }
+    footer .bottom { max-width: 1280px; margin: 0 auto; padding-top: 24px; display: flex; justify-content: space-between; font-family: var(--sans); font-size: 11px; letter-spacing: 0.25em; color: rgba(255,255,255,0.55); }
+    @media (max-width: 1080px) {
+      footer .row { grid-template-columns: 1fr 1fr; gap: 36px; }
+    }
+    @media (max-width: 600px) {
+      footer .row { grid-template-columns: 1fr; gap: 32px; }
+      footer .bottom { flex-direction: column; gap: 8px; text-align: center; }
+    }
+
+    /* ---------- Mobile drawer ---------- */
+    .mobileDrawer { position: fixed; inset: 0; z-index: 200; background: rgba(0,0,0,0.5); opacity: 0; visibility: hidden; transition: opacity .3s ease, visibility .3s; }
+    .mobileDrawer[aria-hidden="false"] { opacity: 1; visibility: visible; }
+    .mobileDrawer .panel { position: absolute; top: 0; right: 0; bottom: 0; width: min(86vw, 360px); background: #fff; transform: translateX(100%); transition: transform .35s cubic-bezier(.2,.7,.2,1); display: flex; flex-direction: column; padding: 28px 28px 32px; box-shadow: -16px 0 48px rgba(0,0,0,.22); }
+    .mobileDrawer[aria-hidden="false"] .panel { transform: translateX(0); }
+    .mobileDrawer .closeBtn { width: 48px; height: 48px; align-self: flex-end; background: transparent; border: 1.2px solid var(--line); border-radius: 50%; display: flex; align-items: center; justify-content: center; padding: 0; font-size: 22px; color: var(--ink); position: relative; }
+    .mobileDrawer .closeBtn::before { content: ""; position: absolute; inset: -14px; }
+    .mobileDrawer nav { margin-top: 32px; display: flex; flex-direction: column; gap: 4px; }
+    .mobileDrawer nav a { display: flex; align-items: center; padding: 16px 0; font-family: var(--mincho); font-size: 17px; letter-spacing: 0.14em; color: var(--ink); border-bottom: 1px solid var(--paper-warm); min-height: 56px; }
+
+    @media (prefers-reduced-motion: reduce) {
+      .hero .slide, .hero .progress .fill { animation: none !important; }
+      .hero .slide:nth-child(1) { opacity: 1; }
+    }
   </style>
 </head>
 <body>
-  <div class="wrap">
-    <h1>株式会社八宝</h1>
-    <p>トップページへ移動しています…<br><a href="八宝コーポレートサイト.html">こちら</a>をクリックして手動で開けます。</p>
+
+  <a class="skip-link" href="#main">メインコンテンツへスキップ</a>
+
+  <header class="siteHeader" role="banner">
+    <div class="row">
+      <a href="/" class="logo" aria-label="株式会社八宝 HAPPO トップへ">
+        <span class="mark" aria-hidden="true">
+          <svg viewBox="0 0 40 40" fill="#c9a24b" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="20" cy="20" r="3.2"/>
+            <g transform="translate(20 20)">
+              <ellipse cx="0" cy="-10.5" rx="4" ry="5.2"/>
+              <ellipse cx="0" cy="-10.5" rx="4" ry="5.2" transform="rotate(72)"/>
+              <ellipse cx="0" cy="-10.5" rx="4" ry="5.2" transform="rotate(144)"/>
+              <ellipse cx="0" cy="-10.5" rx="4" ry="5.2" transform="rotate(216)"/>
+              <ellipse cx="0" cy="-10.5" rx="4" ry="5.2" transform="rotate(288)"/>
+            </g>
+          </svg>
+        </span>
+        <span class="name">
+          <span class="ja"><span class="small">株式会社</span><span class="big">八宝</span></span>
+          <span class="en">— HAPPO —</span>
+        </span>
+      </a>
+      <nav class="nav" aria-label="メインナビゲーション">
+        <a href="八宝の想い.html">八宝の想い</a>
+        <a href="事業内容.html">事業内容</a>
+        <a href="採用情報.html">採用情報</a>
+        <a href="会社概要.html">会社概要・お問い合わせ</a>
+      </nav>
+      <button type="button" class="menuBtn" aria-label="メニューを開く" id="openDrawer">
+        <svg viewBox="0 0 22 18" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" aria-hidden="true">
+          <line x1="1" y1="3" x2="21" y2="3"/>
+          <line x1="1" y1="9" x2="21" y2="9"/>
+          <line x1="1" y1="15" x2="21" y2="15"/>
+        </svg>
+      </button>
+    </div>
+  </header>
+
+  <main id="main">
+
+    <!-- ============ Hero ============ -->
+    <section class="hero" aria-label="メインビジュアル">
+      <div class="slides" aria-hidden="true">
+        <div class="slide"></div>
+        <div class="slide"></div>
+        <div class="slide"></div>
+        <div class="slide"></div>
+      </div>
+      <div class="vignette" aria-hidden="true"></div>
+      <div class="heroText">
+        <div class="sub">
+          奈良の恵みを、職人の技で。<br>
+          大和の食文化を、真心とともに。<br>
+          おもてなしの心でお届けします。
+        </div>
+        <h1>奈良の美味</h1>
+      </div>
+      <div class="progress" role="tablist" aria-label="ヒーロー写真の選択">
+        <button type="button" data-slide-idx="0" aria-label="スライド 1 茶葉"><span class="track"><span class="fill"></span></span></button>
+        <button type="button" data-slide-idx="1" aria-label="スライド 2 地酒"><span class="track"><span class="fill"></span></span></button>
+        <button type="button" data-slide-idx="2" aria-label="スライド 3 自家製麺"><span class="track"><span class="fill"></span></span></button>
+        <button type="button" data-slide-idx="3" aria-label="スライド 4 釜めし"><span class="track"><span class="fill"></span></span></button>
+      </div>
+      <div class="scrollHint" aria-hidden="true">SCROLL</div>
+    </section>
+
+    <!-- ============ News ============ -->
+    <section class="section news" aria-labelledby="news-heading">
+      <div class="wrap">
+        <div class="head">
+          <p class="eyebrow">NEWS</p>
+          <h2 id="news-heading">お知らせ</h2>
+        </div>
+        <div class="list">
+          <article class="item">
+            <time class="date" datetime="2024-05-10">2024.05.10</time>
+            <span class="tag">お知らせ</span>
+            <p class="title">夏季休業に伴う休業日のお知らせ</p>
+          </article>
+          <article class="item">
+            <time class="date" datetime="2024-04-25">2024.04.25</time>
+            <span class="tag">新店舗</span>
+            <p class="title">新店舗「奈良の酒蔵全て呑み うまっしゅ」を奈良公園エリアにオープン</p>
+          </article>
+          <article class="item">
+            <time class="date" datetime="2024-04-10">2024.04.10</time>
+            <span class="tag">メディア</span>
+            <p class="title">大和茶スイーツの季節限定メニューが始まりました</p>
+          </article>
+          <a href="#" class="moreLink" aria-label="お知らせ一覧を見る">一覧を見る</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ Our Story ============ -->
+    <section class="section story alt" aria-labelledby="story-heading">
+      <div class="wrap">
+        <div class="text">
+          <p class="eyebrow">OUR STORY</p>
+          <h2 id="story-heading"><span>奈良の宝を</span><span>未来の喜びへ</span></h2>
+          <div class="titleLine" aria-hidden="true"></div>
+          <div class="lead">
+            <p>私たち八宝は、奈良で複数の食のブランドを営んでまいりました。受け継がれてきた大和の食文化を礎に、旬の素材と職人の手仕事を大切にしています。</p>
+            <p>食を通じて、奈良の魅力を未来へ。地域に根ざし、お客様の笑顔とともに歩む——それが私たちの変わらぬ想いです。</p>
+          </div>
+          <a href="八宝の想い.html" class="ctaLink">私たちの想い<span aria-hidden="true">→</span></a>
+        </div>
+        <div class="visual">
+          <picture>
+            <source media="(max-width: 880px)" srcset="photos/chapters/parent-child-mochi-small.webp">
+            <img src="photos/chapters/parent-child-mochi-large.webp" alt="親子で大福を味わう様子" loading="lazy" decoding="async" width="800" height="1000">
+          </picture>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ Brands ============ -->
+    <section class="section brands" aria-labelledby="brands-heading">
+      <div class="wrap">
+        <div class="head">
+          <p class="eyebrow">BRANDS</p>
+          <h2 id="brands-heading">ブランド一覧</h2>
+          <div class="lead">奈良の食文化を、それぞれの形で。大和茶大福から、地酒、自家製麺うどん、釜めしまで。八宝が運営する 4 つの店舗をご紹介します。</div>
+        </div>
+        <div class="brandGrid">
+          <a class="brandCard" href="採用-grancha.html" aria-label="GRANCHA — 大和茶大福専門店">
+            <div class="ph"><img src="photos/grancha/mochi-tea-large.webp" alt="GRANCHA 大和茶大福" loading="lazy" decoding="async" width="800" height="600"></div>
+            <div class="body">
+              <span class="brandLabel">GRANCHA</span>
+              <h3>大和茶大福専門店</h3>
+              <p>奈良の地で 1200 年以上受け継がれてきた大和茶を、和洋を融合した大福やプリン、モンブランで届ける専門店です。</p>
+              <span class="more">VIEW MORE →</span>
+            </div>
+          </a>
+          <a class="brandCard" href="採用-umasshu.html" aria-label="うまっしゅ — 奈良の酒蔵全部呑み">
+            <div class="ph"><img src="photos/umasshu/atmosphere-large.webp" alt="うまっしゅ 店内の雰囲気" loading="lazy" decoding="async" width="800" height="600"></div>
+            <div class="body">
+              <span class="brandLabel">UMASSHU</span>
+              <h3>奈良の酒蔵全部呑み うまっしゅ</h3>
+              <p>奈良県内の地酒を取り揃え、旬の食材と料理人の技で仕上げる和食居酒屋。奈良の地酒文化を味わえる店舗です。</p>
+              <span class="more">VIEW MORE →</span>
+            </div>
+          </a>
+          <a class="brandCard" href="採用-muginokura.html" aria-label="むぎの蔵 — うどんごはん専門店">
+            <div class="ph"><img src="photos/muginokura/kamaage-large.webp" alt="むぎの蔵 釜揚げうどん" loading="lazy" decoding="async" width="800" height="600"></div>
+            <div class="body">
+              <span class="brandLabel">MUGINOKURA</span>
+              <h3>うどんごはん むぎの蔵</h3>
+              <p>近鉄奈良駅近くの自家製麺うどん店。国産小麦と素材から引いた出汁、ご注文を受けてから一杯ずつ仕上げる本格の味。</p>
+              <span class="more">VIEW MORE →</span>
+            </div>
+          </a>
+          <a class="brandCard" href="採用-kamameshi.html" aria-label="釜めしGRANCHA — 釜めし専門店">
+            <div class="ph"><img src="photos/kamameshi/oyster-large.webp" alt="釜めしGRANCHA の釜めし" loading="lazy" decoding="async" width="800" height="600"></div>
+            <div class="body">
+              <span class="brandLabel">KAMAMESHI GRANCHA</span>
+              <h3>釜めしGRANCHA</h3>
+              <p>炊きたての釜めしを一人前ずつ仕上げる専門店。季節の食材を活かし、奈良ならではの食体験をお届けします。</p>
+              <span class="more">VIEW MORE →</span>
+            </div>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ Philosophy ============ -->
+    <section class="section philosophy" aria-labelledby="philosophy-heading">
+      <div class="wrap">
+        <p class="eyebrow">PHILOSOPHY</p>
+        <h2 id="philosophy-heading"><span>奈良の食文化を大切に</span><span>人と人とを笑顔でつなぐ</span></h2>
+        <div class="titleLine" style="background: var(--gold); margin: 28px auto;" aria-hidden="true"></div>
+        <p class="lead">奈良の歴史と素材を尊び、料理人・職人の手仕事を大切にする。お客様、地域の生産者、働くスタッフ。すべての方が「ここでよかった」と思える会社を目指しています。</p>
+        <a href="会社概要.html" class="ctaLink">会社概要を見る<span aria-hidden="true">→</span></a>
+      </div>
+    </section>
+
+    <!-- ============ Recruit ============ -->
+    <section class="section recruit alt" aria-labelledby="recruit-heading">
+      <div class="wrap">
+        <div class="text">
+          <p class="eyebrow">RECRUIT</p>
+          <h2 id="recruit-heading"><span>奈良の魅力を</span><span>一緒に届ける仲間を</span><span>募集しています</span></h2>
+          <div class="titleLine" aria-hidden="true"></div>
+          <div class="lead">
+            <p>調理に、接客に、ものづくりに。チームで支え合いながら、奈良の食の魅力をお客様へ届ける——そんな仲間を探しています。</p>
+            <p>人を大切にする会社で、安心して長く働けます。</p>
+          </div>
+          <a href="採用情報.html" class="ctaBtn">採用情報を見る<span aria-hidden="true">→</span></a>
+        </div>
+        <div class="visual">
+          <picture>
+            <source media="(max-width: 880px)" srcset="photos/recruit/staff-kitchen-small.webp">
+            <img src="photos/recruit/staff-kitchen-large.webp" alt="厨房で働くスタッフの集合写真" loading="lazy" decoding="async" width="1154" height="1196">
+          </picture>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ Company ============ -->
+    <section class="section company" id="company" aria-labelledby="company-heading">
+      <div class="wrap">
+        <div class="text">
+          <p class="eyebrow">COMPANY &amp; CONTACT</p>
+          <h2 id="company-heading">会社概要・お問い合わせ</h2>
+          <div class="titleLine" aria-hidden="true"></div>
+          <dl>
+            <div><dt>会社名</dt><dd>株式会社八宝</dd></div>
+            <div><dt>代表者</dt><dd>代表取締役 木村 有香</dd></div>
+            <div><dt>所在地</dt><dd>〒630-8215<br>奈良県奈良市東向中町１１ 丸八ビル ２階</dd></div>
+            <div><dt>電話番号</dt><dd>0742-24-1755（受付 10:00〜18:00）</dd></div>
+            <div><dt>事業内容</dt><dd>飲食店・菓子製造販売の経営</dd></div>
+          </dl>
+          <div class="ctaRow">
+            <a href="会社概要.html">会社概要の詳細</a>
+            <a href="会社概要.html#contact">お問い合わせ</a>
+          </div>
+        </div>
+        <div class="map" aria-label="株式会社八宝 所在地マップ">
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4199.330921969781!2d135.82632727642778!3d34.68346298413648!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x600139630c6ddc3b%3A0xa2b14adc7c01faf8!2z5qCq5byP5Lya56S-5YWr5a6d!5e1!3m2!1sja!2sjp!4v1782266136983!5m2!1sja!2sjp"
+            title="株式会社八宝 所在地"
+            loading="lazy"
+            referrerpolicy="strict-origin-when-cross-origin"
+            allowfullscreen></iframe>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <div class="brandBar" aria-hidden="true"></div>
+
+  <footer role="contentinfo">
+    <div class="row">
+      <div class="col">
+        <div class="fLogo">
+          <span class="mark" aria-hidden="true">
+            <svg viewBox="0 0 40 40" fill="#c9a24b" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="20" cy="20" r="3.2"/>
+              <g transform="translate(20 20)">
+                <ellipse cx="0" cy="-10.5" rx="4" ry="5.2"/>
+                <ellipse cx="0" cy="-10.5" rx="4" ry="5.2" transform="rotate(72)"/>
+                <ellipse cx="0" cy="-10.5" rx="4" ry="5.2" transform="rotate(144)"/>
+                <ellipse cx="0" cy="-10.5" rx="4" ry="5.2" transform="rotate(216)"/>
+                <ellipse cx="0" cy="-10.5" rx="4" ry="5.2" transform="rotate(288)"/>
+              </g>
+            </svg>
+          </span>
+          <span class="name">
+            <span class="ja"><span class="small">株式会社</span><span class="big">八宝</span></span>
+            <span class="en">— HAPPO —</span>
+          </span>
+        </div>
+        <p class="addr">〒630-8215<br>奈良県奈良市東向中町１１ 丸八ビル ２階<br>TEL 0742-24-1755（受付 10:00〜18:00）</p>
+      </div>
+      <div class="col">
+        <h4>SITEMAP</h4>
+        <div class="sitemap">
+          <a href="八宝の想い.html">八宝の想い</a>
+          <a href="事業内容.html">事業内容</a>
+          <a href="採用情報.html">採用情報</a>
+          <a href="会社概要.html">会社概要・お問い合わせ</a>
+        </div>
+      </div>
+      <div class="col">
+        <h4>BRANDS</h4>
+        <div class="sitemap">
+          <a href="採用-grancha.html">GRANCHA</a>
+          <a href="採用-umasshu.html">うまっしゅ</a>
+          <a href="採用-muginokura.html">うどんごはん むぎの蔵</a>
+          <a href="採用-kamameshi.html">釜めしGRANCHA</a>
+        </div>
+      </div>
+      <div class="col">
+        <h4>ACCESS</h4>
+        <div class="accessMap" aria-label="株式会社八宝 所在地マップ">
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4199.330921969781!2d135.82632727642778!3d34.68346298413648!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x600139630c6ddc3b%3A0xa2b14adc7c01faf8!2z5qCq5byP5Lya56S-5YWr5a6d!5e1!3m2!1sja!2sjp!4v1782266136983!5m2!1sja!2sjp"
+            title="株式会社八宝 所在地"
+            loading="lazy"
+            referrerpolicy="strict-origin-when-cross-origin"
+            allowfullscreen></iframe>
+        </div>
+      </div>
+    </div>
+    <div class="bottom">
+      <span>© 2026 株式会社八宝　HAPPO Co., Ltd.</span>
+      <span><a href="プライバシーポリシー.html">プライバシーポリシー</a></span>
+    </div>
+  </footer>
+
+  <!-- ============ Mobile drawer ============ -->
+  <div class="mobileDrawer" aria-hidden="true" role="dialog" aria-label="メニュー">
+    <div class="panel">
+      <button type="button" class="closeBtn" aria-label="メニューを閉じる" id="closeDrawer">×</button>
+      <nav aria-label="モバイルナビゲーション">
+        <a href="八宝の想い.html">八宝の想い</a>
+        <a href="事業内容.html">事業内容</a>
+        <a href="採用情報.html">採用情報</a>
+        <a href="会社概要.html">会社概要・お問い合わせ</a>
+        <a href="採用-grancha.html">GRANCHA</a>
+        <a href="採用-umasshu.html">うまっしゅ</a>
+        <a href="採用-muginokura.html">うどんごはん むぎの蔵</a>
+        <a href="採用-kamameshi.html">釜めしGRANCHA</a>
+      </nav>
+    </div>
   </div>
+
+  <script>
+    // === Mobile drawer ===
+    (function () {
+      var openBtn = document.getElementById('openDrawer');
+      var closeBtn = document.getElementById('closeDrawer');
+      var drawer = document.querySelector('.mobileDrawer');
+      if (!openBtn || !drawer) return;
+      function open() { drawer.setAttribute('aria-hidden', 'false'); document.body.style.overflow = 'hidden'; }
+      function close() { drawer.setAttribute('aria-hidden', 'true'); document.body.style.overflow = ''; }
+      openBtn.addEventListener('click', open);
+      if (closeBtn) closeBtn.addEventListener('click', close);
+      drawer.addEventListener('click', function (e) { if (e.target === drawer) close(); });
+      document.addEventListener('keydown', function (e) { if (e.key === 'Escape') close(); });
+    })();
+
+    // === Hero progress indicator click ===
+    (function () {
+      var slides = document.querySelectorAll('.hero .slides .slide');
+      var fills  = document.querySelectorAll('.hero .progress .fill');
+      var btns   = document.querySelectorAll('.hero .progress button');
+      if (!slides.length) return;
+      btns.forEach(function (btn) {
+        btn.addEventListener('click', function () {
+          var idx = parseInt(btn.getAttribute('data-slide-idx'), 10);
+          if (isNaN(idx)) return;
+          var n = slides.length;
+          for (var k = 0; k < n; k++) {
+            var offset = ((k - idx) + n) % n;
+            slides[k].style.animation = 'none';
+            slides[k].offsetHeight;
+            slides[k].style.animation = 'heroFade 24s linear infinite both';
+            slides[k].style.animationDelay = (offset * 6) + 's';
+            if (fills[k]) {
+              fills[k].style.animation = 'none';
+              fills[k].offsetHeight;
+              fills[k].style.animation = 'heroProgFill 24s linear infinite both';
+              fills[k].style.animationDelay = (offset * 6) + 's';
+            }
+          }
+        });
+      });
+    })();
+  </script>
+
 </body>
 </html>
