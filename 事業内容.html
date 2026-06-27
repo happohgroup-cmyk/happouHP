@@ -210,6 +210,20 @@
     font-family: 'GenEi Nu Gothic EB', "Noto Sans JP", sans-serif !important;
     font-weight: 800 !important;
   }
+  /* ブランド番号横に並べる業種ラベル */
+  .brand .col-text .num {
+    display: flex !important;
+    align-items: baseline !important;
+    gap: 18px !important;
+    flex-wrap: wrap !important;
+  }
+  .brand .col-text .num .numCat {
+    font-family: var(--mincho) !important;
+    font-weight: 400 !important;
+    font-size: 14px !important;
+    letter-spacing: .22em !important;
+    color: var(--muted) !important;
+  }
   .nav, .nav a, header.siteHeader nav a {
     font-family: var(--montserrat) !important; font-weight: 500 !important;
   }
@@ -460,7 +474,7 @@
           </div>
         </div>
         <div class="col-text">
-          <p class="num">01</p>
+          <p class="num"><span class="numFig">01</span><span class="numCat">菓子製造・販売業</span></p>
           <h3 class="name">GRANCHA</h3>
           <p class="nameEn">GRAND TEA SWEETS</p>
           <p class="catch">大和茶のおいしさを、<br>もっと身近に。</p>
@@ -484,7 +498,7 @@
           </div>
         </div>
         <div class="col-text">
-          <p class="num">02</p>
+          <p class="num"><span class="numFig">02</span><span class="numCat">飲食業</span></p>
           <h3 class="name">奈良の酒蔵全部呑み うまっしゅ</h3>
           <p class="nameEn">UMASSHU — NARA SAKE</p>
           <p class="catch">奈良の地酒を、<br>一つの場所で。</p>
@@ -508,7 +522,7 @@
           </div>
         </div>
         <div class="col-text">
-          <p class="num">03</p>
+          <p class="num"><span class="numFig">03</span><span class="numCat">飲食業</span></p>
           <h3 class="name">うどん・ごはん むぎの蔵</h3>
           <p class="nameEn">MUGINOKURA — UDON</p>
           <p class="catch">一杯のうどんに、<br>まっすぐな手間を。</p>
@@ -532,7 +546,7 @@
           </div>
         </div>
         <div class="col-text">
-          <p class="num">04</p>
+          <p class="num"><span class="numFig">04</span><span class="numCat">飲食業</span></p>
           <h3 class="name">釜めし茶漬け GRANCHA</h3>
           <p class="nameEn">GRANCHA — KAMAMESHI &amp; OCHAZUKE</p>
           <p class="catch">炊きたてを味わい、<br>最後は大和茶で。</p>
