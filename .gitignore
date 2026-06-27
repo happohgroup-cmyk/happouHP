@@ -32,3 +32,9 @@ videos/*.MP4
 # ==== System ====
 Thumbs.db
 desktop.ini
+
+# ==== Instagram / SNS originals (not for site) ====
+インスタ/
+
+# ==== User-uploaded raw photos ====
+attachments/
