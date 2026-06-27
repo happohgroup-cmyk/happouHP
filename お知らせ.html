@@ -293,8 +293,18 @@
 
 <script>
 (function () {
-  // ===== Fallback static data (empty — microCMS で投稿管理) =====
-  var FALLBACK = [];
+  // ===== Fallback static data (microCMS 未設定時の表示) =====
+  var FALLBACK = [
+    {
+      id: 'site-opening-2026-06-27',
+      publishedAt: '2026-06-27',
+      category: 'お知らせ',
+      title: 'HPを開設しました',
+      body: '<p>平素より株式会社八宝をご愛顧いただき、誠にありがとうございます。</p>'
+          + '<p>このたび、株式会社八宝の公式コーポレートサイトを開設いたしました。</p>'
+          + '<p>当サイトでは、各店舗の情報や株式会社八宝からのお知らせなどを随時発信してまいりますので、どうぞよろしくお願いいたします。</p>'
+    },
+  ];
 
   var PER_PAGE = 10;
   var listEl = document.getElementById('newsListItems');
