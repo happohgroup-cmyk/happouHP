@@ -345,6 +345,11 @@
     .philosophy .eyebrow { color: var(--gold); margin: 0 0 24px; }
     .philosophy h2 { color: #fff; font-size: clamp(26px, 3.4vw, 40px); margin: 0 0 36px; line-height: 1.7; }
     .philosophy h2 span { display: block; }
+    /* スマホ専用: PHILOSOPHY 見出しを 2 行 (各 span 1 行) に固定 */
+    @media (max-width: 600px) {
+      .philosophy h2 { font-size: 22px !important; line-height: 1.6 !important; }
+      .philosophy h2 span { white-space: nowrap; }
+    }
     .philosophy .lead { color: rgba(255,255,255,0.86); max-width: 720px; margin: 0 auto; font-size: 15.5px; }
     .philosophy .ctaLink { display: inline-flex; align-items: center; gap: 14px; margin-top: 40px; font-family: var(--mincho); font-size: 14px; letter-spacing: 0.2em; color: #fff; border-bottom: 1px solid rgba(255,255,255,0.6); padding-bottom: 6px; }
     .philosophy::before, .philosophy::after {
