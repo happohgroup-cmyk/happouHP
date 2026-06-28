@@ -167,6 +167,39 @@
   /* === Logo mark: use new brand image (no circle border) === */
   .logo .mark { width: 52px !important; height: 52px !important; border: none !important; border-radius: 0 !important; background: transparent !important; }
   .logo .mark img { width: 100% !important; height: 100% !important; object-fit: contain !important; display: block !important; }
+
+  /* ===== Mobile typography refinement 2026-06-28 ===== */
+  @media (max-width: 600px) {
+    /* 本文: 16px / line-height 1.92 / letter-spacing 0.035em */
+    .intro p, .chapter p, .greeting p, .closing p, .leadBlock p, .leadBlock,
+    .brand p, .brand .col-text p, .contactIntro p, .card p, .notice p,
+    .work-list li, .work .lead, .skill-card p, .steps .step p, .voice-quote,
+    .persona li, .persona p, .persona .lead, .persona .closer,
+    .features .card p, .stores .item p, .stores p,
+    .body, .policy p, .policy li, .news .title,
+    .newsList .item .title, .articleDetail .body, .articleDetail .body p,
+    .articleDetail .body li, .companyInfo dd, .reqRow dt, .reqRow dd,
+    .promise, .reassure, .proof-item p, .benefit-card p,
+    .storySection .body p, .videoBlock .lead, .videoBlock p,
+    .close p, .closing p, .closer p, .lead {
+      font-size: 16px !important;
+      line-height: 1.92 !important;
+      letter-spacing: 0.035em !important;
+    }
+    /* 左右余白 24px に統一 (背景フル幅セクションの内側コンテンツ) */
+    .pageTitle, .intro, .chapter, .leadBlock, .closing, .contactIntro,
+    .features, .stores, .persona, .steps, .applyCta, .videoBlock,
+    .voices, .companyInfo, .companyContact, .policy, .newsList,
+    .articleDetail, .greeting, .brands, .work, .skills, .close,
+    .section.story, .section.brands, .section.philosophy,
+    .section.recruit, .section.company, .section.news,
+    .reqDetails, .reqList, .skillsSec, .purpose, .storySection,
+    .proof, .warning, .stripe, .closing-stripe {
+      padding-left: 24px !important;
+      padding-right: 24px !important;
+    }
+  }
+
 </style>
 
 <!-- Favicons -->
