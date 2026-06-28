@@ -286,15 +286,10 @@
       width: 100% !important;
     }
   }
-  /* === SP/PC text variants (block for legacy line-810 wording variant) === */
-  .pc-only-text { display: block !important; }
-  .sp-only-text { display: none !important; }
   /* Inline toggle for unified-element punctuation/breaks */
   .pc-inline { display: inline; }
   .sp-inline { display: none; }
   @media (max-width: 600px) {
-    .pc-only-text { display: none !important; }
-    .sp-only-text { display: block !important; }
     .pc-inline { display: none; }
     .sp-inline { display: inline; }
   }
@@ -810,7 +805,7 @@
       <div class="titleLine" aria-hidden="true"></div>
       <div class="body">
         <p>大和茶は、大和高原を中心とした<br>冷涼で昼夜の寒暖差が大きい環境で育てられています。<br>ゆっくりと育った茶葉から生まれる、深い香りと濃厚な味わい。<br>その個性を、餡、生クリーム、<br class="sp-inline">バターなどと掛け合わせて<br>一つのスイーツへ<br class="sp-inline">仕上げていきます。</p>
-        <p><span class="pc-only-text">実は、大和茶は日本茶のルーツともいわれています。<br><strong>1200年以上の伝統で受け継がれてきた素材の美味</strong>を<br>もっと多くの方に知っていただきたいというのが<br>私たちが大和茶にこだわる理由です。</span><span class="sp-only-text">実は、大和茶は<br>日本茶のルーツともいわれています。<br><br><strong>1200年以上の伝統で<br>受け継がれてきた素材の美味</strong>を<br>もっと多くの方に届けたい。<br><br>それが、私たちが大和茶に<br>こだわる理由です。</span></p>
+        <p>実は、大和茶は<br class="sp-inline">日本茶のルーツともいわれています。<br><br class="sp-inline"><strong>1200年以上の伝統で<br class="sp-inline">受け継がれてきた素材の美味</strong>を<br>もっと多くの方に届けたい。<br><br class="sp-inline">それが、私たちが大和茶に<br class="sp-inline">こだわる理由です。</p>
       </div>
     </div>
   </section>
