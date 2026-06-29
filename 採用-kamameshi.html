@@ -153,6 +153,14 @@
   .applyCta a { padding: 28px 32px; display: flex; justify-content: space-between; align-items: center; font-size: 16px; letter-spacing: .12em; transition: background .25s ease, transform .25s ease, color .25s ease, border-color .25s ease; }
   .applyCta .primary { background: var(--brand); color: #fff; }
   .applyCta .primary:hover { background: var(--brand-soft); transform: translateY(-2px); }
+  .applyCta .primary.disabled {
+    background: #4a4339 !important;
+    color: rgba(255,255,255,0.55) !important;
+    cursor: not-allowed;
+    pointer-events: none;
+    transform: none !important;
+  }
+  .applyCta .primary.disabled:hover { background: #4a4339 !important; transform: none !important; }
   .applyCta .secondary { background: #fff; color: var(--ink); border: 1.5px solid var(--ink); }
   .applyCta .secondary:hover { background: var(--brand); color: #fff; border-color: var(--brand); transform: translateY(-2px); }
   @media (max-width: 880px) { .applyCta .wrap { grid-template-columns: 1fr; } }
@@ -574,7 +582,7 @@
 
   <section class="applyCta">
     <div class="wrap">
-      <a href="会社概要.html#contact" class="primary"><span>この店舗に応募する</span><span>→</span></a>
+      <span class="primary disabled" aria-disabled="true"><span>この店舗に応募する</span><span>→</span></span>
       <a href="会社概要.html#contact" class="secondary"><span>採用について問い合わせる</span><span>→</span></a>
     </div>
   </section>
