@@ -38,3 +38,6 @@ desktop.ini
 
 # ==== User-uploaded raw photos ====
 attachments/
+
+# ==== Wrangler local state ====
+.wrangler/

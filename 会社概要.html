@@ -187,6 +187,10 @@
   .checkboxRow a { color: var(--gold-soft); text-decoration: underline; text-underline-offset: 4px; }
   .submitRow { display: flex; justify-content: center; margin-top: 16px; }
   .submitBtn { background: var(--ink); color: #fff; border: 0; padding: 22px 64px; font-size: 16px; letter-spacing: .15em; cursor: pointer; display: inline-flex; align-items: center; gap: 24px; transition: background .2s, transform .2s; }
+  /* honeypot: 画面外へ (display:none だと一部 bot が無視するため) */
+  .hp-field { position: absolute !important; left: -9999px !important; top: -9999px !important; width: 1px; height: 1px; overflow: hidden; }
+  /* 送信エラー表示 */
+  .submit-err { color: #b3261e; font-family: var(--mincho); font-size: 14.5px; letter-spacing: .06em; line-height: 1.9; margin: 18px 0 0; }
   .submitBtn:hover { background: #000; transform: translateY(-2px); }
   .submitBtn:disabled { background: var(--muted); cursor: not-allowed; transform: none; }
 
@@ -618,8 +622,13 @@
             <input type="checkbox" id="agree" name="agree" required>
             <label for="agree"><a href="プライバシーポリシー.html" target="_blank" rel="noopener">個人情報保護方針</a>に同意します</label>
           </div>
+          <!-- honeypot: 人間には見えない bot 対策フィールド -->
+          <div class="hp-field" aria-hidden="true">
+            <label for="website">ウェブサイト</label>
+            <input type="text" id="website" name="website" tabindex="-1" autocomplete="off">
+          </div>
           <div class="submitRow">
-            <button type="submit" class="submitBtn"><span>入力内容を確認する</span><span>→</span></button>
+            <button type="submit" class="submitBtn"><span>送信する</span><span>→</span></button>
           </div>
         </form>
       </div>
@@ -809,9 +818,51 @@
           if (invalid[0]) invalid[0].focus();
           return;
         }
-        pre.classList.add('is-hidden');
-        thanks.classList.add('is-active');
-        window.scrollTo({ top: 0, behavior: 'smooth' });
+
+        // === 送信: /api/contact (Cloudflare Pages Functions) → GAS → スプレッドシート ===
+        var btn = form.querySelector('.submitBtn');
+        var btnLabel = btn.querySelector('span');
+        var oldErr = form.querySelector('.submit-err');
+        if (oldErr) oldErr.remove();
+        btn.disabled = true;
+        btnLabel.textContent = '送信中…';
+
+        var payload = {
+          kind: form.kind.value,
+          name: form.name.value,
+          company: form.company.value,
+          email: form.email.value,
+          tel: form.tel.value,
+          store: form.store.value,
+          message: form.message.value,
+          website: form.website ? form.website.value : ''
+        };
+
+        fetch('/api/contact', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(payload)
+        })
+          .then(function (res) { return res.json().catch(function () { return {}; }).then(function (j) { return { status: res.status, body: j }; }); })
+          .then(function (r) {
+            if (r.status === 200 && r.body && r.body.ok) {
+              pre.classList.add('is-hidden');
+              thanks.classList.add('is-active');
+              window.scrollTo({ top: 0, behavior: 'smooth' });
+            } else {
+              throw new Error('send_failed_' + r.status);
+            }
+          })
+          .catch(function (err) {
+            console.error('[contact] send failed:', err);
+            btn.disabled = false;
+            btnLabel.textContent = '送信する';
+            var msg = document.createElement('p');
+            msg.className = 'submit-err';
+            msg.setAttribute('role', 'alert');
+            msg.textContent = '送信に失敗しました。お手数ですが、時間をおいて再度お試しいただくか、お電話（0742-24-1755）にてご連絡ください。';
+            form.querySelector('.submitRow').appendChild(msg);
+          });
       });
     })();
   </script>
