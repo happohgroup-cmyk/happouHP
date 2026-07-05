@@ -109,8 +109,20 @@
   @media (max-width: 1080px) { .nav { display: none; } }
 
   /* ---------- Page title ---------- */
-  .pageTitle { padding: clamp(80px, 9vw, 130px) 40px clamp(60px, 6vw, 80px); }
-  .pageTitle .wrap { max-width: 1280px; margin: 0 auto; }
+  .pageTitle { padding: clamp(80px, 9vw, 130px) 40px clamp(60px, 6vw, 80px); position: relative; overflow: hidden; }
+  .pageTitle .wrap { max-width: 1280px; margin: 0 auto; position: relative; z-index: 1; }
+  /* シカあしらい (奈良モチーフ) — タイトル右の余白に薄く */
+  .pageTitle .deer-accent {
+    position: absolute;
+    right: clamp(24px, 9vw, 160px);
+    bottom: -14px;
+    width: clamp(110px, 15vw, 200px);
+    height: auto;
+    opacity: 0.16;
+    pointer-events: none;
+    user-select: none;
+    z-index: 0;
+  }
   .pageTitle .eyebrow { font-size: 12px; letter-spacing: .4em; color: var(--gold-soft); margin: 0 0 18px; }
   .pageTitle h1 { font-family: var(--mincho); font-weight: 500; font-size: clamp(34px, 4.6vw, 56px); line-height: 1.4; letter-spacing: .14em; margin: 0 0 28px; color: var(--ink); }
   .pageTitle .titleLine { width: 64px; height: 2px; background: var(--gold); }
@@ -203,6 +215,20 @@
   /* ---------- Closing ---------- */
   .closing { padding: clamp(80px, 10vw, 140px) 40px clamp(100px, 11vw, 160px); background: var(--paper-warm); text-align: center; }
   .closing .wrap { max-width: 760px; margin: 0 auto; }
+  /* シカあしらい — 結び文の上に紋章風に */
+  .closing .deer-ornament {
+    display: block;
+    width: 64px;
+    height: auto;
+    margin: 0 auto 32px;
+    opacity: 0.85;
+    pointer-events: none;
+    user-select: none;
+  }
+  @media (max-width: 600px) {
+    .pageTitle .deer-accent { width: 92px; right: 18px; bottom: -8px; opacity: 0.14; }
+    .closing .deer-ornament { width: 52px; margin-bottom: 24px; }
+  }
   .closing p { font-family: var(--mincho); font-size: clamp(15px, 1.3vw, 18px); line-height: 2.4; letter-spacing: .12em; margin: 0 0 1.8em; color: var(--ink-soft); }
   body .closing p.sign { font-family: var(--mincho) !important; font-size: clamp(20px, 2.4vw, 26px) !important; font-weight: 600 !important; line-height: 1.95 !important; letter-spacing: .15em !important; margin-top: 52px !important; color: var(--ink) !important; }
 
@@ -507,6 +533,7 @@
   <!-- ============ Page title ============ -->
   <main id="main-content">
   <section class="pageTitle">
+    <img class="deer-accent" src="photos/decor/deer-gold-small.webp" alt="" aria-hidden="true" loading="lazy" decoding="async" width="428" height="600">
     <div class="wrap">
       <p class="eyebrow">OUR THOUGHTS</p>
       <h1>八宝の想い</h1>
@@ -744,6 +771,7 @@
   <!-- ============ Closing ============ -->
   <section class="closing">
     <div class="wrap">
+      <img class="deer-ornament" src="photos/decor/deer-gold-small.webp" alt="" aria-hidden="true" loading="lazy" decoding="async" width="428" height="600">
       <p>奈良の魅力は、まだまだ奥深い。<br>これからも私たちは、奈良の食材や文化を見つめ、<br>新しいおいしさと楽しみ方を生み出していきます。</p>
       <p>奈良で暮らす人にも、奈良を訪れる人にも、<br>「ここに来てよかった」と感じていただける場所であるために。</p>
       <p class="sign">八宝は、食を通じて<br>奈良の魅力を未来へ<br class="sp-only">つないでいきます。</p>
