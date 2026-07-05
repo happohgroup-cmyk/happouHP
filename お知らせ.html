@@ -129,6 +129,7 @@
   .articleDetail h2 { font-family: var(--mincho); font-weight: 500; font-size: clamp(24px, 2.8vw, 32px); line-height: 1.6; letter-spacing: .1em; margin: 0 0 40px; color: var(--ink); }
   .articleDetail .body { font-family: var(--mincho); font-size: 16px; line-height: 2.2; letter-spacing: .06em; color: var(--ink-soft); }
   .articleDetail .body p { margin: 0 0 1.4em; }
+  .articleDetail .body .thumb { width: 100%; height: auto; margin: 0 0 36px; display: block; }
   .articleDetail .body h3 { font-family: var(--mincho); font-weight: 500; font-size: 20px; letter-spacing: .08em; margin: 2.4em 0 1em; color: var(--ink); }
   .articleDetail .body a { color: var(--gold-soft); border-bottom: 1px solid var(--gold-soft); }
   .articleDetail .body img { margin: 1.6em auto; }
@@ -367,6 +368,23 @@
 
   function esc(s) { return String(s == null ? '' : s).replace(/[&<>"']/g, function (c) { return ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[c]; }); }
 
+  // ===== カテゴリー正規化 (microCMS セレクトは配列で返る) =====
+  function catName(c) {
+    if (!c) return 'お知らせ';
+    if (Array.isArray(c)) return c[0] || 'お知らせ';
+    if (typeof c === 'string') return c;
+    return c.name || 'お知らせ';
+  }
+
+  // ===== 本文 → HTML (テキストエリアの \n をパラグラフ化 / リッチエディタ HTML はそのまま) =====
+  function bodyToHtml(body) {
+    if (!body) return '';
+    if (/<\/?[a-z][^>]*>/i.test(body)) return body; // already HTML
+    return String(body).split(/\n{2,}/).map(function (para) {
+      return '<p>' + esc(para).replace(/\n/g, '<br>') + '</p>';
+    }).join('');
+  }
+
   // ===== Render List =====
   function renderList(items, total, page) {
     if (!items.length) {
@@ -375,7 +393,7 @@
       return;
     }
     listEl.innerHTML = items.map(function (it) {
-      var cat = it.category ? (typeof it.category === 'string' ? it.category : (it.category.name || '')) : 'お知らせ';
+      var cat = catName(it.category);
       return '<article class="item">' +
         '<time class="date" datetime="' + esc(it.publishedAt) + '">' + esc(fmt(it.publishedAt)) + '</time>' +
         '<span class="tag">' + esc(cat) + '</span>' +
@@ -407,10 +425,14 @@
     sectionDetail.classList.add('active');
     document.getElementById('articleDate').textContent = fmt(item.publishedAt);
     document.getElementById('articleDate').setAttribute('datetime', item.publishedAt || '');
-    var cat = item.category ? (typeof item.category === 'string' ? item.category : (item.category.name || '')) : 'お知らせ';
-    document.getElementById('articleTag').textContent = cat;
+    document.getElementById('articleTag').textContent = catName(item.category);
     document.getElementById('articleTitle').textContent = item.title || '';
-    document.getElementById('articleBody').innerHTML = item.body || '';
+    var bodyHtml = bodyToHtml(item.body);
+    var thumb = item.thumbnail || item.eyecatch || item.image;
+    if (thumb && thumb.url) {
+      bodyHtml = '<img class="thumb" src="' + esc(thumb.url) + '?w=1200&fm=webp" alt="" loading="lazy" decoding="async">' + bodyHtml;
+    }
+    document.getElementById('articleBody').innerHTML = bodyHtml;
     document.title = (item.title || 'お知らせ') + ' ─ 株式会社八宝';
   }
 

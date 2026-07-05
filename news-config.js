@@ -22,11 +22,11 @@
 //  ⚠️ 注意: このキーはブラウザに公開されます。必ず「読み取り専用」キーを使用してください。
 // =====================================================================
 window.MICROCMS_CONFIG = {
-  // microCMS のサブドメイン (例: 'happou' なら happou.microcms.io)
-  serviceDomain: '',
+  // microCMS のサブドメイン (happoh.microcms.io)
+  serviceDomain: 'happoh',
 
-  // 読み取り専用 API キー
-  apiKey: '',
+  // 読み取り専用 API キー (GET のみ許可 — 公開前提の値)
+  apiKey: 'z84uguBjg9KKdOB59OdDqCWERt79B4u1l4XQ',
 
   // エンドポイント名 (microCMS で作成した API 名)
   endpoint: 'news',

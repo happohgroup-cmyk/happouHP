@@ -858,7 +858,8 @@
           function fmt(s) { var d = new Date(s); if (isNaN(d.getTime())) return s; return d.getFullYear() + '.' + ('0' + (d.getMonth() + 1)).slice(-2) + '.' + ('0' + d.getDate()).slice(-2); }
           function esc(s) { return String(s == null ? '' : s).replace(/[&<>"']/g, function (c) { return ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[c]; }); }
           var html = items.map(function (it) {
-            var cat = it.category ? (typeof it.category === 'string' ? it.category : (it.category.name || '')) : 'お知らせ';
+            var c = it.category;
+            var cat = Array.isArray(c) ? (c[0] || 'お知らせ') : (typeof c === 'string' ? c : (c && c.name) || 'お知らせ');
             return '<article class="item">' +
               '<time class="date" datetime="' + esc(it.publishedAt) + '">' + esc(fmt(it.publishedAt)) + '</time>' +
               '<span class="tag">' + esc(cat) + '</span>' +
