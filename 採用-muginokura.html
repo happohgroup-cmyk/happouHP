@@ -653,6 +653,22 @@
     }
   }
 
+  /* ---------- Requirements (募集要項 table) ---------- */
+  .requirements { padding: clamp(100px, 11vw, 160px) 40px; background: var(--paper-warm); }
+  .requirements .wrap { max-width: 1080px; margin: 0 auto; }
+  .requirements .heading-row { margin-bottom: clamp(48px, 6vw, 72px); }
+  .requirements h2 { font-family: var(--mincho); font-weight: 500; font-size: clamp(26px, 3.2vw, 38px); line-height: 1.5; letter-spacing: 0.12em; margin: 0 0 24px; color: var(--ink); }
+  .requirements .titleLine { width: 60px; height: 2px; background: var(--brand); }
+  .reqList { margin: 0; padding: 0; border-top: 1px solid rgba(0,0,0,.1); background: #fff; }
+  .reqRow { display: grid; grid-template-columns: 220px 1fr; gap: 28px; padding: 26px 28px; border-bottom: 1px solid rgba(0,0,0,.08); align-items: start; }
+  .reqRow dt { font-family: var(--mincho); font-size: 14.5px; letter-spacing: 0.14em; color: var(--ink); margin: 0; padding-top: 2px; position: relative; padding-left: 18px; }
+  .reqRow dt::before { content: ''; position: absolute; left: 0; top: 12px; width: 8px; height: 1.5px; background: var(--brand); }
+  .reqRow dd { font-family: var(--mincho); font-size: 14.5px; line-height: 2.05; letter-spacing: 0.08em; color: var(--ink-soft); margin: 0; }
+  @media (max-width: 880px) {
+    .reqRow { grid-template-columns: 1fr; gap: 8px; padding: 22px 20px; }
+    .reqRow dt { padding-top: 0; }
+  }
+
 </style>
 
   <!-- Favicons -->
@@ -881,10 +897,72 @@
       <p class="question">料理人として、もう一段深くなる。<br>そのための次の一歩を、<br>私たちと一緒に踏み出しませんか。</p>
 
       <div class="actions">
-        <!-- TODO: 応募 URL / Indeed に差し替え -->
-        <a href="#" target="_blank" rel="noopener" class="btn primary">募集要項を確認して応募する</a>
+        <a href="#requirements" class="btn primary">募集要項を確認して応募する</a>
         <a href="会社概要.html#contact" class="btn secondary">職場見学について相談する</a>
       </div>
+    </div>
+  </section>
+
+  <!-- ============ Requirements (募集要項) ============ -->
+  <section class="requirements" id="requirements">
+    <div class="wrap">
+      <div class="heading-row">
+        <h2>募集要項</h2>
+        <div class="titleLine"></div>
+      </div>
+      <dl class="reqList">
+        <div class="reqRow">
+          <dt>職種</dt>
+          <dd>自家製麺うどん店のキッチンスタッフ</dd>
+        </div>
+        <div class="reqRow">
+          <dt>雇用形態</dt>
+          <dd>正社員</dd>
+        </div>
+        <div class="reqRow">
+          <dt>仕事内容</dt>
+          <dd>麺の仕込み／出汁取り／揚げ物などのキッチン業務／オープンキッチンのためホール人員不足時はホール対応も</dd>
+        </div>
+        <div class="reqRow">
+          <dt>勤務地</dt>
+          <dd>うどん・ごはん むぎの蔵<br>〒630-8215 奈良県奈良市東向中町<br>（近鉄奈良駅から徒歩2分）</dd>
+        </div>
+        <div class="reqRow">
+          <dt>給与</dt>
+          <dd>
+            月給 285,000円 〜 450,000円<br>
+            ※固定残業代（月44時間相当分 68,750円〜93,500円）を含む／超過分は追加支給<br>
+            昇給 年1回／賞与 年3回（決算賞与含む）
+          </dd>
+        </div>
+        <div class="reqRow">
+          <dt>試用期間</dt>
+          <dd>1か月間／時給 1,200円（勤務形態は本採用と同様／経験者は考慮）</dd>
+        </div>
+        <div class="reqRow">
+          <dt>勤務時間</dt>
+          <dd>
+            9:00 〜 19:30（休憩 60 分）<br>
+            シフト制／平均所定労働時間 月173時間
+          </dd>
+        </div>
+        <div class="reqRow">
+          <dt>休日・休暇</dt>
+          <dd>週休2日制（シフト制）</dd>
+        </div>
+        <div class="reqRow">
+          <dt>待遇・福利厚生</dt>
+          <dd>各種社会保険完備（雇用／労災／健康／厚生年金）／交通費支給／賄い付き</dd>
+        </div>
+        <div class="reqRow">
+          <dt>応募資格</dt>
+          <dd>調理師免許不要／未経験可（20代・30代が活躍中）</dd>
+        </div>
+        <div class="reqRow">
+          <dt>受動喫煙対策</dt>
+          <dd>店舗内完全禁煙／喫煙室あり</dd>
+        </div>
+      </dl>
     </div>
   </section>
 

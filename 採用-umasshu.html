@@ -285,7 +285,7 @@
     text-align: center;
   }
 
-  /* ---------- Staff voices (1 video + 2 icon cards) ---------- */
+  /* ---------- Staff voices (1 video) ---------- */
   .voices { padding: clamp(80px, 9vw, 120px) 40px clamp(100px, 12vw, 160px); background: var(--paper-soft); }
   .voices .wrap { max-width: 1280px; margin: 0 auto; }
   .voices .head { text-align: center; margin-bottom: clamp(48px, 6vw, 72px); }
@@ -958,7 +958,7 @@
     </div>
   </section>
 
-  <!-- ============ Staff voices (1 video + 2 icon cards) ============ -->
+  <!-- ============ Staff voices (1 video) ============ -->
   <!-- TODO: 動画 / 名前 / コメント は後で差し替え -->
   <section class="voices">
     <div class="wrap">
@@ -989,42 +989,6 @@
           </div>
         </article>
 
-        <!-- Voice 02: アイコン + 本文 -->
-        <article class="voice">
-          <div class="voice-media icon">
-            <div class="voice-avatar" aria-hidden="true">
-              <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <circle cx="32" cy="24" r="11" stroke="currentColor" stroke-width="2"/>
-                <path d="M 10 58 Q 10 40 32 40 Q 54 40 54 58" stroke="currentColor" stroke-width="2" stroke-linecap="round" fill="none"/>
-              </svg>
-            </div>
-          </div>
-          <div class="voice-body">
-            <p class="voice-role">VOICE 02 ・ ホールスタッフ</p>
-            <p class="voice-name">○○ ○○ さん</p>
-            <div class="voice-line" aria-hidden="true"></div>
-            <p class="voice-quote">「最初は日本酒のことが全くわからなかったけれど、毎日少しずつ覚えていくうちに、お客様におすすめを伝えられるようになりました。」<br><br>※ コメント・お名前は仮の内容です。</p>
-          </div>
-        </article>
-
-        <!-- Voice 03: アイコン + 本文 -->
-        <article class="voice">
-          <div class="voice-media icon">
-            <div class="voice-avatar" aria-hidden="true">
-              <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <circle cx="32" cy="24" r="11" stroke="currentColor" stroke-width="2"/>
-                <path d="M 10 58 Q 10 40 32 40 Q 54 40 54 58" stroke="currentColor" stroke-width="2" stroke-linecap="round" fill="none"/>
-              </svg>
-            </div>
-          </div>
-          <div class="voice-body">
-            <p class="voice-role">VOICE 03 ・ キッチンスタッフ</p>
-            <p class="voice-name">○○ ○○ さん</p>
-            <div class="voice-line" aria-hidden="true"></div>
-            <p class="voice-quote">「旬の食材を扱える楽しさは、ここでしか味わえません。仕入れによってメニューを考える毎日が、自分の引き出しを増やしてくれます。」<br><br>※ コメント・お名前は仮の内容です。</p>
-          </div>
-        </article>
-
       </div>
     </div>
   </section>
@@ -1045,7 +1009,6 @@
   </section>
 
   <!-- ============ Requirements (募集要項) ============ -->
-  <!-- TODO: 各値 (○○) は後で差し替え -->
   <section class="requirements" id="requirements">
     <div class="wrap">
       <div class="heading-row">
@@ -1055,45 +1018,53 @@
       <dl class="reqList">
         <div class="reqRow">
           <dt>職種</dt>
-          <dd>調理スタッフ（料理長候補・キッチンスタッフ）／ホールスタッフ</dd>
+          <dd>キッチンスタッフ</dd>
         </div>
         <div class="reqRow">
           <dt>雇用形態</dt>
-          <dd>正社員／アルバイト・パート</dd>
+          <dd>正社員</dd>
+        </div>
+        <div class="reqRow">
+          <dt>仕事内容</dt>
+          <dd>朝の魚・野菜の下ごしらえ／調理法の決定／出汁の準備／カウンター調理／オーダー対応／閉店後の清掃／ホール補助</dd>
         </div>
         <div class="reqRow">
           <dt>勤務地</dt>
-          <dd>奈良の酒蔵全部呑み うまっしゅ<br>〒630-8215 奈良県奈良市東向中町１１ 八宝マルハチビル １階<br><span class="placeholder-val">（近鉄奈良駅 徒歩○分）</span></dd>
+          <dd>奈良の酒蔵全部呑み うまっしゅ<br>〒630-8215 奈良県奈良市東向中町１１ 八宝マルハチビル １階<br>（近鉄奈良駅から徒歩3分／雨に濡れずに通勤可能）</dd>
         </div>
         <div class="reqRow">
           <dt>給与</dt>
           <dd>
-            <span class="placeholder-val">正社員：月給 ○○○,○○○円 〜<br>アルバイト・パート：時給 ○,○○○円 〜（深夜時給 ○,○○○円）</span><br>
-            ※経験・能力を考慮のうえ決定
+            月給 285,000円 〜 450,000円<br>
+            ※固定残業代（月44時間相当分 68,750円〜93,500円）を含む／超過分は追加支給
           </dd>
+        </div>
+        <div class="reqRow">
+          <dt>試用期間</dt>
+          <dd>1か月間／時給 1,200円（労働条件は本採用と異なります）</dd>
         </div>
         <div class="reqRow">
           <dt>勤務時間</dt>
           <dd>
-            <span class="placeholder-val">○○:○○ 〜 翌 ○○:○○（実働 ○ 時間／休憩 ○○分）</span><br>
-            シフト制／週○日以上から相談可
+            11:00 〜 20:00（実働 8 時間／休憩 60 分）<br>
+            シフト制／平均所定労働時間 月173時間
           </dd>
         </div>
         <div class="reqRow">
           <dt>休日・休暇</dt>
-          <dd>シフトによる／有給休暇／慶弔休暇</dd>
+          <dd>完全週休2日制（火曜定休＋週1日）／有給休暇（昨年実績 5日以上消化）</dd>
         </div>
         <div class="reqRow">
           <dt>待遇・福利厚生</dt>
-          <dd>各種社会保険完備／交通費支給（規定あり）／まかない制度／昇給・賞与（正社員）／日本酒研修あり</dd>
-        </div>
-        <div class="reqRow">
-          <dt>求める人物像</dt>
-          <dd>和食や日本酒に興味のある方／料理人として成長したい方／お客様の喜ぶ顔が好きな方</dd>
+          <dd>各種社会保険完備（雇用／労災／健康／厚生年金）／昇給あり</dd>
         </div>
         <div class="reqRow">
           <dt>応募資格</dt>
-          <dd>料理経験者歓迎（未経験の方もご相談ください）／20 歳以上</dd>
+          <dd>調理師免許不要／未経験可（20代・30代が活躍中）</dd>
+        </div>
+        <div class="reqRow">
+          <dt>受動喫煙対策</dt>
+          <dd>屋内喫煙可能（喫煙エリア設置）</dd>
         </div>
       </dl>
     </div>
