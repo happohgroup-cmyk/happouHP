@@ -60,6 +60,7 @@ function doPost(e) {
       data.ua || '',
       data.ip || '',
     ]);
+    sheet.getRange(sheet.getLastRow(), 1).setNumberFormat('yyyy/mm/dd  HH:mm'); // 新規行の受信日時を秒なし表示に統一
 
     // メール送信は失敗しても受信記録は成功として扱う
     try {
@@ -139,4 +140,47 @@ function buildAckBody_(data) {
     'TEL: ' + COMPANY_TEL + '\n' +
     '──────────────────';
   return body;
+}
+
+
+// ===== 受信シートの見た目を整える一回実行用フォーマッタ =====
+// ※ doPost / メール送信 / 列構成 / シート名 には一切触れません。見た目だけ。
+//    エディタで formatSheet を選び「実行」すると、受信シートを整形します。
+function formatSheet() {
+  var ss = SpreadsheetApp.getActiveSpreadsheet();
+  var sh = ss.getSheetByName(SHEET_NAME); // 'お問い合わせ'（変更しない）
+  if (!sh) return;
+
+  var LAST_COL = 10;               // A..J（列の順序・数は不変）
+  var maxRows = sh.getMaxRows();
+  var maxCols = sh.getMaxColumns();
+
+  sh.getRange(1, 1, maxRows, LAST_COL).setFontSize(11);
+
+  var header = sh.getRange(1, 1, 1, LAST_COL);
+  header.setBackground('#2f6b3f')
+        .setFontColor('#ffffff')
+        .setFontWeight('bold')
+        .setHorizontalAlignment('center')
+        .setVerticalAlignment('middle');
+  sh.setRowHeight(1, 42);
+  sh.setFrozenRows(1);
+  sh.setFrozenColumns(1);          // 受信日時を固定
+
+  var widths = [160, 150, 130, 170, 210, 120, 180, 400, 170, 130];
+  for (var c = 0; c < widths.length; c++) sh.setColumnWidth(c + 1, widths[c]);
+
+  if (maxRows > 1) {
+    var data = sh.getRange(2, 1, maxRows - 1, LAST_COL);
+    data.setWrap(true).setVerticalAlignment('top');
+    sh.getRange(2, 1, maxRows - 1, 1).setNumberFormat('yyyy/mm/dd  HH:mm');
+
+    var bandings = sh.getBandings();
+    for (var i = 0; i < bandings.length; i++) bandings[i].remove();
+    sh.getRange(2, 1, maxRows - 1, LAST_COL)
+      .applyRowBanding(SpreadsheetApp.BandingTheme.LIGHT_GREY, false, false);
+  }
+
+  if (maxCols > LAST_COL) sh.hideColumns(LAST_COL + 1, maxCols - LAST_COL);
+  SpreadsheetApp.flush();
 }
