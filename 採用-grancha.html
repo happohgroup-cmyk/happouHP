@@ -223,6 +223,7 @@
     z-index: -1; border-radius: 2px;
   }
   .purpose .pCenter h2 span:last-child { margin-bottom: 0; }
+  .purpose .pCenter h2 .mk { font-style: normal; }
   .purpose .pCenter .titleLine { width: 56px; height: 2px; background: var(--brand); margin: 28px auto clamp(36px, 4.5vw, 56px); }
   .purpose .pCenter .body { font-family: var(--mincho); font-size: clamp(16px, 1.4vw, 18px); line-height: 2.4; letter-spacing: 0.12em; color: var(--ink-soft); text-align: center; }
   .purpose .pCenter .body p { margin: 0 0 1.6em; }
@@ -255,10 +256,17 @@
       display: block !important;
       margin: 0 auto 0.2em !important;
     }
-    .purpose .pCenter h2 span::before {
-      left: 0 !important; right: 0 !important;
-      bottom: 0.32em !important;
-      height: 0.32em !important;
+    /* スマホ: 絶対配置マーカーは折り返し中間行に付かないため無効化し、
+       テキストを包む .mk に box-decoration-break で各行複製ハイライトを当てる */
+    .purpose .pCenter h2 span::before { display: none !important; }
+    .purpose .pCenter h2 span { padding: 0 !important; }
+    .purpose .pCenter h2 .mk {
+      background: linear-gradient(to bottom, transparent 0 46%, rgba(94, 122, 62, 0.22) 46% 82%, transparent 82% 100%) !important;
+      -webkit-box-decoration-break: clone;
+      box-decoration-break: clone;
+      padding: 0.04em 0.16em !important;
+      border-radius: 2px;
+      line-height: 1.9 !important;
     }
     .purpose .pCenter .body {
       font-size: 14.5px !important;
@@ -804,7 +812,7 @@
 
       <div class="pCenter">
         <p class="head">私たちのやりがい</p>
-        <h2><span>私たちがつくるのは、</span><span>お菓子だけではありません。</span></h2>
+        <h2><span><i class="mk">私たちがつくるのは、</i></span><span><i class="mk">お菓子だけではありません。</i></span></h2>
         <div class="titleLine" aria-hidden="true"></div>
         <div class="body">
           <p>旅先で偶然見つけたかわいらしい大福。<br>家族へのお土産に選んだ奈良らしいスイーツ。<br>大切な人と一緒に味わった、大和茶の香りが広がる一品。</p>
