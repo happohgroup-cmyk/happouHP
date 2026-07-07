@@ -116,12 +116,12 @@
       opacity: 0;
       transform-origin: center center;
       will-change: opacity, transform;
-      animation: heroFade 24s linear infinite both;
+      animation: heroFade 16s linear infinite both;
     }
     .hero .slide:nth-child(1) { background-image: url("photos/hero/1-cha-large.webp"); animation-delay: 0s; }
-    .hero .slide:nth-child(2) { background-image: url("photos/hero/2-sake-large.webp"); animation-delay: 6s; }
-    .hero .slide:nth-child(3) { background-image: url("photos/hero/3-noodle-large.webp"); animation-delay: 12s; }
-    .hero .slide:nth-child(4) { background-image: url("photos/hero/4-kama-large.webp"); animation-delay: 18s; }
+    .hero .slide:nth-child(2) { background-image: url("photos/hero/2-sake-large.webp"); animation-delay: 4s; }
+    .hero .slide:nth-child(3) { background-image: url("photos/hero/3-noodle-large.webp"); animation-delay: 8s; }
+    .hero .slide:nth-child(4) { background-image: url("photos/hero/4-kama-large.webp"); animation-delay: 12s; }
     @keyframes heroFade {
       0%   { opacity: 0; transform: scale(1); }
       6%   { opacity: 1; transform: scale(1.012); }
@@ -209,12 +209,12 @@
       background: rgba(246,241,231,0.95);
       transform-origin: left center;
       transform: scaleX(0);
-      animation: heroProgFill 24s linear infinite both;
+      animation: heroProgFill 16s linear infinite both;
     }
     .hero .progress button:nth-child(1) .fill { animation-delay: 0s; }
-    .hero .progress button:nth-child(2) .fill { animation-delay: 6s; }
-    .hero .progress button:nth-child(3) .fill { animation-delay: 12s; }
-    .hero .progress button:nth-child(4) .fill { animation-delay: 18s; }
+    .hero .progress button:nth-child(2) .fill { animation-delay: 4s; }
+    .hero .progress button:nth-child(3) .fill { animation-delay: 8s; }
+    .hero .progress button:nth-child(4) .fill { animation-delay: 12s; }
     @keyframes heroProgFill {
       0%   { transform: scaleX(0); }
       25%  { transform: scaleX(1); }
@@ -826,13 +826,13 @@
             var offset = ((k - idx) + n) % n;
             slides[k].style.animation = 'none';
             slides[k].offsetHeight;
-            slides[k].style.animation = 'heroFade 24s linear infinite both';
-            slides[k].style.animationDelay = (offset * 6) + 's';
+            slides[k].style.animation = 'heroFade 16s linear infinite both';
+            slides[k].style.animationDelay = (offset * 4) + 's';
             if (fills[k]) {
               fills[k].style.animation = 'none';
               fills[k].offsetHeight;
-              fills[k].style.animation = 'heroProgFill 24s linear infinite both';
-              fills[k].style.animationDelay = (offset * 6) + 's';
+              fills[k].style.animation = 'heroProgFill 16s linear infinite both';
+              fills[k].style.animationDelay = (offset * 4) + 's';
             }
           }
         });
