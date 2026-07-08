@@ -130,7 +130,7 @@
   .hero h1 span { display: block; position: relative; white-space: nowrap; }
   .hero h1 .accent {
     color: #ffffff;
-    font-size: 0.82em;
+    font-size: 1em;
     text-shadow:
       0 4px 32px rgba(0, 0, 0, 0.95),
       0 2px 8px rgba(0, 0, 0, 0.9),
@@ -138,6 +138,8 @@
   }
   @media (max-width: 720px) {
     .hero h1 span { white-space: normal; }
+    /* スマホ: 3行(小麦/出汁/職人としての料理人へ)を各1行で収めるためサイズ調整 */
+    body section.hero h1 { font-size: clamp(19px, 6.3vw, 30px) !important; letter-spacing: 0.06em !important; }
   }
   .hero .titleLine { width: 90px; height: 2px; background: #d4af6f; margin: 0 0 42px; opacity: 0.9; }
   .hero .sub {
