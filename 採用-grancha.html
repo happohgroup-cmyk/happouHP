@@ -604,6 +604,8 @@
   body { font-size: 16.5px; }
   p, li, dd { font-size: 17px !important; line-height: 2.2 !important; }
   h2 { font-size: clamp(28px, 3.5vw, 44px) !important; }
+  /* 求める人物像の見出し: PC(広画面)で2行に収める（2行目「お菓子に向き合う姿勢を大切にします。」18文字がwrap880pxを超えないよう上限のみ微調整。モバイルは最小28pxのまま不変） */
+  .persona .head h2 { font-size: clamp(28px, 3.5vw, 42px) !important; }
   h3 { font-size: 21px !important; line-height: 1.7 !important; }
   .ctaBtn, .ctaBtn span { font-size: 16.5px !important; }
   footer .addr { font-size: 14.5px !important; line-height: 2.1 !important; }
