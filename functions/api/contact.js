@@ -24,18 +24,42 @@ const MAX_LEN = {
 function json(body, status = 200) {
   return new Response(JSON.stringify(body), {
     status,
-    headers: { 'Content-Type': 'application/json; charset=utf-8' },
+    headers: {
+      'Content-Type': 'application/json; charset=utf-8',
+      'X-Content-Type-Options': 'nosniff',
+      'X-Robots-Tag': 'noindex',
+      'Cache-Control': 'no-store',
+    },
   });
+}
+
+function hostOf(value) {
+  try {
+    return new URL(value).host;
+  } catch {
+    return null;
+  }
 }
 
 export async function onRequestPost(context) {
   const { request, env } = context;
 
-  // --- 同一オリジンチェック (簡易 CSRF/スパム対策) ---
-  const origin = request.headers.get('Origin') || '';
+  // --- 同一オリジンチェック (CSRF/スパム対策) ---
+  // ブラウザの fetch() は同一オリジンの POST でも Origin を送る。
+  // Origin が無い場合のみ Referer で代替判定し、どちらも無い/不一致なら拒否。
+  // (以前は Origin 欠落時に素通りしていたため、curl 等から直接投稿できた)
   const host = new URL(request.url).host;
-  if (origin && new URL(origin).host !== host) {
+  const origin = request.headers.get('Origin');
+  const referer = request.headers.get('Referer');
+  const claimed = origin ? hostOf(origin) : referer ? hostOf(referer) : null;
+  if (claimed !== host) {
     return json({ ok: false, error: 'forbidden' }, 403);
+  }
+
+  // --- Content-Type チェック ---
+  const ct = (request.headers.get('Content-Type') || '').toLowerCase();
+  if (!ct.includes('application/json')) {
+    return json({ ok: false, error: 'unsupported_media_type' }, 415);
   }
 
   // --- JSON パース ---
@@ -43,6 +67,9 @@ export async function onRequestPost(context) {
   try {
     data = await request.json();
   } catch {
+    return json({ ok: false, error: 'invalid_json' }, 400);
+  }
+  if (!data || typeof data !== 'object' || Array.isArray(data)) {
     return json({ ok: false, error: 'invalid_json' }, 400);
   }
 

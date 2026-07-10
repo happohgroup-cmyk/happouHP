@@ -3,9 +3,29 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<!-- TODO: 本番公開時にnoindex,nofollowを削除 -->
+<!-- 公開手順: _setup/公開手順.md 参照。happoh.com 接続後にこの meta を削除する -->
 <meta name="robots" content="noindex,nofollow">
 <meta name="description" content="株式会社八宝のお知らせ。新店舗オープン、季節限定メニュー、メディア掲載などの最新情報をお届けします。">
+  <link rel="canonical" href="https://happoh.com/%E3%81%8A%E7%9F%A5%E3%82%89%E3%81%9B">
+
+  <!-- OGP -->
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="ja_JP">
+  <meta property="og:site_name" content="株式会社八宝">
+  <meta property="og:title" content="お知らせ ─ 株式会社八宝">
+  <meta property="og:description" content="株式会社八宝のお知らせ。新店舗オープン、季節限定メニュー、メディア掲載などの最新情報をお届けします。">
+  <meta property="og:url" content="https://happoh.com/%E3%81%8A%E7%9F%A5%E3%82%89%E3%81%9B">
+  <meta property="og:image" content="https://happoh.com/photos/philosophy/team-collage-large.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="840">
+  <meta property="og:image:alt" content="株式会社八宝で働くスタッフ">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="お知らせ ─ 株式会社八宝">
+  <meta name="twitter:description" content="株式会社八宝のお知らせ。新店舗オープン、季節限定メニュー、メディア掲載などの最新情報をお届けします。">
+  <meta name="twitter:image" content="https://happoh.com/photos/philosophy/team-collage-large.jpg">
+
 <title>お知らせ ─ 株式会社八宝</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -346,12 +366,12 @@
   var sectionList = document.getElementById('newsList');
   var sectionDetail = document.getElementById('articleDetail');
   var conf = window.MICROCMS_CONFIG || {};
-  var useMicroCMS = !!(conf.serviceDomain && conf.apiKey);
+  var useMicroCMS = !!conf.apiBase;
 
-  // ===== Fetch via microCMS REST API =====
+  // ===== Fetch via 同一オリジンのプロキシ (/api/news) =====
+  // APIキーはサーバー側(環境変数 MICROCMS_API_KEY)のみに存在し、ブラウザには渡らない。
   function fetchMicroCMS(query) {
-    var url = 'https://' + conf.serviceDomain + '.microcms.io/api/v1/' + conf.endpoint + (query || '');
-    return fetch(url, { headers: { 'X-MICROCMS-API-KEY': conf.apiKey } })
+    return fetch(conf.apiBase + (query || ''))
       .then(function (r) { if (!r.ok) throw new Error('HTTP ' + r.status); return r.json(); });
   }
 
@@ -461,7 +481,7 @@
 
   function loadDetail(id) {
     if (useMicroCMS) {
-      fetchMicroCMS('/' + encodeURIComponent(id))
+      fetchMicroCMS('?id=' + encodeURIComponent(id))
         .then(renderDetail)
         .catch(function (err) { console.error('[news] detail fetch failed:', err); renderDetailNotFound(); });
     } else {

@@ -1,18 +1,21 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-  <meta charset="UTF-8">
-  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
-  <meta http-equiv="Pragma" content="no-cache">
-  <meta http-equiv="Expires" content="0">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="UTF-8">  <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>株式会社八宝｜奈良の食文化を、未来へつなぐ</title>
   <meta name="description" content="株式会社八宝は奈良市東向商店街を拠点に、GRANCHA、奈良の酒蔵全部呑み うまっしゅ、うどんごはん むぎの蔵、釜めしGRANCHAを運営しています。奈良の美味しい、楽しい、なるほどを食を通じて届けます。">
+  <link rel="canonical" href="https://happoh.com/">
 
-  <!-- TODO: 本番公開時にnoindex,nofollowを削除 -->
+  <meta property="og:url" content="https://happoh.com/">
+  <meta property="og:image" content="https://happoh.com/photos/philosophy/team-collage-large.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="840">
+  <meta property="og:image:alt" content="株式会社八宝で働くスタッフ">
+  <meta name="twitter:image" content="https://happoh.com/photos/philosophy/team-collage-large.jpg">
+
+
+  <!-- 公開手順: _setup/公開手順.md 参照。happoh.com 接続後にこの meta を削除する -->
   <meta name="robots" content="noindex,nofollow">
-
-  <!-- TODO: 本番ドメイン確定後にcanonicalを追加 -->
 
   <!-- OGP -->
   <meta property="og:type" content="website">
@@ -20,20 +23,21 @@
   <meta property="og:site_name" content="株式会社八宝">
   <meta property="og:title" content="株式会社八宝｜奈良の食文化を、未来へつなぐ">
   <meta property="og:description" content="奈良市東向商店街を拠点に、大和茶大福のGRANCHA、奈良の地酒うまっしゅ、うどんむぎの蔵、釜めしGRANCHAを運営する株式会社八宝のコーポレートサイト。">
-  <!-- TODO: 本番ドメイン確定後にOGPの絶対URLを追加 -->
 
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="株式会社八宝｜奈良の食文化を、未来へつなぐ">
   <meta name="twitter:description" content="奈良市東向商店街を拠点に、GRANCHA、うまっしゅ、むぎの蔵、釜めしGRANCHAを運営。">
 <!-- JSON-LD: Organization -->
-  <!-- TODO: 本番ドメイン確定後にJSON-LDのURLを追加 -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "Organization",
     "name": "株式会社八宝",
     "alternateName": "HAPPOH Co., Ltd.",
+    "url": "https://happoh.com/",
+    "logo": "https://happoh.com/photos/brand/happou-logo.png",
+    "image": "https://happoh.com/photos/philosophy/team-collage-large.jpg",
     "description": "株式会社八宝は奈良市東向商店街を拠点に、GRANCHA、奈良の酒蔵全部呑み うまっしゅ、うどんごはん むぎの蔵、釜めしGRANCHAを運営しています。",
     "address": {
       "@type": "PostalAddress",
@@ -845,12 +849,13 @@
   <script>
     (function () {
       var conf = window.MICROCMS_CONFIG || {};
-      if (!conf.serviceDomain || !conf.apiKey) return; // 未設定なら静的データのまま
+      if (!conf.apiBase) return; // 未設定なら静的データのまま
       var listEl = document.getElementById('topNewsList');
       if (!listEl) return;
 
-      var url = 'https://' + conf.serviceDomain + '.microcms.io/api/v1/' + (conf.endpoint || 'news') + '?orders=-publishedAt&limit=3&fields=id,publishedAt,category,title';
-      fetch(url, { headers: { 'X-MICROCMS-API-KEY': conf.apiKey } })
+      // APIキーはサーバー側(環境変数)のみ。同一オリジンのプロキシ経由で取得する。
+      var url = conf.apiBase + '?orders=-publishedAt&limit=3&fields=id,publishedAt,category,title';
+      fetch(url)
         .then(function (r) { if (!r.ok) throw new Error('HTTP ' + r.status); return r.json(); })
         .then(function (data) {
           var items = data.contents || [];
