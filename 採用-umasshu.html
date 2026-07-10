@@ -344,6 +344,7 @@
   }
   .voice-media.video { aspect-ratio: 16 / 9; }
   .voice-media.video video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; background: #0a0606; display: block; }
+  .voice-media.video iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; background: #0a0606; display: block; }
   .voice-media.icon {
     aspect-ratio: 4 / 5;
     display: flex;
@@ -937,7 +938,7 @@
   <!-- TODO: 「1日の流れ」密着動画ブロックは動画準備中のため一時削除。動画用意でき次第ここへ再挿入（旧: section.dayflow / videos/umasshu-a-day.mp4） -->
 
   <!-- ============ Staff voices (1 video) ============ -->
-  <!-- TODO: 動画 / 名前 / コメント は後で差し替え -->
+  <!-- TODO: 名前 / コメント は後で差し替え（動画はYouTube埋め込み済み） -->
   <section class="voices">
     <div class="wrap">
       <div class="head">
@@ -950,14 +951,13 @@
         <!-- Voice 01: 動画 (横長フル幅) -->
         <article class="voice featured">
           <div class="voice-media video">
-            <video
-              src="videos/umasshu-interview-sasaki.mp4"
-              controls
-              preload="metadata"
-              playsinline
-              aria-label="うまっしゅ 佐々木さん インタビュー">
-              動画を再生するには、ブラウザの動画再生機能が必要です。
-            </video>
+            <iframe
+              src="https://www.youtube-nocookie.com/embed/bHZdqb1Z9A8"
+              title="うまっしゅ スタッフインタビュー"
+              loading="lazy"
+              referrerpolicy="strict-origin-when-cross-origin"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              allowfullscreen></iframe>
           </div>
           <div class="voice-body">
             <p class="voice-role">VOICE 01 ・ 調理スタッフ</p>

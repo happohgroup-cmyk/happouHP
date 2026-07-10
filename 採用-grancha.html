@@ -425,6 +425,7 @@
   .videoBlock .lead { font-family: var(--mincho); font-size: clamp(15px, 1.3vw, 17px); line-height: 2.1; letter-spacing: 0.1em; color: var(--ink-soft); margin: 0 auto; max-width: 720px; }
   .videoFrame { position: relative; width: 100%; background: #0a0e06; border: 1px solid var(--line); box-shadow: 0 12px 40px rgba(15, 25, 8, 0.18); overflow: hidden; }
   .videoFrame video { display: block; width: 100%; height: auto; max-height: 75vh; background: #0a0e06; }
+  .videoFrame iframe { display: block; width: 100%; aspect-ratio: 16 / 9; border: 0; background: #0a0e06; }
   .videoPlaceholder {
     width: 100%;
     aspect-ratio: 16 / 9;
@@ -950,7 +951,6 @@
   <!-- TODO: 「パティシエの一日」密着動画ブロックは動画準備中のため一時削除。動画用意でき次第ここへ再挿入（旧: section.videoBlock.alt / videos/grancha-a-day.mp4） -->
 
   <!-- ============ 09 スタッフインタビュー (動画) ============ -->
-  <!-- TODO: 動画ができたら /videos/grancha-interview.mp4 を配置 -->
   <section class="videoBlock">
     <div class="wrap">
       <div class="head">
@@ -959,19 +959,14 @@
         <p class="lead">入社した理由、仕事のやりがい、難しさ、職場の雰囲気、今後の目標。求人情報だけでは伝えきれない実際の働き方を、スタッフの言葉でご紹介します。</p>
       </div>
       <div class="videoFrame">
-        <video
-          src="videos/grancha-interview.mp4"
-          poster="photos/grancha/mochi-tea-large.webp"
-          controls
-          preload="metadata"
-          playsinline
-          width="1920"
-          height="1080"
-          aria-label="GRANCHA スタッフインタビュー">
-          動画を再生するには、ブラウザの動画再生機能が必要です。
-        </video>
+        <iframe
+          src="https://www.youtube-nocookie.com/embed/WDAz9EWQOJg"
+          title="大和茶大福 GRANCHA スタッフインタビュー"
+          loading="lazy"
+          referrerpolicy="strict-origin-when-cross-origin"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          allowfullscreen></iframe>
       </div>
-      <p class="caption">※ 動画は準備中です。完成版が公開され次第差し替えます。</p>
     </div>
   </section>
 
