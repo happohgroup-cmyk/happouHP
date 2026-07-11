@@ -41,6 +41,62 @@ function hostOf(value) {
   }
 }
 
+// スプレッドシートの数式(CSV)インジェクション対策。
+// 先頭が = + - @ タブ CR の値は、'（アポストロフィ）を前置して「文字列」として保存させる。
+// Google Sheets は先頭の ' を表示しないため、元データは失われない。
+function sanitizeCell(value) {
+  const s = String(value == null ? '' : value);
+  return /^[=+\-@\t\r]/.test(s) ? "'" + s : s;
+}
+
+// Cloudflare Turnstile 検証（サーバー側）。
+// トークンを Siteverify へ送り、成功 + hostname 一致のときだけ true。
+// テストキー使用時は hostname が空/一致するので許可。失敗時は fail-closed。
+async function verifyTurnstile(token, secret, remoteip, requestHost) {
+  if (!secret) return { ok: false, reason: 'not_configured' };
+  if (!token || typeof token !== 'string' || token.length > 4096) {
+    return { ok: false, reason: 'missing_token' };
+  }
+  const form = new URLSearchParams();
+  form.set('secret', secret);
+  form.set('response', token);
+  if (remoteip) form.set('remoteip', remoteip);
+
+  let res;
+  try {
+    const ctl = new AbortController();
+    const timer = setTimeout(() => ctl.abort(), 10000);
+    res = await fetch('https://challenges.cloudflare.com/turnstile/v0/siteverify', {
+      method: 'POST',
+      body: form,
+      signal: ctl.signal,
+    });
+    clearTimeout(timer);
+  } catch {
+    return { ok: false, reason: 'verify_unreachable' };
+  }
+
+  let out;
+  try {
+    out = await res.json();
+  } catch {
+    return { ok: false, reason: 'verify_badjson' };
+  }
+  if (!out.success) return { ok: false, reason: 'failed' };
+
+  // hostname 検証: 本番 happoh.com / www / Preview(*.pages.dev) / 同一ホスト / テストキー(空)
+  const hn = out.hostname;
+  const hostOk =
+    !hn ||
+    hn === requestHost ||
+    hn === 'happoh.com' ||
+    hn === 'www.happoh.com' ||
+    hn.endsWith('.pages.dev');
+  if (!hostOk) return { ok: false, reason: 'hostname' };
+
+  return { ok: true };
+}
+
 export async function onRequestPost(context) {
   const { request, env } = context;
 
@@ -62,6 +118,12 @@ export async function onRequestPost(context) {
     return json({ ok: false, error: 'unsupported_media_type' }, 415);
   }
 
+  // --- リクエストボディのサイズ制限 (25KB) ---
+  const clen = parseInt(request.headers.get('Content-Length') || '0', 10);
+  if (Number.isFinite(clen) && clen > 25000) {
+    return json({ ok: false, error: 'payload_too_large' }, 413);
+  }
+
   // --- JSON パース ---
   let data;
   try {
@@ -77,6 +139,21 @@ export async function onRequestPost(context) {
   if (data.website) {
     // bot 判定: 成功したふりをして破棄
     return json({ ok: true });
+  }
+
+  // --- Turnstile 検証 (bot / スパム対策) ---
+  // 本番は環境変数 TURNSTILE_SECRET_KEY に実シークレットを設定する。
+  // 未設定時は Cloudflare 公式テストキー(常に成功)へフォールバックするため、
+  // 本番では必ず実キーを設定すること（未設定だと検証が実質無効になる）。
+  const turnstileSecret = env.TURNSTILE_SECRET_KEY || '1x0000000000000000000000000000000AA';
+  const tv = await verifyTurnstile(
+    data.token,
+    turnstileSecret,
+    request.headers.get('CF-Connecting-IP'),
+    host
+  );
+  if (!tv.ok) {
+    return json({ ok: false, error: 'verification_failed' }, 403);
   }
 
   // --- バリデーション ---
@@ -100,15 +177,16 @@ export async function onRequestPost(context) {
     return json({ ok: false, error: 'not_configured' }, 500);
   }
 
+  // スプレッドシートへ渡す値は数式インジェクション対策で無害化してから送る。
   const payload = {
-    kind: String(data.kind).trim(),
-    name: String(data.name).trim(),
-    company: String(data.company || '').trim(),
-    email: String(data.email).trim(),
-    tel: String(data.tel || '').trim(),
-    store: String(data.store || '').trim(),
-    message: String(data.message).trim(),
-    ua: request.headers.get('User-Agent') || '',
+    kind: sanitizeCell(String(data.kind).trim()),
+    name: sanitizeCell(String(data.name).trim()),
+    company: sanitizeCell(String(data.company || '').trim()),
+    email: sanitizeCell(String(data.email).trim()),
+    tel: sanitizeCell(String(data.tel || '').trim()),
+    store: sanitizeCell(String(data.store || '').trim()),
+    message: sanitizeCell(String(data.message).trim()),
+    ua: sanitizeCell(request.headers.get('User-Agent') || ''),
     ip: request.headers.get('CF-Connecting-IP') || '',
     receivedAt: new Date().toISOString(),
   };

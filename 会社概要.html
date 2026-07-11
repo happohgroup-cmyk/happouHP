@@ -28,6 +28,8 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=Montserrat:wght@500;600&family=Noto+Sans+JP:wght@300;400;500;700&family=Noto+Serif+JP:wght@300;400;500&display=swap">
+<!-- Cloudflare Turnstile (お問い合わせフォームのbot/スパム対策) -->
+<script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
 <style>
   :root {
     --ink: #1a1814;
@@ -204,6 +206,7 @@
   .checkboxRow label { font-family: var(--mincho); font-size: 14px; letter-spacing: .08em; color: var(--ink); cursor: pointer; }
   .checkboxRow a { color: var(--gold-soft); text-decoration: underline; text-underline-offset: 4px; }
   .submitRow { display: flex; justify-content: center; margin-top: 16px; }
+  .turnstileRow { display: flex; justify-content: center; margin-top: 24px; }
   .submitBtn { background: var(--ink); color: #fff; border: 0; padding: 22px 64px; font-size: 16px; letter-spacing: .15em; cursor: pointer; display: inline-flex; align-items: center; gap: 24px; transition: background .2s, transform .2s; }
   /* honeypot: 画面外へ (display:none だと一部 bot が無視するため) */
   .hp-field { position: absolute !important; left: -9999px !important; top: -9999px !important; width: 1px; height: 1px; overflow: hidden; }
@@ -474,6 +477,27 @@
   <link rel="icon" type="image/png" sizes="32x32" href="photos/brand/favicon-32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="photos/brand/favicon-16.png">
   <link rel="apple-touch-icon" sizes="180x180" href="photos/brand/apple-touch-icon.png">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "ホーム",
+        "item": "https://happoh.com/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "会社概要",
+        "item": "https://happoh.com/%E4%BC%9A%E7%A4%BE%E6%A6%82%E8%A6%81"
+      }
+    ]
+  }
+  </script>
 </head>
 <body>
 
@@ -644,6 +668,10 @@
           <div class="hp-field" aria-hidden="true">
             <label for="website">ウェブサイト</label>
             <input type="text" id="website" name="website" tabindex="-1" autocomplete="off">
+          </div>
+          <!-- Cloudflare Turnstile ウィジェット。data-sitekey は本番公開時に実サイトキーへ差し替える（現在は公式テストキー=常に成功）。 -->
+          <div class="turnstileRow">
+            <div class="cf-turnstile" data-sitekey="1x00000000000000000000AA" data-language="ja" data-theme="light"></div>
           </div>
           <div class="submitRow">
             <button type="submit" class="submitBtn"><span>送信する</span><span>→</span></button>
@@ -853,7 +881,8 @@
           tel: form.tel.value,
           store: form.store.value,
           message: form.message.value,
-          website: form.website ? form.website.value : ''
+          website: form.website ? form.website.value : '',
+          token: (form.querySelector('[name="cf-turnstile-response"]') || {}).value || ''
         };
 
         fetch('/api/contact', {
@@ -875,6 +904,8 @@
             console.error('[contact] send failed:', err);
             btn.disabled = false;
             btnLabel.textContent = '送信する';
+            // Turnstile トークンは単回使用。失敗時はリセットして再取得可能にする。
+            if (window.turnstile) { try { turnstile.reset(); } catch (e) {} }
             var msg = document.createElement('p');
             msg.className = 'submit-err';
             msg.setAttribute('role', 'alert');
