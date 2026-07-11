@@ -52,7 +52,7 @@ function sanitizeCell(value) {
 // Cloudflare Turnstile 検証（サーバー側）。
 // トークンを Siteverify へ送り、成功 + hostname 一致のときだけ true。
 // テストキー使用時は hostname が空/一致するので許可。失敗時は fail-closed。
-async function verifyTurnstile(token, secret, remoteip, requestHost) {
+async function verifyTurnstile(token, secret, remoteip, requestHost, enforceHostname) {
   if (!secret) return { ok: false, reason: 'not_configured' };
   if (!token || typeof token !== 'string' || token.length > 4096) {
     return { ok: false, reason: 'missing_token' };
@@ -84,15 +84,20 @@ async function verifyTurnstile(token, secret, remoteip, requestHost) {
   }
   if (!out.success) return { ok: false, reason: 'failed' };
 
-  // hostname 検証: 本番 happoh.com / www / Preview(*.pages.dev) / 同一ホスト / テストキー(空)
-  const hn = out.hostname;
-  const hostOk =
-    !hn ||
-    hn === requestHost ||
-    hn === 'happoh.com' ||
-    hn === 'www.happoh.com' ||
-    hn.endsWith('.pages.dev');
-  if (!hostOk) return { ok: false, reason: 'hostname' };
+  // hostname 検証（実シークレット設定時のみ）。本番 happoh.com / www /
+  // Preview(*.pages.dev) / 同一ホスト を許可。
+  // ※テストキー運用時(enforceHostname=false)は siteverify が hostname='example.com'
+  //   を返すため検証しない。本番で TURNSTILE_SECRET_KEY を設定すると自動的に有効化。
+  if (enforceHostname) {
+    const hn = out.hostname;
+    const hostOk =
+      !hn ||
+      hn === requestHost ||
+      hn === 'happoh.com' ||
+      hn === 'www.happoh.com' ||
+      hn.endsWith('.pages.dev');
+    if (!hostOk) return { ok: false, reason: 'hostname' };
+  }
 
   return { ok: true };
 }
@@ -145,12 +150,14 @@ export async function onRequestPost(context) {
   // 本番は環境変数 TURNSTILE_SECRET_KEY に実シークレットを設定する。
   // 未設定時は Cloudflare 公式テストキー(常に成功)へフォールバックするため、
   // 本番では必ず実キーを設定すること（未設定だと検証が実質無効になる）。
+  const hasRealSecret = !!env.TURNSTILE_SECRET_KEY;
   const turnstileSecret = env.TURNSTILE_SECRET_KEY || '1x0000000000000000000000000000000AA';
   const tv = await verifyTurnstile(
     data.token,
     turnstileSecret,
     request.headers.get('CF-Connecting-IP'),
-    host
+    host,
+    hasRealSecret
   );
   if (!tv.ok) {
     return json({ ok: false, error: 'verification_failed' }, 403);
