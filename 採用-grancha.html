@@ -542,6 +542,7 @@
   .close .btn { padding: 22px 44px; display: inline-flex; align-items: center; justify-content: center; font-family: var(--sans); font-weight: 500; font-size: 16px; letter-spacing: 0.14em; min-width: 280px; min-height: 56px; transition: background .25s ease, color .25s ease, transform .25s ease, border-color .25s ease; }
   .close .btn.primary { background: var(--brand); color: #fff; border: 1.5px solid var(--brand); }
   .close .btn.primary:hover { background: var(--brand-soft); border-color: var(--brand-soft); transform: translateY(-2px); }
+  .close .btn.disabled { background: var(--placeholder); color: var(--muted); border: 1.5px solid var(--line); pointer-events: none; cursor: default; }
   .close .btn.secondary { background: #fff; color: var(--ink); border: 1.5px solid var(--ink); }
   .close .btn.secondary:hover { background: var(--ink); color: #fff; transform: translateY(-2px); }
   .close .indeedHint { font-family: var(--sans); font-size: 12px; letter-spacing: 0.2em; color: var(--brand-soft); margin: 0 0 32px; }
@@ -1097,7 +1098,7 @@
       <p class="question">あなたの技術から、<br>次の奈良名物を。</p>
 
       <div class="actions">
-        <a href="https://jp.indeed.com/viewjob?jk=65d04b78212911a8" target="_blank" rel="noopener" class="btn primary">パティシエ求人に応募する</a>
+        <span class="btn primary disabled" aria-disabled="true">現在は募集を停止しています</span>
         <a href="会社概要.html#contact" class="btn secondary">採用について問い合わせる</a>
       </div>
     </div>
