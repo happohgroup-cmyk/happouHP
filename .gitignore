@@ -41,3 +41,9 @@ attachments/
 
 # ==== Wrangler local state ====
 .wrangler/
+
+# ==== Internal docs (not for public site) ====
+_説明書/
+スライド/
+ホームページ保守・管理業務委託契約書*.pdf
+株式会社八宝.pdf
