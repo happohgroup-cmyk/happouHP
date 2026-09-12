@@ -27,7 +27,12 @@
 // =====================================================================
 
 var SHEET_NAME   = 'お問い合わせ';
-var NOTIFY_EMAIL = ''; // ← 公開repoでは空。デプロイ済みスクリプトに会社アドレスを設定済み。
+var NOTIFY_EMAIL = ''; // ← 公開repoでは空。デプロイ済みスクリプトに会社アドレスを設定済み（複数はカンマ区切りで指定可）。
+// 送信元(From)にしたい会社アドレス。空なら実行アカウントのアドレスで送信。
+// ※ 指定するアドレスは、実行アカウントの Gmail「アカウントとインポート → 他のメールアドレスを追加」で
+//    エイリアス登録・確認済みである必要があります（未登録だと送信時にエラー）。
+// ※ 公開repoでは空。デプロイ済みスクリプトに実アドレスを設定します。
+var SENDER_EMAIL = '';
 var COMPANY_NAME = '株式会社八宝';
 var COMPANY_ADDR = '〒630-8215 奈良県奈良市東向中町11 丸八ビル 2階';
 var COMPANY_TEL  = '0742-24-1755';
@@ -84,7 +89,7 @@ function doPost(e) {
 function sendMails_(data) {
   // (1) 会社への通知メール
   if (NOTIFY_EMAIL) {
-    MailApp.sendEmail({
+    var notifyOpts = {
       to: NOTIFY_EMAIL,
       name: COMPANY_NAME + ' HP',
       subject: '【八宝HP】お問い合わせ: ' + (data.kind || '種別未設定') + ' — ' + (data.name || ''),
@@ -98,18 +103,22 @@ function sendMails_(data) {
         '■ 対象店舗: ' + (data.store || '') + '\n\n' +
         '■ 内容:\n' + (data.message || '') + '\n\n' +
         '---\nスプレッドシートにも保存済みです。',
-    });
+    };
+    if (SENDER_EMAIL) notifyOpts.from = SENDER_EMAIL;
+    MailApp.sendEmail(notifyOpts);
   }
 
   // (2) お問い合わせ者への受付確認（自動返信）メール
   var to = (data.email || '').trim();
   if (to && to.indexOf('@') > 0) {
-    MailApp.sendEmail({
+    var ackOpts = {
       to: to,
       name: COMPANY_NAME,
       subject: '【' + COMPANY_NAME + '】お問い合わせありがとうございます',
       body: buildAckBody_(data),
-    });
+    };
+    if (SENDER_EMAIL) ackOpts.from = SENDER_EMAIL; // 差出人を会社アドレスにする（要エイリアス登録）
+    MailApp.sendEmail(ackOpts);
   }
 }
 
