@@ -415,11 +415,30 @@
     color: var(--ink-soft);
     margin: 0;
   }
+  /* 1日密着 (YouTube Shorts, 縦長) もフル幅: 縦動画左 + 本文右 */
+  .voice.short {
+    grid-column: 1 / -1;
+    flex-direction: row;
+    align-items: stretch;
+  }
+  .voice.short .voice-media.video {
+    flex: 0 0 auto;
+    width: clamp(260px, 30vw, 360px);
+    aspect-ratio: 9 / 16;
+  }
+  .voice.short .voice-body {
+    flex: 1;
+    justify-content: center;
+    padding: clamp(28px, 3.5vw, 48px) clamp(28px, 3.2vw, 44px);
+  }
   @media (max-width: 880px) {
     .voices-grid { grid-template-columns: 1fr; }
     .voice.featured { flex-direction: column; }
     .voice.featured .voice-media.video { flex: none; }
     .voice.featured .voice-body { padding: clamp(24px, 4vw, 32px); }
+    .voice.short { flex-direction: column; }
+    .voice.short .voice-media.video { width: 100%; max-width: 380px; margin: 0 auto; }
+    .voice.short .voice-body { padding: clamp(24px, 4vw, 32px); }
   }
 
   /* ---------- Warning block (和風 / 優しいイメージ) ---------- */
@@ -1009,6 +1028,25 @@
             <p class="voice-name">佐々木 さん</p>
             <div class="voice-line" aria-hidden="true"></div>
             <p class="voice-quote">「経験も技術もゼロの状態でしたが、一から教えてもらえて、すごく楽しく仕事させてもらってます。お客さんの喜ぶ声がやりがいです。」</p>
+          </div>
+        </article>
+
+        <!-- 業務密着: YouTube Shorts (縦長フル幅) -->
+        <article class="voice short">
+          <div class="voice-media video">
+            <iframe
+              src="https://www.youtube-nocookie.com/embed/zyBMsQH0Sqs"
+              title="うまっしゅ 業務密着動画"
+              loading="lazy"
+              referrerpolicy="strict-origin-when-cross-origin"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              allowfullscreen></iframe>
+          </div>
+          <div class="voice-body">
+            <p class="voice-role">DOCUMENTARY ・ 業務密着</p>
+            <p class="voice-name">うまっしゅの一日</p>
+            <div class="voice-line" aria-hidden="true"></div>
+            <p class="voice-quote">仕込みから営業まで、うまっしゅの厨房の一日に密着しました。実際の仕事の流れや職場の雰囲気を、ぜひ動画でご覧ください。</p>
           </div>
         </article>
 
